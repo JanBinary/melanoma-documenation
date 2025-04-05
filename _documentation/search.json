@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "kapitel/Modellentwicklung.html",
+    "href": "kapitel/Modellentwicklung.html",
+    "title": "Modellentwicklung",
+    "section": "",
+    "text": "1 Datenvorbereitung\n\n\n2 Wahl des KI-Modells\n\n\n3 Trainingsprozess und Hyperparameter\n\n\n4 Validierung und Evaluation"
+  },
+  {
+    "objectID": "kapitel/grundlagen.html",
+    "href": "kapitel/grundlagen.html",
+    "title": "Grundlagen",
+    "section": "",
+    "text": "1 Definition von Hautkrebsarten\n\n\n2 Bisherige Diagnosewerkzeuge und Kriterien\n\n\n3 Definition von künstlicher Intelligenz\n\n\n4 Anwendung von künstlicher Intelligenz im medizinischen Sektor"
+  },
+  {
+    "objectID": "kapitel/einführung.html",
+    "href": "kapitel/einführung.html",
+    "title": "Einleitung",
+    "section": "",
+    "text": "1 Motivation\n\n\n2 Relevanz des Themas\n\n\n3 Forschungsgegenstand und Vorgehensweise"
+  },
+  {
+    "objectID": "kapitel/diskussion.html",
+    "href": "kapitel/diskussion.html",
+    "title": "Diskussion der Ergebnisse",
+    "section": "",
+    "text": "1 Interpretation dert Forschungsergebnisse\n\n\n2 Vergleich mit anderen Modellen\n\n\n3 Ausblick und mögliche Verbesserungen"
+  },
+  {
+    "objectID": "kapitel/index.html",
+    "href": "kapitel/index.html",
+    "title": "Inhaltsverzeichnis",
+    "section": "",
+    "text": "Einleitung\n\n\n\n\n\n\nPöppelbaum\n\n\n05.05.2025\n\n\n\n\n\n\n\n\n\n\n\n\nGrundlagen\n\n\n\n\n\n\nWendland\n\n\n05.05.2025\n\n\n\n\n\n\n\n\n\n\n\n\nDatenexploration\n\n\n\n\n\n\nUemann, Pöppelbaum\n\n\n05.05.2025\n\n\n\n\n\n\n\n\n\n\n\n\nModellentwicklung\n\n\n\n\n\n\nUemann\n\n\n05.05.2025\n\n\n\n\n\n\n\n\n\n\n\n\nDiskussion der Ergebnisse\n\n\n\n\n\n\nWendland, Uemann, Pöppelbaum\n\n\n05.05.2025\n\n\n\n\n\n\n\n\nKeine Treffer"
+  },
+  {
+    "objectID": "kapitel/datenexploration.html",
+    "href": "kapitel/datenexploration.html",
+    "title": "Datenexploration",
+    "section": "",
+    "text": "1 Erklärung des Datensatzes\n\n\n2 Analyse von statistischen Metriken\n\n\n3 Analyse von Abhängigkeiten und Auffälligkeiten"
+  }
+]

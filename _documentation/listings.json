@@ -1,0 +1,12 @@
+[
+  {
+    "listing": "/kapitel/index.html",
+    "items": [
+      "/kapitel/einführung.html",
+      "/kapitel/grundlagen.html",
+      "/kapitel/datenexploration.html",
+      "/kapitel/Modellentwicklung.html",
+      "/kapitel/diskussion.html"
+    ]
+  }
+]
