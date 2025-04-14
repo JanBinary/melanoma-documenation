@@ -21,10 +21,44 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -64,7 +98,39 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Suchen"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -94,6 +160,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../kapitel/index.html"> 
 <span class="menu-text">Inhaltsverzeichnis</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../presentation.html"> 
+<span class="menu-text">Präsentation</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -111,8 +181,22 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#erklärung-des-datensatzes" id="toc-erklärung-des-datensatzes" class="nav-link active" data-scroll-target="#erklärung-des-datensatzes"><span class="header-section-number">1</span> Erklärung des Datensatzes</a></li>
-  <li><a href="#analyse-von-statistischen-metriken" id="toc-analyse-von-statistischen-metriken" class="nav-link" data-scroll-target="#analyse-von-statistischen-metriken"><span class="header-section-number">2</span> Analyse von statistischen Metriken</a></li>
-  <li><a href="#analyse-von-abhängigkeiten-und-auffälligkeiten" id="toc-analyse-von-abhängigkeiten-und-auffälligkeiten" class="nav-link" data-scroll-target="#analyse-von-abhängigkeiten-und-auffälligkeiten"><span class="header-section-number">3</span> Analyse von Abhängigkeiten und Auffälligkeiten</a></li>
+  <li><a href="#analyse-von-statistischen-metriken" id="toc-analyse-von-statistischen-metriken" class="nav-link" data-scroll-target="#analyse-von-statistischen-metriken"><span class="header-section-number">2</span> Analyse von statistischen Metriken</a>
+  <ul class="collapse">
+  <li><a href="#verteilung-des-alters" id="toc-verteilung-des-alters" class="nav-link" data-scroll-target="#verteilung-des-alters"><span class="header-section-number">2.1</span> Verteilung des Alters</a></li>
+  <li><a href="#verteilung-des-geschlechts" id="toc-verteilung-des-geschlechts" class="nav-link" data-scroll-target="#verteilung-des-geschlechts"><span class="header-section-number">2.2</span> Verteilung des Geschlechts</a></li>
+  <li><a href="#verteilung-der-diagnoseart" id="toc-verteilung-der-diagnoseart" class="nav-link" data-scroll-target="#verteilung-der-diagnoseart"><span class="header-section-number">2.3</span> Verteilung der Diagnoseart</a></li>
+  <li><a href="#verteilung-der-körperregion-nach-diagnoseart" id="toc-verteilung-der-körperregion-nach-diagnoseart" class="nav-link" data-scroll-target="#verteilung-der-körperregion-nach-diagnoseart"><span class="header-section-number">2.4</span> Verteilung der Körperregion nach Diagnoseart</a></li>
+  <li><a href="#interaktive-3d-visualisierung-nach-körperregion-diagnoseart-und-altersgruppe" id="toc-interaktive-3d-visualisierung-nach-körperregion-diagnoseart-und-altersgruppe" class="nav-link" data-scroll-target="#interaktive-3d-visualisierung-nach-körperregion-diagnoseart-und-altersgruppe"><span class="header-section-number">2.5</span> Interaktive 3D-Visualisierung nach Körperregion, Diagnoseart und Altersgruppe</a></li>
+  <li><a href="#verteilung-der-diagnosen" id="toc-verteilung-der-diagnosen" class="nav-link" data-scroll-target="#verteilung-der-diagnosen"><span class="header-section-number">2.6</span> Verteilung der Diagnosen</a></li>
+  </ul></li>
+  <li><a href="#analyse-von-abhängigkeiten-und-auffälligkeiten" id="toc-analyse-von-abhängigkeiten-und-auffälligkeiten" class="nav-link" data-scroll-target="#analyse-von-abhängigkeiten-und-auffälligkeiten"><span class="header-section-number">3</span> Analyse von Abhängigkeiten und Auffälligkeiten</a>
+  <ul class="collapse">
+  <li><a href="#sec-korrelation" id="toc-sec-korrelation" class="nav-link" data-scroll-target="#sec-korrelation"><span class="header-section-number">3.1</span> Spearman Korrelation der numerisch kodierten Merkmale</a></li>
+  <li><a href="#anzahl-der-gefähtlichen-diagnosen-nach-alter" id="toc-anzahl-der-gefähtlichen-diagnosen-nach-alter" class="nav-link" data-scroll-target="#anzahl-der-gefähtlichen-diagnosen-nach-alter"><span class="header-section-number">3.2</span> Anzahl der gefähtlichen Diagnosen nach Alter</a></li>
+  <li><a href="#anzahl-der-gefährlichen-diagnosen-nach-alter-körperstelle-und-diagnose" id="toc-anzahl-der-gefährlichen-diagnosen-nach-alter-körperstelle-und-diagnose" class="nav-link" data-scroll-target="#anzahl-der-gefährlichen-diagnosen-nach-alter-körperstelle-und-diagnose"><span class="header-section-number">3.3</span> Anzahl der gefährlichen Diagnosen nach Alter, Körperstelle und Diagnose</a></li>
+  <li><a href="#anomalieerkennung-in-den-diagnosedaten" id="toc-anomalieerkennung-in-den-diagnosedaten" class="nav-link" data-scroll-target="#anomalieerkennung-in-den-diagnosedaten"><span class="header-section-number">3.4</span> Anomalieerkennung in den Diagnosedaten</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -138,7 +222,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">5. Mai 2025</p>
+      <p class="date">13. April 2025</p>
     </div>
   </div>
   
@@ -152,14 +236,797 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="erklärung-des-datensatzes" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Erklärung des Datensatzes</h1>
+<div id="baa0dc62" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>metadata_df</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">lesion_id</th>
+<th data-quarto-table-cell-role="th">image_id</th>
+<th data-quarto-table-cell-role="th">dx</th>
+<th data-quarto-table-cell-role="th">dx_type</th>
+<th data-quarto-table-cell-role="th">age</th>
+<th data-quarto-table-cell-role="th">sex</th>
+<th data-quarto-table-cell-role="th">localization</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>HAM_0000118</td>
+<td>ISIC_0027419</td>
+<td>bkl</td>
+<td>histo</td>
+<td>80.0</td>
+<td>male</td>
+<td>scalp</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>HAM_0000118</td>
+<td>ISIC_0025030</td>
+<td>bkl</td>
+<td>histo</td>
+<td>80.0</td>
+<td>male</td>
+<td>scalp</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>HAM_0002730</td>
+<td>ISIC_0026769</td>
+<td>bkl</td>
+<td>histo</td>
+<td>80.0</td>
+<td>male</td>
+<td>scalp</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>HAM_0002730</td>
+<td>ISIC_0025661</td>
+<td>bkl</td>
+<td>histo</td>
+<td>80.0</td>
+<td>male</td>
+<td>scalp</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>HAM_0001466</td>
+<td>ISIC_0031633</td>
+<td>bkl</td>
+<td>histo</td>
+<td>75.0</td>
+<td>male</td>
+<td>ear</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10010</td>
+<td>HAM_0002867</td>
+<td>ISIC_0033084</td>
+<td>akiec</td>
+<td>histo</td>
+<td>40.0</td>
+<td>male</td>
+<td>abdomen</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">10011</td>
+<td>HAM_0002867</td>
+<td>ISIC_0033550</td>
+<td>akiec</td>
+<td>histo</td>
+<td>40.0</td>
+<td>male</td>
+<td>abdomen</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10012</td>
+<td>HAM_0002867</td>
+<td>ISIC_0033536</td>
+<td>akiec</td>
+<td>histo</td>
+<td>40.0</td>
+<td>male</td>
+<td>abdomen</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">10013</td>
+<td>HAM_0000239</td>
+<td>ISIC_0032854</td>
+<td>akiec</td>
+<td>histo</td>
+<td>80.0</td>
+<td>male</td>
+<td>face</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10014</td>
+<td>HAM_0003521</td>
+<td>ISIC_0032258</td>
+<td>mel</td>
+<td>histo</td>
+<td>70.0</td>
+<td>female</td>
+<td>back</td>
+</tr>
+</tbody>
+</table>
+
+<p>10015 rows × 7 columns</p>
+</div>
+</div>
+</div>
 </section>
 <section id="analyse-von-statistischen-metriken" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Analyse von statistischen Metriken</h1>
+<section id="verteilung-des-alters" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="verteilung-des-alters"><span class="header-section-number">2.1</span> Verteilung des Alters</h2>
+<p>Wie in Abbildung <a href="#fig-altersverteilung" class="quarto-xref">Abbildung&nbsp;1</a> dargestellt, zeigt sich eine recht breite Altersverteilung der im Datensatz enthaltenen Patientinnen und Patienten.</p>
+<p>Das mittlere Alter beträgt 51.86 Jahre, mit einer Standardabweichung von 16.97 Jahren, was auf eine moderate Streuung hinweist. Der Median, also der Wert, der die Altersverteilung in zwei gleich große Hälften teilt, liegt bei 50.0 Jahren.</p>
+<p>Die jüngste im Datensatz erfasste Person ist 0.0 Jahre alt, während die älteste 85.0 Jahre alt ist. Dies zeigt die große Altersspanne, die durch den Datensatz abgedeckt wird.</p>
+<div id="cell-fig-altersverteilung" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>STANDARD_FIGSIZE)</span>
+<span id="cb2-2"><a href="#cb2-2"></a>sns.histplot(</span>
+<span id="cb2-3"><a href="#cb2-3"></a>    data<span class="op">=</span>metadata_df,</span>
+<span id="cb2-4"><a href="#cb2-4"></a>    x<span class="op">=</span><span class="st">'age'</span>,</span>
+<span id="cb2-5"><a href="#cb2-5"></a>    bins<span class="op">=</span><span class="dv">18</span>,</span>
+<span id="cb2-6"><a href="#cb2-6"></a>    kde<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb2-7"><a href="#cb2-7"></a>    edgecolor<span class="op">=</span><span class="st">'white'</span>,</span>
+<span id="cb2-8"><a href="#cb2-8"></a>    ax<span class="op">=</span>axes[<span class="dv">0</span>]</span>
+<span id="cb2-9"><a href="#cb2-9"></a>)</span>
+<span id="cb2-10"><a href="#cb2-10"></a>axes[<span class="dv">0</span>].set_xlabel(<span class="st">"Alter in Jahren"</span>)</span>
+<span id="cb2-11"><a href="#cb2-11"></a>axes[<span class="dv">0</span>].set_ylabel(<span class="st">"Anzahl Patienten"</span>)</span>
+<span id="cb2-12"><a href="#cb2-12"></a></span>
+<span id="cb2-13"><a href="#cb2-13"></a>age_group_counts <span class="op">=</span> metadata_df[<span class="st">"age_group"</span>].value_counts(normalize<span class="op">=</span><span class="va">False</span>).sort_index()</span>
+<span id="cb2-14"><a href="#cb2-14"></a>axes[<span class="dv">1</span>].pie(</span>
+<span id="cb2-15"><a href="#cb2-15"></a>    age_group_counts,</span>
+<span id="cb2-16"><a href="#cb2-16"></a>    labels<span class="op">=</span>age_group_counts.index,</span>
+<span id="cb2-17"><a href="#cb2-17"></a>    autopct<span class="op">=</span><span class="st">'</span><span class="sc">%1.1f%%</span><span class="st">'</span>,</span>
+<span id="cb2-18"><a href="#cb2-18"></a>    startangle<span class="op">=</span><span class="dv">90</span>,</span>
+<span id="cb2-19"><a href="#cb2-19"></a>    colors<span class="op">=</span>sns.color_palette(<span class="st">"pastel"</span>)</span>
+<span id="cb2-20"><a href="#cb2-20"></a>)</span>
+<span id="cb2-21"><a href="#cb2-21"></a>axes[<span class="dv">1</span>].set_title(<span class="st">"Anteil der Altersgruppen"</span>)</span>
+<span id="cb2-22"><a href="#cb2-22"></a>plt.show()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-altersverteilung" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-altersverteilung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="datenexploration_files/figure-html/fig-altersverteilung-output-1.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-altersverteilung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;1: Verteilung des Alters
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="verteilung-des-geschlechts" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="verteilung-des-geschlechts"><span class="header-section-number">2.2</span> Verteilung des Geschlechts</h2>
+<p>Zur Beurteilung möglicher geschlechtsspezifischer Unterschiede in der Diagnoseverteilung oder Lokalisation der Muttermale ist es wichtig, die Geschlechterverteilung der im Datensatz enthaltenen Personen zu betrachten (siehe <a href="#fig-geschlechtsverteilung" class="quarto-xref">Abbildung&nbsp;2</a>).</p>
+<p>Die Analyse zeigt, dass der Datensatz insgesamt 10015 Patienten umfasst. Davon sind:</p>
+<ul>
+<li>4552 Patienten weiblich</li>
+<li>5406 Patienten männlich</li>
+<li>57 Patienten unbekannt</li>
+</ul>
+<div id="cell-fig-geschlechtsverteilung" class="cell" data-execution_count="7">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>plt.figure(figsize<span class="op">=</span>STANDARD_FIGSIZE)</span>
+<span id="cb3-2"><a href="#cb3-2"></a>plt.pie(</span>
+<span id="cb3-3"><a href="#cb3-3"></a>    geschlecht_counts,</span>
+<span id="cb3-4"><a href="#cb3-4"></a>    labels<span class="op">=</span>[<span class="ss">f"</span><span class="sc">{</span>label<span class="sc">}</span><span class="ss">"</span> <span class="cf">for</span> label <span class="kw">in</span> geschlecht_counts.index],</span>
+<span id="cb3-5"><a href="#cb3-5"></a>    autopct<span class="op">=</span><span class="st">'</span><span class="sc">%1.1f%%</span><span class="st">'</span>,</span>
+<span id="cb3-6"><a href="#cb3-6"></a>    startangle<span class="op">=</span><span class="dv">90</span>,</span>
+<span id="cb3-7"><a href="#cb3-7"></a>    colors<span class="op">=</span>sns.color_palette(<span class="st">"pastel"</span>),</span>
+<span id="cb3-8"><a href="#cb3-8"></a>    wedgeprops<span class="op">=</span>{<span class="st">'edgecolor'</span>: <span class="st">'white'</span>}</span>
+<span id="cb3-9"><a href="#cb3-9"></a>)</span>
+<span id="cb3-10"><a href="#cb3-10"></a>plt.show()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-geschlechtsverteilung" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-geschlechtsverteilung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="datenexploration_files/figure-html/fig-geschlechtsverteilung-output-1.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-geschlechtsverteilung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;2: Verteilung des Geschlechts
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="verteilung-der-diagnoseart" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="verteilung-der-diagnoseart"><span class="header-section-number">2.3</span> Verteilung der Diagnoseart</h2>
+<p>Um die Aussagekraft der Diagnosen im Datensatz besser einordnen zu können, ist es entscheidend, den Ursprung bzw. die Art der Diagnose zu kennen. Die Spalte <code>dx_type</code> gibt an, wie eine Hautläsion klassifiziert wurde. In <a href="#fig-dx-type-verteilung" class="quarto-xref">Abbildung&nbsp;3</a> wird die Verteilung dieser Diagnosearten visualisiert.</p>
+<p>Insgesamt enthält der Datensatz 10015 Einträge mit bekannter Diagnosemethode.</p>
+<div id="cell-fig-dx-type-verteilung" class="cell" data-execution_count="9">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>STANDARD_FIGSIZE)</span>
+<span id="cb4-2"><a href="#cb4-2"></a></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="co"># Farben definieren</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a>colors <span class="op">=</span> sns.color_palette(<span class="st">"pastel"</span>)</span>
+<span id="cb4-5"><a href="#cb4-5"></a></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="co"># Piechart erzeugen ohne Labels</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a>wedges, texts, autotexts <span class="op">=</span> ax.pie(</span>
+<span id="cb4-8"><a href="#cb4-8"></a>    dx_type_counts,</span>
+<span id="cb4-9"><a href="#cb4-9"></a>    labels<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb4-10"><a href="#cb4-10"></a>    autopct<span class="op">=</span><span class="st">'</span><span class="sc">%1.1f%%</span><span class="st">'</span>,</span>
+<span id="cb4-11"><a href="#cb4-11"></a>    startangle<span class="op">=</span><span class="dv">90</span>,</span>
+<span id="cb4-12"><a href="#cb4-12"></a>    colors<span class="op">=</span>colors,</span>
+<span id="cb4-13"><a href="#cb4-13"></a>    wedgeprops<span class="op">=</span>{<span class="st">'edgecolor'</span>: <span class="st">'white'</span>}</span>
+<span id="cb4-14"><a href="#cb4-14"></a>)</span>
+<span id="cb4-15"><a href="#cb4-15"></a></span>
+<span id="cb4-16"><a href="#cb4-16"></a>ax.legend(</span>
+<span id="cb4-17"><a href="#cb4-17"></a>    wedges,</span>
+<span id="cb4-18"><a href="#cb4-18"></a>    [<span class="ss">f"</span><span class="sc">{</span>label<span class="sc">}</span><span class="ss"> (</span><span class="sc">{</span>dx_type_counts[label]<span class="sc">}</span><span class="ss"> / </span><span class="sc">{</span>dx_type_prozent[label]<span class="sc">:.1f}</span><span class="ss">%)"</span> <span class="cf">for</span> label <span class="kw">in</span> dx_type_counts.index],</span>
+<span id="cb4-19"><a href="#cb4-19"></a>    title<span class="op">=</span><span class="st">"Diagnoseart"</span>,</span>
+<span id="cb4-20"><a href="#cb4-20"></a>    loc<span class="op">=</span><span class="st">"center left"</span>,</span>
+<span id="cb4-21"><a href="#cb4-21"></a>    bbox_to_anchor<span class="op">=</span>(<span class="dv">1</span>, <span class="fl">0.5</span>),</span>
+<span id="cb4-22"><a href="#cb4-22"></a>    fontsize<span class="op">=</span><span class="st">"medium"</span></span>
+<span id="cb4-23"><a href="#cb4-23"></a>)</span>
+<span id="cb4-24"><a href="#cb4-24"></a></span>
+<span id="cb4-25"><a href="#cb4-25"></a>plt.tight_layout()</span>
+<span id="cb4-26"><a href="#cb4-26"></a>plt.show()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-dx-type-verteilung" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dx-type-verteilung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="datenexploration_files/figure-html/fig-dx-type-verteilung-output-1.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dx-type-verteilung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;3: Verteilung der Diagnoseart
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="verteilung-der-körperregion-nach-diagnoseart" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="verteilung-der-körperregion-nach-diagnoseart"><span class="header-section-number">2.4</span> Verteilung der Körperregion nach Diagnoseart</h2>
+<p>Die Häufigkeit der Körperregionen, an denen Hautläsionen auftreten, ist eine wichtige Kennzahl, um zu verstehen, wo im Körper die meisten Hautprobleme lokalisiert sind. In der Grafik <a href="#fig-koerperregion-diagnoseart-verteilung" class="quarto-xref">Abbildung&nbsp;4</a> sind die Häufigkeiten der verschiedenen Körperregionen dargestellt.</p>
+<div id="cell-fig-koerperregion-diagnoseart-verteilung" class="cell" data-execution_count="10">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>plt.figure(figsize<span class="op">=</span>STANDARD_FIGSIZE)</span>
+<span id="cb5-2"><a href="#cb5-2"></a>order <span class="op">=</span> metadata_df[<span class="st">'localization_de'</span>].value_counts().index</span>
+<span id="cb5-3"><a href="#cb5-3"></a></span>
+<span id="cb5-4"><a href="#cb5-4"></a>sns.countplot(</span>
+<span id="cb5-5"><a href="#cb5-5"></a>    metadata_df,</span>
+<span id="cb5-6"><a href="#cb5-6"></a>    x<span class="op">=</span><span class="st">'localization_de'</span>,</span>
+<span id="cb5-7"><a href="#cb5-7"></a>    order<span class="op">=</span>order,</span>
+<span id="cb5-8"><a href="#cb5-8"></a>    hue<span class="op">=</span><span class="st">'dx_type_de'</span>,</span>
+<span id="cb5-9"><a href="#cb5-9"></a>    palette<span class="op">=</span><span class="st">'pastel'</span>,</span>
+<span id="cb5-10"><a href="#cb5-10"></a>    edgecolor<span class="op">=</span><span class="st">'white'</span>,</span>
+<span id="cb5-11"><a href="#cb5-11"></a>    width<span class="op">=</span><span class="fl">0.5</span></span>
+<span id="cb5-12"><a href="#cb5-12"></a>)</span>
+<span id="cb5-13"><a href="#cb5-13"></a></span>
+<span id="cb5-14"><a href="#cb5-14"></a>plt.xlabel(<span class="st">'Körperregion'</span>)</span>
+<span id="cb5-15"><a href="#cb5-15"></a>plt.ylabel(<span class="st">'Anzahl'</span>)</span>
+<span id="cb5-16"><a href="#cb5-16"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">70</span>)</span>
+<span id="cb5-17"><a href="#cb5-17"></a>plt.legend(title<span class="op">=</span><span class="st">'Diagnoseart'</span>)</span>
+<span id="cb5-18"><a href="#cb5-18"></a>plt.show()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-koerperregion-diagnoseart-verteilung" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-koerperregion-diagnoseart-verteilung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="datenexploration_files/figure-html/fig-koerperregion-diagnoseart-verteilung-output-1.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-koerperregion-diagnoseart-verteilung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;4: Verteilung der Körperregion nach Diagnoseart
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="interaktive-3d-visualisierung-nach-körperregion-diagnoseart-und-altersgruppe" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="interaktive-3d-visualisierung-nach-körperregion-diagnoseart-und-altersgruppe"><span class="header-section-number">2.5</span> Interaktive 3D-Visualisierung nach Körperregion, Diagnoseart und Altersgruppe</h2>
+<p>Die folgende interaktive 3D-Darstellung ermöglicht es, die Verteilung der Diagnosen im Datensatz in Bezug auf drei wesentliche Dimensionen zu erkunden: Körperregion, Diagnoseart und Altersgruppe. Durch die Visualisierung werden diese Dimensionen als Achsen im dreidimensionalen Raum dargestellt, wobei jede Kombination von Körperregion, Diagnoseart und Altersgruppe durch einen Punkt repräsentiert wird. Die Größe der Punkte spiegelt die Anzahl der Diagnosen in der jeweiligen Kombination wider, während die Farbgebung die Diagnoseart visualisiert.</p>
+<div id="e9269955" class="cell" data-execution_count="11">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>region_counts <span class="op">=</span> metadata_df.groupby([<span class="st">'localization_de'</span>, <span class="st">'dx_type_de'</span>, <span class="st">'age_group'</span>], observed<span class="op">=</span><span class="va">False</span>).size().reset_index(name<span class="op">=</span><span class="st">'count'</span>)</span>
+<span id="cb6-2"><a href="#cb6-2"></a>fig <span class="op">=</span> px.scatter_3d(</span>
+<span id="cb6-3"><a href="#cb6-3"></a>    region_counts,</span>
+<span id="cb6-4"><a href="#cb6-4"></a>    x<span class="op">=</span><span class="st">'localization_de'</span>,</span>
+<span id="cb6-5"><a href="#cb6-5"></a>    y<span class="op">=</span><span class="st">'dx_type_de'</span>,</span>
+<span id="cb6-6"><a href="#cb6-6"></a>    z<span class="op">=</span><span class="st">'age_group'</span>,</span>
+<span id="cb6-7"><a href="#cb6-7"></a>    size<span class="op">=</span><span class="st">'count'</span>,</span>
+<span id="cb6-8"><a href="#cb6-8"></a>    color<span class="op">=</span><span class="st">'dx_type_de'</span>,</span>
+<span id="cb6-9"><a href="#cb6-9"></a>    hover_name<span class="op">=</span><span class="st">'localization_de'</span>,</span>
+<span id="cb6-10"><a href="#cb6-10"></a>    size_max<span class="op">=</span><span class="dv">60</span>,</span>
+<span id="cb6-11"><a href="#cb6-11"></a>    color_discrete_sequence<span class="op">=</span>px.colors.qualitative.Pastel,</span>
+<span id="cb6-12"><a href="#cb6-12"></a>    labels<span class="op">=</span>{</span>
+<span id="cb6-13"><a href="#cb6-13"></a>        <span class="st">'localization_de'</span>: <span class="st">'Körperregion'</span>,</span>
+<span id="cb6-14"><a href="#cb6-14"></a>        <span class="st">'dx_type_de'</span>: <span class="st">'Diagnoseart'</span>,</span>
+<span id="cb6-15"><a href="#cb6-15"></a>        <span class="st">'age_group'</span>: <span class="st">'Altersgruppe'</span>,</span>
+<span id="cb6-16"><a href="#cb6-16"></a>        <span class="st">'count'</span>: <span class="st">'Anzahl der Diagnosen'</span></span>
+<span id="cb6-17"><a href="#cb6-17"></a>    }</span>
+<span id="cb6-18"><a href="#cb6-18"></a>)</span>
+<span id="cb6-19"><a href="#cb6-19"></a>fig.update_layout(</span>
+<span id="cb6-20"><a href="#cb6-20"></a>    scene<span class="op">=</span><span class="bu">dict</span>(</span>
+<span id="cb6-21"><a href="#cb6-21"></a>        xaxis<span class="op">=</span><span class="bu">dict</span>(showticklabels<span class="op">=</span><span class="va">True</span>, title<span class="op">=</span><span class="st">''</span>),</span>
+<span id="cb6-22"><a href="#cb6-22"></a>        yaxis<span class="op">=</span><span class="bu">dict</span>(showticklabels<span class="op">=</span><span class="va">False</span>, title<span class="op">=</span><span class="st">''</span>),</span>
+<span id="cb6-23"><a href="#cb6-23"></a>        zaxis<span class="op">=</span><span class="bu">dict</span>(showticklabels<span class="op">=</span><span class="va">True</span>, title<span class="op">=</span><span class="st">''</span>)</span>
+<span id="cb6-24"><a href="#cb6-24"></a>    ),</span>
+<span id="cb6-25"><a href="#cb6-25"></a>    plot_bgcolor<span class="op">=</span><span class="st">'white'</span>,</span>
+<span id="cb6-26"><a href="#cb6-26"></a>    showlegend<span class="op">=</span><span class="va">False</span></span>
+<span id="cb6-27"><a href="#cb6-27"></a>)</span>
+<span id="cb6-28"><a href="#cb6-28"></a>fig.show()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+        <script type="text/javascript">
+        window.PlotlyConfig = {MathJaxConfig: 'local'};
+        if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+        </script>
+        <script type="module">import "https://cdn.plot.ly/plotly-3.0.1.min"</script>
+        
+</div>
+<div class="cell-output cell-output-display">
+<div>            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script type="text/javascript">if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>                <div id="7d5fd4b8-e0cb-4cac-b751-f0b130b054bb" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("7d5fd4b8-e0cb-4cac-b751-f0b130b054bb")) {                    Plotly.newPlot(                        "7d5fd4b8-e0cb-4cac-b751-f0b130b054bb",                        [{"hovertemplate":"\u003cb\u003e%{hovertext}\u003c\u002fb\u003e\u003cbr\u003e\u003cbr\u003eDiagnoseart=%{y}\u003cbr\u003eK\u00f6rperregion=%{x}\u003cbr\u003eAltersgruppe=%{z}\u003cbr\u003eAnzahl der Diagnosen=%{marker.size}\u003cextra\u003e\u003c\u002fextra\u003e","hovertext":["Bauch","Bauch","Bauch","Bauch","Bauch","Bauch","Brust","Brust","Brust","Brust","Brust","Brust","Fu\u00df","Fu\u00df","Fu\u00df","Fu\u00df","Fu\u00df","Fu\u00df","Gesicht","Gesicht","Gesicht","Gesicht","Gesicht","Gesicht","Hals","Hals","Hals","Hals","Hals","Hals","Hand","Hand","Hand","Hand","Hand","Hand","Kopfhaut","Kopfhaut","Kopfhaut","Kopfhaut","Kopfhaut","Kopfhaut","Obere Extremit\u00e4t","Obere Extremit\u00e4t","Obere Extremit\u00e4t","Obere Extremit\u00e4t","Obere Extremit\u00e4t","Obere Extremit\u00e4t","Ohr","Ohr","Ohr","Ohr","Ohr","Ohr","Rumpf","Rumpf","Rumpf","Rumpf","Rumpf","Rumpf","R\u00fccken","R\u00fccken","R\u00fccken","R\u00fccken","R\u00fccken","R\u00fccken","Untere Extremit\u00e4t","Untere Extremit\u00e4t","Untere Extremit\u00e4t","Untere Extremit\u00e4t","Untere Extremit\u00e4t","Untere Extremit\u00e4t"],"legendgroup":"Expertenkonsens","marker":{"color":"rgb(102, 197, 204)","size":{"dtype":"i1","bdata":"EBMPDwcFDAIQBgICGAIAAAMADwMRDB0LAgICBQAABwAAAQQABAAEAAUAEgEKCgUFAAACAAAADg4QByUHQAsaDSwUMRoVDhEF"},"sizemode":"area","sizeref":0.1,"symbol":"circle"},"mode":"markers","name":"Expertenkonsens","scene":"scene","showlegend":true,"x":["Bauch","Bauch","Bauch","Bauch","Bauch","Bauch","Brust","Brust","Brust","Brust","Brust","Brust","Fu\u00df","Fu\u00df","Fu\u00df","Fu\u00df","Fu\u00df","Fu\u00df","Gesicht","Gesicht","Gesicht","Gesicht","Gesicht","Gesicht","Hals","Hals","Hals","Hals","Hals","Hals","Hand","Hand","Hand","Hand","Hand","Hand","Kopfhaut","Kopfhaut","Kopfhaut","Kopfhaut","Kopfhaut","Kopfhaut","Obere Extremit\u00e4t","Obere Extremit\u00e4t","Obere Extremit\u00e4t","Obere Extremit\u00e4t","Obere Extremit\u00e4t","Obere Extremit\u00e4t","Ohr","Ohr","Ohr","Ohr","Ohr","Ohr","Rumpf","Rumpf","Rumpf","Rumpf","Rumpf","Rumpf","R\u00fccken","R\u00fccken","R\u00fccken","R\u00fccken","R\u00fccken","R\u00fccken","Untere Extremit\u00e4t","Untere Extremit\u00e4t","Untere Extremit\u00e4t","Untere Extremit\u00e4t","Untere Extremit\u00e4t","Untere Extremit\u00e4t"],"y":["Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens","Expertenkonsens"],"z":["\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+"],"type":"scatter3d"},{"hovertemplate":"\u003cb\u003e%{hovertext}\u003c\u002fb\u003e\u003cbr\u003e\u003cbr\u003eDiagnoseart=%{y}\u003cbr\u003eK\u00f6rperregion=%{x}\u003cbr\u003eAltersgruppe=%{z}\u003cbr\u003eAnzahl der Diagnosen=%{marker.size}\u003cextra\u003e\u003c\u002fextra\u003e","hovertext":["Bauch","Bauch","Bauch","Bauch","Bauch","Bauch","Brust","Brust","Brust","Brust","Brust","Brust","Fu\u00df","Fu\u00df","Fu\u00df","Fu\u00df","Fu\u00df","Fu\u00df","Gesicht","Gesicht","Gesicht","Gesicht","Gesicht","Gesicht","Hals","Hals","Hals","Hals","Hals","Hals","Hand","Hand","Hand","Hand","Hand","Hand","Kopfhaut","Kopfhaut","Kopfhaut","Kopfhaut","Kopfhaut","Kopfhaut","Obere Extremit\u00e4t","Obere Extremit\u00e4t","Obere Extremit\u00e4t","Obere Extremit\u00e4t","Obere Extremit\u00e4t","Obere Extremit\u00e4t","Ohr","Ohr","Ohr","Ohr","Ohr","Ohr","Rumpf","Rumpf","Rumpf","Rumpf","Rumpf","Rumpf","R\u00fccken","R\u00fccken","R\u00fccken","R\u00fccken","R\u00fccken","R\u00fccken","Untere Extremit\u00e4t","Untere Extremit\u00e4t","Untere Extremit\u00e4t","Untere Extremit\u00e4t","Untere Extremit\u00e4t","Untere Extremit\u00e4t"],"legendgroup":"Histopathologisch best\u00e4tigt","marker":{"color":"rgb(246, 207, 113)","size":{"dtype":"i2","bdata":"cQBkAC8AMgAtABMAQgBBADoAOwBOACAANwAoABUAEwAWAA4AJgBGAFYAkwB\u002fAG8AGAAKABcAJgAWAAoAEwAEAAgACQAQAAMADwAJAA4ADwAYACIAcgBhAJMAhgCMAGYACQACAAoADAARAAEAWAAtACYAHwApAA0AKgHkAPUAJgEFAYoA0ACYAKoAqwC+AF0A"},"sizemode":"area","sizeref":0.1,"symbol":"circle"},"mode":"markers","name":"Histopathologisch best\u00e4tigt","scene":"scene","showlegend":true,"x":["Bauch","Bauch","Bauch","Bauch","Bauch","Bauch","Brust","Brust","Brust","Brust","Brust","Brust","Fu\u00df","Fu\u00df","Fu\u00df","Fu\u00df","Fu\u00df","Fu\u00df","Gesicht","Gesicht","Gesicht","Gesicht","Gesicht","Gesicht","Hals","Hals","Hals","Hals","Hals","Hals","Hand","Hand","Hand","Hand","Hand","Hand","Kopfhaut","Kopfhaut","Kopfhaut","Kopfhaut","Kopfhaut","Kopfhaut","Obere Extremit\u00e4t","Obere Extremit\u00e4t","Obere Extremit\u00e4t","Obere Extremit\u00e4t","Obere Extremit\u00e4t","Obere Extremit\u00e4t","Ohr","Ohr","Ohr","Ohr","Ohr","Ohr","Rumpf","Rumpf","Rumpf","Rumpf","Rumpf","Rumpf","R\u00fccken","R\u00fccken","R\u00fccken","R\u00fccken","R\u00fccken","R\u00fccken","Untere Extremit\u00e4t","Untere Extremit\u00e4t","Untere Extremit\u00e4t","Untere Extremit\u00e4t","Untere Extremit\u00e4t","Untere Extremit\u00e4t"],"y":["Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt","Histopathologisch best\u00e4tigt"],"z":["\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+"],"type":"scatter3d"},{"hovertemplate":"\u003cb\u003e%{hovertext}\u003c\u002fb\u003e\u003cbr\u003e\u003cbr\u003eDiagnoseart=%{y}\u003cbr\u003eK\u00f6rperregion=%{x}\u003cbr\u003eAltersgruppe=%{z}\u003cbr\u003eAnzahl der Diagnosen=%{marker.size}\u003cextra\u003e\u003c\u002fextra\u003e","hovertext":["Bauch","Bauch","Bauch","Bauch","Bauch","Bauch","Brust","Brust","Brust","Brust","Brust","Brust","Fu\u00df","Fu\u00df","Fu\u00df","Fu\u00df","Fu\u00df","Fu\u00df","Gesicht","Gesicht","Gesicht","Gesicht","Gesicht","Gesicht","Hals","Hals","Hals","Hals","Hals","Hals","Hand","Hand","Hand","Hand","Hand","Hand","Kopfhaut","Kopfhaut","Kopfhaut","Kopfhaut","Kopfhaut","Kopfhaut","Obere Extremit\u00e4t","Obere Extremit\u00e4t","Obere Extremit\u00e4t","Obere Extremit\u00e4t","Obere Extremit\u00e4t","Obere Extremit\u00e4t","Ohr","Ohr","Ohr","Ohr","Ohr","Ohr","Rumpf","Rumpf","Rumpf","Rumpf","Rumpf","Rumpf","R\u00fccken","R\u00fccken","R\u00fccken","R\u00fccken","R\u00fccken","R\u00fccken","Untere Extremit\u00e4t","Untere Extremit\u00e4t","Untere Extremit\u00e4t","Untere Extremit\u00e4t","Untere Extremit\u00e4t","Untere Extremit\u00e4t"],"legendgroup":"Klinische Nachbeobachtung","marker":{"color":"rgb(248, 156, 116)","size":{"dtype":"i2","bdata":"TQC7AL4ATAAiAAYAAAAEAAEAAQABAAAADQAyACsACQACAAAABQAEAAMAAAABAAAABgAMAAcAAQACAAAAAQALAAQAAgABAAAAAQABAAAAAQAAAAAAPAB4AGIAKwAIAAQAAAACAAEAAAAAAAAAjwBoAVYBgQA+ABAAYAC+AJ0AQQAfAAsAkQBOAS4BawA9AAwA"},"sizemode":"area","sizeref":0.1,"symbol":"circle"},"mode":"markers","name":"Klinische Nachbeobachtung","scene":"scene","showlegend":true,"x":["Bauch","Bauch","Bauch","Bauch","Bauch","Bauch","Brust","Brust","Brust","Brust","Brust","Brust","Fu\u00df","Fu\u00df","Fu\u00df","Fu\u00df","Fu\u00df","Fu\u00df","Gesicht","Gesicht","Gesicht","Gesicht","Gesicht","Gesicht","Hals","Hals","Hals","Hals","Hals","Hals","Hand","Hand","Hand","Hand","Hand","Hand","Kopfhaut","Kopfhaut","Kopfhaut","Kopfhaut","Kopfhaut","Kopfhaut","Obere Extremit\u00e4t","Obere Extremit\u00e4t","Obere Extremit\u00e4t","Obere Extremit\u00e4t","Obere Extremit\u00e4t","Obere Extremit\u00e4t","Ohr","Ohr","Ohr","Ohr","Ohr","Ohr","Rumpf","Rumpf","Rumpf","Rumpf","Rumpf","Rumpf","R\u00fccken","R\u00fccken","R\u00fccken","R\u00fccken","R\u00fccken","R\u00fccken","Untere Extremit\u00e4t","Untere Extremit\u00e4t","Untere Extremit\u00e4t","Untere Extremit\u00e4t","Untere Extremit\u00e4t","Untere Extremit\u00e4t"],"y":["Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung","Klinische Nachbeobachtung"],"z":["\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+"],"type":"scatter3d"},{"hovertemplate":"\u003cb\u003e%{hovertext}\u003c\u002fb\u003e\u003cbr\u003e\u003cbr\u003eDiagnoseart=%{y}\u003cbr\u003eK\u00f6rperregion=%{x}\u003cbr\u003eAltersgruppe=%{z}\u003cbr\u003eAnzahl der Diagnosen=%{marker.size}\u003cextra\u003e\u003c\u002fextra\u003e","hovertext":["Bauch","Bauch","Bauch","Bauch","Bauch","Bauch","Brust","Brust","Brust","Brust","Brust","Brust","Fu\u00df","Fu\u00df","Fu\u00df","Fu\u00df","Fu\u00df","Fu\u00df","Gesicht","Gesicht","Gesicht","Gesicht","Gesicht","Gesicht","Hals","Hals","Hals","Hals","Hals","Hals","Hand","Hand","Hand","Hand","Hand","Hand","Kopfhaut","Kopfhaut","Kopfhaut","Kopfhaut","Kopfhaut","Kopfhaut","Obere Extremit\u00e4t","Obere Extremit\u00e4t","Obere Extremit\u00e4t","Obere Extremit\u00e4t","Obere Extremit\u00e4t","Obere Extremit\u00e4t","Ohr","Ohr","Ohr","Ohr","Ohr","Ohr","Rumpf","Rumpf","Rumpf","Rumpf","Rumpf","Rumpf","R\u00fccken","R\u00fccken","R\u00fccken","R\u00fccken","R\u00fccken","R\u00fccken","Untere Extremit\u00e4t","Untere Extremit\u00e4t","Untere Extremit\u00e4t","Untere Extremit\u00e4t","Untere Extremit\u00e4t","Untere Extremit\u00e4t"],"legendgroup":"Konfokale Lasermikroskopie","marker":{"color":"rgb(220, 176, 242)","size":{"dtype":"i1","bdata":"AAAAAAAAAAAAAAAAAAAAAAAAAgISDBQKAAAAAgAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"},"sizemode":"area","sizeref":0.1,"symbol":"circle"},"mode":"markers","name":"Konfokale Lasermikroskopie","scene":"scene","showlegend":true,"x":["Bauch","Bauch","Bauch","Bauch","Bauch","Bauch","Brust","Brust","Brust","Brust","Brust","Brust","Fu\u00df","Fu\u00df","Fu\u00df","Fu\u00df","Fu\u00df","Fu\u00df","Gesicht","Gesicht","Gesicht","Gesicht","Gesicht","Gesicht","Hals","Hals","Hals","Hals","Hals","Hals","Hand","Hand","Hand","Hand","Hand","Hand","Kopfhaut","Kopfhaut","Kopfhaut","Kopfhaut","Kopfhaut","Kopfhaut","Obere Extremit\u00e4t","Obere Extremit\u00e4t","Obere Extremit\u00e4t","Obere Extremit\u00e4t","Obere Extremit\u00e4t","Obere Extremit\u00e4t","Ohr","Ohr","Ohr","Ohr","Ohr","Ohr","Rumpf","Rumpf","Rumpf","Rumpf","Rumpf","Rumpf","R\u00fccken","R\u00fccken","R\u00fccken","R\u00fccken","R\u00fccken","R\u00fccken","Untere Extremit\u00e4t","Untere Extremit\u00e4t","Untere Extremit\u00e4t","Untere Extremit\u00e4t","Untere Extremit\u00e4t","Untere Extremit\u00e4t"],"y":["Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie","Konfokale Lasermikroskopie"],"z":["\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+","\u003c40","40\u201350","50\u201360","60\u201370","70\u201380","80+"],"type":"scatter3d"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"scene":{"domain":{"x":[0.0,1.0],"y":[0.0,1.0]},"xaxis":{"title":{"text":""},"showticklabels":true},"yaxis":{"title":{"text":""},"categoryorder":"array","categoryarray":["Expertenkonsens","Histopathologisch best\u00e4tigt","Klinische Nachbeobachtung","Konfokale Lasermikroskopie"],"showticklabels":false},"zaxis":{"title":{"text":""},"showticklabels":true}},"legend":{"title":{"text":"Diagnoseart"},"tracegroupgap":0,"itemsizing":"constant"},"plot_bgcolor":"white","showlegend":false},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('7d5fd4b8-e0cb-4cac-b751-f0b130b054bb');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };            </script>        </div>
+</div>
+</div>
+</section>
+<section id="verteilung-der-diagnosen" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="verteilung-der-diagnosen"><span class="header-section-number">2.6</span> Verteilung der Diagnosen</h2>
+<p>Die nachfolgende Analyse berücksichtigt, welche Diagnosen als gefährlich oder bösartig eingestuft werden. Im Rahmen dieser Analyse werden die Diagnosen “Melanom” (<code>mel</code>), “Basalzellkarzinom” (<code>bcc</code>) und “Aktinische Keratose / In-situ-Karzinom” (<code>akiec</code>) als gefährlich betrachtet, da diese häufig mit einem höheren Risiko verbunden sind.</p>
+<p>Nach diesem Maßstab gibt es insgesamt 1937 gefährliche Diagnosen. Dies entspricht 19.34 % des gesamten Datensatzes.</p>
+<p>Diese Verteilung wird in <a href="#fig-diagnoseverteilung" class="quarto-xref">Abbildung&nbsp;5</a> dargestellt. Die linke Grafik zeigt die Häufigkeit der einzelnen Diagnosen im Datensatz. Dabei ist ersichtlich, wie häufig jede Diagnoseart vertreten ist und welche Krankheitsbilder dominieren.</p>
+<p>Die rechte Grafik visualisiert den Anteil der gefährlichen Diagnosen im Vergleich zu den nicht gefährlichen Diagnosen. Sie verdeutlicht den Prozentsatz an Patienten, bei denen eine Diagnose als potenziell gefährlich eingestuft wird. Dies ermöglicht eine erste Einschätzung der Häufigkeit gefährlicher Diagnosen innerhalb des gesamten Datensatzes und liefert wertvolle Informationen für weiterführende Analysen zur Risikobeurteilung.</p>
+<div id="cell-fig-diagnoseverteilung" class="cell" data-execution_count="13">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>STANDARD_FIGSIZE)</span>
+<span id="cb7-2"><a href="#cb7-2"></a></span>
+<span id="cb7-3"><a href="#cb7-3"></a>sns.countplot(</span>
+<span id="cb7-4"><a href="#cb7-4"></a>    data<span class="op">=</span>metadata_df,</span>
+<span id="cb7-5"><a href="#cb7-5"></a>    x<span class="op">=</span><span class="st">'dx_de'</span>,</span>
+<span id="cb7-6"><a href="#cb7-6"></a>    hue<span class="op">=</span><span class="st">'dx_de'</span>,</span>
+<span id="cb7-7"><a href="#cb7-7"></a>    palette<span class="op">=</span><span class="st">'pastel'</span>,</span>
+<span id="cb7-8"><a href="#cb7-8"></a>    edgecolor<span class="op">=</span><span class="st">'white'</span>,</span>
+<span id="cb7-9"><a href="#cb7-9"></a>    ax<span class="op">=</span>ax[<span class="dv">0</span>]</span>
+<span id="cb7-10"><a href="#cb7-10"></a>)</span>
+<span id="cb7-11"><a href="#cb7-11"></a>ax[<span class="dv">0</span>].set_xlabel(<span class="st">''</span>)</span>
+<span id="cb7-12"><a href="#cb7-12"></a>ax[<span class="dv">0</span>].tick_params(axis<span class="op">=</span><span class="st">'x'</span>, rotation<span class="op">=</span><span class="dv">90</span>)</span>
+<span id="cb7-13"><a href="#cb7-13"></a>ax[<span class="dv">0</span>].set_ylabel(<span class="st">'Anzahl'</span>)</span>
+<span id="cb7-14"><a href="#cb7-14"></a></span>
+<span id="cb7-15"><a href="#cb7-15"></a>dangerous_counts <span class="op">=</span> metadata_df[<span class="st">'is_dangerous'</span>].value_counts()</span>
+<span id="cb7-16"><a href="#cb7-16"></a>labels <span class="op">=</span> [<span class="st">'Nicht gefährlich'</span>, <span class="st">'Gefährlich'</span>]</span>
+<span id="cb7-17"><a href="#cb7-17"></a>ax[<span class="dv">1</span>].pie(</span>
+<span id="cb7-18"><a href="#cb7-18"></a>    dangerous_counts,</span>
+<span id="cb7-19"><a href="#cb7-19"></a>    labels<span class="op">=</span>labels,</span>
+<span id="cb7-20"><a href="#cb7-20"></a>    autopct<span class="op">=</span><span class="st">'</span><span class="sc">%1.1f%%</span><span class="st">'</span>,</span>
+<span id="cb7-21"><a href="#cb7-21"></a>    startangle<span class="op">=</span><span class="dv">90</span>,</span>
+<span id="cb7-22"><a href="#cb7-22"></a>    colors<span class="op">=</span>sns.color_palette(<span class="st">'pastel'</span>),</span>
+<span id="cb7-23"><a href="#cb7-23"></a>    wedgeprops<span class="op">=</span>{<span class="st">'edgecolor'</span>: <span class="st">'white'</span>}</span>
+<span id="cb7-24"><a href="#cb7-24"></a>)</span>
+<span id="cb7-25"><a href="#cb7-25"></a>ax[<span class="dv">1</span>].set_title(<span class="st">'Anteil der gefährlichen Diagnosen'</span>)</span>
+<span id="cb7-26"><a href="#cb7-26"></a></span>
+<span id="cb7-27"><a href="#cb7-27"></a>plt.show()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-diagnoseverteilung" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-diagnoseverteilung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="datenexploration_files/figure-html/fig-diagnoseverteilung-output-1.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-diagnoseverteilung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;5: Verteilung der Diagnosen
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="analyse-von-abhängigkeiten-und-auffälligkeiten" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Analyse von Abhängigkeiten und Auffälligkeiten</h1>
+<section id="sec-korrelation" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="sec-korrelation"><span class="header-section-number">3.1</span> Spearman Korrelation der numerisch kodierten Merkmale</h2>
+<p>Die Merkmale <code>sex</code>, <code>dx_type</code>, <code>localization</code>, <code>dx</code> werden in eine Ordinal-Skala überführt, um sie für die statistische Analyse mit numerischen Methoden zugänglich zu machen. Diese Umwandlung erlaubt es, diese kategorialen Merkmale in eine Reihenfolge zu bringen, ohne dabei die Informationen der Originalwerte zu verlieren.</p>
+<p>Wie in <a href="#fig-scattermatrix" class="quarto-xref">Abbildung&nbsp;6</a> zu erkennen ist, lassen sich zunächst keine auffälligen Abhängigkeiten der Merkmale untereinander erkennen. Die Verteilung der Daten in der Scattermatrix zeigt, dass es keine stark ausgeprägten linearen Beziehungen zwischen den kodierten Merkmalen gibt, was in erster Linie darauf hinweist, dass die Variablen größtenteils unabhängig voneinander sind.</p>
+<div id="cell-fig-scattermatrix" class="cell" data-execution_count="15">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>sns.pairplot(</span>
+<span id="cb8-2"><a href="#cb8-2"></a>    metadata_df_scaled,</span>
+<span id="cb8-3"><a href="#cb8-3"></a>    height<span class="op">=</span><span class="fl">2.5</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-scattermatrix" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-scattermatrix-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="datenexploration_files/figure-html/fig-scattermatrix-output-1.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-scattermatrix-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;6: Scattermatrix der numerisch kodierten Merkmale
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Im weiteren Verlauf wird die Korrelation nach Spearman untersucht, um mögliche monotone Beziehungen zwischen den Merkmalen zu identifizieren. Der Spearman’sche Rangkorrelationskoeffizient misst die Stärke und Richtung einer monotonen Beziehung zwischen zwei Variablen. Die Formel für den Spearman-Rangkorrelationskoeffizienten lautet:</p>
+<p><span class="math display">\[
+\rho = 1 - \frac{6 \sum d_i^2}{n(n^2 - 1)}
+\]</span></p>
+<p>wobei <span class="math inline">\(d_i\)</span> die Rangdifferenz und <span class="math inline">\(n\)</span> die Anzahl der Beobachtungen ist. Er misst die Stärke der monotonen Beziehung zwischen zwei Variablen.</p>
+<p>Anhand von <a href="#fig-korrelationsmatrix" class="quarto-xref">Abbildung&nbsp;7</a> lassen sich einige interessante Korrelationen beobachten. Es ist zu erkennen, dass zwischen dem Alter der Patienten und der Diagnoseart sowie zwischen der Diagnose und dem Typ der Diagnose signifikante Zusammenhänge bestehen. Diese Korrelationen deuten darauf hin, dass bestimmte Altersgruppen mit spezifischen Diagnosen häufiger in Verbindung stehen und bestimmte Diagnosearten miteinander verknüpft sind. Beispielsweise könnte das Alter als Faktor für die Häufigkeit bestimmter Hauterkrankungen relevant sein.</p>
+<div id="cell-fig-korrelationsmatrix" class="cell" data-execution_count="16">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>corr_matrix <span class="op">=</span> metadata_df_scaled.corr(method<span class="op">=</span><span class="st">'spearman'</span>)</span>
+<span id="cb9-2"><a href="#cb9-2"></a></span>
+<span id="cb9-3"><a href="#cb9-3"></a>plt.figure(figsize<span class="op">=</span>STANDARD_FIGSIZE)</span>
+<span id="cb9-4"><a href="#cb9-4"></a>sns.heatmap(</span>
+<span id="cb9-5"><a href="#cb9-5"></a>    corr_matrix,</span>
+<span id="cb9-6"><a href="#cb9-6"></a>    annot<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb9-7"><a href="#cb9-7"></a>    fmt<span class="op">=</span><span class="st">".2f"</span>,</span>
+<span id="cb9-8"><a href="#cb9-8"></a>    cmap<span class="op">=</span><span class="st">"coolwarm"</span>,</span>
+<span id="cb9-9"><a href="#cb9-9"></a>    linewidths<span class="op">=</span><span class="fl">0.5</span></span>
+<span id="cb9-10"><a href="#cb9-10"></a>)</span>
+<span id="cb9-11"><a href="#cb9-11"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">70</span>)</span>
+<span id="cb9-12"><a href="#cb9-12"></a>plt.show()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-korrelationsmatrix" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-korrelationsmatrix-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="datenexploration_files/figure-html/fig-korrelationsmatrix-output-1.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-korrelationsmatrix-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;7: Korrelationsmatrix der numerisch kodierten Merkmale
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="anzahl-der-gefähtlichen-diagnosen-nach-alter" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="anzahl-der-gefähtlichen-diagnosen-nach-alter"><span class="header-section-number">3.2</span> Anzahl der gefähtlichen Diagnosen nach Alter</h2>
+<p><a href="#fig-dangerous-alter" class="quarto-xref">Abbildung&nbsp;8</a> zeigt, dass die Anzahl gefährlicher Diagnosen mit zunehmendem Alter ansteigt. Dies unterstützt die zuvor in <a href="#sec-korrelation" class="quarto-xref">Kapitel&nbsp;3.1</a> identifizierte Korrelation zwischen Alter und Diagnose und legt nahe, dass das Risiko schwerwiegender Erkrankungen mit dem Alter zunimmt.</p>
+<div id="cell-fig-dangerous-alter" class="cell" data-execution_count="17">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>STANDARD_FIGSIZE)</span>
+<span id="cb10-2"><a href="#cb10-2"></a>sns.countplot(</span>
+<span id="cb10-3"><a href="#cb10-3"></a>    data<span class="op">=</span>metadata_df,</span>
+<span id="cb10-4"><a href="#cb10-4"></a>    x<span class="op">=</span><span class="st">'age_group'</span>,</span>
+<span id="cb10-5"><a href="#cb10-5"></a>    hue<span class="op">=</span><span class="st">'is_dangerous'</span>,</span>
+<span id="cb10-6"><a href="#cb10-6"></a>    palette<span class="op">=</span><span class="st">'pastel'</span>,</span>
+<span id="cb10-7"><a href="#cb10-7"></a>    edgecolor<span class="op">=</span><span class="st">'white'</span>,</span>
+<span id="cb10-8"><a href="#cb10-8"></a>    ax<span class="op">=</span>ax</span>
+<span id="cb10-9"><a href="#cb10-9"></a>)</span>
+<span id="cb10-10"><a href="#cb10-10"></a>ax.set_xlabel(<span class="st">'Altersgruppe'</span>)</span>
+<span id="cb10-11"><a href="#cb10-11"></a>ax.set_ylabel(<span class="st">'Anzahl der Diagnosen'</span>)</span>
+<span id="cb10-12"><a href="#cb10-12"></a></span>
+<span id="cb10-13"><a href="#cb10-13"></a>handles, labels <span class="op">=</span> ax.get_legend_handles_labels()</span>
+<span id="cb10-14"><a href="#cb10-14"></a>custom_labels <span class="op">=</span> [<span class="st">'Nein'</span> <span class="cf">if</span> lbl <span class="op">==</span> <span class="st">'False'</span> <span class="cf">else</span> <span class="st">'Ja'</span> <span class="cf">for</span> lbl <span class="kw">in</span> labels]</span>
+<span id="cb10-15"><a href="#cb10-15"></a>ax.legend(handles, custom_labels, title<span class="op">=</span><span class="st">'Gefährlich'</span>)</span>
+<span id="cb10-16"><a href="#cb10-16"></a>plt.show()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-dangerous-alter" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dangerous-alter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="datenexploration_files/figure-html/fig-dangerous-alter-output-1.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dangerous-alter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;8: Anzahl der gefährlichen Diagnosen nach Alter
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="anzahl-der-gefährlichen-diagnosen-nach-alter-körperstelle-und-diagnose" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="anzahl-der-gefährlichen-diagnosen-nach-alter-körperstelle-und-diagnose"><span class="header-section-number">3.3</span> Anzahl der gefährlichen Diagnosen nach Alter, Körperstelle und Diagnose</h2>
+<p>Eine detailliertere Betrachtung bietet <a href="#fig-heatmap-alter-körperstelle" class="quarto-xref">Abbildung&nbsp;9</a>, in der gefährliche Diagnosen zusätzlich nach betroffener Körperstelle und Altersgruppe aufgeschlüsselt sind. Hier wird deutlich, dass bestimmte Diagnosen wie z.B. Melanome in bestimmten Altersgruppen und an spezifischen Körperregionen gehäuft auftreten, was Hinweise auf alters- und lokalitätsabhängige Risikomuster liefert.</p>
+<div id="cell-fig-heatmap-alter-körperstelle" class="cell" data-execution_count="18">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>heatmap_data <span class="op">=</span> metadata_df[metadata_df[<span class="st">'dx'</span>].isin(dangerous_dx)].groupby(</span>
+<span id="cb11-2"><a href="#cb11-2"></a>    [<span class="st">'localization_de'</span>, <span class="st">'dx_de'</span>, <span class="st">'age_group'</span>], observed<span class="op">=</span><span class="va">True</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a>).size().reset_index(name<span class="op">=</span><span class="st">'count'</span>)</span>
+<span id="cb11-4"><a href="#cb11-4"></a></span>
+<span id="cb11-5"><a href="#cb11-5"></a>unique_locs <span class="op">=</span> heatmap_data[<span class="st">'localization_de'</span>].unique()</span>
+<span id="cb11-6"><a href="#cb11-6"></a>unique_diagnoses <span class="op">=</span> <span class="bu">sorted</span>(heatmap_data[<span class="st">'dx_de'</span>].unique())</span>
+<span id="cb11-7"><a href="#cb11-7"></a></span>
+<span id="cb11-8"><a href="#cb11-8"></a>n_locs <span class="op">=</span> <span class="bu">len</span>(unique_locs)</span>
+<span id="cb11-9"><a href="#cb11-9"></a>fig, axes <span class="op">=</span> plt.subplots(</span>
+<span id="cb11-10"><a href="#cb11-10"></a>    nrows<span class="op">=</span>(n_locs <span class="op">+</span> <span class="dv">1</span>) <span class="op">//</span> <span class="dv">2</span>,</span>
+<span id="cb11-11"><a href="#cb11-11"></a>    ncols<span class="op">=</span><span class="dv">2</span>,</span>
+<span id="cb11-12"><a href="#cb11-12"></a>    figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">4</span> <span class="op">*</span> ((n_locs <span class="op">+</span> <span class="dv">1</span>) <span class="op">//</span> <span class="dv">2</span>)),</span>
+<span id="cb11-13"><a href="#cb11-13"></a>    constrained_layout<span class="op">=</span><span class="va">True</span></span>
+<span id="cb11-14"><a href="#cb11-14"></a>)</span>
+<span id="cb11-15"><a href="#cb11-15"></a></span>
+<span id="cb11-16"><a href="#cb11-16"></a>axes <span class="op">=</span> axes.flatten()</span>
+<span id="cb11-17"><a href="#cb11-17"></a></span>
+<span id="cb11-18"><a href="#cb11-18"></a><span class="cf">for</span> i, loc <span class="kw">in</span> <span class="bu">enumerate</span>(unique_locs):</span>
+<span id="cb11-19"><a href="#cb11-19"></a>    subset <span class="op">=</span> heatmap_data[heatmap_data[<span class="st">'localization_de'</span>] <span class="op">==</span> loc]</span>
+<span id="cb11-20"><a href="#cb11-20"></a>    pivot <span class="op">=</span> subset.pivot_table(</span>
+<span id="cb11-21"><a href="#cb11-21"></a>        index<span class="op">=</span><span class="st">'dx_de'</span>,</span>
+<span id="cb11-22"><a href="#cb11-22"></a>        columns<span class="op">=</span><span class="st">'age_group'</span>,</span>
+<span id="cb11-23"><a href="#cb11-23"></a>        values<span class="op">=</span><span class="st">'count'</span>,</span>
+<span id="cb11-24"><a href="#cb11-24"></a>        aggfunc<span class="op">=</span><span class="st">'sum'</span>,</span>
+<span id="cb11-25"><a href="#cb11-25"></a>        fill_value<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb11-26"><a href="#cb11-26"></a>        observed<span class="op">=</span><span class="va">True</span></span>
+<span id="cb11-27"><a href="#cb11-27"></a>    )</span>
+<span id="cb11-28"><a href="#cb11-28"></a></span>
+<span id="cb11-29"><a href="#cb11-29"></a>    pivot <span class="op">=</span> pivot.reindex(index<span class="op">=</span>unique_diagnoses, fill_value<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb11-30"><a href="#cb11-30"></a>    pivot <span class="op">=</span> pivot.reindex(<span class="bu">sorted</span>(pivot.columns), axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb11-31"><a href="#cb11-31"></a></span>
+<span id="cb11-32"><a href="#cb11-32"></a>    sns.heatmap(</span>
+<span id="cb11-33"><a href="#cb11-33"></a>        pivot,</span>
+<span id="cb11-34"><a href="#cb11-34"></a>        ax<span class="op">=</span>axes[i],</span>
+<span id="cb11-35"><a href="#cb11-35"></a>        annot<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb11-36"><a href="#cb11-36"></a>        fmt<span class="op">=</span><span class="st">'d'</span>,</span>
+<span id="cb11-37"><a href="#cb11-37"></a>        cmap<span class="op">=</span><span class="st">'coolwarm'</span>,</span>
+<span id="cb11-38"><a href="#cb11-38"></a>        linewidths<span class="op">=</span><span class="fl">0.5</span>,</span>
+<span id="cb11-39"><a href="#cb11-39"></a>        cbar<span class="op">=</span><span class="va">False</span></span>
+<span id="cb11-40"><a href="#cb11-40"></a>    )</span>
+<span id="cb11-41"><a href="#cb11-41"></a></span>
+<span id="cb11-42"><a href="#cb11-42"></a>    axes[i].set_title(<span class="ss">f"Lokalisation: </span><span class="sc">{</span>loc<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb11-43"><a href="#cb11-43"></a>    axes[i].tick_params(axis<span class="op">=</span><span class="st">'y'</span>, rotation<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb11-44"><a href="#cb11-44"></a>    axes[i].tick_params(axis<span class="op">=</span><span class="st">'x'</span>, rotation<span class="op">=</span><span class="dv">70</span>)</span>
+<span id="cb11-45"><a href="#cb11-45"></a></span>
+<span id="cb11-46"><a href="#cb11-46"></a>    <span class="cf">if</span> i <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb11-47"><a href="#cb11-47"></a>        axes[i].set_ylabel(<span class="st">""</span>)</span>
+<span id="cb11-48"><a href="#cb11-48"></a>    <span class="cf">else</span>:</span>
+<span id="cb11-49"><a href="#cb11-49"></a>        axes[i].set_ylabel(<span class="st">""</span>)</span>
+<span id="cb11-50"><a href="#cb11-50"></a>        axes[i].set_yticklabels([])</span>
+<span id="cb11-51"><a href="#cb11-51"></a></span>
+<span id="cb11-52"><a href="#cb11-52"></a>    axes[i].set_xlabel(<span class="st">""</span>)</span>
+<span id="cb11-53"><a href="#cb11-53"></a></span>
+<span id="cb11-54"><a href="#cb11-54"></a><span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(i <span class="op">+</span> <span class="dv">1</span>, <span class="bu">len</span>(axes)):</span>
+<span id="cb11-55"><a href="#cb11-55"></a>    fig.delaxes(axes[j])</span>
+<span id="cb11-56"><a href="#cb11-56"></a></span>
+<span id="cb11-57"><a href="#cb11-57"></a>plt.show()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-heatmap-alter-körperstelle" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-heatmap-alter-körperstelle-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="datenexploration_files/figure-html/fig-heatmap-alter-korperstelle-output-1.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-heatmap-alter-körperstelle-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;9: Häufigkeit der gefährlichen Diagnosen nach Altersgruppe, Lokalisation und Diagnose
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="anomalieerkennung-in-den-diagnosedaten" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="anomalieerkennung-in-den-diagnosedaten"><span class="header-section-number">3.4</span> Anomalieerkennung in den Diagnosedaten</h2>
+<p>Im Rahmen dieser Analyse wird eine Anomalieerkennung durchgeführt, um ungewöhnliche oder seltene Diagnosen zu identifizieren, die von den typischen Mustern abweichen. Dies kann nützlich sein, um potenzielle Fehler oder seltene, aber schwerwiegende Erkrankungen zu erkennen, die möglicherweise eine besondere Aufmerksamkeit erfordern.</p>
+<p>Zur Erkennung von Anomalien wird der Isolation Forest verwendet, ein Modell des überwachten maschinellen Lernens, das gut für die Identifikation von Ausreißern in hochdimensionalen Daten geeignet ist. Das Modell identifiziert Punkte, die in ihrer Datenverteilung besonders isoliert sind und damit als Anomalien gelten. Diese Anomalien könnten auf seltene, aber potenziell gefährliche Diagnosen hinweisen.</p>
+<div id="e78f5cd3" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>data_for_anomaly_detection <span class="op">=</span> metadata_df_scaled[encoded_cols <span class="op">+</span> [<span class="st">'age'</span>]]</span>
+<span id="cb12-2"><a href="#cb12-2"></a>iso_forest <span class="op">=</span> IsolationForest(contamination<span class="op">=</span><span class="fl">0.05</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb12-3"><a href="#cb12-3"></a>anomalies <span class="op">=</span> iso_forest.fit_predict(data_for_anomaly_detection)</span>
+<span id="cb12-4"><a href="#cb12-4"></a>metadata_df[<span class="st">'anomaly'</span>] <span class="op">=</span> anomalies</span>
+<span id="cb12-5"><a href="#cb12-5"></a>metadata_df[<span class="st">'anomaly'</span>] <span class="op">=</span> metadata_df[<span class="st">'anomaly'</span>].<span class="bu">map</span>({<span class="dv">1</span>: <span class="st">'Normal'</span>, <span class="op">-</span><span class="dv">1</span>: <span class="st">'Anomalie'</span>})</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Die Ergebnisse der Anomalieerkennung werden in <a href="#fig-anomalie-visualisierung" class="quarto-xref">Abbildung&nbsp;10</a> visualisiert. Aus der Analyse geht hervor, dass die Diagnoseart <code>Konfokale Lasermikroskopie</code> durch alle Altergruppen hinweg als Anomalie genkennzeichnet werden. Zudem lassen sich Anomalien <code>Obere Extremität</code> und <code>Kopfhaut</code> in den älteren Altersgruppen beobachten. Zudem weist die Diagnose <code>Aktinische Keratose / In-situ-Karzinom</code> die meisten Anomalien auf.</p>
+<div id="cell-fig-anomalie-visualisierung" class="cell" data-execution_count="20">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>fig, axes <span class="op">=</span> plt.subplots(</span>
+<span id="cb13-2"><a href="#cb13-2"></a>    <span class="dv">2</span>, <span class="dv">2</span>, </span>
+<span id="cb13-3"><a href="#cb13-3"></a>    figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">12</span>),</span>
+<span id="cb13-4"><a href="#cb13-4"></a>    constrained_layout<span class="op">=</span><span class="va">True</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a>)</span>
+<span id="cb13-6"><a href="#cb13-6"></a></span>
+<span id="cb13-7"><a href="#cb13-7"></a>sns.scatterplot(</span>
+<span id="cb13-8"><a href="#cb13-8"></a>    data<span class="op">=</span>metadata_df,</span>
+<span id="cb13-9"><a href="#cb13-9"></a>    x<span class="op">=</span><span class="st">'localization_de'</span>,</span>
+<span id="cb13-10"><a href="#cb13-10"></a>    y<span class="op">=</span><span class="st">'dx_de'</span>,</span>
+<span id="cb13-11"><a href="#cb13-11"></a>    hue<span class="op">=</span><span class="st">'anomaly'</span>,</span>
+<span id="cb13-12"><a href="#cb13-12"></a>    palette<span class="op">=</span>{<span class="st">'Normal'</span>: <span class="st">'blue'</span>, <span class="st">'Anomalie'</span>: <span class="st">'red'</span>},</span>
+<span id="cb13-13"><a href="#cb13-13"></a>    style<span class="op">=</span><span class="st">'anomaly'</span>,</span>
+<span id="cb13-14"><a href="#cb13-14"></a>    markers<span class="op">=</span>{<span class="st">'Normal'</span>: <span class="st">'o'</span>, <span class="st">'Anomalie'</span>: <span class="st">'X'</span>},</span>
+<span id="cb13-15"><a href="#cb13-15"></a>    s<span class="op">=</span><span class="dv">100</span>,</span>
+<span id="cb13-16"><a href="#cb13-16"></a>    ax<span class="op">=</span>axes[<span class="dv">0</span>, <span class="dv">0</span>]</span>
+<span id="cb13-17"><a href="#cb13-17"></a>)</span>
+<span id="cb13-18"><a href="#cb13-18"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].set_title(<span class="st">'Lokalisation vs. Diagnose'</span>)</span>
+<span id="cb13-19"><a href="#cb13-19"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].set_xlabel(<span class="st">''</span>)</span>
+<span id="cb13-20"><a href="#cb13-20"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].set_ylabel(<span class="st">''</span>)</span>
+<span id="cb13-21"><a href="#cb13-21"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].legend(title<span class="op">=</span><span class="st">'Status'</span>, loc<span class="op">=</span><span class="st">'upper right'</span>)</span>
+<span id="cb13-22"><a href="#cb13-22"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].tick_params(axis<span class="op">=</span><span class="st">'x'</span>, rotation<span class="op">=</span><span class="dv">90</span>)</span>
+<span id="cb13-23"><a href="#cb13-23"></a></span>
+<span id="cb13-24"><a href="#cb13-24"></a>sns.scatterplot(</span>
+<span id="cb13-25"><a href="#cb13-25"></a>    data<span class="op">=</span>metadata_df,</span>
+<span id="cb13-26"><a href="#cb13-26"></a>    x<span class="op">=</span><span class="st">'dx_type'</span>,</span>
+<span id="cb13-27"><a href="#cb13-27"></a>    y<span class="op">=</span><span class="st">'age_group'</span>,</span>
+<span id="cb13-28"><a href="#cb13-28"></a>    hue<span class="op">=</span><span class="st">'anomaly'</span>,</span>
+<span id="cb13-29"><a href="#cb13-29"></a>    palette<span class="op">=</span>{<span class="st">'Normal'</span>: <span class="st">'blue'</span>, <span class="st">'Anomalie'</span>: <span class="st">'red'</span>},</span>
+<span id="cb13-30"><a href="#cb13-30"></a>    style<span class="op">=</span><span class="st">'anomaly'</span>,</span>
+<span id="cb13-31"><a href="#cb13-31"></a>    markers<span class="op">=</span>{<span class="st">'Normal'</span>: <span class="st">'o'</span>, <span class="st">'Anomalie'</span>: <span class="st">'X'</span>},</span>
+<span id="cb13-32"><a href="#cb13-32"></a>    s<span class="op">=</span><span class="dv">100</span>,</span>
+<span id="cb13-33"><a href="#cb13-33"></a>    ax<span class="op">=</span>axes[<span class="dv">0</span>, <span class="dv">1</span>]</span>
+<span id="cb13-34"><a href="#cb13-34"></a>)</span>
+<span id="cb13-35"><a href="#cb13-35"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].set_title(<span class="st">'Diagnoseart vs. Altersgruppe'</span>)</span>
+<span id="cb13-36"><a href="#cb13-36"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].set_xlabel(<span class="st">''</span>)</span>
+<span id="cb13-37"><a href="#cb13-37"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].set_ylabel(<span class="st">''</span>)</span>
+<span id="cb13-38"><a href="#cb13-38"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].get_legend().remove()</span>
+<span id="cb13-39"><a href="#cb13-39"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].tick_params(axis<span class="op">=</span><span class="st">'x'</span>, rotation<span class="op">=</span><span class="dv">90</span>)</span>
+<span id="cb13-40"><a href="#cb13-40"></a></span>
+<span id="cb13-41"><a href="#cb13-41"></a>sns.scatterplot(</span>
+<span id="cb13-42"><a href="#cb13-42"></a>    data<span class="op">=</span>metadata_df,</span>
+<span id="cb13-43"><a href="#cb13-43"></a>    x<span class="op">=</span><span class="st">'localization_de'</span>,</span>
+<span id="cb13-44"><a href="#cb13-44"></a>    y<span class="op">=</span><span class="st">'age_group'</span>,</span>
+<span id="cb13-45"><a href="#cb13-45"></a>    hue<span class="op">=</span><span class="st">'anomaly'</span>,</span>
+<span id="cb13-46"><a href="#cb13-46"></a>    palette<span class="op">=</span>{<span class="st">'Normal'</span>: <span class="st">'blue'</span>, <span class="st">'Anomalie'</span>: <span class="st">'red'</span>},</span>
+<span id="cb13-47"><a href="#cb13-47"></a>    style<span class="op">=</span><span class="st">'anomaly'</span>,</span>
+<span id="cb13-48"><a href="#cb13-48"></a>    markers<span class="op">=</span>{<span class="st">'Normal'</span>: <span class="st">'o'</span>, <span class="st">'Anomalie'</span>: <span class="st">'X'</span>},</span>
+<span id="cb13-49"><a href="#cb13-49"></a>    s<span class="op">=</span><span class="dv">100</span>,</span>
+<span id="cb13-50"><a href="#cb13-50"></a>    ax<span class="op">=</span>axes[<span class="dv">1</span>, <span class="dv">0</span>]</span>
+<span id="cb13-51"><a href="#cb13-51"></a>)</span>
+<span id="cb13-52"><a href="#cb13-52"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].set_title(<span class="st">'Lokalisation vs. Altersgruppe'</span>)</span>
+<span id="cb13-53"><a href="#cb13-53"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].set_xlabel(<span class="st">''</span>)</span>
+<span id="cb13-54"><a href="#cb13-54"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].set_ylabel(<span class="st">''</span>)</span>
+<span id="cb13-55"><a href="#cb13-55"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].get_legend().remove()</span>
+<span id="cb13-56"><a href="#cb13-56"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].tick_params(axis<span class="op">=</span><span class="st">'x'</span>, rotation<span class="op">=</span><span class="dv">90</span>)</span>
+<span id="cb13-57"><a href="#cb13-57"></a></span>
+<span id="cb13-58"><a href="#cb13-58"></a>sns.scatterplot(</span>
+<span id="cb13-59"><a href="#cb13-59"></a>    data<span class="op">=</span>metadata_df,</span>
+<span id="cb13-60"><a href="#cb13-60"></a>    x<span class="op">=</span><span class="st">'dx_de'</span>,</span>
+<span id="cb13-61"><a href="#cb13-61"></a>    y<span class="op">=</span><span class="st">'age_group'</span>,</span>
+<span id="cb13-62"><a href="#cb13-62"></a>    hue<span class="op">=</span><span class="st">'anomaly'</span>,</span>
+<span id="cb13-63"><a href="#cb13-63"></a>    palette<span class="op">=</span>{<span class="st">'Normal'</span>: <span class="st">'blue'</span>, <span class="st">'Anomalie'</span>: <span class="st">'red'</span>},</span>
+<span id="cb13-64"><a href="#cb13-64"></a>    style<span class="op">=</span><span class="st">'anomaly'</span>,</span>
+<span id="cb13-65"><a href="#cb13-65"></a>    markers<span class="op">=</span>{<span class="st">'Normal'</span>: <span class="st">'o'</span>, <span class="st">'Anomalie'</span>: <span class="st">'X'</span>},</span>
+<span id="cb13-66"><a href="#cb13-66"></a>    s<span class="op">=</span><span class="dv">100</span>,</span>
+<span id="cb13-67"><a href="#cb13-67"></a>    ax<span class="op">=</span>axes[<span class="dv">1</span>, <span class="dv">1</span>]</span>
+<span id="cb13-68"><a href="#cb13-68"></a>)</span>
+<span id="cb13-69"><a href="#cb13-69"></a>axes[<span class="dv">1</span>, <span class="dv">1</span>].set_title(<span class="st">'Diagnose vs. Altersgruppe'</span>)</span>
+<span id="cb13-70"><a href="#cb13-70"></a>axes[<span class="dv">1</span>, <span class="dv">1</span>].set_xlabel(<span class="st">''</span>)</span>
+<span id="cb13-71"><a href="#cb13-71"></a>axes[<span class="dv">1</span>, <span class="dv">1</span>].set_ylabel(<span class="st">''</span>)</span>
+<span id="cb13-72"><a href="#cb13-72"></a>axes[<span class="dv">1</span>, <span class="dv">1</span>].get_legend().remove()</span>
+<span id="cb13-73"><a href="#cb13-73"></a>axes[<span class="dv">1</span>, <span class="dv">1</span>].tick_params(axis<span class="op">=</span><span class="st">'x'</span>, rotation<span class="op">=</span><span class="dv">90</span>)</span>
+<span id="cb13-74"><a href="#cb13-74"></a></span>
+<span id="cb13-75"><a href="#cb13-75"></a>plt.show()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-anomalie-visualisierung" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-anomalie-visualisierung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="datenexploration_files/figure-html/fig-anomalie-visualisierung-output-1.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anomalie-visualisierung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;10: Visualisierung der Anomalien
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Mit 499 Anomalien repräsentieren die Anomalien 4.98% der im Datensatz aufgeführten Diagnosen. <a href="#fig-altersverteilung-anomalien" class="quarto-xref">Abbildung&nbsp;11</a> bestätigt im Vergleich zu <a href="#fig-altersverteilung" class="quarto-xref">Abbildung&nbsp;1</a>, dass der Anteil der älteren und jüngeren Altersgruppen in den Anomalien höher repräsentiert bist.</p>
+<div id="cell-fig-altersverteilung-anomalien" class="cell" data-execution_count="22">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>STANDARD_FIGSIZE)</span>
+<span id="cb14-2"><a href="#cb14-2"></a>sns.histplot(</span>
+<span id="cb14-3"><a href="#cb14-3"></a>    data<span class="op">=</span>anomalies_df,</span>
+<span id="cb14-4"><a href="#cb14-4"></a>    x<span class="op">=</span><span class="st">'age'</span>,</span>
+<span id="cb14-5"><a href="#cb14-5"></a>    bins<span class="op">=</span><span class="dv">12</span>,</span>
+<span id="cb14-6"><a href="#cb14-6"></a>    kde<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb14-7"><a href="#cb14-7"></a>    edgecolor<span class="op">=</span><span class="st">'white'</span>,</span>
+<span id="cb14-8"><a href="#cb14-8"></a>    ax<span class="op">=</span>axes[<span class="dv">0</span>]</span>
+<span id="cb14-9"><a href="#cb14-9"></a>)</span>
+<span id="cb14-10"><a href="#cb14-10"></a>axes[<span class="dv">0</span>].set_xlabel(<span class="st">"Alter in Jahren"</span>)</span>
+<span id="cb14-11"><a href="#cb14-11"></a>axes[<span class="dv">0</span>].set_ylabel(<span class="st">"Anzahl Patienten"</span>)</span>
+<span id="cb14-12"><a href="#cb14-12"></a></span>
+<span id="cb14-13"><a href="#cb14-13"></a>age_group_counts <span class="op">=</span> anomalies_df[<span class="st">"age_group"</span>].value_counts(normalize<span class="op">=</span><span class="va">False</span>).sort_index()</span>
+<span id="cb14-14"><a href="#cb14-14"></a>axes[<span class="dv">1</span>].pie(</span>
+<span id="cb14-15"><a href="#cb14-15"></a>    age_group_counts,</span>
+<span id="cb14-16"><a href="#cb14-16"></a>    labels<span class="op">=</span>age_group_counts.index,</span>
+<span id="cb14-17"><a href="#cb14-17"></a>    autopct<span class="op">=</span><span class="st">'</span><span class="sc">%1.1f%%</span><span class="st">'</span>,</span>
+<span id="cb14-18"><a href="#cb14-18"></a>    startangle<span class="op">=</span><span class="dv">90</span>,</span>
+<span id="cb14-19"><a href="#cb14-19"></a>    colors<span class="op">=</span>sns.color_palette(<span class="st">"pastel"</span>)</span>
+<span id="cb14-20"><a href="#cb14-20"></a>)</span>
+<span id="cb14-21"><a href="#cb14-21"></a>axes[<span class="dv">1</span>].set_title(<span class="st">"Anteil der Altersgruppen"</span>)</span>
+<span id="cb14-22"><a href="#cb14-22"></a>plt.show()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-altersverteilung-anomalien" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-altersverteilung-anomalien-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="datenexploration_files/figure-html/fig-altersverteilung-anomalien-output-1.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-altersverteilung-anomalien-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;11: Alterverteilung der Anoamlien
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><a href="#fig-geschlechtsverteilung-anomalien" class="quarto-xref">Abbildung&nbsp;12</a> zeigt, dass der Anteil der weiblichen und unbekannten Patienten unter den Anomalien höher ist als der im gesamten Datensatz (siehe <a href="#fig-geschlechtsverteilung" class="quarto-xref">Abbildung&nbsp;2</a>).</p>
+<div id="cell-fig-geschlechtsverteilung-anomalien" class="cell" data-execution_count="23">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>geschlecht_counts_anomalies <span class="op">=</span> anomalies_df[<span class="st">"sex_de"</span>].value_counts()</span>
+<span id="cb15-2"><a href="#cb15-2"></a>plt.figure(figsize<span class="op">=</span>STANDARD_FIGSIZE)</span>
+<span id="cb15-3"><a href="#cb15-3"></a>plt.pie(</span>
+<span id="cb15-4"><a href="#cb15-4"></a>    geschlecht_counts_anomalies,</span>
+<span id="cb15-5"><a href="#cb15-5"></a>    labels<span class="op">=</span>[<span class="ss">f"</span><span class="sc">{</span>label<span class="sc">}</span><span class="ss">"</span> <span class="cf">for</span> label <span class="kw">in</span> geschlecht_counts_anomalies.index],</span>
+<span id="cb15-6"><a href="#cb15-6"></a>    autopct<span class="op">=</span><span class="st">'</span><span class="sc">%1.1f%%</span><span class="st">'</span>,</span>
+<span id="cb15-7"><a href="#cb15-7"></a>    startangle<span class="op">=</span><span class="dv">90</span>,</span>
+<span id="cb15-8"><a href="#cb15-8"></a>    colors<span class="op">=</span>sns.color_palette(<span class="st">"pastel"</span>),</span>
+<span id="cb15-9"><a href="#cb15-9"></a>    wedgeprops<span class="op">=</span>{<span class="st">'edgecolor'</span>: <span class="st">'white'</span>}</span>
+<span id="cb15-10"><a href="#cb15-10"></a>)</span>
+<span id="cb15-11"><a href="#cb15-11"></a>plt.show()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-geschlechtsverteilung-anomalien" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-geschlechtsverteilung-anomalien-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="datenexploration_files/figure-html/fig-geschlechtsverteilung-anomalien-output-1.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-geschlechtsverteilung-anomalien-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;12: Verteilung des Geschlechts unter den Anomalien
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

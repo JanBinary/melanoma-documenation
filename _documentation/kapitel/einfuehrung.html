@@ -21,7 +21,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -94,6 +114,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../kapitel/index.html"> 
 <span class="menu-text">Inhaltsverzeichnis</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../presentation.html"> 
+<span class="menu-text">Präsentation</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -110,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation"><span class="header-section-number">1</span> Motivation</a></li>
-  <li><a href="#relevanz-des-themas" id="toc-relevanz-des-themas" class="nav-link" data-scroll-target="#relevanz-des-themas"><span class="header-section-number">2</span> Relevanz des Themas</a></li>
+  <li><a href="#sec-Motivation" id="toc-sec-Motivation" class="nav-link active" data-scroll-target="#sec-Motivation"><span class="header-section-number">1</span> Motivation</a></li>
+  <li><a href="#sec-Relevanz_des_Themas" id="toc-sec-Relevanz_des_Themas" class="nav-link" data-scroll-target="#sec-Relevanz_des_Themas"><span class="header-section-number">2</span> Relevanz des Themas</a></li>
   <li><a href="#forschungsgegenstand-und-vorgehensweise" id="toc-forschungsgegenstand-und-vorgehensweise" class="nav-link" data-scroll-target="#forschungsgegenstand-und-vorgehensweise"><span class="header-section-number">3</span> Forschungsgegenstand und Vorgehensweise</a></li>
   </ul>
 </nav>
@@ -150,19 +174,54 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="motivation" class="level1" data-number="1">
+<section id="sec-Motivation" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Motivation</h1>
+<p>Künstliche Intelligenz. Ein Begriff, welcher scheinbar immer häufiger in unseren Alltag, aber auch in weiten Bereichen der Wirtschaft Einzug hat <span class="citation" data-cites="statista2024"><a href="#ref-statista2024" role="doc-biblioref">[1, S. 4–10]</a></span> Dementsprechend wird es ebenfalls immer wichtiger zu verstehen, was künstliche Intellignez (KI) eigentlich ist. Hierfür wird diese Arbeit im Rahmen des Studienmoduls ‘Advanced Topics in Computer Science’ ausgearbeitet.</p>
+<div id="fig-toni" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-toni-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/toni.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-toni-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;1: Toni
+</figcaption>
+</figure>
+</div>
+<p>Das Ziel hierbei ist es, das allgemeine Verständnis des Themenfeldes ‘Künstliche Intelligenz’ durch nähere Betrachtung eines spezifischen Themas, zu steigern beziehungsweise zu verbesseren. Zu diesem Zweck beschäftigt sich diese wissenschaftliche Arbeit mit dem Aufbau und Analyse eines KI-Modells, welches durch die Analyse von Bildern eine Hautkrebsdiagnose durchführen soll.</p>
+<p>Dieses Thema wurde ausgewählt, nicht nur, weil es, wie im folgenden <a href="#sec-Relevanz_des_Themas" class="quarto-xref">Abschnitt&nbsp;2</a> näher erläutert, ein relevantes Thema ist, sondern auch, weil es eine Reihe von Einblicken gewährt, wie KIs Bilder analysieren und interpretieren können und wie dies sowohl im Alltag als auch in der Wirtschaft zum Einsatz kommen könnte. Des Weiteren werden auch generelle Erkenntnisse zum Aufsetzen und Trainieren von KI-Modellen gewonnen.</p>
 </section>
-<section id="relevanz-des-themas" class="level1" data-number="2">
+<section id="sec-Relevanz_des_Themas" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Relevanz des Themas</h1>
+<p>Im Bereich des Gesundheitsheitwesens weitet sich der Einsatz und Nutzen von Künstlicher Intelligenz ebenfalls immer weiter aus <span class="citation" data-cites="statista2024"><a href="#ref-statista2024" role="doc-biblioref">[1, S. 29ff]</a></span>. Der Einsatz umfasst dabei unter anderem die Einsatzbereiche der medizinischen Bildgebung beziehungsweise der Diagnostik <span class="citation" data-cites="Du_et_al.2025"><a href="#ref-Du_et_al.2025" role="doc-biblioref">[2]</a> Abs 1</span>, welche in dieser Arbeit von besonderem Interesse sind.</p>
+<p>Jedes Jahr werden ungefähr 123.000 Fälle von Hautkrebs identifiziert. Dabei ist in dem Bereich der Dermatologie, welcher erste Diagnosen oft durch visuelle Mustererkennung erstellen muss, die Nutzung von KI besonderes hilfreich und vegelichweise gut umsetztbar.<span class="citation" data-cites="Du_et_al.2025"><a href="#ref-Du_et_al.2025" role="doc-biblioref">[2, Kap. 6.3.5.4]</a></span></p>
+<p>Melanoma, die tödlichste Art von Hautkrebs, ist die 19. häufigste auftretetende Krebsart. Gleichzeitg ist aber auch so, dass wenn Melanoma in einem frühen Stadium entdeckt wird, dass die Überlebenschance der Betroffenen über 95% liegt.<br>
+Jedoch ist eine manuelle Analyse durch den Dermatologen, für jedes Muttermal oder Hautirretation, mit einem hohen Kosten- und Zeitaufwand verbunden.<span class="citation" data-cites="VashdevAsrani_et_al.2025"><a href="#ref-VashdevAsrani_et_al.2025" role="doc-biblioref">[3]</a></span></p>
 </section>
 <section id="forschungsgegenstand-und-vorgehensweise" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Forschungsgegenstand und Vorgehensweise</h1>
+<p>Daher soll, wie zuvor erwähnt <a href="#sec-Motivation" class="quarto-xref">Kapitel&nbsp;1</a>, in dieser Arbeit ein Modell über einen Machine-Learning Ansatz erstellt und betrachtet werden. Hierfür wird der HAM10000 Datensatz <span class="citation" data-cites="HAM100002018"><a href="#ref-HAM100002018" role="doc-biblioref">[4]</a></span> als Trainingsgrundlage verwendet. Dieser wird in der Datenexploration näher betrachtet. Ebenfalls werden statistische Metriken und Abhängigkeiten analysiert.</p>
+<p>Zunächst werden jedoch thematische Grundlagen definiert. In dem Abschnitt werden dann Hautkrebsarten und entsprechende Diagnosewerkzeuge, sowie eine Definition von künstliche Intelligenz und die zugehörigen Anwendungenbereiche im medizinischen Sektor.</p>
+<p>Nach der Datenexploration werden anschließend die Datenvorbereitung, die Wahl des KI-Modell Ansatz, des Trainingsprozess und Paramenter, sowie die Validierung und die Evaluation protokoliert.</p>
+<p>Abschließend werden dann die Forschungsergebnisse interpretiert, das erstellte Modell mit weiteren bereits vorhandenen Modellen verglichen und ein Ausblick, sowie mögliche Verbesserungen gegeben.</p>
+
 
 
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Literatur</h2><div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
+<div id="ref-statista2024" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">Statista, <span>„Künstliche Intelligenz - Hauptanwendungsfelder“</span>, Statista, 2024. Verfügbar unter: <a href="https://https/de.statista.com/statistik/studie/id/38585/dokument/hauptanwendungsfelder-von-ki/">https/de.statista.com/statistik/studie/id/38585/dokument/hauptanwendungsfelder-von-ki/</a></div>
+</div>
+<div id="ref-Du_et_al.2025" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">J. Du, M. Huang, und L. Liu, <span>„KI-unterstützte Krankheitsvorhersage in der visualisierten Medizin“</span>, in <em>Visualisierung in der Medizin</em>, Z. Liu, Hrsg., Singapore: Springer Nature Singapore, 2025, 6, S. 117–139. doi: <a href="https://doi.org/10.1007/978-981-97-9693-9_6">https://doi.org/10.1007/978-981-97-9693-9_6</a>.</div>
+</div>
+<div id="ref-VashdevAsrani_et_al.2025" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline">S. Vashdev Asrani, J. Lalchandani, I. Desai, T. Jeswani, und S. Khedkar, <span>„SkInspection: Recognizing the Type of Skin Cancer Using Deep Learning“</span>, in <em>Proceedings of the International Health Informatics Conference</em>, S. Jain, B. K. Bhargava, D. Kalra, und S. Groppe, Hrsg., Singapore: Springer Nature Singapore, 2025, 12, S. 163–174. doi: <a href="https://doi.org/10.1007/978-981-97-7190-5_12">https://doi.org/10.1007/978-981-97-7190-5_12</a>.</div>
+</div>
+<div id="ref-HAM100002018" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[4] </div><div class="csl-right-inline">P. Tschandl und V. Group, <span>„The HAM10000 dataset, a large collection of multi-source dermatoscopic images of common pigmented skin lesions“</span>. <a href="https://dataverse.harvard.edu/citation?persistentId=doi:10.7910/DVN/DBW86T" class="uri">https://dataverse.harvard.edu/citation?persistentId=doi:10.7910/DVN/DBW86T</a>, 2018. doi: <a href="https://doi.org/10.7910/DVN/DBW86T">10.7910/DVN/DBW86T</a>.</div>
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
