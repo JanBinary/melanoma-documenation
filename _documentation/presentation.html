@@ -6,10 +6,10 @@
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.6.42">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.30">
 
-  <title>Melanoma – Präsentation</title>
+  <title>Melanoma – Melanoma Präsentation</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -27,8 +27,28 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-  </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-2f366650f320edcfcf53d73c80250a32.css">
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-f563837468303362081e247dddd440d0.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -44,6 +64,7 @@
     }
     .reveal .slide:not(.center) {
       height: 100%;
+      overflow-y: auto;
     }
     .reveal .slide.scrollable {
       overflow-y: auto;
@@ -120,6 +141,7 @@
       margin-right: 0; 
     }
   </style>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
   <script src="site_libs/quarto-diagram/mermaid.min.js"></script>
   <script src="site_libs/quarto-diagram/mermaid-init.js"></script>
   <link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
@@ -129,74 +151,638 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Präsentation</h1>
+  <h1 class="title">Melanoma Präsentation</h1>
+  <p class="subtitle">Einsatz von künstlicher Intelligenz zur Hautkrebsdiagnose</p>
 
 <div class="quarto-title-authors">
 </div>
 
+</section><section id="TOC">
+<nav role="doc-toc"> 
+<h2 id="toc-title">Inhaltsverzeichnis</h2>
+<ul>
+<li><a href="#/einleitung" id="/toc-einleitung"><span class="header-section-number">1</span> Einleitung</a></li>
+<li><a href="#/theoretische-grundlagen" id="/toc-theoretische-grundlagen"><span class="header-section-number">2</span> Theoretische Grundlagen</a></li>
+<li><a href="#/modellentwicklung" id="/toc-modellentwicklung"><span class="header-section-number">3</span> Modellentwicklung</a></li>
+<li><a href="#/auswertung-und-vergleich" id="/toc-auswertung-und-vergleich"><span class="header-section-number">4</span> Auswertung und Vergleich</a></li>
+<li><a href="#/einsatz-von-ki-als-entiwcklungswerkzeug" id="/toc-einsatz-von-ki-als-entiwcklungswerkzeug"><span class="header-section-number">5</span> Einsatz von KI als Entiwcklungswerkzeug</a></li>
+<li><a href="#/literaturverzeichnus" id="/toc-literaturverzeichnus"><span class="header-section-number">6</span> Literaturverzeichnus</a></li>
+</ul>
+</nav>
 </section>
-<section id="sec-test" class="title-slide slide level1 center">
-<h1>Fist Headline</h1>
-<p><a href="../index.html" class="home-button">Zurück zum Homescreen</a></p>
-
-<img data-src="presentation_files/figure-revealjs/fig-test-output-1.png" class="r-stretch quarto-figure-center" id="fig-test"><p class="caption">
-Abbildung&nbsp;1: Grafischer Test
-</p></section>
-
 <section>
-<section id="mermaid-test" class="title-slide slide level1 center">
-<h1>Mermaid Test</h1>
+<section id="einleitung" class="title-slide slide level1 center" data-number="1">
+<h1><span class="header-section-number">1</span> Einleitung</h1>
+<aside class="notes">
+
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="forschungsgrundlage" class="slide level2" data-number="1.1">
+<h2><span class="header-section-number">1.1</span> Forschungsgrundlage</h2>
+<blockquote>
+<p>Alle 120 Minuten stirbt ein Mensch an Hautkrebs. Wie kann künstliche Intelligenz Leben retten? <span class="citation" data-cites="DeStatis2024"><a href="#/literaturverzeichnus" role="doc-biblioref" onclick="">[1]</a></span></p>
+</blockquote>
+<blockquote>
+<p>1895 entdeckte Wilhelm Röntgen die Röntgenstrahlen und revolutionierte die Medizin. Steht uns mit künstlicher Intelligenz eine noch größere Revolution bevor? <span class="citation" data-cites="Roentgen1895"><a href="#/literaturverzeichnus" role="doc-biblioref" onclick="">[2]</a></span></p>
+</blockquote>
+</section>
+<section id="ki-und-bildanalyse" class="slide level2" data-number="1.2">
+<h2><span class="header-section-number">1.2</span> KI und Bildanalyse</h2>
+<div id="timeline" style="width: 100%; height: 600px;"></div>
+<script>
+  const data = [
+    { year: 1989, event: "Erste CNN-Idee zur Ziffernerkennung (Yann LeCun)" },
+    { year: 2010, event: "ImageNet-Datensatz revolutioniert Vision-Benchmarking" },
+    { year: 2012, event: "AlexNet: CNN-Durchbruch bei ImageNet" },
+    { year: 2014, event: "VGGNet & GoogLeNet: Tiefer & effizienter" },
+    { year: 2015, event: "ResNet: Einführung von Skip-Connections" },
+    { year: 2017, event: "Xception & MobileNet: Leichte CNNs für Mobile/Edge" },
+    { year: 2017, event: "Self-Attention (Transformer-Paper): Basis für ViT" },
+    { year: 2019, event: "EfficientNet: Architektur-Skalierung für Vision (z. B. Medizin)" },
+    { year: 2020, event: "Vision Transformer (ViT): CNN-freie Bildverarbeitung" },
+    { year: 2021, event: "CLIP: Gemeinsames Text-Bild-Verständnis" },
+    { year: 2022, event: "DALL·E 2, Imagen, Stable Diffusion: Generative Bild-KI" },
+    { year: 2023, event: "Segment Anything Model (SAM): Foundation Model für Segmentierung" }
+  ];
+
+  const width = 850;
+  const height = 550;
+  const margin = 40;
+
+  const svg = d3.select("#timeline")
+    .append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+  const yScale = d3.scalePoint()
+  .domain(data.map((_, i) => i))
+  .range([margin, height - margin])
+  .padding(0.5);
+
+  svg.append("line")
+    .attr("x1", width / 15)
+    .attr("x2", width / 15)
+    .attr("y1", margin - 30)
+    .attr("y2", height - margin + 30)
+    .attr("stroke", "#ccc")
+    .attr("stroke-width", 4);
+
+  svg.selectAll("circle")
+  .data(data)
+  .enter()
+  .append("circle")
+  .attr("cx", width / 15)
+  .attr("cy", (_, i) => yScale(i))  // <--- FIX
+  .attr("r", 10)
+  .attr("fill", "#0077cc");
+
+  svg.selectAll("text")
+  .data(data)
+  .enter()
+  .append("text")
+  .attr("x", width / 15 + 30)
+  .attr("y", (_, i) => yScale(i) + 6)  // <--- FIX
+  .text(d => `${d.year}: ${d.event}`)
+  .attr("font-size", "24px");
+</script>
+</section>
+<section id="unser-forschungsgegenstand" class="slide level2 smaller" data-number="1.3">
+<h2><span class="header-section-number">1.3</span> Unser Forschungsgegenstand</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">AKIEC</a></li><li><a href="#tabset-1-2">BCC</a></li><li><a href="#tabset-1-3">BKL</a></li><li><a href="#tabset-1-4">DF</a></li><li><a href="#tabset-1-5">MEL</a></li><li><a href="#tabset-1-6">NV</a></li><li><a href="#tabset-1-7">VASC</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<div id="fig-akiec" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-akiec-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="./images/akiec.jpg" style="width:55.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-akiec-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;1: Aktinische Keratose
+</figcaption>
+</figure>
+</div>
+</div>
+<div id="tabset-1-2">
+<div id="fig-bcc" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-bcc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="./images/bcc.jpg" style="width:55.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bcc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;2: Basalzellkarzinom
+</figcaption>
+</figure>
+</div>
+</div>
+<div id="tabset-1-3">
+<div id="fig-bkl" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-bkl-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="./images/bkl.jpg" style="width:55.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bkl-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;3: Keratosen-ähnliche Läsionen
+</figcaption>
+</figure>
+</div>
+</div>
+<div id="tabset-1-4">
+<div id="fig-df" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-df-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="./images/df.jpg" style="width:55.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-df-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;4: Dermatofibrom
+</figcaption>
+</figure>
+</div>
+</div>
+<div id="tabset-1-5">
+<div id="fig-mel" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-mel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="./images/mel.jpg" style="width:55.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;5: Melanom
+</figcaption>
+</figure>
+</div>
+</div>
+<div id="tabset-1-6">
+<div id="fig-nv" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-nv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="./images/nv.jpg" style="width:55.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-nv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;6: Melanozytische Nävi
+</figcaption>
+</figure>
+</div>
+</div>
+<div id="tabset-1-7">
+<div id="fig-vasc" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-vasc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="./images/vasc.jpg" style="width:55.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vasc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;7: Gefäßläsionen
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="unser-vorgehen" class="slide level2" data-number="1.4">
+<h2><span class="header-section-number">1.4</span> Unser Vorgehen</h2>
+<div id="fig-project-plan" class="r-stretch quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-project-plan-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell" data-reveal="true" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class=""><p></p>
 <div>
 <pre class="mermaid mermaid-js">gantt
-    title Test-Gantt-Diagramm
     dateFormat  YYYY-MM-DD
-    section Projekt
-    Planung         :a1, 2025-04-01, 5d
-    Umsetzung       :a2, 2025-04-06, 7d
-    Abschluss       :a3, 2025-04-13, 3d
+    section Recherche
+    Thema definieren           :done,    lit1, 2025-04-04,2025-04-05
+    Literatur auswerten        :done,    lit2, 2025-04-05,2025-04-22
+    
+    section Planung
+    Ziele definieren           :done,    plan1, 2025-04-05,2025-04-09
+    Ressourcen planen          :done,    plan2, 2025-04-09,2025-04-12
+    
+    section Grundlagen
+    Theoretische Basis         :done,         grund1, 2025-04-09,2025-04-27
+    Framework definieren       :done,         grund2, 2025-04-09,2025-04-12
+    
+    section Exploration
+    Datensatz Verständnis      :done,         data1, 2025-04-14,2025-04-27
+    Explorative Analyse        :done,         data2, 2025-04-14,2025-05-11
+    
+    section Modell
+    Mathematische Grundlagen   :done,          model4, 2025-04-29, 2025-05-13
+    Modell konzipieren         :done,         model1, 2025-04-29,2025-05-17
+    Implementierung            :done,         model2, 2025-05-21,2025-06-23
+    Testing &amp; Validierung      :done,         model3, 2025-06-08,2025-06-28
+    
+    section Diskussion
+    Ergebnisse interpretieren  :done,         dis1, 2025-06-10,2025-06-28
+    Fazit &amp; Ausblick          :done,          dis2, 2025-06-24,2025-06-29
+    Finalisierung             :active,          disk3, 2025-06-26,2025-07-02
 </pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
-</section>
-<section id="first-subheadline" class="slide level2">
-<h2>First Subheadline</h2>
-<p>Das ist ein Text unter einer Subheadline <a href="#/fig-test" class="quarto-xref">Abbildung&nbsp;1</a>.</p>
-<p>Das ist ein anderer Text <a href="#/sec-test" class="quarto-xref">Kapitel&nbsp;1</a>.</p>
-</section>
-<section id="second-subheadline" class="slide level2">
-<h2>Second Subheadline</h2>
-<div class="columns">
-<div class="column" style="width:30%;">
-<ul>
-<li>First point</li>
-<li>Second point</li>
-<li>Third point</li>
-</ul>
-</div><div class="column" style="width:70%;">
-<p>lorem</p>
-</div></div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-project-plan-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;8: Projektablauf
+</figcaption>
+</figure>
+</div>
 </section></section>
-<section id="second-headline" class="title-slide slide level1 center">
-<h1>Second Headline</h1>
+<section>
+<section id="theoretische-grundlagen" class="title-slide slide level1 center" data-number="2">
+<h1><span class="header-section-number">2</span> Theoretische Grundlagen</h1>
 
 </section>
+<section id="arten-von-hautkrebs" class="slide level2" data-number="2.1">
+<h2><span class="header-section-number">2.1</span> Arten von Hautkrebs</h2>
+<p>platzhalter</p>
 
-<section id="third-headline" class="title-slide slide level1 center">
-<h1>Third Headline</h1>
+<aside><div>
+<p>Das ist eine Side Note</p>
+</div></aside></section>
+<section id="bisherige-diagnoseverfahren" class="slide level2" data-number="2.2">
+<h2><span class="header-section-number">2.2</span> Bisherige Diagnoseverfahren</h2>
+<p>platzhalter</p>
+</section>
+<section id="grundlagen-computer-vision" class="slide level2 smaller" data-number="2.3">
+<h2><span class="header-section-number">2.3</span> Grundlagen Computer Vision</h2>
+<blockquote>
+<p>Wie kann ein Computer sehen?</p>
+</blockquote>
+<div class="fragment">
+<p><strong>Faltung (Convolution)</strong></p>
+<p><span class="math display">\[
+I^{\ast} (x, y) = \sum^n_{i=1} \sum^n_{j=1}{I(x-i+a, y-j+a)K(i, j)}
+\]</span></p>
+<p><strong>Aufmerksamkeitsmechanismus (Attention)</strong></p>
+<p><span class="math display">\[
+\text{Attention}(Q, K, V) = \text{softmax}\left( \frac{QK^\top}{\sqrt{d_k}} \right) V
+\]</span></p>
+</div>
+</section>
+<section class="slide level2">
+
+<p><strong>Faltung (in CNNs)</strong></p>
 <ul>
-<li>first point</li>
-<li>second point</li>
-<li>third point</li>
+<li>Ein Filter (Kernel) durchläuft das Bild stückweise um Muster zu erkennen</li>
+<li>Frühere Schichten erkennen einfache Merkmale wie Kanten, Ecken, Farbübergänge</li>
+<li>Spätere Schichten kombinieren einfache Muster zu komplexeren Formen</li>
+<li>CNNs erkennen Merkmale <strong>unabhängig</strong> von ihrer Position im Bild</li>
 </ul>
 
+<aside><div>
+<p>Funktionsweise Faltung <span class="citation" data-cites="Bradski_Kaehler_2008"><a href="#/literaturverzeichnus" role="doc-biblioref" onclick="">[3]</a></span></p>
+</div></aside></section>
+<section class="slide level2">
 
+<p><strong>Achtsamkeitsmechanismus (in ViTs)</strong></p>
+<ul>
+<li>Bild wird in kleine Patches zerlegt, die wie Wörter verarbeitet werden</li>
+<li>Jedes Patch <strong>achtet</strong> auf andere Patches und gewichtet deren Einfluss (Self-Attention)</li>
+<li>Modell lernt Beziehungen zwischen Bildteilen unabhängig von deren Abstand</li>
+<li>ViTs erkennen <strong>globale Zusammenhänge</strong> frühzeitig, nicht nur lokale Muster</li>
+</ul>
+
+<aside><div>
+<p>Funktionsweise Achtsamkeit <span class="citation" data-cites="Vaswani2017"><a href="#/literaturverzeichnus" role="doc-biblioref" onclick="">[4]</a></span></p>
+</div></aside></section>
+<section id="was-passiert-bei-der-faltung" class="slide level2" data-number="2.4">
+<h2><span class="header-section-number">2.4</span> Was passiert bei der Faltung</h2>
+<ul>
+<li>🔍 Ein Filter <span class="math inline">\(K\)</span> überlagert das Bild <span class="math inline">\(I\)</span> und blickt auf einen <span class="math inline">\(n \times n\)</span> Bereich</li>
+<li>➕ Überlappende Werte werden multipliziert und aufsummiert</li>
+<li>🎯 Ein einzelner neuer Wert entsteht <span class="math inline">\(I^{\ast} (x, y)\)</span></li>
+</ul>
+<p><span class="math display">\[
+I^{\ast} (x, y) = \sum^n_{i=1} \sum^n_{j=1}{I(x-i+a, y-j+a)K(i, j)}
+\]</span></p>
+</section>
+<section id="section" class="slide level2 unnumbered" data-background-video="./animations/MatrixMultiplicationVisualization.mp4" data-background-video-loop="true" data-background-video-muted="true">
+<h2></h2>
+</section>
+<section id="anwendung-der-faltung-in-cnns" class="slide level2" data-number="2.5">
+<h2><span class="header-section-number">2.5</span> Anwendung der Faltung in CNNs</h2>
+<ul>
+<li>✅ Je nach Wahl des Kernels <span class="math inline">\(K\)</span> werden unterschiedliche Merkmale hervorgehoben</li>
+<li>🏎️ Der Kernel <span class="math inline">\(K\)</span> bewegt sich stückweise über das komplette Bild <span class="math inline">\(I\)</span></li>
+<li>🏃🏿‍♂️‍➡️ Die Schrittweite des Kernels ist variabel und wird als Stride bezeichnet</li>
+<li>🅾️ Padding ist möglich (0 Werte am Rand der Matrix)</li>
+</ul>
+</section>
+<section id="section-1" class="slide level2 unnumbered" data-background-video="./animations/ConvolutionVisualization.mp4" data-background-video-loop="true" data-background-video-muted="true">
+<h2></h2>
+</section>
+<section id="pooling-in-cnns" class="slide level2" data-number="2.6">
+<h2><span class="header-section-number">2.6</span> Pooling in CNNs</h2>
+<ul>
+<li>⬇️ Reduziert die Bildgröße durch Zusammenfassen benachtbarter Pixel</li>
+<li>💻 Verringert Rechenaufwand und Anzahl der Paramter</li>
+<li>🟰 Teilweise translationsinvariant (<span class="math inline">\(f:\mathbb{R}^2 \to \mathbb{R}\)</span>, <span class="math inline">\(f(A) = f(A + t)\)</span> )</li>
+<li>🏃🏿‍♂️‍➡️ Ein Fenster bewegt sich stückweise über das komplette Bild (ähnlich zur Faltung)</li>
+</ul>
+</section>
+<section class="slide level2 scrollable">
+
+<p><strong>Arten von Pooling</strong></p>
+<ol type="1">
+<li>Max-Pooling: Gibt den höchsten Wert im Fenster zurück</li>
+<li>Average-Pooling: Gibt den Durchschnittswert aller Werte im Fenster zurück</li>
+<li>Global Pooling: Aggregiert das gesamte Bild (Fenstergröße = Bildgröße)</li>
+</ol>
+<div class="fragment">
+<div id="fig-global-pooling" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-global-pooling-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="./images/global_pooling.png" style="width:28.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-global-pooling-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;9: Global Pooling (aus Research Gate)
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="section-2" class="slide level2 unnumbered" data-background-video="./animations/PoolingVisualization.mp4" data-background-video-loop="true" data-background-video-muted="true">
+<h2></h2>
+</section>
+<section id="aktivierungsfunktionen" class="slide level2" data-number="2.7">
+<h2><span class="header-section-number">2.7</span> Aktivierungsfunktionen</h2>
+<ul>
+<li>📏 Werden nach Faltungen / Linearkombinationen eingesetzt</li>
+<li>🎢 Ohne Aktivierung wäre ein tiefes Netz nur eine lineare Funktion</li>
+<li>📊 Helfen beim Lernen von Mustern und Entscheidungsgrenzen</li>
+<li>💯 Werden punktweise auf jedes Pixel / Feature angewendet</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p><strong>Rectified linear unit (ReLU)</strong></p>
+<ul>
+<li>ℹ️ Einfach, schnell, sparsamer Gradient</li>
+<li>🎯 Eliminiert negative Werte</li>
+</ul>
+<p><span class="math display">\[
+f(x) = \text{max}(0, x)
+\]</span></p>
+</section>
+<section class="slide level2">
+
+<p><strong>Sigmoid</strong></p>
+<ul>
+<li>ℹ️ Glättet Werte auf kontinuierliche Skala<br>
+</li>
+<li>🎯 Skaliert Eingaben in den Bereich (0, 1)<br>
+</li>
+<li>🔻 Kann bei großen |x| zum Gradient-Verschwinden führen</li>
+</ul>
+<p><span class="math display">\[
+f(x) = \frac{1}{1 + e^{-x}}
+\]</span></p>
+</section>
+<section class="slide level2">
+
+<p><strong>Softmax</strong></p>
+<ul>
+<li>ℹ️ Für Klassifikation mit mehreren Klassen (z. B. Ausgabeschicht)<br>
+</li>
+<li>🎯 Wandelt Rohwerte in Wahrscheinlichkeitsverteilung</li>
+</ul>
+<p><span class="math display">\[
+f(x_i) = \frac{e^{x_i}}{\sum_{j=1}^k e^{x_j}}
+\]</span></p>
+
+<aside><div>
+<p>Dabei ist <span class="math inline">\(k\)</span> die Anzahl der Klassen</p>
+</div></aside></section>
+<section id="section-3" class="slide level2 unnumbered" data-background-video="./animations/ActivationFunctionsVisualization.mp4" data-background-video-loop="true" data-background-video-muted="true">
+<h2></h2>
+</section>
+<section id="architektur-eines-cnns" class="slide level2" data-number="2.8">
+<h2><span class="header-section-number">2.8</span> Architektur eines CNNs</h2>
+
+<img data-src="./images/cnn_architecture.png" class="r-stretch quarto-figure-center" id="fig-cnn-architecture"><p class="caption">
+Abbildung&nbsp;10: CNN Architektur (aus Medium)
+</p></section>
+<section id="section-4" class="slide level2 unnumbered" data-background-video="./animations/CnnVisualization.mp4" data-background-video-loop="true" data-background-video-muted="true">
+<h2></h2>
+</section>
+<section id="gradienten-und-deren-aussagekraft" class="slide level2" data-number="2.9">
+<h2><span class="header-section-number">2.9</span> Gradienten und deren Aussagekraft</h2>
+<ul>
+<li>ℹ️ Der Gradient ist die Ableitung einer Funktion nach ihren Eingabewerten</li>
+<li>🎯 Zeigt Richtung des stärksten Wachstums und Einfluss der Parameter</li>
+<li>🖼️ Dargestellt durch den Nabla Operator <span class="math inline">\(\nabla\)</span></li>
+</ul>
+</section>
+<section id="section-5" class="slide level2 unnumbered" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"></h2>
+<p><span class="math display">\[
+f : \mathbb{R}^2 \to \mathbb{R}
+\]</span></p>
+<p><span class="math display">\[
+f(x, y) = 2x^2 + 3y
+\]</span></p>
+<p><span class="math display">\[
+\nabla f =
+\begin{pmatrix}
+\frac{\partial f}{\partial x} \\
+\frac{\partial f}{\partial y}
+\end{pmatrix}
+=
+\begin{pmatrix}
+4x \\
+3
+\end{pmatrix}
+\]</span></p>
+</section>
+<section id="section-6" class="slide level2 unnumbered" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"></h2>
+<p><span class="math display">\[
+\nabla f =
+\begin{pmatrix}
+\frac{\partial f}{\partial x} \\
+\frac{\partial f}{\partial y}
+\end{pmatrix}
+=
+\begin{pmatrix}
+4x \\
+3
+\end{pmatrix}
+\]</span></p>
+<ul>
+<li>ℹ️ <span class="math inline">\(x\)</span> hat den größten Einfluss auf die Steigung von <span class="math inline">\(f\)</span></li>
+<li>ℹ️ <span class="math inline">\(y\)</span> hat konstant positiven Einfluss auf die Funktion</li>
+<li>ℹ️ <span class="math inline">\(\nabla f\)</span>: Richtung des größten Wachstums</li>
+<li>ℹ️ <span class="math inline">\(-\nabla f\)</span>: Richtung der größten Abnahme</li>
+</ul>
+</section>
+<section id="section-7" class="slide level2 unnumbered" data-background-video="./animations/GradientVisualization.mp4" data-background-video-loop="true" data-background-video-muted="true">
+<h2></h2>
+</section>
+<section id="kostenfunktionen-loss-function" class="slide level2" data-number="2.10">
+<h2><span class="header-section-number">2.10</span> Kostenfunktionen (Loss Function)</h2>
+<ul>
+<li>ℹ️ Messen den Unterschied zwischen Schätzung <span class="math inline">\(\hat{y}\)</span> und Zielwert <span class="math inline">\(y\)</span></li>
+<li>ℹ️ Bei Klassifikationsproblemen eignet sich Cross Entropy Loss</li>
+<li>🎯 Fehlerwert durch Anpassung der Gewichte zu minimieren</li>
+</ul>
+</section>
+<section id="section-8" class="slide level2 unnumbered" data-background-video="./animations/CrossEntropyVisualization.mp4" data-background-video-loop="true" data-background-video-muted="true">
+<h2></h2>
+</section>
+<section id="gewichtsanpassung" class="slide level2" data-number="2.11">
+<h2><span class="header-section-number">2.11</span> Gewichtsanpassung</h2>
+<ul>
+<li>ℹ️ Nutzt den Gradienten der Kostenfunktion, um zu bestimmen, wie stark jedes Gewicht beiträgt</li>
+<li>ℹ️ Beruht auf der Kettenregel der Ableitung</li>
+<li>🎯 Fehlerwert durch Anpassung der Gewichte zu minimieren</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p><strong>Gradient Descent</strong></p>
+<ul>
+<li>ℹ️ Iterativer Optimierungsalgorithmus</li>
+<li>🎯 Gewichte in Richtung des negativen Gradienten Bewegen</li>
+</ul>
+<p><span class="math display">\[
+w_i \gets w_i - \eta \cdot \frac{\partial L}{\partial w_i}
+\]</span></p>
+
+<aside><div>
+<p><span class="math inline">\(\eta\)</span> ist die Lernrate</p>
+</div></aside></section>
+<section id="section-9" class="slide level2 unnumbered" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"></h2>
+<p><strong>Kettenregel</strong></p>
+<p><span class="math display">\[
+f(x) = u(v(x))
+\]</span></p>
+<p><span class="math display">\[
+f'(x) = u'(v(x)) v'(x)
+\]</span></p>
+
+<aside><div>
+<p>Reminder</p>
+</div></aside></section>
+<section id="section-10" class="slide level2 unnumbered" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"></h2>
+<p><strong>Kettenregel</strong></p>
+<p><span class="math display">\[
+L(\sigma(z_6))
+\]</span></p>
+<p><span class="math display">\[
+\frac{dL}{dz_6} = \frac{dL}{d \sigma (z_6)} \frac{d \sigma (z_6)}{dz_6}
+\]</span></p>
+<div class="fragment">
+<p><strong>Problem</strong>: <span class="math inline">\(z_6 = \sigma (z_5)\)</span>, <span class="math inline">\(z_5 = \sigma (z_4)\)</span>, …</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><span class="math display">\[
+\sigma(x) = \frac{1}{1 + e^{-x}}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><span class="math display">\[
+\frac{d\sigma}{dx} = \sigma(x)(1-\sigma(x))
+\]</span></p>
+</div></div>
+
+</div>
+<aside><div>
+<p>Reminder</p>
+</div></aside></section>
+<section id="section-11" class="slide level2 unnumbered" data-auto-animate="true" data-auto-animate-easing="ease-in-out">
+<h2 data-id="quarto-animate-title"></h2>
+
+<img data-src="presentation_files/figure-revealjs/cell-2-output-1.png" class="r-stretch"></section>
+<section id="vorstellung-des-datensatzes" class="slide level2" data-number="2.12">
+<h2><span class="header-section-number">2.12</span> Vorstellung des Datensatzes</h2>
+<p>platzhalter</p>
+</section>
+<section class="slide level2">
+
+<h3 data-number="2.12.1" id="beschreibung-des-datensatzes"><span class="header-section-number">2.12.1</span> Beschreibung des Datensatzes</h3>
+<p>platzhalter</p>
+</section>
+<section class="slide level2">
+
+<h3 data-number="2.12.2" id="besondere-erkenntnisse-der-datenexploration"><span class="header-section-number">2.12.2</span> Besondere Erkenntnisse der Datenexploration</h3>
+<p>platzhalter</p>
+</section></section>
+<section>
+<section id="modellentwicklung" class="title-slide slide level1 center" data-number="3">
+<h1><span class="header-section-number">3</span> Modellentwicklung</h1>
+<p>platzhalter</p>
+</section>
+<section id="modellevaluierung" class="slide level2" data-number="3.1">
+<h2><span class="header-section-number">3.1</span> Modellevaluierung</h2>
+<p>platzhalter</p>
+</section>
+<section id="gewonnene-erfahrungen" class="slide level2" data-number="3.2">
+<h2><span class="header-section-number">3.2</span> Gewonnene Erfahrungen</h2>
+<p>platzhalter</p>
+</section></section>
+<section>
+<section id="auswertung-und-vergleich" class="title-slide slide level1 center" data-number="4">
+<h1><span class="header-section-number">4</span> Auswertung und Vergleich</h1>
+<p>platzhalter</p>
+</section>
+<section id="ergebnisse-der-eigenentwicklung" class="slide level2" data-number="4.1">
+<h2><span class="header-section-number">4.1</span> Ergebnisse der Eigenentwicklung</h2>
+<p>platzhalter</p>
+</section>
+<section id="alternative-modelle" class="slide level2" data-number="4.2">
+<h2><span class="header-section-number">4.2</span> Alternative Modelle</h2>
+<p>platzhalter</p>
+<h3 data-number="4.2.1" id="llms-im-test"><span class="header-section-number">4.2.1</span> LLMs im Test</h3>
+<p>platzhalter</p>
+</section>
+<section class="slide level2">
+
+<h3 data-number="4.2.2" id="frauenhofer-bosch-lösung"><span class="header-section-number">4.2.2</span> Frauenhofer / Bosch Lösung</h3>
+<p>platzhalter</p>
+</section>
+<section id="ausblick" class="slide level2" data-number="4.3">
+<h2><span class="header-section-number">4.3</span> Ausblick</h2>
+<p>platzhalter</p>
+</section></section>
+<section id="einsatz-von-ki-als-entiwcklungswerkzeug" class="title-slide slide level1 center" data-number="5">
+<h1><span class="header-section-number">5</span> Einsatz von KI als Entiwcklungswerkzeug</h1>
+<p>platzhalter</p>
+</section>
+
+<section id="literaturverzeichnus" class="title-slide slide level1 smaller scrollable" data-number="6">
+<h1><span class="header-section-number">6</span> Literaturverzeichnus</h1>
+<div class="refs">
+
+</div>
+
+
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
+<div id="ref-DeStatis2024" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">S. B. Deutschland, <span>„Zahl der Woche Nr. 22“</span>. 2024. Verfügbar unter: <a href="https://www.destatis.de/DE/Presse/Pressemitteilungen/Zahl-der-Woche/2024/PD24_22_p002.html">https://www.destatis.de/DE/Presse/Pressemitteilungen/Zahl-der-Woche/2024/PD24_22_p002.html</a></div>
+</div>
+<div id="ref-Roentgen1895" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">W. C. Röntgen, <span>„Über eine neue Art von Strahlen (Vorläufige Mittheilung)“</span>, <em>Sitzungsberichte der Würzburger Physikalisch-medizinischen Gesellschaft</em>, Bd. 1895, S. 137–147, 1895.</div>
+</div>
+<div id="ref-Bradski_Kaehler_2008" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline">G. Bradski und A. Kaehler, <em>Learning OpenCV</em>. Sebastopol, CA, USA: O’Reilly Media, Inc., 2008.</div>
+</div>
+<div id="ref-Vaswani2017" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[4] </div><div class="csl-right-inline">A. Vaswani <em>u.&nbsp;a.</em>, <span>„Attention Is All You Need“</span>, <em>CoRR</em>, Bd. abs/1706.03762, 2017, Verfügbar unter: <a href="http://arxiv.org/abs/1706.03762">http://arxiv.org/abs/1706.03762</a></div>
+</div>
+</div>
 </section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
@@ -254,7 +840,7 @@ Abbildung&nbsp;1: Grafischer Test
         progress: true,
 
         // Display the page number of the current slide
-        slideNumber: false,
+        slideNumber: 'c/t',
 
         // 'all', 'print', or 'speaker'
         showSlideNumber: 'all',
@@ -414,190 +1000,172 @@ Abbildung&nbsp;1: Grafischer Test
       });
     </script>
     <script id="quarto-html-after-body" type="application/javascript">
-    window.document.addEventListener("DOMContentLoaded", function (event) {
-      const toggleBodyColorMode = (bsSheetEl) => {
-        const mode = bsSheetEl.getAttribute("data-mode");
-        const bodyEl = window.document.querySelector("body");
-        if (mode === "dark") {
-          bodyEl.classList.add("quarto-dark");
-          bodyEl.classList.remove("quarto-light");
-        } else {
-          bodyEl.classList.add("quarto-light");
-          bodyEl.classList.remove("quarto-dark");
-        }
-      }
-      const toggleBodyColorPrimary = () => {
-        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-        if (bsSheetEl) {
-          toggleBodyColorMode(bsSheetEl);
-        }
-      }
-      toggleBodyColorPrimary();  
-      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
-      tabsets.forEach(function(tabset) {
-        const tabby = new Tabby('#' + tabset.id);
-      });
-      const isCodeAnnotation = (el) => {
-        for (const clz of el.classList) {
-          if (clz.startsWith('code-annotation-')) {                     
-            return true;
-          }
-        }
-        return false;
-      }
-      const onCopySuccess = function(e) {
-        // button target
-        const button = e.trigger;
-        // don't keep focus
-        button.blur();
-        // flash "checked"
-        button.classList.add('code-copy-button-checked');
-        var currentTitle = button.getAttribute("title");
-        button.setAttribute("title", "Kopiert");
-        let tooltip;
-        if (window.bootstrap) {
-          button.setAttribute("data-bs-toggle", "tooltip");
-          button.setAttribute("data-bs-placement", "left");
-          button.setAttribute("data-bs-title", "Kopiert");
-          tooltip = new bootstrap.Tooltip(button, 
-            { trigger: "manual", 
-              customClass: "code-copy-button-tooltip",
-              offset: [0, -8]});
-          tooltip.show();    
-        }
-        setTimeout(function() {
-          if (tooltip) {
-            tooltip.hide();
-            button.removeAttribute("data-bs-title");
-            button.removeAttribute("data-bs-toggle");
-            button.removeAttribute("data-bs-placement");
-          }
-          button.setAttribute("title", currentTitle);
-          button.classList.remove('code-copy-button-checked');
-        }, 1000);
-        // clear code selection
-        e.clearSelection();
-      }
-      const getTextToCopy = function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
             }
           }
-          return codeEl.innerText;
-      }
-      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-        text: getTextToCopy
-      });
-      clipboard.on('success', onCopySuccess);
-      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-          text: getTextToCopy,
-          container: window.document.getElementById('quarto-embedded-source-code-modal')
-        });
-        clipboardModal.on('success', onCopySuccess);
-      }
-        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-        var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp('/' + window.location.host + '/');
-        var isInternal = (href) => {
-            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          return false;
         }
-        // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-        for (var i=0; i<links.length; i++) {
-          const link = links[i];
-          if (!isInternal(link.href)) {
-            // undo the damage that might have been done by quarto-nav.js in the case of
-            // links that we want to consider external
-            if (link.dataset.originalHref !== undefined) {
-              link.href = link.dataset.originalHref;
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Kopiert");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Kopiert");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
             }
-          }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
         }
-      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-        const config = {
-          allowHTML: true,
-          maxWidth: 500,
-          delay: 100,
-          arrow: false,
-          appendTo: function(el) {
-              return el.closest('section.slide') || el.parentElement;
-          },
-          interactive: true,
-          interactiveBorder: 10,
-          theme: 'light-border',
-          placement: 'bottom-start',
-        };
-        if (contentFn) {
-          config.content = contentFn;
-        }
-        if (onTriggerFn) {
-          config.onTrigger = onTriggerFn;
-        }
-        if (onUntriggerFn) {
-          config.onUntrigger = onUntriggerFn;
-        }
-          config['offset'] = [0,0];
-          config['maxWidth'] = 700;
-        window.tippy(el, config); 
-      }
-      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-      for (var i=0; i<noterefs.length; i++) {
-        const ref = noterefs[i];
-        tippyHover(ref, function() {
-          // use id or data attribute instead here
-          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-          try { href = new URL(href).hash; } catch {}
-          const id = href.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note) {
-            return note.innerHTML;
-          } else {
-            return "";
-          }
-        });
-      }
-      const findCites = (el) => {
-        const parentEl = el.parentElement;
-        if (parentEl) {
-          const cites = parentEl.dataset.cites;
-          if (cites) {
-            return {
-              el,
-              cites: cites.split(' ')
-            };
-          } else {
-            return findCites(el.parentElement)
-          }
-        } else {
-          return undefined;
-        }
-      };
-      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-      for (var i=0; i<bibliorefs.length; i++) {
-        const ref = bibliorefs[i];
-        const citeInfo = findCites(ref);
-        if (citeInfo) {
-          tippyHover(citeInfo.el, function() {
-            var popup = window.document.createElement('div');
-            citeInfo.cites.forEach(function(cite) {
-              var citeDiv = window.document.createElement('div');
-              citeDiv.classList.add('hanging-indent');
-              citeDiv.classList.add('csl-entry');
-              var biblioDiv = window.document.getElementById('ref-' + cite);
-              if (biblioDiv) {
-                citeDiv.innerHTML = biblioDiv.innerHTML;
+        const getTextToCopy = function(trigger) {
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
               }
-              popup.appendChild(citeDiv);
-            });
-            return popup.innerHTML;
+            }
+            return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
           });
         }
-      }
-    });
-    </script>
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
     
 
 </body></html>

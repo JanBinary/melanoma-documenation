@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.30">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Uemann">
+
+<title>Modellentwicklung – Melanoma</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-662ae1889177880cb371f83234c0a158.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-5fc2487999df2b68d0defd4bca0b10e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
+  }
+}</script>
+<meta name="mermaid-theme" content="neutral">
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../kapitel/modellentwicklung.html">Modellentwicklung</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Melanoma</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Suchen"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../kapitel/einfuehrung.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Einleitung</span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../kapitel/grundlagen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Grundlagen</span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../kapitel/datenexploration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Datenexploration</span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../kapitel/modellentwicklung.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Modellentwicklung</span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../kapitel/diskussion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Diskussion der Ergebnisse</span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../presentation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Melanoma Präsentation</span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Auf dieser Seite</h2>
+   
+  <ul>
+  <li><a href="#wahl-des-ki-modells" id="toc-wahl-des-ki-modells" class="nav-link active" data-scroll-target="#wahl-des-ki-modells">Wahl des KI-Modells</a>
+  <ul class="collapse">
+  <li><a href="#convolutional-neural-netwroks-cnns" id="toc-convolutional-neural-netwroks-cnns" class="nav-link" data-scroll-target="#convolutional-neural-netwroks-cnns">Convolutional Neural Netwroks (CNNs)</a>
+  <ul class="collapse">
+  <li><a href="#sec-convolution" id="toc-sec-convolution" class="nav-link" data-scroll-target="#sec-convolution">Definition von Faltung</a></li>
+  <li><a href="#sec-function-cnn" id="toc-sec-function-cnn" class="nav-link" data-scroll-target="#sec-function-cnn">Funktionsweise eines CNNs</a></li>
+  </ul></li>
+  <li><a href="#u-net" id="toc-u-net" class="nav-link" data-scroll-target="#u-net">U-Net</a>
+  <ul class="collapse">
+  <li><a href="#grundliegende-funktionsweise" id="toc-grundliegende-funktionsweise" class="nav-link" data-scroll-target="#grundliegende-funktionsweise">Grundliegende Funktionsweise</a></li>
+  <li><a href="#skip-connections" id="toc-skip-connections" class="nav-link" data-scroll-target="#skip-connections">Skip Connections</a></li>
+  </ul></li>
+  <li><a href="#vision-transformer-vit" id="toc-vision-transformer-vit" class="nav-link" data-scroll-target="#vision-transformer-vit">Vision Transformer (ViT)</a>
+  <ul class="collapse">
+  <li><a href="#grundidee-von-vit" id="toc-grundidee-von-vit" class="nav-link" data-scroll-target="#grundidee-von-vit">Grundidee von ViT</a></li>
+  <li><a href="#architektur-eines-vit" id="toc-architektur-eines-vit" class="nav-link" data-scroll-target="#architektur-eines-vit">Architektur eines ViT</a></li>
+  <li><a href="#multi-head-attention" id="toc-multi-head-attention" class="nav-link" data-scroll-target="#multi-head-attention">Multi-Head Attention</a></li>
+  <li><a href="#vergleich-zu-cnns" id="toc-vergleich-zu-cnns" class="nav-link" data-scroll-target="#vergleich-zu-cnns">Vergleich zu CNNs</a></li>
+  </ul></li>
+  <li><a href="#wahl-des-modellansatzes-für-die-hautläsionsklassifikation" id="toc-wahl-des-modellansatzes-für-die-hautläsionsklassifikation" class="nav-link" data-scroll-target="#wahl-des-modellansatzes-für-die-hautläsionsklassifikation">Wahl des Modellansatzes für die Hautläsionsklassifikation</a></li>
+  </ul></li>
+  <li><a href="#datenvorbereitung" id="toc-datenvorbereitung" class="nav-link" data-scroll-target="#datenvorbereitung">Datenvorbereitung</a>
+  <ul class="collapse">
+  <li><a href="#bildnormalisierung" id="toc-bildnormalisierung" class="nav-link" data-scroll-target="#bildnormalisierung">Bildnormalisierung</a></li>
+  </ul></li>
+  <li><a href="#trainingsprozess-und-hyperparameter" id="toc-trainingsprozess-und-hyperparameter" class="nav-link" data-scroll-target="#trainingsprozess-und-hyperparameter">Trainingsprozess und Hyperparameter</a></li>
+  <li><a href="#validierung-und-evaluation" id="toc-validierung-und-evaluation" class="nav-link" data-scroll-target="#validierung-und-evaluation">Validierung und Evaluation</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Modellentwicklung</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor:in</div>
+    <div class="quarto-title-meta-contents">
+             <p>Uemann </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">22. April 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="wahl-des-ki-modells" class="level1">
+<h1>Wahl des KI-Modells</h1>
+<p>Da die im Datensatz enthaltenen Metadaten der Läsionen lediglich Tendenzen (siehe <a href="../kapitel/datenexploration.html">Datenexploration</a>) erkennen lassen und alleinstehend nicht zur eindeutigen Identifikation von Diagnosen verwendet werden können, müssen ebenfalls die Bilder der betroffenen Hautstellen untersucht werden. Für diese Analyse werden unterschiedliche Ansätze des maschinellen Lernens untersucht.</p>
+<section id="convolutional-neural-netwroks-cnns" class="level2">
+<h2 class="anchored" data-anchor-id="convolutional-neural-netwroks-cnns">Convolutional Neural Netwroks (CNNs)</h2>
+<p>Convolutional Neural Networks stellen einen Spezialtypen künstlicher neuronaler Netzwerke dar der besonders für die Verarbeitung Bilddaten konzipiert wurde. Im Gegensatz zu herkömmlichen neuronalen Netzwerken verwenden CNNs spezielle Operationen, die auf der mathematischen Faltung (Convolution) basieren. <span class="citation" data-cites="Muhammad_et_al.2022"><a href="#ref-Muhammad_et_al.2022" role="doc-biblioref">[1]</a></span></p>
+<section id="sec-convolution" class="level3">
+<h3 class="anchored" data-anchor-id="sec-convolution">Definition von Faltung</h3>
+<p>Bei der Verarbeitung von digitalen Signale oder Bildern können die Eingabeparameter meistens durch diskrete Funktionen abgebildet werden.</p>
+<div id="def-convolution" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1</strong></span> Seien <span class="math inline">\(f, g: D \to \mathbb{C}\)</span> mit dem diskreten Definitionsbereich <span class="math inline">\(D \subseteq \mathbb{Z}\)</span>. Dann ist die diskrete Faltung definiert durch:</p>
+<p><span class="math display">\[
+(f * g)(n)=\sum_{k \in D}{f(k)g(n-k)}
+\]</span></p>
+</div>
+<p>Faltungsmatritzen (auch Kernel oder Filter) sind meist quadratische Matrizen ungerader Abmessungen in unterschiedlichen Größen. Einige Bildbearbeitungsoperationen können als lineares System interpretiert werden, wobei eine diskrete Faltung (siehe <a href="#def-convolution" class="quarto-xref">Definition&nbsp;1</a>) angewendet wird. Für diskrete zweidimensionale Funktionen (digitale Bilder, Signale, etc.) ergibt sich die folgende Berechnungsformel</p>
+<div id="def-picture_convolution" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2</strong></span> Sei <span class="math inline">\(I^{\ast} (x,y)\)</span> das Ergebnispixel, <span class="math inline">\(I\)</span> das Bild, auf welches der Filter angewendet wird, <span class="math inline">\(a\)</span> die Koordinate des Mittelungspunkts in der quadratischen Faltungsmatrx und <span class="math inline">\(k(i, j)\)</span> ein Element der Faltungsmatrix. Dann ist die Berechnungsformel der diskreten Faltung definiert durch: <span class="math display">\[
+I^{\ast} (x, y) = \sum^n_{i=1} \sum^n_{j=1}{I(x-i+a, y-j+a)k(i, j)}
+\]</span></p>
+</div>
+<p>Das in <a href="#def-picture_convolution" class="quarto-xref">Definition&nbsp;2</a> dargestellte mathematische Konzept der diskreten Faltung wird auf ein 16x16 Pixel großes Bild angewendet (mit den Werten 0 für schwarz und 1 für weiß). Um die visuelle Wirkung der Faltungsoperation zu demonstrieren, wird eine spezifische Faltungsmatrix <span class="math inline">\(k\)</span> verwendet.</p>
+<p><span class="math display">\[
+k = \frac{1}{9} \begin{pmatrix} 1 &amp; 1 &amp; 1 \\ 1 &amp; 1 &amp; 1 \\ 1 &amp; 1 &amp; 1 \end{pmatrix}
+\]</span></p>
+<p>Die hier verwendete Faltungsmatrix <span class="math inline">\(k\)</span> ist ein 3×3 Mittelwertfilter, bei dem jedes Element den Wert <span class="math inline">\(\frac{1}{9}\)</span> hat. Dieser Filter führt zu einer Glättung des Bildes (siehe <a href="#fig-conv-visual" class="quarto-xref">Abbildung&nbsp;1</a>), da er für jedes Pixel den Durchschnitt der umliegenden 3×3 Nachbarschaft berechnet. Im Beispiel wird ein ringförmiges Muster geglättet, was die Kanten des Rings weicher erscheinen lässt und einen Unschärfeeffekt erzeugt. <span class="citation" data-cites="Bradski_Kaehler_2008"><a href="#ref-Bradski_Kaehler_2008" role="doc-biblioref">[2]</a></span></p>
+<div id="cell-fig-conv-visual" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>image <span class="op">=</span> np.zeros((<span class="dv">16</span>, <span class="dv">16</span>))</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">16</span>):</span>
+<span id="cb1-3"><a href="#cb1-3"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">16</span>):</span>
+<span id="cb1-4"><a href="#cb1-4"></a>        dist <span class="op">=</span> np.sqrt((i<span class="op">-</span><span class="fl">7.5</span>)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (j<span class="op">-</span><span class="fl">7.5</span>)<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb1-5"><a href="#cb1-5"></a>        <span class="cf">if</span> <span class="dv">3</span> <span class="op">&lt;=</span> dist <span class="op">&lt;=</span> <span class="dv">6</span>:</span>
+<span id="cb1-6"><a href="#cb1-6"></a>            image[i, j] <span class="op">=</span> <span class="fl">1.0</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a>kernel <span class="op">=</span> <span class="dv">1</span><span class="op">/</span><span class="dv">9</span> <span class="op">*</span> np.array([[<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>], [<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>], [<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>]])</span>
+<span id="cb1-8"><a href="#cb1-8"></a>filtered_image <span class="op">=</span> signal.convolve2d(image, kernel, mode<span class="op">=</span><span class="st">'same'</span>, boundary<span class="op">=</span><span class="st">'symm'</span>)</span>
+<span id="cb1-9"><a href="#cb1-9"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>STANDARD_FIGSIZE)</span>
+<span id="cb1-10"><a href="#cb1-10"></a>axes[<span class="dv">0</span>].imshow(image, cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
+<span id="cb1-11"><a href="#cb1-11"></a>axes[<span class="dv">0</span>].set_title(<span class="st">'Originalbild (16x16)'</span>)</span>
+<span id="cb1-12"><a href="#cb1-12"></a>axes[<span class="dv">0</span>].axis(<span class="st">'off'</span>)</span>
+<span id="cb1-13"><a href="#cb1-13"></a></span>
+<span id="cb1-14"><a href="#cb1-14"></a>axes[<span class="dv">1</span>].imshow(filtered_image, cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
+<span id="cb1-15"><a href="#cb1-15"></a>axes[<span class="dv">1</span>].set_title(<span class="st">'Nach Faltung mit k'</span>)</span>
+<span id="cb1-16"><a href="#cb1-16"></a>axes[<span class="dv">1</span>].axis(<span class="st">'off'</span>)</span>
+<span id="cb1-17"><a href="#cb1-17"></a></span>
+<span id="cb1-18"><a href="#cb1-18"></a>plt.tight_layout()</span>
+<span id="cb1-19"><a href="#cb1-19"></a>plt.show()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-conv-visual" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-conv-visual-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="modellentwicklung_files/figure-html/fig-conv-visual-output-1.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-conv-visual-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;1: Beispiel einer Faltungsoperation
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-function-cnn" class="level3">
+<h3 class="anchored" data-anchor-id="sec-function-cnn">Funktionsweise eines CNNs</h3>
+<p>Ein CNN besteht aus mehreren Schichten, welche die Grundlage für die meinsten modernen Bilderkennungmodelle darstellen.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-cnn-workflow" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-cnn-workflow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-cnn-workflow">flowchart TD
+    Input("Input Image") --&gt; Conv
+
+    subgraph Conv["Convolutional Layer"]
+        direction LR
+        C1["Feature Extraction"] --- C2["Filter Application"]
+    end
+
+    Conv --&gt; Pool
+
+    subgraph Pool["Pooling Layer"]
+        direction LR
+        P1["Dimension Reduction"] --- P2["Parameter Reduction"]
+    end
+
+    Pool --&gt; FC
+
+    subgraph FC["Fully Connected Layer"]
+        direction LR
+        F1["Feature Classification"] --- F2["Output Prediction"]
+    end
+
+    FC --&gt; Output("Classification Result")
+
+    style Input fill:#f9f9f9,stroke:#333,stroke-width:1px
+    style Output fill:#f9f9f9,stroke:#333,stroke-width:1px
+    style Conv fill:#d1ecf1,stroke:#0c5460,stroke-width:1px
+    style Pool fill:#d4edda,stroke:#155724,stroke-width:1px
+    style FC fill:#f8d7da,stroke:#721c24,stroke-width:1px
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cnn-workflow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;2: CNN Funktionsweise
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Der in <a href="#fig-cnn-workflow" class="quarto-xref">Abbildung&nbsp;2</a> dargestellte Prozessfluss beschreibt die Grundidee von CNNs. Die Schichten, welche verwendet werden erfüllen dabei die folgenden Aufgaben:</p>
+<ol type="1">
+<li>Convolutional Layer: Extrahiert Merkmale durch die Anwendung der in <a href="#sec-convolution" class="quarto-xref">Kapitel&nbsp;1.1.1</a> beschriebenen Filter.</li>
+<li>Pooling Layer: Reduziert Dimensionen und erhöht die Berechnungseffizienz.</li>
+<li>Fully Connected Layer: Klassifiziert die extrahierten Merkmale.</li>
+</ol>
+<p>Zur Reduktion der Dimensionen (pooling) können je nach Kontext verschiedene Funktionen angewendet werden. Es ist möglich nach Maxima, Minima und Durchschnittswerten zu reduzieren. Dabei werden, ähnlich wie bei der Faltung, Matrizen auf einem Wert abgebildet. Diese Pooling-Matrix bewegt sich über die Ursprüngliche Matrix. Dabei sind folgende Parameter entscheident:</p>
+<ol type="1">
+<li>Filter-Size (Pooling Größe): Definiert die Größe der Pooling Matrix.</li>
+<li>Stride: Bestimmt die Schrittgröße, mit der sich die Pooling Matrix über die Ursprüngliche Matrix bewegt.</li>
+</ol>
+<div id="def-pooling_matrix" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3</strong></span> Die größe der aus dem Pooling Prozess hervorgehenden reduzierten Matrix berechne sich mit der folgenden Formel. Seien <span class="math inline">\(h\)</span> die Höhe der Eingabematrix, <span class="math inline">\(w\)</span> die Breite der Eingabematrix, <span class="math inline">\(c\)</span> die Anzahl der Eingabematrizen (Annahme: Alle Eingabematrizen sind gleich groß), <span class="math inline">\(f\)</span> die Größe der Pooling-Matrix und <span class="math inline">\(s\)</span> der Stride.</p>
+<p><span class="math display">\[
+c \left(\left\lfloor\frac{h-f+1}{s}\right\rfloor + 1\right) \left(\left\lfloor\frac{w-f+1}{s}\right\rfloor + 1\right)
+\]</span></p>
+</div>
+<p>Im folgenden wird dargestellt, wie die Größe eines quadratischen Bildes mit einem Farbkanal (mit den Werten 0 für schwarz und 1 für weiß) durch den Pooling Prozess reduziert werden kann. Zur Berechnung der Bildgröße nach dem Pooling Prozess wird die Formel aus <a href="#def-pooling_matrix" class="quarto-xref">Definition&nbsp;3</a> angewendet. <span class="citation" data-cites="Jain2024"><a href="#ref-Jain2024" role="doc-biblioref">[3]</a></span></p>
+<div id="cell-fig-pooling_size_reduction" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>picture_width <span class="op">=</span> np.array([counter <span class="cf">for</span> counter <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">16</span>, <span class="dv">500</span>)])</span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="kw">def</span> picture_size(width):</span>
+<span id="cb2-4"><a href="#cb2-4"></a>    <span class="cf">return</span> width<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="kw">def</span> pooling_size(width, matrix_size, stride):</span>
+<span id="cb2-7"><a href="#cb2-7"></a>    output_dim <span class="op">=</span> (np.floor((width <span class="op">-</span> matrix_size <span class="op">+</span> <span class="dv">1</span>) <span class="op">/</span> stride) <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb2-8"><a href="#cb2-8"></a>    <span class="cf">return</span> <span class="bu">int</span>(output_dim<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb2-9"><a href="#cb2-9"></a></span>
+<span id="cb2-10"><a href="#cb2-10"></a>filter_size <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a>stride <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb2-12"><a href="#cb2-12"></a></span>
+<span id="cb2-13"><a href="#cb2-13"></a>original_sizes <span class="op">=</span> [picture_size(w) <span class="cf">for</span> w <span class="kw">in</span> picture_width]</span>
+<span id="cb2-14"><a href="#cb2-14"></a>pooled_sizes <span class="op">=</span> [pooling_size(w, filter_size, stride) <span class="cf">for</span> w <span class="kw">in</span> picture_width]</span>
+<span id="cb2-15"><a href="#cb2-15"></a></span>
+<span id="cb2-16"><a href="#cb2-16"></a>plt.figure(figsize<span class="op">=</span>STANDARD_FIGSIZE)</span>
+<span id="cb2-17"><a href="#cb2-17"></a>plt.plot(picture_width, original_sizes, <span class="st">'b-'</span>, label<span class="op">=</span><span class="st">'Originalbild'</span>)</span>
+<span id="cb2-18"><a href="#cb2-18"></a>plt.plot(picture_width, pooled_sizes, <span class="st">'r-'</span>, label<span class="op">=</span><span class="ss">f'Nach Pooling (Filter: </span><span class="sc">{</span>filter_size<span class="sc">}</span><span class="ss">x</span><span class="sc">{</span>filter_size<span class="sc">}</span><span class="ss">, Stride: </span><span class="sc">{</span>stride<span class="sc">}</span><span class="ss">)'</span>)</span>
+<span id="cb2-19"><a href="#cb2-19"></a>plt.xlabel(<span class="st">'Breite des Originalbildes (Pixel)'</span>)</span>
+<span id="cb2-20"><a href="#cb2-20"></a>plt.ylabel(<span class="st">'Anzahl Pixel'</span>)</span>
+<span id="cb2-21"><a href="#cb2-21"></a>plt.legend()</span>
+<span id="cb2-22"><a href="#cb2-22"></a>plt.tight_layout()</span>
+<span id="cb2-23"><a href="#cb2-23"></a>plt.show()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-pooling_size_reduction" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pooling_size_reduction-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="modellentwicklung_files/figure-html/fig-pooling_size_reduction-output-1.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pooling_size_reduction-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;3: Auswirkung von Pooling auf die Bildgröße
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>In den Abbildungen <a href="#fig-avg-pooling" class="quarto-xref">Abbildung&nbsp;4</a> und <a href="#fig-max-pooling" class="quarto-xref">Abbildung&nbsp;5</a> wird exemplarisch dargestellt, wie sich unterschiedliche Pooling-Methoden auf ein Eingabebild auswirken. Dabei wird jeweils ein Filter der Größe 3×3 mit einem Stride von 2 über das Bild bewegt.</p>
+<div id="cell-fig-avg-pooling" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
+<span id="cb3-2"><a href="#cb3-2"></a></span>
+<span id="cb3-3"><a href="#cb3-3"></a>picture <span class="op">=</span> np.random.randint(<span class="dv">0</span>, <span class="dv">31</span>, size<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">9</span>), dtype<span class="op">=</span>np.uint8)</span>
+<span id="cb3-4"><a href="#cb3-4"></a>tensor <span class="op">=</span> torch.tensor(picture, dtype<span class="op">=</span>torch.float32).unsqueeze(<span class="dv">0</span>).unsqueeze(<span class="dv">0</span>)</span>
+<span id="cb3-5"><a href="#cb3-5"></a>avg_pooled <span class="op">=</span> F.avg_pool2d(tensor, kernel_size<span class="op">=</span><span class="dv">3</span>, stride<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb3-6"><a href="#cb3-6"></a></span>
+<span id="cb3-7"><a href="#cb3-7"></a>vmin, vmax <span class="op">=</span> <span class="dv">0</span>, <span class="dv">31</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a>sns.heatmap(pd.DataFrame(picture), cmap<span class="op">=</span><span class="st">'gray'</span>, annot<span class="op">=</span><span class="va">True</span>, ax<span class="op">=</span>ax[<span class="dv">0</span>], vmin<span class="op">=</span>vmin, vmax<span class="op">=</span>vmax)</span>
+<span id="cb3-9"><a href="#cb3-9"></a>ax[<span class="dv">0</span>].set_title(<span class="st">"Original"</span>)</span>
+<span id="cb3-10"><a href="#cb3-10"></a>sns.heatmap(pd.DataFrame(avg_pooled.squeeze().numpy()), cmap<span class="op">=</span><span class="st">'gray'</span>, annot<span class="op">=</span><span class="va">True</span>, ax<span class="op">=</span>ax[<span class="dv">1</span>], vmin<span class="op">=</span>vmin, vmax<span class="op">=</span>vmax)</span>
+<span id="cb3-11"><a href="#cb3-11"></a>ax[<span class="dv">1</span>].set_title(<span class="st">"Durchschnitts Pooling</span><span class="ch">\n</span><span class="st">(Filter: 3x3, Stride: 2)"</span>)</span>
+<span id="cb3-12"><a href="#cb3-12"></a></span>
+<span id="cb3-13"><a href="#cb3-13"></a>plt.tight_layout()</span>
+<span id="cb3-14"><a href="#cb3-14"></a>plt.show()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-avg-pooling" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-avg-pooling-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="modellentwicklung_files/figure-html/fig-avg-pooling-output-1.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-avg-pooling-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;4: Beispiel für Durchschnitts-Pooling (3x3, Stride 2)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-fig-max-pooling" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
+<span id="cb4-2"><a href="#cb4-2"></a></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="co"># Verwende das gleiche Bild wie oben</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a>tensor <span class="op">=</span> torch.tensor(picture, dtype<span class="op">=</span>torch.float32).unsqueeze(<span class="dv">0</span>).unsqueeze(<span class="dv">0</span>)</span>
+<span id="cb4-5"><a href="#cb4-5"></a>max_pooled <span class="op">=</span> F.max_pool2d(tensor, kernel_size<span class="op">=</span><span class="dv">3</span>, stride<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb4-6"><a href="#cb4-6"></a></span>
+<span id="cb4-7"><a href="#cb4-7"></a>sns.heatmap(pd.DataFrame(picture), cmap<span class="op">=</span><span class="st">'gray'</span>, annot<span class="op">=</span><span class="va">True</span>, ax<span class="op">=</span>ax[<span class="dv">0</span>], vmin<span class="op">=</span>vmin, vmax<span class="op">=</span>vmax)</span>
+<span id="cb4-8"><a href="#cb4-8"></a>ax[<span class="dv">0</span>].set_title(<span class="st">"Original"</span>)</span>
+<span id="cb4-9"><a href="#cb4-9"></a>sns.heatmap(pd.DataFrame(max_pooled.squeeze().numpy()), cmap<span class="op">=</span><span class="st">'gray'</span>, annot<span class="op">=</span><span class="va">True</span>, ax<span class="op">=</span>ax[<span class="dv">1</span>], vmin<span class="op">=</span>vmin, vmax<span class="op">=</span>vmax)</span>
+<span id="cb4-10"><a href="#cb4-10"></a>ax[<span class="dv">1</span>].set_title(<span class="st">"Maxima Pooling</span><span class="ch">\n</span><span class="st">(Filter: 3x3, Stride: 2)"</span>)</span>
+<span id="cb4-11"><a href="#cb4-11"></a></span>
+<span id="cb4-12"><a href="#cb4-12"></a>plt.tight_layout()</span>
+<span id="cb4-13"><a href="#cb4-13"></a>plt.show()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-max-pooling" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-max-pooling-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="modellentwicklung_files/figure-html/fig-max-pooling-output-1.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-max-pooling-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;5: Beispiel für Maxima-Pooling (3x3, Stride 2)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Beide Methoden reduzieren die Bildgröße und damit die Anzahl der zu verarbeitenden Parameter, wobei sie jeweils unterschiedliche Eigenschaften des ursprünglichen Bildes erhalten oder herausfiltern. Die Wahl der Pooling-Methode hängt daher stark vom Einsatzzweck und den gewünschten Modell-Eigenschaften ab. <span class="citation" data-cites="GeeksForGeeks2025"><a href="#ref-GeeksForGeeks2025" role="doc-biblioref">[4]</a></span></p>
+</section>
+</section>
+<section id="u-net" class="level2">
+<h2 class="anchored" data-anchor-id="u-net">U-Net</h2>
+<p>Herkömmliche CNNs basieren auf einer sequentiellen Abfolge der in <a href="#sec-function-cnn" class="quarto-xref">Kapitel&nbsp;1.1.2</a> beschriebenen Operationen. U-Net hingegen ist eine spezielle Variante eines CNN, welche ursprünglich für biomedizinische Bildsegmentierung konzipiert wurde.</p>
+<section id="grundliegende-funktionsweise" class="level3">
+<h3 class="anchored" data-anchor-id="grundliegende-funktionsweise">Grundliegende Funktionsweise</h3>
+<p>Die U-Net Architektur besteht aus einer kontrahierenden Komponente (Encoder-Pfad) und einer expandierenden Komponente (Decoder-Pfad), welche zusammen eine U-Form bilden.</p>
+<div id="fig-unet-architecture" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-unet-architecture-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/unet_architecture.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-unet-architecture-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;6: U-Net Architektur (aus Ronneberger 2015)
+</figcaption>
+</figure>
+</div>
+<p>Wie in <a href="#fig-unet-architecture" class="quarto-xref">Abbildung&nbsp;6</a> zu erkennen ist, wird auf dem Encoder-Pfad zur Feature Extraktion die Aktivierungsfunktion Rectified Linear Units (ReLU) verwendet (siehe <a href="#def-relu-function" class="quarto-xref">Definition&nbsp;4</a>). Folglich besteht der Encoder-Pfad aus der wiederholten Anwendung von Faltungen (siehe <a href="#def-picture_convolution" class="quarto-xref">Definition&nbsp;2</a>) gefolgt von Aktivierungsfunktionen und Max-Pooling (siehe <a href="#fig-max-pooling" class="quarto-xref">Abbildung&nbsp;5</a>) zur Dimensionsreduktion. Dabei verdoppelt jeder Downsampling-Schritt die Anzahl der Feature-Kanäle<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<div id="def-relu-function" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 4</strong></span> Sei <span class="math inline">\(f\)</span> die ReLU Aktivierungsfunktion und <span class="math inline">\(x\)</span> das Eingabepixel.</p>
+<p><span class="math display">\[
+f(x) = \max (0, x)
+\]</span></p>
+</div>
+<p>Der Decoder-Pfad tätigt ein Upsampling der Feature-Map, gefolgt von einer Faltung, welche die Anzahl der Feature-Kanäle halbiert. Entscheident für die Leistungsfähigkeit sind die sogenannten “Skip Connections”, welche eine direkte Verbindung zwischen den Feature-Maps im Encoder- und Decoder-Pfad symbolisieren. <span class="citation" data-cites="Ronneberger2025"><a href="#ref-Ronneberger2025" role="doc-biblioref">[5]</a></span></p>
+</section>
+<section id="skip-connections" class="level3">
+<h3 class="anchored" data-anchor-id="skip-connections">Skip Connections</h3>
+<div id="def-sigmoid-derivative" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 5</strong></span> Die Sigmoid-Funktion <span class="math inline">\(\sigma(x) = \frac{1}{1 + e^{-x}}\)</span> hat eine Ableitung, die wie folgt definiert ist:</p>
+<p><span class="math display">\[
+\sigma'(x) = \sigma(x) \cdot (1 - \sigma(x))
+\]</span></p>
+<p>Diese Ableitung erreicht ihren Maximalwert von 0,25 bei <span class="math inline">\(x = 0\)</span> und nähert sich 0 an, wenn <span class="math inline">\(|x|\)</span> größer wird. Dies ist eine der Hauptursachen für das Vanishing-Gradient-Problem in tiefen neuronalen Netzwerken.</p>
+</div>
+<p>Ursprünglich wurden Skip Connections entwickelt, um das Problem des “Verschwindenden Gradienten” (siehe <a href="#def-vanishing-gradient" class="quarto-xref">Definition&nbsp;6</a>) in modernen neuronalen Netzwerken zu lösen. Dieses Problem tritt auf, wenn Netzwerke durch Gradientenabstieg optimiert werden, wobei die Aktualisierung der Parameter in Richtung des negativen Gradienten der Kostenfunktion erfolgt.</p>
+<div id="def-vanishing-gradient" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 6</strong></span> Sei <span class="math inline">\(L\)</span> die Kostenfunktion, <span class="math inline">\(x_i\)</span> die Ausgabe (Aktivierung) der <span class="math inline">\(i\)</span>-ten Schicht eines neuronalen Netzwerks und <span class="math inline">\(i\)</span> der Index der Schicht. Die Ausgabe der nächsten Schicht <span class="math inline">\(x_{i+1}\)</span> hängt von <span class="math inline">\(x_i\)</span> über eine Transformation <span class="math inline">\(f_i\)</span> ab, also <span class="math inline">\(x_{i+1} = f_i(x_i)\)</span>. Die Gradientenpropagation von der Kostenfunktion <span class="math inline">\(L\)</span> zur Ausgabe <span class="math inline">\(x_i\)</span> erfolgt gemäß der Kettenregel:</p>
+<p><span class="math display">\[
+\frac{\partial L}{\partial x_i} = \frac{\partial L}{\partial x_{i+1}} \frac{\partial x_{i+1}}{\partial x_i}
+\]</span></p>
+<p>Der Kern des Vanishing-Gradient-Problems liegt in der wiederholten Anwendung der Kettenregel über viele Schichten hinweg. Für eine Schicht <span class="math inline">\(i\)</span> in einem Netzwerk mit <span class="math inline">\(n\)</span> Schichten ergibt sich der Gradient <span class="math inline">\(\frac{\partial L}{\partial x_i}\)</span> durch die Verkettung der Gradienten aller nachfolgenden Schichten:</p>
+<p><span class="math display">\[
+\frac{\partial L}{\partial x_i} = \frac{\partial L}{\partial x_n} \cdot \prod_{k=i}^{n-1} \frac{\partial x_{k+1}}{\partial x_k}
+\]</span></p>
+<p>Wenn viele dieser Ableitungen Beträge kleiner als 1 haben (z.B. bei Sigmoid-Aktivierungen), kann der Gesamtgradient schnell gegen Null tendieren, wodurch das Training tiefer Netzwerke erschwert wird.</p>
+</div>
+<p>Skip Connections schaffen einen direkten Informationsfluss zwischen früheren und späteren Schichten des neuronalen Netzwerks. Mathematisch kann eine Skip Connection als Addition der Eingabe <span class="math inline">\(x\)</span> zur Ausgabe einer Transformation <span class="math inline">\(F(x)\)</span> dargestellt werden:</p>
+<p><span class="math display">\[
+y = F(x) + x
+\]</span></p>
+<p>Diese einfache Operation hat weitreichende Auswirkungen auf die Gradientenausbreitung im Netzwerk. Skip Connections ermöglichen alternative Pfade für die Gradientenpropagation, wodurch Gradienten direkt zu früheren Schichten fließen können, ohne durch alle dazwischenliegenden Transformationen und Aktivierungsfunktionen abgeschwächt zu werden. Da die Ableitung der Identitätsfunktion konstant 1 ist, wird der Gradient entlang des Skip-Pfades nicht verringert:</p>
+<p><span class="math display">\[
+\frac{\partial(x + F(x))}{\partial x} = 1 + \frac{\partial F(x)}{\partial x}
+\]</span></p>
+<p>Diese architektonischen Veränderungen führen zu einer signifikanten Glättung der Verlustlandschaft (siehe <a href="#fig-loss-landscape" class="quarto-xref">Abbildung&nbsp;7</a>), was die Optimierung neuronaler Netzwerke erheblich erleichtert und das Training tieferer Architekturen ermöglicht. <span class="citation" data-cites="haoli2017"><a href="#ref-haoli2017" role="doc-biblioref">[6]</a></span></p>
+<div id="fig-loss-landscape" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-loss-landscape-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/loss_landscape_cost_function.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-loss-landscape-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;7: Verlustlandschaft (aus Hao Li 2017)
+</figcaption>
+</figure>
+</div>
+<p>Im U-Net werden entlang des Encoder-Pfads die Dimensionen der Feature-Maps reduziert und gleichzeitig die semantische Tiefe erhöht. Bei diesem Prozess gehen globale Details verloren. Um diese Verluste auszugleichen, werden im U-Net die Feature-Maps aus jeder Schicht im Encoder-Pfad durch Skip Connections direkt den ensprechenden Schichten auf dem Decoder Pfad zugeordnet (die grauen Pfeile in <a href="#fig-unet-architecture" class="quarto-xref">Abbildung&nbsp;6</a>).</p>
+<div id="def-feature-concant" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 7</strong></span> Sei <span class="math inline">\(F_{enc}\)</span> eine Feature-Map auf dem Encoder-Pfad und <span class="math inline">\(F_{dec}\)</span> die rekonstruktive Feature-Map auf dem Decoder-Pfad selbiger Hierrachiestufe. Der zusammengesetzte Tensor ist definiert als:</p>
+<p><span class="math display">\[
+F_{concat} = \text{concat}(F_{enc}, F_{dec})
+\]</span></p>
+</div>
+<p>Diese Verknüpfungen erfolgen jedoch nicht aditiv wie zuvor beschrieben, sondern durch Konkatenation der Feature-Maps entlang der Kanalachse (siehe <a href="#def-feature-concant" class="quarto-xref">Definition&nbsp;7</a>). Diese Strategie ermöglicht es dem Decoder, sowohl die tiefen, abstrakten Merkmale aus dem Encoder als auch globalen Informationen zu berücksichtigen. Dadurch können präzisere Segmentierungen und Rekonstruktionen erzielt werden. <span class="citation" data-cites="Ronneberger2025"><a href="#ref-Ronneberger2025" role="doc-biblioref">[5]</a></span></p>
+</section>
+</section>
+<section id="vision-transformer-vit" class="level2">
+<h2 class="anchored" data-anchor-id="vision-transformer-vit">Vision Transformer (ViT)</h2>
+<p>Vision Transformer ist ein Ansatz zur Verarbeitung von Bilddaten, der Transformer-Architekturen, die aus dem Bereich der natürlichen Sprachverarbeitung (NLP) bekannt sind, für Bilder nutzbar macht. Anstatt sich auf Faltungen wie bei CNNs (siehe <a href="#sec-convolution" class="quarto-xref">Kapitel&nbsp;1.1.1</a>) zu stützen, basiert ViT auf der Selbstaufmerksamkeitsmechanik (Self-Attention), die es dem Modell ermöglicht, globale Abhängigkeiten innerhalb eines Bildes effizient zu erfassen. <span class="citation" data-cites="yaoli2025"><a href="#ref-yaoli2025" role="doc-biblioref">[7]</a></span></p>
+<section id="grundidee-von-vit" class="level3">
+<h3 class="anchored" data-anchor-id="grundidee-von-vit">Grundidee von ViT</h3>
+<p>Im Gegensatz zu CNNs behandelt ein ViT ein Bild nicht als ein einzelnes, zusammenhängendes Gitter von Pixeln, sondern zerlegt es in kleinere Teilbereiche, sogenannte Patches.</p>
+<div id="def-patch-embedding" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 8</strong></span> Sei <span class="math inline">\(I \in \mathbb{R}^{H \times W \times C}\)</span> ein Bild mit Höhe <span class="math inline">\(H\)</span>, Breite <span class="math inline">\(W\)</span> und <span class="math inline">\(C\)</span> Farbkanälen. Dieses Bild wird in <span class="math inline">\(n\)</span> Patches der Größe <span class="math inline">\(P^2\)</span> zerlegt, wobei:</p>
+<p><span class="math display">\[
+n = \frac{HW}{P^2}
+\]</span></p>
+<p>Jeder Patch wird dann zu einem Vektor der Länge <span class="math inline">\(P^2 C\)</span> abgeflacht und durch eine lineare Projektion in einen <span class="math inline">\(D\)</span>-dimensionalen Vektorraum eingebettet.</p>
+</div>
+<p>Dadurch wird das Bild als Sequenz von eingebetteten Patches dargestellt, vergleichbar mit einer Wortfolge in einem Sprachmodell.</p>
+</section>
+<section id="architektur-eines-vit" class="level3">
+<h3 class="anchored" data-anchor-id="architektur-eines-vit">Architektur eines ViT</h3>
+<p>Die Architektur eines Vision Transformers besteht aus mehreren Hauptkomponenten, die systematisch aufeinander aufbauen, um ein leistungsfähiges Bildverarbeitungsmodell zu bilden. Die grundlegende Struktur wird in <a href="#fig-vit-architecture" class="quarto-xref">Abbildung&nbsp;8</a> dargestellt.</p>
+<div id="fig-vit-architecture" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-vit-architecture-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/vit_architecture.webp" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vit-architecture-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;8: Vision Transformer Architektur (aus GeeksForGeeks 2025)
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="multi-head-attention" class="level3">
+<h3 class="anchored" data-anchor-id="multi-head-attention">Multi-Head Attention</h3>
+<p>Multi-Head Attention ist ein zentrales Konzept im Vision Transformer, welches es dem Modell ermöglicht, verschiedene Aspekte der Eingabesequenz parallel zu erfassen. Statt nur eine einzige Aufmerksamkeit (Attention) zu berechnen, werden mehrere unabhängige Attention-Köpfe parallel berechnet, deren Ergebnisse anschließend kombiniert werden.</p>
+<div id="def-attention-mechanism" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 9</strong></span> Seien <span class="math inline">\(Q \in \mathbb{R}^{n \times d_k}\)</span> die Abfrage-Matrix (Query), <span class="math inline">\(K \in \mathbb{R}^{n \times d_k}\)</span> die Schlüssel-Matrix (Key) und <span class="math inline">\(V \in \mathbb{R}^{n \times d_v}\)</span> die Wert-Matrix (Value), wobei <span class="math inline">\(n\)</span> die Anzahl der Patches (Sequenzlänge), <span class="math inline">\(d_k\)</span> die Dimension der Query- und Key-Vektoren und <span class="math inline">\(d_v\)</span> die Dimension der Value-Vektoren ist.</p>
+<p>Die skalierte Punktprodukt-Attention wird berechnet als:</p>
+<p><span class="math display">\[
+\text{Attention}(Q, K, V) = \text{softmax}\left( \frac{QK^\top}{\sqrt{d_k}} \right) V
+\]</span></p>
+<p>Hierbei wird <span class="math inline">\(QK^\top\)</span> genutzt, um die Ähnlichkeit zwischen Abfragen und Schlüsseln zu messen, <span class="math inline">\(\sqrt{d_k}\)</span> dient als Skalierungsfaktor, um numerische Stabilität bei großen Dimensionen zu gewährleisten, und die Softmax-Funktion sorgt dafür, dass die resultierenden Gewichte normalisiert sind.</p>
+</div>
+<p>Um verschiedene Repräsentationen gleichzeitig zu lernen, wird die Attention mehrfach mit unterschiedlichen Parametern berechnet. Jeder Attention-Kopf erhält dabei eigene Gewichtsmatrizen und kann sich auf unterschiedliche Aspekte der Eingabedaten konzentrieren.</p>
+<div id="def-multi-head-attention" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 10</strong></span> Sei <span class="math inline">\(h\)</span> die Anzahl der Köpfe. Für jeden Kopf <span class="math inline">\(i \in \{1, \dotsc, h\}\)</span> existieren eigene Gewichtsmatrizen <span class="math inline">\(W_i^Q \in \mathbb{R}^{D \times d_k}\)</span> für Queries, <span class="math inline">\(W_i^K \in \mathbb{R}^{D \times d_k}\)</span> für Keys und <span class="math inline">\(W_i^V \in \mathbb{R}^{D \times d_v}\)</span> für Values.</p>
+<p>Die Multi-Head Attention berechnet für jeden Kopf:</p>
+<p><span class="math display">\[
+\text{head}_i = \text{Attention}(QW_i^Q, KW_i^K, VW_i^V)
+\]</span></p>
+<p>Anschließend werden die Ergebnisse aller Köpfe zusammengefügt und nochmals linear projiziert:</p>
+<p><span class="math display">\[
+\text{MultiHead}(Q, K, V) = \text{Concat}(\text{head}_1, \dotsc, \text{head}_h) W^O
+\]</span></p>
+<p>mit <span class="math inline">\(W^O \in \mathbb{R}^{h d_v \times D}\)</span> als finaler Projektionsmatrix.</p>
+</div>
+<p>Durch die Verwendung mehrerer Attention-Köpfe kann das Modell gleichzeitig verschiedene Beziehungen und Muster innerhalb der Bild-Patches erfassen. Stellen Sie sich vor, dass jeder Kopf wie ein Spezialist arbeitet, der bestimmte Eigenschaften im Bild sucht – einer achtet vielleicht mehr auf Farben, ein anderer auf Formen, wieder ein anderer auf Texturen. Diese parallele Verarbeitung verbessert die Fähigkeit des Modells, komplexe Strukturen in den Daten zu erkennen. Am Ende werden all diese spezialisierten Beobachtungen zusammengeführt, um ein umfassendes Verständnis des Bildes zu ermöglichen.</p>
+</section>
+<section id="vergleich-zu-cnns" class="level3">
+<h3 class="anchored" data-anchor-id="vergleich-zu-cnns">Vergleich zu CNNs</h3>
+<p>Vision Transformer unterscheiden sich in mehreren wesentlichen Aspekten von CNNs<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>:</p>
+<ol type="1">
+<li>Verarbeitungsmechanismus: CNNs verwenden lokale Faltungsoperationen, während ViTs auf globaler Selbstaufmerksamkeit basieren.</li>
+<li>Induktive Bias: CNNs haben einen starken induktiven Bias für die lokale Struktur und Translationsinvarianz von Bildern, während ViTs weniger inhärente Annahmen über die Bildstruktur treffen.</li>
+<li>Skalierbarkeit: ViTs skalieren gut mit größeren Datenmengen und Modellgrößen und können bei ausreichendem Training CNNs in der Leistung übertreffen.</li>
+<li>Ressourcenbedarf: Die quadratische Komplexität der Selbstaufmerksamkeit bezüglich der Sequenzlänge kann bei hochauflösenden Bildern zu erheblichem Berechnungsaufwand führen.</li>
+</ol>
+<p>In der praktischen Anwendung werden häufig hybride Ansätze verfolgt, die Stärken beider Architekturen kombinieren. Beispielsweise können CNN-basierte Feature-Extraktoren mit Transformer-Modulen ergänzt werden, um sowohl lokale Details als auch globale Kontextinformationen effektiv zu verarbeiten. <span class="citation" data-cites="Khan2022"><a href="#ref-Khan2022" role="doc-biblioref">[8]</a></span></p>
+<p>Vision Transformer haben in vielen Computer-Vision-Aufgaben Benchmark-Ergebnisse erzielt und werden zunehmend für medizinische Bildverarbeitung, einschließlich der Analyse von Hautläsionen, eingesetzt. Ihre Fähigkeit, komplexe Beziehungen über große räumliche Entfernungen hinweg zu modellieren, macht sie besonders wertvoll für die Erkennung subtiler Muster in dermatologischen Bildern. <span class="citation" data-cites="Shome2021"><a href="#ref-Shome2021" role="doc-biblioref">[9]</a></span></p>
+</section>
+</section>
+<section id="wahl-des-modellansatzes-für-die-hautläsionsklassifikation" class="level2">
+<h2 class="anchored" data-anchor-id="wahl-des-modellansatzes-für-die-hautläsionsklassifikation">Wahl des Modellansatzes für die Hautläsionsklassifikation</h2>
+<p>Für die Klassifikation von Hautläsionen wird auf einen hybriden Modellansatz gesetzt, der die Stärken von Convolutional Neural Networks und Vision Transformern kombiniert.</p>
+<p>Als Grundlage dient EfficientNetV2-B0, ein kompakter und schneller CNN-Backbone, der speziell für eine hohe Trainingsgeschwindigkeit und verbesserte Skalierbarkeit entwickelt wurde. EfficientNetV2 nutzt klassische Faltungen sowie optimierte MBConv- und Fused-MBConv-Blöcke, wodurch sowohl die Modellgröße verringert als auch die Extraktion lokaler Merkmale effizient gestaltet wird. Die resultierenden Feature-Maps besitzen bereits eine reduzierte räumliche Auflösung und werden als Eingabe für nachgelagerte Vision Transformer Encoder-Blöcke verwendet.</p>
+<p>Die genaue Struktur von EfficientNetV2-B0 ist in <a href="#tbl-koerperstellen" class="quarto-xref">Tabelle&nbsp;1</a> dargestellt. Das Modell beginnt mit einer klassischen 3x3-Faltung (Stage 0) zur ersten Merkmalsextraktion, gefolgt von einer Reihe von Fused-MBConv-Blöcken (Stages 1–3), die eine besonders effiziente Kombination aus Faltung und Punktweise-Faltung darstellen. Ab Stage 4 kommen reguläre MBConv-Blöcke mit Squeeze-and-Excitation (SE)-Modulen zum Einsatz, die wichtige Merkmale selektiv verstärken. Die Anzahl der Kanäle steigt dabei schrittweise von 24 auf 256, während gleichzeitig die räumliche Auflösung durch Strides von 2 reduziert wird. Die finale Stufe (Stage 7) verwendet eine 1x1-Faltung, Global Average Pooling und eine Fully Connected Schicht, um die endgültige Repräsentation zu erzeugen.</p>
+<div id="tbl-koerperstellen" class="hover striped quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-koerperstellen-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabelle&nbsp;1: EffiecientNetV2-B0 Architektur (aus Tan 2021)
+</figcaption>
+<div aria-describedby="tbl-koerperstellen-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table-hover table-striped caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 46%">
+<col style="width: 12%">
+<col style="width: 16%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Stage</th>
+<th style="text-align: left;">Operator</th>
+<th style="text-align: center;">Stride</th>
+<th style="text-align: center;">Channels</th>
+<th style="text-align: center;">Layers</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: left;">Conv3x3</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Fused-MBConv1, k3x3</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">Fused-MBConv4, k3x3</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">48</td>
+<td style="text-align: center;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">Fused-MBConv4, k3x3</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">64</td>
+<td style="text-align: center;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">MBConv4, k3x3, SE0.25</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">128</td>
+<td style="text-align: center;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">5</td>
+<td style="text-align: left;">MBConv6, k3x3, SE0.25</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">160</td>
+<td style="text-align: center;">9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">6</td>
+<td style="text-align: left;">MBConv6, k3x3, SE0.25</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">256</td>
+<td style="text-align: center;">15</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">7</td>
+<td style="text-align: left;">Conv1x1 &amp; Pooling &amp; FC</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">1280</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Durch diese Architektur werden die Vorteile der lokalen Detailerfassung des CNNs mit der globalen Kontextmodellierung des Transformers kombiniert. Zudem profitiert der Ansatz davon, dass der Transformer nur auf die komprimierten Feature-Maps angewendet wird, was die Berechnungslast erheblich reduziert, ohne die Modellqualität zu beeinträchtigen. <span class="citation" data-cites="Tan2021"><a href="#ref-Tan2021" role="doc-biblioref">[10]</a></span></p>
+</section>
+</section>
+<section id="datenvorbereitung" class="level1">
+<h1>Datenvorbereitung</h1>
+<p>Hautkrebsbilder weisen oft eine Vielzahl von Aufnahmebedingungen auf, darunter unterschiedliche Beleuchtungsverhältnisse, Kamerawinkel und Entfernungen. Eine robuste Datenvorbereitung gleicht diese Varianzen aus und erhöht die Generalisierungsfähigkeit des Modells.</p>
+<section id="bildnormalisierung" class="level2">
+<h2 class="anchored" data-anchor-id="bildnormalisierung">Bildnormalisierung</h2>
+</section>
+</section>
+<section id="trainingsprozess-und-hyperparameter" class="level1">
+<h1>Trainingsprozess und Hyperparameter</h1>
+</section>
+<section id="validierung-und-evaluation" class="level1">
+
+
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Validierung und Evaluation</h2><div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
+<div id="ref-Muhammad_et_al.2022" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">A. S. Muhammad, S. Norhalina, W. Fazli, A. Muhammad, S. Ali, und M. Khan, <span>„Comparative Analysis of Recent Architecture of Convolutional Neural Network“</span>, Mathematical Problems in Engineering, 2022. Verfügbar unter: <a href="https://doi.org/10.1155/2022/7313612">https://doi.org/10.1155/2022/7313612</a></div>
+</div>
+<div id="ref-Bradski_Kaehler_2008" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">G. Bradski und A. Kaehler, <em>Learning OpenCV</em>. Sebastopol, CA, USA: O’Reilly Media, Inc., 2008.</div>
+</div>
+<div id="ref-Jain2024" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline">A. Jain, <span>„Pooling and their types in CNN“</span>. Zugegriffen: 22. April 2025. [Online]. Verfügbar unter: <a href="https://medium.com/@abhishekjainindore24/pooling-and-their-types-in-cnn-4a4b8a7a4611">https://medium.com/@abhishekjainindore24/pooling-and-their-types-in-cnn-4a4b8a7a4611</a></div>
+</div>
+<div id="ref-GeeksForGeeks2025" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[4] </div><div class="csl-right-inline">G. for Geeks, <span>„CNN | Introduction to Pooling Layer“</span>. Zugegriffen: 22. April 2025. [Online]. Verfügbar unter: <a href="https://www.geeksforgeeks.org/cnn-introduction-to-pooling-layer/">https://www.geeksforgeeks.org/cnn-introduction-to-pooling-layer/</a></div>
+</div>
+<div id="ref-Ronneberger2025" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[5] </div><div class="csl-right-inline">O. Ronneberger, P. Fischer, und T. Brox, <span>„U-Net: Convolutional Networks for Biomedical Image Segmentation“</span>, <em>CoRR</em>, Bd. abs/1505.04597, 2015, Verfügbar unter: <a href="http://arxiv.org/abs/1505.04597">http://arxiv.org/abs/1505.04597</a></div>
+</div>
+<div id="ref-haoli2017" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[6] </div><div class="csl-right-inline">H. Li, Z. Xu, G. Taylor, und T. Goldstein, <span>„Visualizing the Loss Landscape of Neural Nets“</span>, <em>CoRR</em>, Bd. abs/1712.09913, 2017, Verfügbar unter: <a href="http://arxiv.org/abs/1712.09913">http://arxiv.org/abs/1712.09913</a></div>
+</div>
+<div id="ref-yaoli2025" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[7] </div><div class="csl-right-inline">Y. Wang, Y. Deng, Y. Zheng, P. Chattopadhyay, und L. Wang, <span>„Vision Transformers for Image Classification: A Comparative Survey“</span>, <em>Technologies</em>, Bd. 13, S. 32, Jan. 2025, doi: <a href="https://doi.org/10.3390/technologies13010032">10.3390/technologies13010032</a>.</div>
+</div>
+<div id="ref-Khan2022" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[8] </div><div class="csl-right-inline">S. Khan, M. Naseer, M. Hayat, S. W. Zamir, F. S. Khan, und M. Shah, <span>„Transformers in Vision: A Survey“</span>, <em>ACM Computing Surveys</em>, Bd. 54, Nr. 10s, S. 1–41, 2022, doi: <a href="https://doi.org/10.1145/3505244">10.1145/3505244</a>.</div>
+</div>
+<div id="ref-Shome2021" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[9] </div><div class="csl-right-inline">D. Shome <em>u.&nbsp;a.</em>, <span>„Deep Learning for Dermatological Disease Diagnosis: A Review“</span>, <em>IEEE Reviews in Biomedical Engineering</em>, Bd. 14, S. 209–222, 2021.</div>
+</div>
+<div id="ref-Tan2021" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[10] </div><div class="csl-right-inline">M. Tan und Q. V. Le, <span>„EfficientNetV2: Smaller Models and Faster Training“</span>. 2021. Verfügbar unter: <a href="https://arxiv.org/abs/2104.00298">https://arxiv.org/abs/2104.00298</a></div>
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Fußnoten</h2>
+
+<ol>
+<li id="fn1"><p>Bausteine der Feature Extraktion, die verschiede Aspekte des Eingabebilds wie Kanten, Texturen, Farben, etc. kodieren.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><strong>ChatGPT Prompt</strong>: Wie unterscheiden sich ViTs von CNNs im Bereich der medizinischen Bildverarbeitung. Bitte nenne 4 Punkte.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopiert");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopiert");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
