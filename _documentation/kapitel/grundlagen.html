@@ -21,7 +21,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -159,10 +179,25 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#definition-von-hautkrebsarten" id="toc-definition-von-hautkrebsarten" class="nav-link active" data-scroll-target="#definition-von-hautkrebsarten">Definition von Hautkrebsarten</a></li>
-  <li><a href="#bisherige-diagnosewerkzeuge-und-kriterien" id="toc-bisherige-diagnosewerkzeuge-und-kriterien" class="nav-link" data-scroll-target="#bisherige-diagnosewerkzeuge-und-kriterien">Bisherige Diagnosewerkzeuge und Kriterien</a></li>
+  <li><a href="#definition-von-hautkrebs" id="toc-definition-von-hautkrebs" class="nav-link active" data-scroll-target="#definition-von-hautkrebs">Definition von Hautkrebs</a>
+  <ul class="collapse">
+  <li><a href="#medizinische-definition" id="toc-medizinische-definition" class="nav-link" data-scroll-target="#medizinische-definition">Medizinische Definition</a></li>
+  <li><a href="#unterscheidung-schwarzer-vs.-heller-hautkrebs" id="toc-unterscheidung-schwarzer-vs.-heller-hautkrebs" class="nav-link" data-scroll-target="#unterscheidung-schwarzer-vs.-heller-hautkrebs">Unterscheidung: Schwarzer vs.&nbsp;Heller Hautkrebs</a></li>
+  <li><a href="#tabellarische-übersicht-der-wichtigsten-hautkrebsarten" id="toc-tabellarische-übersicht-der-wichtigsten-hautkrebsarten" class="nav-link" data-scroll-target="#tabellarische-übersicht-der-wichtigsten-hautkrebsarten">Tabellarische Übersicht der wichtigsten Hautkrebsarten</a></li>
+  </ul></li>
+  <li><a href="#bisherige-diagnosewerkzeuge-und-kriterien" id="toc-bisherige-diagnosewerkzeuge-und-kriterien" class="nav-link" data-scroll-target="#bisherige-diagnosewerkzeuge-und-kriterien">Bisherige Diagnosewerkzeuge und Kriterien</a>
+  <ul class="collapse">
+  <li><a href="#invasive-und-nicht-invasive-diagnoseverfahren" id="toc-invasive-und-nicht-invasive-diagnoseverfahren" class="nav-link" data-scroll-target="#invasive-und-nicht-invasive-diagnoseverfahren">Invasive und nicht-invasive Diagnoseverfahren</a></li>
+  <li><a href="#kriterien-der-dermatoskopie" id="toc-kriterien-der-dermatoskopie" class="nav-link" data-scroll-target="#kriterien-der-dermatoskopie">Kriterien der Dermatoskopie</a></li>
+  </ul></li>
   <li><a href="#definition-von-künstlicher-intelligenz" id="toc-definition-von-künstlicher-intelligenz" class="nav-link" data-scroll-target="#definition-von-künstlicher-intelligenz">Definition von künstlicher Intelligenz</a></li>
-  <li><a href="#anwendung-von-künstlicher-intelligenz-im-medizinischen-sektor" id="toc-anwendung-von-künstlicher-intelligenz-im-medizinischen-sektor" class="nav-link" data-scroll-target="#anwendung-von-künstlicher-intelligenz-im-medizinischen-sektor">Anwendung von künstlicher Intelligenz im medizinischen Sektor</a></li>
+  <li><a href="#anwendung-von-künstlicher-intelligenz-im-medizinischen-sektor" id="toc-anwendung-von-künstlicher-intelligenz-im-medizinischen-sektor" class="nav-link" data-scroll-target="#anwendung-von-künstlicher-intelligenz-im-medizinischen-sektor">Anwendung von künstlicher Intelligenz im medizinischen Sektor</a>
+  <ul class="collapse">
+  <li><a href="#bildgebende-diagnostik" id="toc-bildgebende-diagnostik" class="nav-link" data-scroll-target="#bildgebende-diagnostik">Bildgebende Diagnostik</a></li>
+  <li><a href="#vorhersage-und-frühwarnsysteme" id="toc-vorhersage-und-frühwarnsysteme" class="nav-link" data-scroll-target="#vorhersage-und-frühwarnsysteme">Vorhersage und Frühwarnsysteme</a></li>
+  <li><a href="#strukturvorhersage-von-proteinen" id="toc-strukturvorhersage-von-proteinen" class="nav-link" data-scroll-target="#strukturvorhersage-von-proteinen">Strukturvorhersage von Proteinen</a></li>
+  <li><a href="#virtuelle-assistenten-und-robotik" id="toc-virtuelle-assistenten-und-robotik" class="nav-link" data-scroll-target="#virtuelle-assistenten-und-robotik">Virtuelle Assistenten und Robotik</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -200,22 +235,158 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="definition-von-hautkrebsarten" class="level1">
-<h1>Definition von Hautkrebsarten</h1>
+<section id="definition-von-hautkrebs" class="level1">
+<h1>Definition von Hautkrebs</h1>
+<section id="medizinische-definition" class="level2">
+<h2 class="anchored" data-anchor-id="medizinische-definition">Medizinische Definition</h2>
+<p>Hautkrebs bezeichnet allgemein die maligne<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Neubildung bestimmter Hautzellen, die unkontrolliert wachsen und in umliegendes Gewebe eindringen können. Die häufigsten Formen entstehen aus Zellen der Epidermis, insbesondere aus Keratinozyten und Melanozyten. Medizinisch wird Hautkrebs in „hellen Hautkrebs“ (Nicht-Melanom-Hautkrebs, NMSC), der vorwiegend aus Keratinozyten entsteht und „schwarzen Hautkrebs“ (malignes Melanom), der aus Melanozyten hervorgeht, unterschieden. <span class="citation" data-cites="leiter_epidemiology_2014"><a href="#ref-leiter_epidemiology_2014" role="doc-biblioref">[1]</a></span></p>
+</section>
+<section id="unterscheidung-schwarzer-vs.-heller-hautkrebs" class="level2">
+<h2 class="anchored" data-anchor-id="unterscheidung-schwarzer-vs.-heller-hautkrebs">Unterscheidung: Schwarzer vs.&nbsp;Heller Hautkrebs</h2>
+<p>Heller Hautkrebs umfasst hauptsächlich das Basalzellkarzinom (Basaliom) und das Plattenepithelkarzinom (Spinaliom) sowie deren Vorstufen, z. B. aktinische Keratosen. Diese Tumore neigen meist zu lokal invasivem Wachstum, metastasieren aber selten.</p>
+<p>Beispiel: Ein Basalzellkarzinom wächst oft tief in die Hautschichten und kann sogar Knorpel oder Knochen angreifen, bleibt aber fast immer auf diese Region begrenzt und streut nicht in Lunge oder Leber.</p>
+<p>Der „schwarze Hautkrebs“, das maligne Melanom, geht von den pigmentbildenden Melanozyten aus und gilt als besonders aggressiv, da er früh metastasieren kann.</p>
+<p>Beispiel: Ein malignes Melanom kann bereits in einem frühen Stadium Krebszellen über Blut- oder Lymphbahnen streuen und so Metastasen in anderen Organen wie Lunge, Leber oder Gehirn bilden, selbst wenn der Primärtumor an der Haut noch relativ klein erscheint. <span class="citation" data-cites="diepgen_epidemiology_2002"><a href="#ref-diepgen_epidemiology_2002" role="doc-biblioref">[2]</a></span></p>
+</section>
+<section id="tabellarische-übersicht-der-wichtigsten-hautkrebsarten" class="level2">
+<h2 class="anchored" data-anchor-id="tabellarische-übersicht-der-wichtigsten-hautkrebsarten">Tabellarische Übersicht der wichtigsten Hautkrebsarten</h2>
+<div id="tbl-Hautkrebsarten" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-Hautkrebsarten-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabelle&nbsp;1: Hautkrebsarten
+</figcaption>
+<div aria-describedby="tbl-Hautkrebsarten-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Hautkrebsart</th>
+<th>Ursprung</th>
+<th>Charakteristika</th>
+<th>Metastasierung</th>
+<th>Häufigkeit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Basalzellkarzinom (Basaliom)</td>
+<td>Basalzellen der Epidermis</td>
+<td>Langsames Wachstum, selten metastasierend</td>
+<td>Sehr selten</td>
+<td>Häufigster Hautkrebs weltweit</td>
+</tr>
+<tr class="even">
+<td>Aktinische Keratosen &amp; intraepitheliales Karzinom (Morbus Bowen)</td>
+<td>Keratinozyten der Epidermis</td>
+<td>Frühform/Präkanzerose, kann ins Plattenepithelkarzinom übergehen</td>
+<td>Lokal begrenzt, Übergang zu invasiv möglich</td>
+<td>Sehr häufig, v. a. bei starker UV-Exposition</td>
+</tr>
+<tr class="odd">
+<td>Malignes Melanom</td>
+<td>Melanozyten</td>
+<td>Hohe Aggressivität, unregelmäßige Pigmentierung, schnelles Wachstum</td>
+<td>Frühzeitige Metastasierung</td>
+<td>Seltener, aber für die meisten Hautkrebs-Todesfälle verantwortlich</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
 </section>
 <section id="bisherige-diagnosewerkzeuge-und-kriterien" class="level1">
 <h1>Bisherige Diagnosewerkzeuge und Kriterien</h1>
+<section id="invasive-und-nicht-invasive-diagnoseverfahren" class="level2">
+<h2 class="anchored" data-anchor-id="invasive-und-nicht-invasive-diagnoseverfahren">Invasive und nicht-invasive Diagnoseverfahren</h2>
+<p>Die Diagnose von Hautkrebs basiert auf einer Kombination aus nicht-invasiven und invasiven Verfahren. Zu den nicht-invasiven Methoden zählt die visuelle Inspektion mit dem bloßen Auge, die durch den Einsatz der Dermatoskopie (Auflichtmikroskopie) ergänzt wird. Die Dermatoskopie ermöglicht eine vergrößerte, strukturierte Ansicht von Pigmentmustern und Gefäßstrukturen, die unter der Hautoberfläche liegen. <span class="citation" data-cites="argenziano_dermoscopy_2003"><a href="#ref-argenziano_dermoscopy_2003" role="doc-biblioref">[3]</a></span></p>
+<p>Weitere nicht-invasive Verfahren sind die konfokale Laserscanmikroskopie und optische Kohärenztomographie, die jedoch primär in spezialisierten Zentren Anwendung finden. <span class="citation" data-cites="weiss_safety_2017"><a href="#ref-weiss_safety_2017" role="doc-biblioref">[4]</a></span></p>
+<p>Bei einem begründeten Verdacht auf Malignität kommt die Biopsie als invasives Diagnoseverfahren zum Einsatz. Dabei wird eine Gewebeprobe entnommen, histopathologisch untersucht und definitive Aussagen zur Tumorart, Eindringtiefe und möglichen Metastasierung getroffen. Die histologische Untersuchung gilt weiterhin als Standard der Hautkrebsdiagnostik. <span class="citation" data-cites="kohn_cultural_2019"><a href="#ref-kohn_cultural_2019" role="doc-biblioref">[5]</a></span></p>
+</section>
+<section id="kriterien-der-dermatoskopie" class="level2">
+<h2 class="anchored" data-anchor-id="kriterien-der-dermatoskopie">Kriterien der Dermatoskopie</h2>
+<p>Die Dermatoskopie basiert auf standardisierten Klassifikationssystemen, um maligne von benignen Hautläsionen zu unterscheiden. Eines der bekanntesten Kriterienmodelle ist die „ABCD-Regel“, die asymmetrische Form, unregelmäßige Begrenzung, Farbvariationen (Colorit) und Durchmesser berücksichtigt. Zusätzlich kommen Mustererkennungssysteme wie das 7-Punkte-Checklist-System oder das Menzies-Diagnoseschema zum Einsatz. Diese Systeme bewerten mikroskopische Strukturen wie Pigmentnetz, globuläre Muster, Pseudopodien und Gefäßanomalien. <span class="citation" data-cites="binder_epiluminescence_1995"><a href="#ref-binder_epiluminescence_1995" role="doc-biblioref">[6]</a></span> <span class="citation" data-cites="nachbar_abcd_1994"><a href="#ref-nachbar_abcd_1994" role="doc-biblioref">[7]</a></span></p>
+</section>
 </section>
 <section id="definition-von-künstlicher-intelligenz" class="level1">
 <h1>Definition von künstlicher Intelligenz</h1>
+<p>Der Begriff künstliche Intelligenz hat aktuell keine einheitliche, allgemein akzeptierte Definition, was von führenden Forschern wie Geoffrey Hinton, Yoshua Bengio und Yann LeCun, betont wird. Gemeinsam ist den verschiedenen Definitionen jedoch der Gedanke, Maschinen mit der Fähigkeit auszustatten, Aufgaben zu lösen, die typischerweise menschliche Intelligenz erfordern. Dazu zählen Lernen aus Daten (Machine Learning), Mustererkennung, Sprachverarbeitung und Entscheidungsfindung. Hinton, Bengio und LeCun betonen dabei insbesondere die Bedeutung von Deep Learning, einem Teilbereich des maschinellen Lernens, der auf künstlichen neuronalen Netzen basiert und große Datenmengen nutzt, um komplexe Muster zu erkennen. <span class="citation" data-cites="russell_artificial_2021"><a href="#ref-russell_artificial_2021" role="doc-biblioref">[8]</a></span></p>
 </section>
 <section id="anwendung-von-künstlicher-intelligenz-im-medizinischen-sektor" class="level1">
 <h1>Anwendung von künstlicher Intelligenz im medizinischen Sektor</h1>
+<p>Künstliche Intelligenz hat in den letzten Jahren zunehmend Einzug in verschiedene Bereiche der Medizin gehalten. Der Einsatz reicht dabei von der Diagnoseunterstützung über die Therapieplanung bis hin zur Wirkstoffentwicklung.</p>
+<section id="bildgebende-diagnostik" class="level2">
+<h2 class="anchored" data-anchor-id="bildgebende-diagnostik">Bildgebende Diagnostik</h2>
+<p>Ein Schwerpunkt liegt in der automatisierten Analyse medizinischer Bilddaten, etwa in der Radiologie, Pathologie oder Dermatologie. KI-Modelle, insbesondere Convolutional Neural Networks (CNNs), erreichen in der Diagnose von Brustkrebs oder Lungenkarzinomen teilweise eine Genauigkeit, die mit der von Fachärzten vergleichbar ist. <span class="citation" data-cites="esteva_dermatologist-level_2017"><a href="#ref-esteva_dermatologist-level_2017" role="doc-biblioref">[9]</a></span></p>
+</section>
+<section id="vorhersage-und-frühwarnsysteme" class="level2">
+<h2 class="anchored" data-anchor-id="vorhersage-und-frühwarnsysteme">Vorhersage und Frühwarnsysteme</h2>
+<p>KI wird auch genutzt, um Krankheitsverläufe vorherzusagen, beispielsweise bei chronischen Erkrankungen oder Sepsis. Prognosemodelle analysieren elektronische Patientendaten in Echtzeit und unterstützen Ärztinnen und Ärzte bei der Früherkennung kritischer Zustände. <span class="citation" data-cites="rajkomar_scalable_2018"><a href="#ref-rajkomar_scalable_2018" role="doc-biblioref">[10]</a></span></p>
+</section>
+<section id="strukturvorhersage-von-proteinen" class="level2">
+<h2 class="anchored" data-anchor-id="strukturvorhersage-von-proteinen">Strukturvorhersage von Proteinen</h2>
+<p>Ein Meilenstein ist die Anwendung von KI in der Molekularbiologie. DeepMind entwickelte mit AlphaFold ein System, das die dreidimensionale Struktur von Proteinen mit hoher Genauigkeit vorhersagen kann, eine Aufgabe, die jahrzehntelang als eines der größten ungelösten Probleme der Biologie galt. Die Möglichkeit, Proteinstrukturen präzise zu bestimmen, beschleunigt die Wirkstoffforschung erheblich. <span class="citation" data-cites="jumper_highly_2021"><a href="#ref-jumper_highly_2021" role="doc-biblioref">[11]</a></span></p>
+</section>
+<section id="virtuelle-assistenten-und-robotik" class="level2">
+<h2 class="anchored" data-anchor-id="virtuelle-assistenten-und-robotik">Virtuelle Assistenten und Robotik</h2>
+<p>Darüber hinaus kommen KI-Systeme als virtuelle Assistenten zum Einsatz, die Patient:innen bei der Terminplanung oder Medikamentenerinnerung unterstützen. Auch Roboter mit KI-basierten Steuerungen helfen im OP, indem sie präzise Schnitte durchführen oder Ärztinnen und Ärzte bei minimalinvasiven Eingriffen entlasten. <span class="citation" data-cites="yang_medical_2017"><a href="#ref-yang_medical_2017" role="doc-biblioref">[12]</a></span></p>
+
 
 
 </section>
+</section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Literatur</h2><div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
+<div id="ref-leiter_epidemiology_2014" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">U. Leiter, T. Eigentler, und C. Garbe, <span>„Epidemiology of <span>Skin</span> <span>Cancer</span>“</span>, in <em>Sunlight, <span>Vitamin</span> <span>D</span> and <span>Skin</span> <span>Cancer</span></em>, New York, NY: Springer New York, 2014, S. 120–140. doi: <a href="https://doi.org/10.1007/978-1-4939-0437-2_7">10.1007/978-1-4939-0437-2_7</a>.</div>
+</div>
+<div id="ref-diepgen_epidemiology_2002" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">T. L. Diepgen und V. Mahler, <span>„The epidemiology of skin cancer“</span>, <em>British Journal of Dermatology</em>, Bd. 146, Nr. s61, S. 1–6, Apr. 2002, doi: <a href="https://doi.org/10.1046/j.1365-2133.146.s61.2.x">10.1046/j.1365-2133.146.s61.2.x</a>.</div>
+</div>
+<div id="ref-argenziano_dermoscopy_2003" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline">G. Argenziano <em>u.&nbsp;a.</em>, <span>„Dermoscopy of pigmented skin lesions: <span>Results</span> of a consensus meeting via the <span>Internet</span>“</span>, <em>Journal of the American Academy of Dermatology</em>, Bd. 48, Nr. 5, S. 679–693, Mai 2003, doi: <a href="https://doi.org/10.1067/mjd.2003.281">10.1067/mjd.2003.281</a>.</div>
+</div>
+<div id="ref-weiss_safety_2017" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[4] </div><div class="csl-right-inline">R. A. Weiss, D. H. McDaniel, M. A. Weiss, A. M. Mahoney, K. L. Beasley, und C. R. Halvorson, <span>„Safety and efficacy of a novel diffractive lens array using a picosecond 755 nm alexandrite laser for treatment of wrinkles“</span>, <em>Lasers in Surgery and Medicine</em>, Bd. 49, Nr. 1, S. 40–44, Jan. 2017, doi: <a href="https://doi.org/10.1002/lsm.22577">10.1002/lsm.22577</a>.</div>
+</div>
+<div id="ref-kohn_cultural_2019" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[5] </div><div class="csl-right-inline">L. L. Kohn und C. E. Introcaso, <span>„A <span>Cultural</span> <span>Context</span> for <span>Providing</span> <span>Dermatologic</span> <span>Care</span> to <span>American</span> <span>Indian</span> and <span>Alaskan</span> <span>Native</span> <span>Communities</span> <span>Through</span> <span>Telehealth</span>“</span>, <em>JAMA Dermatology</em>, Bd. 155, Nr. 8, S. 884–886, Aug. 2019, doi: <a href="https://doi.org/10.1001/jamadermatol.2019.0860">10.1001/jamadermatol.2019.0860</a>.</div>
+</div>
+<div id="ref-binder_epiluminescence_1995" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[6] </div><div class="csl-right-inline">M. Binder <em>u.&nbsp;a.</em>, <span>„Epiluminescence microscopy. <span>A</span> useful tool for the diagnosis of pigmented skin lesions for formally trained dermatologists.“</span>, <em>Archives of dermatology</em>, Bd. 131, Nr. 3, S. 286–291, März 1995, doi: <a href="https://doi.org/10.1001/archderm.131.3.286">10.1001/archderm.131.3.286</a>.</div>
+</div>
+<div id="ref-nachbar_abcd_1994" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[7] </div><div class="csl-right-inline">F. Nachbar <em>u.&nbsp;a.</em>, <span>„The <span>ABCD</span> rule of dermatoscopy. <span>High</span> prospective value in the diagnosis of doubtful melanocytic skin lesions.“</span>, <em>Journal of the American Academy of Dermatology</em>, Bd. 30, Nr. 4, S. 551–559, Apr. 1994, doi: <a href="https://doi.org/10.1016/s0190-9622(94)70061-3">10.1016/s0190-9622(94)70061-3</a>.</div>
+</div>
+<div id="ref-russell_artificial_2021" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[8] </div><div class="csl-right-inline">S. Russell und P. Norvig, <em>Artificial <span>Intelligence</span>, <span>Global</span> <span>Edition</span> : <span>A</span> <span>Modern</span> <span>Approach</span></em>. Pearson Deutschland, 2021. Verfügbar unter: <a href="https://elibrary.pearson.de/book/99.150005/9781292401171">https://elibrary.pearson.de/book/99.150005/9781292401171</a></div>
+</div>
+<div id="ref-esteva_dermatologist-level_2017" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[9] </div><div class="csl-right-inline">A. Esteva <em>u.&nbsp;a.</em>, <span>„Dermatologist-level classification of skin cancer with deep neural networks“</span>, <em>Nature</em>, Bd. 542, Nr. 7639, S. 115–118, Feb. 2017, doi: <a href="https://doi.org/10.1038/nature21056">10.1038/nature21056</a>.</div>
+</div>
+<div id="ref-rajkomar_scalable_2018" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[10] </div><div class="csl-right-inline">A. Rajkomar <em>u.&nbsp;a.</em>, <span>„Scalable and accurate deep learning with electronic health records“</span>, <em>npj Digital Medicine</em>, Bd. 1, Nr. 1, S. 18, Mai 2018, doi: <a href="https://doi.org/10.1038/s41746-018-0029-1">10.1038/s41746-018-0029-1</a>.</div>
+</div>
+<div id="ref-jumper_highly_2021" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[11] </div><div class="csl-right-inline">J. Jumper <em>u.&nbsp;a.</em>, <span>„Highly accurate protein structure prediction with <span>AlphaFold</span>“</span>, <em>Nature</em>, Bd. 596, Nr. 7873, S. 583–589, Aug. 2021, doi: <a href="https://doi.org/10.1038/s41586-021-03819-2">10.1038/s41586-021-03819-2</a>.</div>
+</div>
+<div id="ref-yang_medical_2017" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[12] </div><div class="csl-right-inline">G.-Z. Yang <em>u.&nbsp;a.</em>, <span>„Medical robotics—<span>Regulatory</span>, ethical, and legal considerations for increasing levels of autonomy“</span>, <em>Science Robotics</em>, Bd. 2, Nr. 4, S. eaam8638, März 2017, doi: <a href="https://doi.org/10.1126/scirobotics.aam8638">10.1126/scirobotics.aam8638</a>.</div>
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Fußnoten</h2>
+
+<ol>
+<li id="fn1"><p>Maligne = bösartig<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

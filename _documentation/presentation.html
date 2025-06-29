@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="de"><head>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-html/tabby.min.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -9,6 +9,7 @@
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.30">
 
+  <meta name="author" content="S. Wendland, M. Pöppel, J. H. Uemann">
   <title>Melanoma – Melanoma Präsentation</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -27,6 +28,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     /* CSS for citations */
     div.csl-bib-body { }
     div.csl-entry {
@@ -145,6 +212,9 @@
   <script src="site_libs/quarto-diagram/mermaid.min.js"></script>
   <script src="site_libs/quarto-diagram/mermaid-init.js"></script>
   <link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+  
+  <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -155,6 +225,11 @@
   <p class="subtitle">Einsatz von künstlicher Intelligenz zur Hautkrebsdiagnose</p>
 
 <div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+S. Wendland, M. Pöppel, J. H. Uemann 
+</div>
+</div>
 </div>
 
 </section><section id="TOC">
@@ -163,9 +238,9 @@
 <ul>
 <li><a href="#/einleitung" id="/toc-einleitung"><span class="header-section-number">1</span> Einleitung</a></li>
 <li><a href="#/theoretische-grundlagen" id="/toc-theoretische-grundlagen"><span class="header-section-number">2</span> Theoretische Grundlagen</a></li>
-<li><a href="#/modellentwicklung" id="/toc-modellentwicklung"><span class="header-section-number">3</span> Modellentwicklung</a></li>
+<li><a href="#/datensatz-und-modellentwicklung" id="/toc-datensatz-und-modellentwicklung"><span class="header-section-number">3</span> Datensatz und Modellentwicklung</a></li>
 <li><a href="#/auswertung-und-vergleich" id="/toc-auswertung-und-vergleich"><span class="header-section-number">4</span> Auswertung und Vergleich</a></li>
-<li><a href="#/einsatz-von-ki-als-entiwcklungswerkzeug" id="/toc-einsatz-von-ki-als-entiwcklungswerkzeug"><span class="header-section-number">5</span> Einsatz von KI als Entiwcklungswerkzeug</a></li>
+<li><a href="#/einsatz-von-ki-im-projekt" id="/toc-einsatz-von-ki-im-projekt"><span class="header-section-number">5</span> Einsatz von KI im Projekt</a></li>
 <li><a href="#/literaturverzeichnus" id="/toc-literaturverzeichnus"><span class="header-section-number">6</span> Literaturverzeichnus</a></li>
 </ul>
 </nav>
@@ -187,17 +262,76 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="forschungsgrundlage" class="slide level2" data-number="1.1">
-<h2><span class="header-section-number">1.1</span> Forschungsgrundlage</h2>
+<section id="relevanz" class="slide level2" data-number="1.1">
+<h2><span class="header-section-number">1.1</span> Relevanz</h2>
+<div class="fragment">
 <blockquote>
 <p>Alle 120 Minuten stirbt ein Mensch an Hautkrebs. Wie kann künstliche Intelligenz Leben retten? <span class="citation" data-cites="DeStatis2024"><a href="#/literaturverzeichnus" role="doc-biblioref" onclick="">[1]</a></span></p>
 </blockquote>
+</div>
+<div class="fragment">
 <blockquote>
 <p>1895 entdeckte Wilhelm Röntgen die Röntgenstrahlen und revolutionierte die Medizin. Steht uns mit künstlicher Intelligenz eine noch größere Revolution bevor? <span class="citation" data-cites="Roentgen1895"><a href="#/literaturverzeichnus" role="doc-biblioref" onclick="">[2]</a></span></p>
 </blockquote>
+</div>
 </section>
-<section id="ki-und-bildanalyse" class="slide level2" data-number="1.2">
-<h2><span class="header-section-number">1.2</span> KI und Bildanalyse</h2>
+<section id="was-ist-hautkrebs" class="slide level2" data-number="1.2">
+<h2><span class="header-section-number">1.2</span> Was ist Hautkrebs?</h2>
+<ul>
+<li>Hautkrebs entsteht, wenn bestimmte Zellen der Haut unkontrolliert wachsen und in das umliegende Gewebe eindringen. Man unterscheidet dabei zwischen hellem Hautkrebs und schwarzem Hautkrebs.</li>
+</ul>
+
+<img data-src="./images/skincancer.jpg" class="r-stretch quarto-figure-center" id="fig-skincancer"><p class="caption">
+Abbildung&nbsp;1: Querrschnitt vom Hautkrebs
+</p><aside class="notes">
+<p>heller - lokal aber auch tief schwarzer - kann früh streuen (Blut- Lymphbahnen), Metastasen in anderen Organen bilden</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="nicht-invasive-diagnoseverfahren" class="slide level2" data-number="1.3">
+<h2><span class="header-section-number">1.3</span> nicht-invasive Diagnoseverfahren</h2>
+<ul>
+<li>Klinische Untersuchung
+<ul>
+<li>Visuelle Begutachtung auffälliger Hautveränderungen durch Hautärzt</li>
+</ul></li>
+<li>Dermatoskopie
+<ul>
+<li>Vergrößert und beleuchtet die Haut, macht Pigment- und Gefäßstrukturen sichtbar</li>
+</ul></li>
+<li>Konfokale Laserscanmikroskopie</li>
+<li>Optische Kohärenztomographie</li>
+</ul>
+<aside class="notes">
+<ul>
+<li>Auge // sehr ungenau</li>
+<li>Dermatoskopie // Signifikant besser, minimal mehr Aufwand, aktueller Standard</li>
+<li>Laserscanmikroskopie und Optische Kohärenztomographie // Spezial Eqiupment + teuer</li>
+<li>Biopsie // Diagnosensicherung</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="ki-und-computer-vision" class="slide level2" data-number="1.4">
+<h2><span class="header-section-number">1.4</span> KI und Computer Vision</h2>
 <div id="timeline" style="width: 100%; height: 600px;"></div>
 <script>
   const data = [
@@ -256,100 +390,31 @@
   .attr("font-size", "24px");
 </script>
 </section>
-<section id="unser-forschungsgegenstand" class="slide level2 smaller" data-number="1.3">
-<h2><span class="header-section-number">1.3</span> Unser Forschungsgegenstand</h2>
-<div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">AKIEC</a></li><li><a href="#tabset-1-2">BCC</a></li><li><a href="#tabset-1-3">BKL</a></li><li><a href="#tabset-1-4">DF</a></li><li><a href="#tabset-1-5">MEL</a></li><li><a href="#tabset-1-6">NV</a></li><li><a href="#tabset-1-7">VASC</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1">
-<div id="fig-akiec" class="quarto-float quarto-figure quarto-figure-center">
-<figure class="quarto-float quarto-float-fig">
-<div aria-describedby="fig-akiec-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img data-src="./images/akiec.jpg" style="width:55.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-akiec-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;1: Aktinische Keratose
-</figcaption>
-</figure>
-</div>
-</div>
-<div id="tabset-1-2">
-<div id="fig-bcc" class="quarto-float quarto-figure quarto-figure-center">
-<figure class="quarto-float quarto-float-fig">
-<div aria-describedby="fig-bcc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img data-src="./images/bcc.jpg" style="width:55.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bcc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;2: Basalzellkarzinom
-</figcaption>
-</figure>
-</div>
-</div>
-<div id="tabset-1-3">
-<div id="fig-bkl" class="quarto-float quarto-figure quarto-figure-center">
-<figure class="quarto-float quarto-float-fig">
-<div aria-describedby="fig-bkl-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img data-src="./images/bkl.jpg" style="width:55.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bkl-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;3: Keratosen-ähnliche Läsionen
-</figcaption>
-</figure>
-</div>
-</div>
-<div id="tabset-1-4">
-<div id="fig-df" class="quarto-float quarto-figure quarto-figure-center">
-<figure class="quarto-float quarto-float-fig">
-<div aria-describedby="fig-df-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img data-src="./images/df.jpg" style="width:55.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-df-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;4: Dermatofibrom
-</figcaption>
-</figure>
-</div>
-</div>
-<div id="tabset-1-5">
-<div id="fig-mel" class="quarto-float quarto-figure quarto-figure-center">
-<figure class="quarto-float quarto-float-fig">
-<div aria-describedby="fig-mel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img data-src="./images/mel.jpg" style="width:55.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;5: Melanom
-</figcaption>
-</figure>
-</div>
-</div>
-<div id="tabset-1-6">
-<div id="fig-nv" class="quarto-float quarto-figure quarto-figure-center">
-<figure class="quarto-float quarto-float-fig">
-<div aria-describedby="fig-nv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img data-src="./images/nv.jpg" style="width:55.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-nv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;6: Melanozytische Nävi
-</figcaption>
-</figure>
-</div>
-</div>
-<div id="tabset-1-7">
-<div id="fig-vasc" class="quarto-float quarto-figure quarto-figure-center">
-<figure class="quarto-float quarto-float-fig">
-<div aria-describedby="fig-vasc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img data-src="./images/vasc.jpg" style="width:55.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vasc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;7: Gefäßläsionen
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
+<section id="ziele" class="slide level2" data-number="1.5">
+<h2><span class="header-section-number">1.5</span> Ziele</h2>
+<ul>
+<li><p>Auseinandersetzung mit dem Einsatz von künstlicher Intelligenz</p></li>
+<li><p>Verständnis der Potenziale und Grenzen der Technologie</p></li>
+<li><p>Einordnung der Ergebnisse in den fachlichen Kontext</p></li>
+<li><p>Einschätzung, ob und wie KI in diesem Anwendungsfeld eingesetzt werden kann</p></li>
+</ul>
 </section>
-<section id="unser-vorgehen" class="slide level2" data-number="1.4">
-<h2><span class="header-section-number">1.4</span> Unser Vorgehen</h2>
+<section id="abgrenzung" class="slide level2" data-number="1.6">
+<h2><span class="header-section-number">1.6</span> Abgrenzung</h2>
+<ul>
+<li>Fokus auf Dermatoskopie
+<ul>
+<li>Hautoberfläche reflektiert und tiefere Details unsichtbar</li>
+</ul></li>
+<li>Kleiner Datensatz
+<ul>
+<li>10015 Samples</li>
+<li>7 Features</li>
+</ul></li>
+</ul>
+</section>
+<section id="unser-vorgehen" class="slide level2" data-number="1.7">
+<h2><span class="header-section-number">1.7</span> Unser Vorgehen</h2>
 <div id="fig-project-plan" class="r-stretch quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-project-plan-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -394,7 +459,7 @@ Abbildung&nbsp;7: Gefäßläsionen
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-project-plan-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;8: Projektablauf
+Abbildung&nbsp;2: Projektablauf
 </figcaption>
 </figure>
 </div>
@@ -404,19 +469,8 @@ Abbildung&nbsp;8: Projektablauf
 <h1><span class="header-section-number">2</span> Theoretische Grundlagen</h1>
 
 </section>
-<section id="arten-von-hautkrebs" class="slide level2" data-number="2.1">
-<h2><span class="header-section-number">2.1</span> Arten von Hautkrebs</h2>
-<p>platzhalter</p>
-
-<aside><div>
-<p>Das ist eine Side Note</p>
-</div></aside></section>
-<section id="bisherige-diagnoseverfahren" class="slide level2" data-number="2.2">
-<h2><span class="header-section-number">2.2</span> Bisherige Diagnoseverfahren</h2>
-<p>platzhalter</p>
-</section>
-<section id="grundlagen-computer-vision" class="slide level2 smaller" data-number="2.3">
-<h2><span class="header-section-number">2.3</span> Grundlagen Computer Vision</h2>
+<section id="grundlagen-computer-vision" class="slide level2 smaller" data-number="2.1">
+<h2><span class="header-section-number">2.1</span> Grundlagen Computer Vision</h2>
 <blockquote>
 <p>Wie kann ein Computer sehen?</p>
 </blockquote>
@@ -446,6 +500,12 @@ I^{\ast} (x, y) = \sum^n_{i=1} \sum^n_{j=1}{I(x-i+a, y-j+a)K(i, j)}
 </div></aside></section>
 <section class="slide level2">
 
+
+<img data-src="./images/cnn_architecture.png" class="r-stretch quarto-figure-center" id="fig-cnn-architecture"><p class="caption">
+Abbildung&nbsp;3: CNN Architektur (aus Medium)
+</p></section>
+<section class="slide level2">
+
 <p><strong>Achtsamkeitsmechanismus (in ViTs)</strong></p>
 <ul>
 <li>Bild wird in kleine Patches zerlegt, die wie Wörter verarbeitet werden</li>
@@ -457,8 +517,8 @@ I^{\ast} (x, y) = \sum^n_{i=1} \sum^n_{j=1}{I(x-i+a, y-j+a)K(i, j)}
 <aside><div>
 <p>Funktionsweise Achtsamkeit <span class="citation" data-cites="Vaswani2017"><a href="#/literaturverzeichnus" role="doc-biblioref" onclick="">[4]</a></span></p>
 </div></aside></section>
-<section id="was-passiert-bei-der-faltung" class="slide level2" data-number="2.4">
-<h2><span class="header-section-number">2.4</span> Was passiert bei der Faltung</h2>
+<section id="was-passiert-bei-der-faltung" class="slide level2" data-number="2.2">
+<h2><span class="header-section-number">2.2</span> Was passiert bei der Faltung</h2>
 <ul>
 <li>🔍 Ein Filter <span class="math inline">\(K\)</span> überlagert das Bild <span class="math inline">\(I\)</span> und blickt auf einen <span class="math inline">\(n \times n\)</span> Bereich</li>
 <li>➕ Überlappende Werte werden multipliziert und aufsummiert</li>
@@ -471,8 +531,8 @@ I^{\ast} (x, y) = \sum^n_{i=1} \sum^n_{j=1}{I(x-i+a, y-j+a)K(i, j)}
 <section id="section" class="slide level2 unnumbered" data-background-video="./animations/MatrixMultiplicationVisualization.mp4" data-background-video-loop="true" data-background-video-muted="true">
 <h2></h2>
 </section>
-<section id="anwendung-der-faltung-in-cnns" class="slide level2" data-number="2.5">
-<h2><span class="header-section-number">2.5</span> Anwendung der Faltung in CNNs</h2>
+<section id="anwendung-der-faltung-in-cnns" class="slide level2" data-number="2.3">
+<h2><span class="header-section-number">2.3</span> Anwendung der Faltung in CNNs</h2>
 <ul>
 <li>✅ Je nach Wahl des Kernels <span class="math inline">\(K\)</span> werden unterschiedliche Merkmale hervorgehoben</li>
 <li>🏎️ Der Kernel <span class="math inline">\(K\)</span> bewegt sich stückweise über das komplette Bild <span class="math inline">\(I\)</span></li>
@@ -483,8 +543,31 @@ I^{\ast} (x, y) = \sum^n_{i=1} \sum^n_{j=1}{I(x-i+a, y-j+a)K(i, j)}
 <section id="section-1" class="slide level2 unnumbered" data-background-video="./animations/ConvolutionVisualization.mp4" data-background-video-loop="true" data-background-video-muted="true">
 <h2></h2>
 </section>
-<section id="pooling-in-cnns" class="slide level2" data-number="2.6">
-<h2><span class="header-section-number">2.6</span> Pooling in CNNs</h2>
+<section id="begriffsklärung-convolution" class="slide level2" data-number="2.4">
+<h2><span class="header-section-number">2.4</span> Begriffsklärung Convolution</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="./images/conv_example.gif"></p>
+<figcaption>Conv</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="./images/depthwise_conv_example.gif"></p>
+<figcaption>Depthwise Conv</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="section-2" class="slide level2 unnumbered">
+<h2></h2>
+
+<img data-src="./images/cnn_architecture.png" data-fig-ref="fig-cnn-architecture" data-echo="false" class="r-stretch"></section>
+<section id="pooling-in-cnns" class="slide level2" data-number="2.5">
+<h2><span class="header-section-number">2.5</span> Pooling in CNNs</h2>
 <ul>
 <li>⬇️ Reduziert die Bildgröße durch Zusammenfassen benachtbarter Pixel</li>
 <li>💻 Verringert Rechenaufwand und Anzahl der Paramter</li>
@@ -507,17 +590,21 @@ I^{\ast} (x, y) = \sum^n_{i=1} \sum^n_{j=1}{I(x-i+a, y-j+a)K(i, j)}
 <img data-src="./images/global_pooling.png" style="width:28.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-global-pooling-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;9: Global Pooling (aus Research Gate)
+Abbildung&nbsp;4: Global Pooling (aus Research Gate)
 </figcaption>
 </figure>
 </div>
 </div>
 </section>
-<section id="section-2" class="slide level2 unnumbered" data-background-video="./animations/PoolingVisualization.mp4" data-background-video-loop="true" data-background-video-muted="true">
+<section id="section-3" class="slide level2 unnumbered" data-background-video="./animations/PoolingVisualization.mp4" data-background-video-loop="true" data-background-video-muted="true">
 <h2></h2>
 </section>
-<section id="aktivierungsfunktionen" class="slide level2" data-number="2.7">
-<h2><span class="header-section-number">2.7</span> Aktivierungsfunktionen</h2>
+<section id="section-4" class="slide level2 unnumbered">
+<h2></h2>
+
+<img data-src="./images/cnn_architecture.png" data-fig-ref="fig-cnn-architecture" data-echo="false" class="r-stretch"></section>
+<section id="aktivierungsfunktionen" class="slide level2" data-number="2.6">
+<h2><span class="header-section-number">2.6</span> Aktivierungsfunktionen</h2>
 <ul>
 <li>📏 Werden nach Faltungen / Linearkombinationen eingesetzt</li>
 <li>🎢 Ohne Aktivierung wäre ein tiefes Netz nur eine lineare Funktion</li>
@@ -565,27 +652,50 @@ f(x_i) = \frac{e^{x_i}}{\sum_{j=1}^k e^{x_j}}
 <aside><div>
 <p>Dabei ist <span class="math inline">\(k\)</span> die Anzahl der Klassen</p>
 </div></aside></section>
-<section id="section-3" class="slide level2 unnumbered" data-background-video="./animations/ActivationFunctionsVisualization.mp4" data-background-video-loop="true" data-background-video-muted="true">
+<section id="section-5" class="slide level2 unnumbered" data-background-video="./animations/ActivationFunctionsVisualization.mp4" data-background-video-loop="true" data-background-video-muted="true">
 <h2></h2>
 </section>
-<section id="architektur-eines-cnns" class="slide level2" data-number="2.8">
-<h2><span class="header-section-number">2.8</span> Architektur eines CNNs</h2>
+<section id="architektur-eines-cnns" class="slide level2" data-number="2.7">
+<h2><span class="header-section-number">2.7</span> Architektur eines CNNs</h2>
 
-<img data-src="./images/cnn_architecture.png" class="r-stretch quarto-figure-center" id="fig-cnn-architecture"><p class="caption">
-Abbildung&nbsp;10: CNN Architektur (aus Medium)
-</p></section>
-<section id="section-4" class="slide level2 unnumbered" data-background-video="./animations/CnnVisualization.mp4" data-background-video-loop="true" data-background-video-muted="true">
+<img data-src="./images/cnn_architecture.png" data-fig-ref="fig-cnn-architecture" data-echo="false" class="r-stretch"></section>
+<section id="section-6" class="slide level2 unnumbered" data-background-video="./animations/CnnVisualization.mp4" data-background-video-loop="true" data-background-video-muted="true">
 <h2></h2>
 </section>
-<section id="gradienten-und-deren-aussagekraft" class="slide level2" data-number="2.9">
-<h2><span class="header-section-number">2.9</span> Gradienten und deren Aussagekraft</h2>
+<section id="verdichtungs--und-verstärkungsblöcke-se" class="slide level2 scrollable" data-number="2.8">
+<h2><span class="header-section-number">2.8</span> Verdichtungs- und Verstärkungsblöcke (SE<sup>1</sup>)</h2>
+<ul>
+<li>ℹ️ Analysiert wie wichtig jeder Kanal der Feature Map ist und verstärkt oder unterdrückt</li>
+<li>ℹ️ Verwendet Global Average Pooling</li>
+<li>🎯 Adaptive Belohnung relevanter Kanäle</li>
+<li>🎯 Bessere Genauigkeit durch gezieltere Merkmalsverarbeitung</li>
+</ul>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>Squeeze and Excitation</p></li></ol></aside></section>
+<section id="designpatterns-mit-faltung" class="slide level2" data-number="2.9">
+<h2><span class="header-section-number">2.9</span> Designpatterns mit Faltung</h2>
+<div id="fig-mb-conv" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-mb-conv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="./images/mb_conv.png" style="width:50.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mb-conv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;5: MBConv und fused-MBConv
+</figcaption>
+</figure>
+</div>
+
+<aside><div>
+<p>Depthwise Conv : Getrennte Faltung pro Kanal <span class="citation" data-cites="Basit2022"><a href="#/literaturverzeichnus" role="doc-biblioref" onclick="">[5]</a></span></p>
+</div></aside></section>
+<section id="gradienten-und-deren-aussagekraft" class="slide level2" data-number="2.10">
+<h2><span class="header-section-number">2.10</span> Gradienten und deren Aussagekraft</h2>
 <ul>
 <li>ℹ️ Der Gradient ist die Ableitung einer Funktion nach ihren Eingabewerten</li>
 <li>🎯 Zeigt Richtung des stärksten Wachstums und Einfluss der Parameter</li>
 <li>🖼️ Dargestellt durch den Nabla Operator <span class="math inline">\(\nabla\)</span></li>
 </ul>
 </section>
-<section id="section-5" class="slide level2 unnumbered" data-auto-animate="true">
+<section id="section-7" class="slide level2 unnumbered" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <p><span class="math display">\[
 f : \mathbb{R}^2 \to \mathbb{R}
@@ -606,7 +716,7 @@ f(x, y) = 2x^2 + 3y
 \end{pmatrix}
 \]</span></p>
 </section>
-<section id="section-6" class="slide level2 unnumbered" data-auto-animate="true">
+<section id="section-8" class="slide level2 unnumbered" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <p><span class="math display">\[
 \nabla f =
@@ -627,22 +737,22 @@ f(x, y) = 2x^2 + 3y
 <li>ℹ️ <span class="math inline">\(-\nabla f\)</span>: Richtung der größten Abnahme</li>
 </ul>
 </section>
-<section id="section-7" class="slide level2 unnumbered" data-background-video="./animations/GradientVisualization.mp4" data-background-video-loop="true" data-background-video-muted="true">
+<section id="section-9" class="slide level2 unnumbered" data-background-video="./animations/GradientVisualization.mp4" data-background-video-loop="true" data-background-video-muted="true">
 <h2></h2>
 </section>
-<section id="kostenfunktionen-loss-function" class="slide level2" data-number="2.10">
-<h2><span class="header-section-number">2.10</span> Kostenfunktionen (Loss Function)</h2>
+<section id="kostenfunktionen-loss-function" class="slide level2" data-number="2.11">
+<h2><span class="header-section-number">2.11</span> Kostenfunktionen (Loss Function)</h2>
 <ul>
 <li>ℹ️ Messen den Unterschied zwischen Schätzung <span class="math inline">\(\hat{y}\)</span> und Zielwert <span class="math inline">\(y\)</span></li>
 <li>ℹ️ Bei Klassifikationsproblemen eignet sich Cross Entropy Loss</li>
 <li>🎯 Fehlerwert durch Anpassung der Gewichte zu minimieren</li>
 </ul>
 </section>
-<section id="section-8" class="slide level2 unnumbered" data-background-video="./animations/CrossEntropyVisualization.mp4" data-background-video-loop="true" data-background-video-muted="true">
+<section id="section-10" class="slide level2 unnumbered" data-background-video="./animations/CrossEntropyVisualization.mp4" data-background-video-loop="true" data-background-video-muted="true">
 <h2></h2>
 </section>
-<section id="gewichtsanpassung" class="slide level2" data-number="2.11">
-<h2><span class="header-section-number">2.11</span> Gewichtsanpassung</h2>
+<section id="gewichtsanpassung" class="slide level2" data-number="2.12">
+<h2><span class="header-section-number">2.12</span> Gewichtsanpassung</h2>
 <ul>
 <li>ℹ️ Nutzt den Gradienten der Kostenfunktion, um zu bestimmen, wie stark jedes Gewicht beiträgt</li>
 <li>ℹ️ Beruht auf der Kettenregel der Ableitung</li>
@@ -663,7 +773,7 @@ w_i \gets w_i - \eta \cdot \frac{\partial L}{\partial w_i}
 <aside><div>
 <p><span class="math inline">\(\eta\)</span> ist die Lernrate</p>
 </div></aside></section>
-<section id="section-9" class="slide level2 unnumbered" data-auto-animate="true">
+<section id="section-11" class="slide level2 unnumbered" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <p><strong>Kettenregel</strong></p>
 <p><span class="math display">\[
@@ -676,7 +786,7 @@ f'(x) = u'(v(x)) v'(x)
 <aside><div>
 <p>Reminder</p>
 </div></aside></section>
-<section id="section-10" class="slide level2 unnumbered" data-auto-animate="true">
+<section id="section-12" class="slide level2 unnumbered" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <p><strong>Kettenregel</strong></p>
 <p><span class="math display">\[
@@ -686,7 +796,7 @@ L(\sigma(z_6))
 \frac{dL}{dz_6} = \frac{dL}{d \sigma (z_6)} \frac{d \sigma (z_6)}{dz_6}
 \]</span></p>
 <div class="fragment">
-<p><strong>Problem</strong>: <span class="math inline">\(z_6 = \sigma (z_5)\)</span>, <span class="math inline">\(z_5 = \sigma (z_4)\)</span>, …</p>
+<p><strong>Problem</strong>: <span class="math inline">\(z_6(\sigma (z_5))\)</span>, <span class="math inline">\(z_5(\sigma (z_4))\)</span>, …</p>
 <div class="columns">
 <div class="column" style="width:50%;">
 <p><span class="math display">\[
@@ -702,66 +812,578 @@ L(\sigma(z_6))
 <aside><div>
 <p>Reminder</p>
 </div></aside></section>
-<section id="section-11" class="slide level2 unnumbered" data-auto-animate="true" data-auto-animate-easing="ease-in-out">
+<section id="section-13" class="slide level2 unnumbered" data-auto-animate="true" data-auto-animate-easing="ease-in-out">
 <h2 data-id="quarto-animate-title"></h2>
 
 <img data-src="presentation_files/figure-revealjs/cell-2-output-1.png" class="r-stretch"></section>
-<section id="vorstellung-des-datensatzes" class="slide level2" data-number="2.12">
-<h2><span class="header-section-number">2.12</span> Vorstellung des Datensatzes</h2>
-<p>platzhalter</p>
-</section>
+<section id="lösung-durch-skip-connections" class="slide level2" data-number="2.13">
+<h2><span class="header-section-number">2.13</span> Lösung durch Skip Connections</h2>
+<ul>
+<li>ℹ️ Überspringen einer oder mehrerer Schichten, indem Eingabe / Neuron direkt zu späteren Schichten weiterleitet</li>
+<li>🎯 Hilft beim Training tiefer Netze durch verbesserung des Gradientenfluss</li>
+</ul>
+
+<img data-src="./images/skip_connections.excalidraw.png" class="r-stretch quarto-figure-center" id="fig-skip-connections"><p class="caption">
+Abbildung&nbsp;6: Skip Connections
+</p></section>
 <section class="slide level2">
 
-<h3 data-number="2.12.1" id="beschreibung-des-datensatzes"><span class="header-section-number">2.12.1</span> Beschreibung des Datensatzes</h3>
-<p>platzhalter</p>
-</section>
-<section class="slide level2">
 
-<h3 data-number="2.12.2" id="besondere-erkenntnisse-der-datenexploration"><span class="header-section-number">2.12.2</span> Besondere Erkenntnisse der Datenexploration</h3>
-<p>platzhalter</p>
-</section></section>
+<img data-src="./images/gradient_descent.excalidraw.png" class="r-stretch quarto-figure-center" id="fig-skip-connections-weight"><p class="caption">
+Abbildung&nbsp;7: Gewichtsanpassung mit Skip Connections
+</p></section>
+<section id="fehlerlandschaft-nach-skip-connections" class="slide level2" data-number="2.14">
+<h2><span class="header-section-number">2.14</span> Fehlerlandschaft nach Skip Connections</h2>
+
+<img data-src="./images/loss_landscape_cost_function.png" class="r-stretch quarto-figure-center" id="fig-skip-connections-cost"><p class="caption">
+Abbildung&nbsp;8: Fehlerlandschaft Kostenfunktion
+</p></section></section>
 <section>
-<section id="modellentwicklung" class="title-slide slide level1 center" data-number="3">
-<h1><span class="header-section-number">3</span> Modellentwicklung</h1>
-<p>platzhalter</p>
+<section id="datensatz-und-modellentwicklung" class="title-slide slide level1 center" data-number="3">
+<h1><span class="header-section-number">3</span> Datensatz und Modellentwicklung</h1>
+
 </section>
-<section id="modellevaluierung" class="slide level2" data-number="3.1">
-<h2><span class="header-section-number">3.1</span> Modellevaluierung</h2>
-<p>platzhalter</p>
+<section id="vorstellung-des-datensatzes" class="slide level2 smaller" data-number="3.1">
+<h2><span class="header-section-number">3.1</span> Vorstellung des Datensatzes</h2>
+<div class="cell" data-execution_count="2">
+<div id="tbl-df" class="cell quarto-float quarto-figure quarto-figure-center" data-execution_count="2">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-df-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabelle&nbsp;1: Datensatz
+</figcaption>
+<div aria-describedby="tbl-df-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output cell-output-display" data-execution_count="2">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe do-not-create-environment cell caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">lesion_id</th>
+<th data-quarto-table-cell-role="th">image_id</th>
+<th data-quarto-table-cell-role="th">dx</th>
+<th data-quarto-table-cell-role="th">dx_type</th>
+<th data-quarto-table-cell-role="th">age</th>
+<th data-quarto-table-cell-role="th">sex</th>
+<th data-quarto-table-cell-role="th">localization</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">5080</td>
+<td>HAM_0004175</td>
+<td>ISIC_0028806</td>
+<td>nv</td>
+<td>follow_up</td>
+<td>50.0</td>
+<td>female</td>
+<td>abdomen</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">564</td>
+<td>HAM_0006595</td>
+<td>ISIC_0028223</td>
+<td>bkl</td>
+<td>histo</td>
+<td>55.0</td>
+<td>female</td>
+<td>face</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">7369</td>
+<td>HAM_0005248</td>
+<td>ISIC_0032948</td>
+<td>nv</td>
+<td>histo</td>
+<td>45.0</td>
+<td>female</td>
+<td>upper extremity</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5150</td>
+<td>HAM_0001592</td>
+<td>ISIC_0030686</td>
+<td>nv</td>
+<td>follow_up</td>
+<td>55.0</td>
+<td>male</td>
+<td>back</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">9790</td>
+<td>HAM_0004609</td>
+<td>ISIC_0024710</td>
+<td>akiec</td>
+<td>histo</td>
+<td>75.0</td>
+<td>male</td>
+<td>back</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9103</td>
+<td>HAM_0000976</td>
+<td>ISIC_0031880</td>
+<td>nv</td>
+<td>histo</td>
+<td>40.0</td>
+<td>male</td>
+<td>chest</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">3013</td>
+<td>HAM_0000256</td>
+<td>ISIC_0029347</td>
+<td>nv</td>
+<td>follow_up</td>
+<td>50.0</td>
+<td>male</td>
+<td>back</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">8961</td>
+<td>HAM_0000762</td>
+<td>ISIC_0028982</td>
+<td>nv</td>
+<td>histo</td>
+<td>30.0</td>
+<td>female</td>
+<td>back</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>dx = Diagnose der Hautläsion</li>
+<li>dx_type = Diagnosemethode</li>
+<li>lesion_id = Läsions ID (7.470)</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="gewonnene-erfahrungen" class="slide level2" data-number="3.2">
-<h2><span class="header-section-number">3.2</span> Gewonnene Erfahrungen</h2>
-<p>platzhalter</p>
-</section></section>
+<section id="beispiele-aus-dem-datensatz" class="slide level2 smaller" data-number="3.2">
+<h2><span class="header-section-number">3.2</span> Beispiele aus dem Datensatz</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">AKIEC</a></li><li><a href="#tabset-1-2">BCC</a></li><li><a href="#tabset-1-3">BKL</a></li><li><a href="#tabset-1-4">DF</a></li><li><a href="#tabset-1-5">MEL</a></li><li><a href="#tabset-1-6">NV</a></li><li><a href="#tabset-1-7">VASC</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<div id="fig-akiec" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-akiec-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="./images/akiec.jpg" style="width:55.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-akiec-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;9: Aktinische Keratose
+</figcaption>
+</figure>
+</div>
+</div>
+<div id="tabset-1-2">
+<div id="fig-bcc" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-bcc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="./images/bcc.jpg" style="width:55.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bcc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;10: Basalzellkarzinom
+</figcaption>
+</figure>
+</div>
+</div>
+<div id="tabset-1-3">
+<div id="fig-bkl" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-bkl-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="./images/bkl.jpg" style="width:55.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bkl-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;11: Keratosen-ähnliche Läsionen
+</figcaption>
+</figure>
+</div>
+</div>
+<div id="tabset-1-4">
+<div id="fig-df" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-df-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="./images/df.jpg" style="width:55.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-df-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;12: Dermatofibrom
+</figcaption>
+</figure>
+</div>
+</div>
+<div id="tabset-1-5">
+<div id="fig-mel" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-mel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="./images/mel.jpg" style="width:55.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;13: Melanom
+</figcaption>
+</figure>
+</div>
+</div>
+<div id="tabset-1-6">
+<div id="fig-nv" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-nv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="./images/nv.jpg" style="width:55.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-nv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;14: Melanozytische Nävi
+</figcaption>
+</figure>
+</div>
+</div>
+<div id="tabset-1-7">
+<div id="fig-vasc" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-vasc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="./images/vasc.jpg" style="width:55.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vasc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;15: Gefäßläsionen
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="datenexploration---altersgruppen" class="slide level2 smaller" data-number="3.3">
+<h2><span class="header-section-number">3.3</span> Datenexploration - Altersgruppen</h2>
+
+<img data-src="./images/dangerous_diagnoses_by_age_group.png" class="r-stretch quarto-figure-center" id="fig-dangerous_diagnoses_by_age_group"><p class="caption">
+Abbildung&nbsp;16: Anzahl der gefährlichen Diagnosen nach Alter
+</p></section>
+<section id="datenexploration---körperstellen" class="slide level2 smaller" data-number="3.4">
+<h2><span class="header-section-number">3.4</span> Datenexploration - Körperstellen</h2>
+
+<img data-src="./images/heatmap_bodyparts.png" class="r-stretch quarto-figure-center" id="fig-heatmap_bodyparts"><p class="caption">
+Abbildung&nbsp;17: Verteilung der Körperstellen nach Diagnose (gefährl. Diagnosen)
+</p></section>
+<section id="datenexploration---anteile-gefährlicher-diagnosen" class="slide level2 smaller" data-number="3.5">
+<h2><span class="header-section-number">3.5</span> Datenexploration - Anteile gefährlicher Diagnosen</h2>
+
+<img data-src="./images/proportions_of_diagnoses.png" class="r-stretch quarto-figure-center" id="fig-proportions_of_diagnoses"><p class="caption">
+Abbildung&nbsp;18: Anteil gefährlicher Diagnosen unter allen gefährlichen Fällen
+</p></section>
+<section id="unser-modell-effiecientnetv2-bb" class="slide level2 scrollable" data-number="3.6">
+<h2><span class="header-section-number">3.6</span> Unser Modell (EffiecientNetV2 BB)</h2>
+<ul>
+<li>ℹ️ Kombination aus Neural Architecture Search<sup>1</sup> und manuellem Feintuning</li>
+<li>ℹ️ Integriert Fused-MBConv Blöcke (<a href="#/fig-mb-conv" class="quarto-xref">Abbildung&nbsp;5</a>)</li>
+<li>ℹ️ Basiert auf ImageNet Datenbasis</li>
+<li>🎯 Schnelles Training großer Modelle</li>
+<li>🎯 Geeignet für Transfer Learning durch Generalisierung</li>
+</ul>
+<aside><ol class="aside-footnotes"><li id="fn2"><p>NAS : Automatisierter Prozess zur Architekturfindung in CNNs</p></li></ol></aside></section>
+<section class="slide level2">
+
+
+<img data-src="./images/effnet_architecture.png" class="r-stretch quarto-figure-center" id="fig-effnet-architecture"><p class="caption">
+Abbildung&nbsp;19: EfficientNetV2 Architektur
+</p></section>
+<section class="slide level2">
+
+
+<img data-src="./notebooks/model_architektur.png" class="r-stretch quarto-figure-center" id="fig-melnoma-model"><p class="caption">
+Abbildung&nbsp;20: Tensorflow Visualisierung
+</p></section>
+<section class="slide level2">
+
+<div id="48bbec51" class="cell" data-execute="false" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> tensorflow <span class="im">as</span> tf</span>
+<span id="cb1-2"><a></a><span class="im">from</span> tensorflow.keras.applications <span class="im">import</span> EfficientNetV2B0</span>
+<span id="cb1-3"><a></a></span>
+<span id="cb1-4"><a></a>base_model <span class="op">=</span> EfficientNetV2B0(</span>
+<span id="cb1-5"><a></a>    include_top<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb1-6"><a></a>    weights<span class="op">=</span><span class="st">'imagenet'</span>,</span>
+<span id="cb1-7"><a></a>    input_shape<span class="op">=</span>(<span class="dv">244</span>, <span class="dv">244</span>, <span class="dv">3</span>)</span>
+<span id="cb1-8"><a></a>)</span>
+<span id="cb1-9"><a></a></span>
+<span id="cb1-10"><a></a>model <span class="op">=</span> tf.keras.Sequential([</span>
+<span id="cb1-11"><a></a>    base_model,</span>
+<span id="cb1-12"><a></a>    tf.keras.layers.GlobalAveragePooling2D(),</span>
+<span id="cb1-13"><a></a>    tf.keras.layers.Dropout(<span class="fl">0.2</span>),</span>
+<span id="cb1-14"><a></a>    tf.keras.layers.Dense(<span class="dv">7</span>, activation<span class="op">=</span><span class="st">"softmax"</span>)</span>
+<span id="cb1-15"><a></a>])</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="modellevaluierung" class="slide level2" data-number="3.7">
+<h2><span class="header-section-number">3.7</span> Modellevaluierung</h2>
+<div id="fig-effnet-tpud" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-effnet-tpud-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="./images/effnet_score.png" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-effnet-tpud-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;21: Benchmark TPU days
+</figcaption>
+</figure>
+</div>
+
+<aside><div>
+<p>TPU day : Rechenkapazität die eine TPU in einem Tag liefert <span class="citation" data-cites="Tan2021"><a href="#/literaturverzeichnus" role="doc-biblioref" onclick="">[6]</a></span></p>
+</div></aside></section>
+<section class="slide level2">
+
+
+<img data-src="./images/effnet_steptime.png" class="r-stretch quarto-figure-center" id="fig-effnet-steptime"><p class="caption">
+Abbildung&nbsp;22: Benchmark Steptime
+</p></section>
+<section class="slide level2">
+
+
+<img data-src="./images/effnet_params.png" class="r-stretch quarto-figure-center" id="fig-effnet-params"><p class="caption">
+Abbildung&nbsp;23: Benchmark Parameter
+</p></section></section>
 <section>
 <section id="auswertung-und-vergleich" class="title-slide slide level1 center" data-number="4">
 <h1><span class="header-section-number">4</span> Auswertung und Vergleich</h1>
-<p>platzhalter</p>
+
 </section>
 <section id="ergebnisse-der-eigenentwicklung" class="slide level2" data-number="4.1">
 <h2><span class="header-section-number">4.1</span> Ergebnisse der Eigenentwicklung</h2>
-<p>platzhalter</p>
-</section>
-<section id="alternative-modelle" class="slide level2" data-number="4.2">
-<h2><span class="header-section-number">4.2</span> Alternative Modelle</h2>
-<p>platzhalter</p>
-<h3 data-number="4.2.1" id="llms-im-test"><span class="header-section-number">4.2.1</span> LLMs im Test</h3>
-<p>platzhalter</p>
-</section>
+
+<img data-src="./images/own_model_training.png" class="r-stretch quarto-figure-center" id="fig-model-training"><p class="caption">
+Abbildung&nbsp;24: Trainingsverlauf
+</p></section>
 <section class="slide level2">
 
-<h3 data-number="4.2.2" id="frauenhofer-bosch-lösung"><span class="header-section-number">4.2.2</span> Frauenhofer / Bosch Lösung</h3>
-<p>platzhalter</p>
-</section>
-<section id="ausblick" class="slide level2" data-number="4.3">
-<h2><span class="header-section-number">4.3</span> Ausblick</h2>
-<p>platzhalter</p>
-</section></section>
-<section id="einsatz-von-ki-als-entiwcklungswerkzeug" class="title-slide slide level1 center" data-number="5">
-<h1><span class="header-section-number">5</span> Einsatz von KI als Entiwcklungswerkzeug</h1>
-<p>platzhalter</p>
-</section>
 
+<img data-src="./images/confusion_matrix.png" class="r-stretch quarto-figure-center" id="fig-confusion-matrix"><p class="caption">
+Abbildung&nbsp;25: Konfusionsmatrix
+</p></section>
+<section class="slide level2">
+
+<div id="tbl-accurency" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-accurency-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabelle&nbsp;2: Genauigkeitsmaße
+</figcaption>
+<div aria-describedby="tbl-accurency-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Label</th>
+<th>Precision</th>
+<th>Recall</th>
+<th>F1-Score</th>
+<th>Support</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>akiec</td>
+<td>0.609</td>
+<td>0.646</td>
+<td>0.627</td>
+<td>65</td>
+</tr>
+<tr class="even">
+<td>bcc</td>
+<td>0.748</td>
+<td>0.835</td>
+<td>0.789</td>
+<td>103</td>
+</tr>
+<tr class="odd">
+<td>bkl</td>
+<td>0.772</td>
+<td>0.645</td>
+<td>0.703</td>
+<td>220</td>
+</tr>
+<tr class="even">
+<td>df</td>
+<td>0.737</td>
+<td>0.609</td>
+<td>0.667</td>
+<td>23</td>
+</tr>
+<tr class="odd">
+<td>nv</td>
+<td>0.926</td>
+<td>0.931</td>
+<td>0.929</td>
+<td>1341</td>
+</tr>
+<tr class="even">
+<td>mel</td>
+<td>0.647</td>
+<td>0.673</td>
+<td>0.659</td>
+<td>223</td>
+</tr>
+<tr class="odd">
+<td>vasc</td>
+<td>0.743</td>
+<td>0.929</td>
+<td>0.825</td>
+<td>28</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+<section id="potenzial" class="slide level2" data-number="4.2">
+<h2><span class="header-section-number">4.2</span> Potenzial</h2>
+<ul>
+<li>Wo sehen wir konkretes Verbesserungspotential?
+<ul>
+<li>Training eines spezifischen CNNs statt allgemeinem EfficientNetV2-CNN</li>
+<li>Weiteres Training um bessere “minima” zu finden bzw. andere Optimierer testen/bestimmen</li>
+<li>Größerer Datensatz (min. gleichbleibende Qualität)</li>
+<li>Bessere Datenqualität</li>
+</ul></li>
+</ul>
+</section>
+<section id="grenzen" class="slide level2" data-number="4.3">
+<h2><span class="header-section-number">4.3</span> Grenzen</h2>
+<ul>
+<li>Wo sehen wir konkrete Limits?
+<ul>
+<li>Bei der Nachvollziehbarkeit der Kriterien zur Klassifikation durch das CNN (Blackbox)</li>
+<li>Perfekte Filterwerte nicht realistisch (nach aktueller Forschung)</li>
+<li>Biopsie wird nicht ersetzt (Accuarcy Score, Bildqualität etc.)</li>
+</ul></li>
+</ul>
+</section>
+<section id="fazit" class="slide level2" data-number="4.4">
+<h2><span class="header-section-number">4.4</span> Fazit</h2>
+<ul>
+<li>Einordnung der Ergebnisse in den fachlichen Kontext (Fazit, auf Einleitungsfrage)
+<ul>
+<li>Vergleich: Wie passen unsere Ergebnisse zu dem, was andere Studien zeigen?</li>
+<li>Relevanz? (ja, Einleitung)</li>
+<li>Praxisbezug? (ja, echte Daten aus Beschreibung Datensatz?)</li>
+</ul></li>
+</ul>
+</section>
+<section id="ausblick" class="slide level2" data-number="4.5">
+<h2><span class="header-section-number">4.5</span> Ausblick</h2>
+<ul>
+<li>eig Kapitel overkill stattdessen im Ausblick als pkt - Frauenhofer / Bosch Lösung (vilt oben beim Vergleich erwähnen?)</li>
+<li>Rechtliche Komplikationen bei Datenhaltung?</li>
+<li>AlphaFold2</li>
+<li>Einschätzug KI bezogen auf Röntgen</li>
+</ul>
+</section>
+<section id="alternative-modelle" class="slide level2" data-number="4.6">
+<h2><span class="header-section-number">4.6</span> Alternative Modelle</h2>
+<ul>
+<li>Marc vergleichstabelle ???</li>
+</ul>
+</section>
+<section id="llms-im-test" class="slide level2" data-number="4.7">
+<h2><span class="header-section-number">4.7</span> LLMs im Test</h2>
+<div id="tbl-llm-test" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-llm-test-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabelle&nbsp;3: Test mit LLMs
+</figcaption>
+<div aria-describedby="tbl-llm-test-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Image Id</th>
+<th>dx</th>
+<th>Claude</th>
+<th>ChatGPT</th>
+<th>Own Model</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ISIC_0031923</td>
+<td>nv</td>
+<td>mel</td>
+<td>mel</td>
+<td>nv</td>
+</tr>
+<tr class="even">
+<td>ISIC_0026652</td>
+<td>mel</td>
+<td>bkl</td>
+<td>nv</td>
+<td>mel</td>
+</tr>
+<tr class="odd">
+<td>ISIC_0030583</td>
+<td>bkl</td>
+<td>bcc</td>
+<td>bcc</td>
+<td>bkl</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<ul>
+<li>Fazit: LLMs nicht zur Diagnose verwenden 😉</li>
+</ul>
+</section></section>
+<section>
+<section id="einsatz-von-ki-im-projekt" class="title-slide slide level1 center" data-number="5">
+<h1><span class="header-section-number">5</span> Einsatz von KI im Projekt</h1>
+
+</section>
+<section id="programmierung" class="slide level2" data-number="5.1">
+<h2><span class="header-section-number">5.1</span> Programmierung</h2>
+<ul>
+<li>framework verständnis</li>
+<li>etc. sponti</li>
+</ul>
+</section>
+<section id="dokumentation" class="slide level2" data-number="5.2">
+<h2><span class="header-section-number">5.2</span> Dokumentation</h2>
+<ul>
+<li>umformulierung</li>
+<li>darstellung</li>
+</ul>
+</section>
+<section id="allgemein" class="slide level2" data-number="5.3">
+<h2><span class="header-section-number">5.3</span> Allgemein</h2>
+<ul>
+<li>wissen</li>
+<li>recherche</li>
+</ul>
+</section></section>
 <section id="literaturverzeichnus" class="title-slide slide level1 smaller scrollable" data-number="6">
 <h1><span class="header-section-number">6</span> Literaturverzeichnus</h1>
 <div class="refs">
@@ -782,8 +1404,16 @@ L(\sigma(z_6))
 <div id="ref-Vaswani2017" class="csl-entry" role="listitem">
 <div class="csl-left-margin">[4] </div><div class="csl-right-inline">A. Vaswani <em>u.&nbsp;a.</em>, <span>„Attention Is All You Need“</span>, <em>CoRR</em>, Bd. abs/1706.03762, 2017, Verfügbar unter: <a href="http://arxiv.org/abs/1706.03762">http://arxiv.org/abs/1706.03762</a></div>
 </div>
+<div id="ref-Basit2022" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[5] </div><div class="csl-right-inline">A. Basit, M. A. Siddique, M. Bhatti, und M. Sarfraz, <span>„Comparison of CNNs and Vision Transformers-Based Hybrid Models Using Gradient Profile Loss for Classification of Oil Spills in SAR Images“</span>, <em>Remote Sensing</em>, Bd. 14, S. 2085, Apr. 2022, doi: <a href="https://doi.org/10.3390/rs14092085">10.3390/rs14092085</a>.</div>
+</div>
+<div id="ref-Tan2021" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[6] </div><div class="csl-right-inline">M. Tan und Q. V. Le, <span>„EfficientNetV2: Smaller Models and Faster Training“</span>. 2021. Verfügbar unter: <a href="https://arxiv.org/abs/2104.00298">https://arxiv.org/abs/2104.00298</a></div>
+</div>
 </div>
 </section>
+
+
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
