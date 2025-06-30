@@ -9,7 +9,7 @@
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.30">
 
-  <meta name="author" content="S. Wendland, M. Pöppel, J. H. Uemann">
+  <meta name="author" content="S. Wendland, M. Pöppelbaum, J. H. Uemann">
   <title>Melanoma – Melanoma Präsentation</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -119,6 +119,8 @@
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
@@ -227,9 +229,12 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-S. Wendland, M. Pöppel, J. H. Uemann 
+S. Wendland, M. Pöppelbaum, J. H. Uemann 
 </div>
-</div>
+        <p class="quarto-title-affiliation">
+            FHDW
+          </p>
+    </div>
 </div>
 
 </section><section id="TOC">
@@ -249,7 +254,7 @@ S. Wendland, M. Pöppel, J. H. Uemann
 <section id="einleitung" class="title-slide slide level1 center" data-number="1">
 <h1><span class="header-section-number">1</span> Einleitung</h1>
 <aside class="notes">
-
+<p><em>Sergei</em></p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -273,6 +278,22 @@ S. Wendland, M. Pöppel, J. H. Uemann
 <blockquote>
 <p>1895 entdeckte Wilhelm Röntgen die Röntgenstrahlen und revolutionierte die Medizin. Steht uns mit künstlicher Intelligenz eine noch größere Revolution bevor? <span class="citation" data-cites="Roentgen1895"><a href="#/literaturverzeichnus" role="doc-biblioref" onclick="">[2]</a></span></p>
 </blockquote>
+<aside class="notes">
+<ul>
+<li>120 Minuten - Todesursachenstatistik 2022</li>
+<li>Wie kann Ki helfen (joke)</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </div>
 </section>
 <section id="was-ist-hautkrebs" class="slide level2" data-number="1.2">
@@ -282,9 +303,12 @@ S. Wendland, M. Pöppel, J. H. Uemann
 </ul>
 
 <img data-src="./images/skincancer.jpg" class="r-stretch quarto-figure-center" id="fig-skincancer"><p class="caption">
-Abbildung&nbsp;1: Querrschnitt vom Hautkrebs
+Abbildung&nbsp;1: Querschnitt vom Hautkrebs
 </p><aside class="notes">
-<p>heller - lokal aber auch tief schwarzer - kann früh streuen (Blut- Lymphbahnen), Metastasen in anderen Organen bilden</p>
+<ul>
+<li>heller - lokal aber auch tief</li>
+<li>schwarzer - kann früh streuen (Blut- Lymphbahnen), Metastasen in anderen Organen bilden</li>
+</ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -302,7 +326,7 @@ Abbildung&nbsp;1: Querrschnitt vom Hautkrebs
 <ul>
 <li>Klinische Untersuchung
 <ul>
-<li>Visuelle Begutachtung auffälliger Hautveränderungen durch Hautärzt</li>
+<li>Visuelle Begutachtung auffälliger Hautveränderungen durch Hautarzt</li>
 </ul></li>
 <li>Dermatoskopie
 <ul>
@@ -315,7 +339,7 @@ Abbildung&nbsp;1: Querrschnitt vom Hautkrebs
 <ul>
 <li>Auge // sehr ungenau</li>
 <li>Dermatoskopie // Signifikant besser, minimal mehr Aufwand, aktueller Standard</li>
-<li>Laserscanmikroskopie und Optische Kohärenztomographie // Spezial Eqiupment + teuer</li>
+<li>Laserscanmikroskopie und Optische Kohärenztomographie // Spezial Equipment + teuer</li>
 <li>Biopsie // Diagnosensicherung</li>
 </ul>
 <style type="text/css">
@@ -389,23 +413,51 @@ Abbildung&nbsp;1: Querrschnitt vom Hautkrebs
   .text(d => `${d.year}: ${d.event}`)
   .attr("font-size", "24px");
 </script>
+<aside class="notes">
+<p><em>Jan</em></p>
+<ul>
+<li>Auf Historie eingehen (CNN -&gt; ViT -&gt; CNN bis Hybrid)</li>
+<li>ImageNet: Große Datensammlung (14.197.122 Bilder)</li>
+<li>Herausforderungen mit der Zeit: Größere Bilder, Generalisierte Probleme (eine Lösung für alles)</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="ziele" class="slide level2" data-number="1.5">
 <h2><span class="header-section-number">1.5</span> Ziele</h2>
 <ul>
-<li><p>Auseinandersetzung mit dem Einsatz von künstlicher Intelligenz</p></li>
+<li><p>Auseinandersetzung mit künstlicher Intelligenz</p></li>
 <li><p>Verständnis der Potenziale und Grenzen der Technologie</p></li>
-<li><p>Einordnung der Ergebnisse in den fachlichen Kontext</p></li>
+<li><p>Einordnung der Ergebnisse</p></li>
 <li><p>Einschätzung, ob und wie KI in diesem Anwendungsfeld eingesetzt werden kann</p></li>
 </ul>
+<aside class="notes">
+<p><em>Marc</em></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="abgrenzung" class="slide level2" data-number="1.6">
 <h2><span class="header-section-number">1.6</span> Abgrenzung</h2>
 <ul>
-<li>Fokus auf Dermatoskopie
-<ul>
-<li>Hautoberfläche reflektiert und tiefere Details unsichtbar</li>
-</ul></li>
+<li>Fokus auf Dermatoskopie</li>
 <li>Kleiner Datensatz
 <ul>
 <li>10015 Samples</li>
@@ -467,7 +519,19 @@ Abbildung&nbsp;2: Projektablauf
 <section>
 <section id="theoretische-grundlagen" class="title-slide slide level1 center" data-number="2">
 <h1><span class="header-section-number">2</span> Theoretische Grundlagen</h1>
-
+<aside class="notes">
+<p><em>Jan</em></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="grundlagen-computer-vision" class="slide level2 smaller" data-number="2.1">
 <h2><span class="header-section-number">2.1</span> Grundlagen Computer Vision</h2>
@@ -483,6 +547,27 @@ I^{\ast} (x, y) = \sum^n_{i=1} \sum^n_{j=1}{I(x-i+a, y-j+a)K(i, j)}
 <p><span class="math display">\[
 \text{Attention}(Q, K, V) = \text{softmax}\left( \frac{QK^\top}{\sqrt{d_k}} \right) V
 \]</span></p>
+<aside class="notes">
+<ul>
+<li>a offset zur Kernelmitte (a = (n + 1)/2) -&gt; Zur Verschiebung des Filters um den Pixel herum</li>
+<li>Umfrage (wer kennt sich mit ViT aus)</li>
+<li>Q (Query) : Was will ich wissen?</li>
+<li>K (Key) : Was ist dafür relevant?</li>
+<li>V (Value) : Welchen Kontext trage ich bei?</li>
+<li>T : Transposition (QKT ergibt eine quadratische Matrix)</li>
+<li>dk : Dimensionen der Key Vektoren</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </div>
 </section>
 <section class="slide level2">
@@ -561,19 +646,67 @@ I^{\ast} (x, y) = \sum^n_{i=1} \sum^n_{j=1}{I(x-i+a, y-j+a)K(i, j)}
 </figure>
 </div>
 </div></div>
+<aside class="notes">
+<ul>
+<li>Unterschied: Bei depthwise ein Kernel pro Kanal</li>
+<li>Normale Convolution ist deutlich Rechenaufwänder (jeder Filter auf alle Kanäle)</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="section-2" class="slide level2 unnumbered">
 <h2></h2>
 
-<img data-src="./images/cnn_architecture.png" data-fig-ref="fig-cnn-architecture" data-echo="false" class="r-stretch"></section>
+<img data-src="./images/cnn_architecture.png" data-fig-ref="fig-cnn-architecture" data-echo="false" class="r-stretch"><aside class="notes">
+<ul>
+<li>Eingehen auf Faltungsprozesse in dem CNN Beispiel</li>
+<li>Resultat der Faltung sind Feature Maps</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="pooling-in-cnns" class="slide level2" data-number="2.5">
 <h2><span class="header-section-number">2.5</span> Pooling in CNNs</h2>
 <ul>
 <li>⬇️ Reduziert die Bildgröße durch Zusammenfassen benachtbarter Pixel</li>
 <li>💻 Verringert Rechenaufwand und Anzahl der Paramter</li>
-<li>🟰 Teilweise translationsinvariant (<span class="math inline">\(f:\mathbb{R}^2 \to \mathbb{R}\)</span>, <span class="math inline">\(f(A) = f(A + t)\)</span> )</li>
+<li>🟰 Ziel ist Translationsinvarianz (<span class="math inline">\(f(A) = f(A + t)\)</span>)</li>
 <li>🏃🏿‍♂️‍➡️ Ein Fenster bewegt sich stückweise über das komplette Bild (ähnlich zur Faltung)</li>
 </ul>
+<aside class="notes">
+<ul>
+<li>Translationsinvarianz: Ein Objekt wird unabhängig von seiner Position erkannt</li>
+<li>Vorteil: Größe der Matrizen wird reduziert (Rechenaufwand)</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2 scrollable">
 
@@ -583,6 +716,21 @@ I^{\ast} (x, y) = \sum^n_{i=1} \sum^n_{j=1}{I(x-i+a, y-j+a)K(i, j)}
 <li>Average-Pooling: Gibt den Durchschnittswert aller Werte im Fenster zurück</li>
 <li>Global Pooling: Aggregiert das gesamte Bild (Fenstergröße = Bildgröße)</li>
 </ol>
+<aside class="notes">
+<ul>
+<li>Bei Global Pooling immer Vector als Resultat</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <div class="fragment">
 <div id="fig-global-pooling" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig">
@@ -602,7 +750,23 @@ Abbildung&nbsp;4: Global Pooling (aus Research Gate)
 <section id="section-4" class="slide level2 unnumbered">
 <h2></h2>
 
-<img data-src="./images/cnn_architecture.png" data-fig-ref="fig-cnn-architecture" data-echo="false" class="r-stretch"></section>
+<img data-src="./images/cnn_architecture.png" data-fig-ref="fig-cnn-architecture" data-echo="false" class="r-stretch"><aside class="notes">
+<ul>
+<li>Eingehen auf Pooling (kleine Feature Maps)</li>
+<li>Rückschluss zu Translationsinvarianz</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="aktivierungsfunktionen" class="slide level2" data-number="2.6">
 <h2><span class="header-section-number">2.6</span> Aktivierungsfunktionen</h2>
 <ul>
@@ -611,6 +775,24 @@ Abbildung&nbsp;4: Global Pooling (aus Research Gate)
 <li>📊 Helfen beim Lernen von Mustern und Entscheidungsgrenzen</li>
 <li>💯 Werden punktweise auf jedes Pixel / Feature angewendet</li>
 </ul>
+<aside class="notes">
+<ul>
+<li>Linearkombination: Gewichtete Summe von Vectoren</li>
+<li>Werden auf FeatureMap punktweise eingesetzt</li>
+<li>Werden auch in NNs verwendet</li>
+<li>Es gibt Unterschiedliche Funktionen je nach Anwendungsfall</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2">
 
@@ -622,6 +804,22 @@ Abbildung&nbsp;4: Global Pooling (aus Research Gate)
 <p><span class="math display">\[
 f(x) = \text{max}(0, x)
 \]</span></p>
+<aside class="notes">
+<ul>
+<li>Beispiel von Bildern</li>
+<li>Lineare Funktion</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2">
 
@@ -636,6 +834,22 @@ f(x) = \text{max}(0, x)
 <p><span class="math display">\[
 f(x) = \frac{1}{1 + e^{-x}}
 \]</span></p>
+<aside class="notes">
+<ul>
+<li>Wird dort eingesetzt wo Werte zwischen 0 und 1 gebraucht werden</li>
+<li>Nicht Robust (führt zu Problemen mit Gradienten)</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2">
 
@@ -645,10 +859,36 @@ f(x) = \frac{1}{1 + e^{-x}}
 </li>
 <li>🎯 Wandelt Rohwerte in Wahrscheinlichkeitsverteilung</li>
 </ul>
+<div class="columns">
+<div class="column" style="width:50%;">
 <p><span class="math display">\[
 f(x_i) = \frac{e^{x_i}}{\sum_{j=1}^k e^{x_j}}
 \]</span></p>
+</div><div class="column" style="width:50%;">
+<p><span class="math display">\[
+1 = \frac{\sum_{j=1}^k e^{x_j}}{\sum_{j=1}^k e^{x_j}}
+\]</span></p>
+</div></div>
 
+<aside class="notes">
+<ul>
+<li>e sorgt für positive differenzierbare Werte</li>
+<li>Summe normalisiert (alle Werte sollen eine Wahrscheinlichkeitsverteilung bilden)</li>
+<li>Resultat ist immer ein Vektor mit positiven Einträgen die in Summe 1 ergeben</li>
+<li>Vektor als WK für Klassenzugehörigkeit</li>
+<li>Benötigt ein Mapping (welche WK zu welcher Klasse)</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <aside><div>
 <p>Dabei ist <span class="math inline">\(k\)</span> die Anzahl der Klassen</p>
 </div></aside></section>
@@ -658,7 +898,22 @@ f(x_i) = \frac{e^{x_i}}{\sum_{j=1}^k e^{x_j}}
 <section id="architektur-eines-cnns" class="slide level2" data-number="2.7">
 <h2><span class="header-section-number">2.7</span> Architektur eines CNNs</h2>
 
-<img data-src="./images/cnn_architecture.png" data-fig-ref="fig-cnn-architecture" data-echo="false" class="r-stretch"></section>
+<img data-src="./images/cnn_architecture.png" data-fig-ref="fig-cnn-architecture" data-echo="false" class="r-stretch"><aside class="notes">
+<ul>
+<li>Rückschluss auf Aktivierungsfunktionen</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="section-6" class="slide level2 unnumbered" data-background-video="./animations/CnnVisualization.mp4" data-background-video-loop="true" data-background-video-muted="true">
 <h2></h2>
 </section>
@@ -670,6 +925,24 @@ f(x_i) = \frac{e^{x_i}}{\sum_{j=1}^k e^{x_j}}
 <li>🎯 Adaptive Belohnung relevanter Kanäle</li>
 <li>🎯 Bessere Genauigkeit durch gezieltere Merkmalsverarbeitung</li>
 </ul>
+<aside class="notes">
+<ul>
+<li>Sqeeze and Excitation</li>
+<li>Output kein Vector</li>
+<li>Vector wird nur zu gewichtung verwendet</li>
+<li>Kann mit Koeffizienten versehen werden um Einfluss zu reduzieren / verstärken</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <aside><ol class="aside-footnotes"><li id="fn1"><p>Squeeze and Excitation</p></li></ol></aside></section>
 <section id="designpatterns-mit-faltung" class="slide level2" data-number="2.9">
 <h2><span class="header-section-number">2.9</span> Designpatterns mit Faltung</h2>
@@ -694,6 +967,23 @@ Abbildung&nbsp;5: MBConv und fused-MBConv
 <li>🎯 Zeigt Richtung des stärksten Wachstums und Einfluss der Parameter</li>
 <li>🖼️ Dargestellt durch den Nabla Operator <span class="math inline">\(\nabla\)</span></li>
 </ul>
+<aside class="notes">
+<ul>
+<li>Ein Vector aus partiellen Ableitungen</li>
+<li>Zeigt ebenfalls Einfluss einzelner Parameter an</li>
+<li>Kann in mehrdimensionalen Bereich als Kostenlandschaft interpretiert werden bsp. später</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="section-7" class="slide level2 unnumbered" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
@@ -715,6 +1005,25 @@ f(x, y) = 2x^2 + 3y
 3
 \end{pmatrix}
 \]</span></p>
+<aside class="notes">
+<ul>
+<li>f ist eine Funktion die ein Element aus einem 2d Raum auf einen Wert abbildet</li>
+<li>jedem Punkt (x, y) wird eine Reele Zahl zugeordnet</li>
+<li>x größter Einfluss auf die Steigung von f</li>
+<li>y konstant positiven Einfluss (Steigung als f’)</li>
+<li>je größer x wird desto horizontaler wird der Vektor (bspw. unterschied x = 1000 und x = 1001)</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="section-8" class="slide level2 unnumbered" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
@@ -747,6 +1056,23 @@ f(x, y) = 2x^2 + 3y
 <li>ℹ️ Bei Klassifikationsproblemen eignet sich Cross Entropy Loss</li>
 <li>🎯 Fehlerwert durch Anpassung der Gewichte zu minimieren</li>
 </ul>
+<aside class="notes">
+<ul>
+<li><span class="math inline">\(\hat{y}\)</span>: Schätzer, <span class="math inline">\(y\)</span>: Wert (Ermitteln Differenz)</li>
+<li>Wird zur Anpassung von Gewichten verwendet (zsm. mit Gradienten)</li>
+<li>Ziel beim Training : Soll iterativ reduziert werden</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="section-10" class="slide level2 unnumbered" data-background-video="./animations/CrossEntropyVisualization.mp4" data-background-video-loop="true" data-background-video-muted="true">
 <h2></h2>
@@ -758,6 +1084,24 @@ f(x, y) = 2x^2 + 3y
 <li>ℹ️ Beruht auf der Kettenregel der Ableitung</li>
 <li>🎯 Fehlerwert durch Anpassung der Gewichte zu minimieren</li>
 </ul>
+<aside class="notes">
+<ul>
+<li>Grundlage: Neuronen, FeatureMaps, etc. werden als Funktionen interpretiert</li>
+<li>IN NNs sind eingaben der Funktion Gewichte, Ausgabe Vorheriger Neuronen (ebenfalls Funktionen) und Bias</li>
+<li>Durch Innere Funktionen (Neuron -&gt; Neuron (evtl. mit Aktivierungsfunktion)) kann partiell bis zu den Gewichten abgeleitet werden</li>
+<li>Einfluss einzelner Paramter zur Steigung der Kostenfunktion kann ermittelt werden</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2">
 
@@ -770,6 +1114,23 @@ f(x, y) = 2x^2 + 3y
 w_i \gets w_i - \eta \cdot \frac{\partial L}{\partial w_i}
 \]</span></p>
 
+<aside class="notes">
+<ul>
+<li>eta ist Lernrate</li>
+<li>Pfeil (gets) steht für Zuweisung / Aktualisierung (wie wird das neue wi gesetzt)</li>
+<li>Das Gewicht wi wird in Richtung des negativen Gradienten der Kostenfunktion angepasst</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <aside><div>
 <p><span class="math inline">\(\eta\)</span> ist die Lernrate</p>
 </div></aside></section>
@@ -783,6 +1144,22 @@ f(x) = u(v(x))
 f'(x) = u'(v(x)) v'(x)
 \]</span></p>
 
+<aside class="notes">
+<ul>
+<li>wichtig: äußere mal innere Ableitung</li>
+<li>verschachtelte Funktionen: Rückschluss zu Neuronen später Schichten</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <aside><div>
 <p>Reminder</p>
 </div></aside></section>
@@ -795,6 +1172,23 @@ L(\sigma(z_6))
 <p><span class="math display">\[
 \frac{dL}{dz_6} = \frac{dL}{d \sigma (z_6)} \frac{d \sigma (z_6)}{dz_6}
 \]</span></p>
+<aside class="notes">
+<ul>
+<li>d: totale Ableitung (berücksichtigt alle Abhängigkeiten)</li>
+<li>del (Partialzeichen): partielle Ableitung (berücksichtig eine Variable alle anderen fix)</li>
+<li>Hier egal weil simples Beispiel mit einer Variable</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <div class="fragment">
 <p><strong>Problem</strong>: <span class="math inline">\(z_6(\sigma (z_5))\)</span>, <span class="math inline">\(z_5(\sigma (z_4))\)</span>, …</p>
 <div class="columns">
@@ -808,6 +1202,23 @@ L(\sigma(z_6))
 \]</span></p>
 </div></div>
 
+<aside class="notes">
+<ul>
+<li>Hier das Problem erwähnen sigmoud Ableitung in dem Produkt (aus Kettenregel)</li>
+<li>Sigmoud Ableitung sehr schnell nahe null</li>
+<li>Viele null werte im Produkt = wenig Gewichtskorrektur</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </div>
 <aside><div>
 <p>Reminder</p>
@@ -825,7 +1236,25 @@ L(\sigma(z_6))
 
 <img data-src="./images/skip_connections.excalidraw.png" class="r-stretch quarto-figure-center" id="fig-skip-connections"><p class="caption">
 Abbildung&nbsp;6: Skip Connections
-</p></section>
+</p><aside class="notes">
+<ul>
+<li>Mathematisch als zusätzliche Eingabe gewertet (in die Funktion Neuron / Ausgabe)</li>
+<li>Anwendung Gewichtskorrektur ohne großes Produkt</li>
+<li>Hebt Einluss früherer Schichten hervor</li>
+<li>Führt zu einer Glättung der Kostenlandschaft</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section class="slide level2">
 
 
@@ -837,11 +1266,40 @@ Abbildung&nbsp;7: Gewichtsanpassung mit Skip Connections
 
 <img data-src="./images/loss_landscape_cost_function.png" class="r-stretch quarto-figure-center" id="fig-skip-connections-cost"><p class="caption">
 Abbildung&nbsp;8: Fehlerlandschaft Kostenfunktion
-</p></section></section>
+</p><aside class="notes">
+<ul>
+<li>Beispiel beim Training versucht man einen Ball in globale Minima zu rollen</li>
+<li>Zeigt Gradienten (Vectorfeld) einer Kostenlandschaft</li>
+<li>Auswirkung von Skip Connections (globales Minima einfacher zu erkennen)</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
 <section>
 <section id="datensatz-und-modellentwicklung" class="title-slide slide level1 center" data-number="3">
 <h1><span class="header-section-number">3</span> Datensatz und Modellentwicklung</h1>
-
+<aside class="notes">
+<p><em>Marc</em></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="vorstellung-des-datensatzes" class="slide level2 smaller" data-number="3.1">
 <h2><span class="header-section-number">3.1</span> Vorstellung des Datensatzes</h2>
@@ -976,6 +1434,8 @@ Tabelle&nbsp;1: Datensatz
 <li>dx = Diagnose der Hautläsion</li>
 <li>dx_type = Diagnosemethode</li>
 <li>lesion_id = Läsions ID (7.470)</li>
+<li><code>abdomen</code>: Bauchregion</li>
+<li><code>upper extremity</code>: Schulter / Arm</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -1080,6 +1540,24 @@ Abbildung&nbsp;15: Gefäßläsionen
 </div>
 </div>
 </div>
+<aside class="notes">
+<p>Gefährlich:</p>
+<ul>
+<li>mel : Melanom (gefährlichste)</li>
+<li>bcc: Basalzellkarzinom</li>
+<li>akiec: Aktinische Keratose</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="datenexploration---altersgruppen" class="slide level2 smaller" data-number="3.3">
 <h2><span class="header-section-number">3.3</span> Datenexploration - Altersgruppen</h2>
@@ -1099,8 +1577,8 @@ Abbildung&nbsp;17: Verteilung der Körperstellen nach Diagnose (gefährl. Diagno
 <img data-src="./images/proportions_of_diagnoses.png" class="r-stretch quarto-figure-center" id="fig-proportions_of_diagnoses"><p class="caption">
 Abbildung&nbsp;18: Anteil gefährlicher Diagnosen unter allen gefährlichen Fällen
 </p></section>
-<section id="unser-modell-effiecientnetv2-bb" class="slide level2 scrollable" data-number="3.6">
-<h2><span class="header-section-number">3.6</span> Unser Modell (EffiecientNetV2 BB)</h2>
+<section id="unser-modell-efficientnetv2-bb" class="slide level2 scrollable" data-number="3.6">
+<h2><span class="header-section-number">3.6</span> Unser Modell (EfficientNetV2 BB)</h2>
 <ul>
 <li>ℹ️ Kombination aus Neural Architecture Search<sup>1</sup> und manuellem Feintuning</li>
 <li>ℹ️ Integriert Fused-MBConv Blöcke (<a href="#/fig-mb-conv" class="quarto-xref">Abbildung&nbsp;5</a>)</li>
@@ -1108,23 +1586,81 @@ Abbildung&nbsp;18: Anteil gefährlicher Diagnosen unter allen gefährlichen Fäl
 <li>🎯 Schnelles Training großer Modelle</li>
 <li>🎯 Geeignet für Transfer Learning durch Generalisierung</li>
 </ul>
+<aside class="notes">
+<p><em>Sergei</em></p>
+<ul>
+<li>NAS -&gt; gewisse Architekturentscheidungen werden beim Training getroffen (bsp. Random) und die beste wird umgesetzt</li>
+<li>early Optimierung durch Fused-MBConv</li>
+<li>Fused-MBConv: Am Anfang effizienter (Bei weniger Dimensionen durch Verwendung normaler Faltung)</li>
+<li>Später Depthwise effizienter (ein Kernel pro Kanal nicht jeder Kernel alle Kanäle)</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <aside><ol class="aside-footnotes"><li id="fn2"><p>NAS : Automatisierter Prozess zur Architekturfindung in CNNs</p></li></ol></aside></section>
 <section class="slide level2">
 
 
 <img data-src="./images/effnet_architecture.png" class="r-stretch quarto-figure-center" id="fig-effnet-architecture"><p class="caption">
 Abbildung&nbsp;19: EfficientNetV2 Architektur
-</p></section>
+</p><aside class="notes">
+<ul>
+<li>Stride - Schrittlänge des Kernels</li>
+<li>Channels - Anzahl der featuremaps</li>
+<li>Layers - Hintereinanderausführungen zur next Stage</li>
+<li>Fused-MBConv - effizienter in früheren Schichten</li>
+<li>k3x3 - Kernel 3x3</li>
+<li>SE0.25 - Squeeze and Exitation - Gewichtung der featuremaps mit Skalar</li>
+<li>Direkt nach MBConv<code>4</code> - Expansionrate (Faktor der internen Kanalerweiterung - wird vor Ausgabe wieder reduziert)</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section class="slide level2">
 
 
 <img data-src="./notebooks/model_architektur.png" class="r-stretch quarto-figure-center" id="fig-melnoma-model"><p class="caption">
 Abbildung&nbsp;20: Tensorflow Visualisierung
-</p></section>
+</p><aside class="notes">
+<ul>
+<li>[(batchsize,244,244,kanäle)]</li>
+<li>batchsize - wie viele Bilder verarbeitet werden bevor Gewichtsanpassung stattfindet</li>
+<li>kanäle - Dimensionen des Bildes bezogen bsp. rot, grün und blau</li>
+<li>dropout - kickt random Dimensionen des Vektors und vergleicht Ergebnisse</li>
+<li>dense - Vektor geht ins NN mit Output Diagnose</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section class="slide level2">
 
-<div id="48bbec51" class="cell" data-execute="false" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> tensorflow <span class="im">as</span> tf</span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> tensorflow <span class="im">as</span> tf</span>
 <span id="cb1-2"><a></a><span class="im">from</span> tensorflow.keras.applications <span class="im">import</span> EfficientNetV2B0</span>
 <span id="cb1-3"><a></a></span>
 <span id="cb1-4"><a></a>base_model <span class="op">=</span> EfficientNetV2B0(</span>
@@ -1139,7 +1675,25 @@ Abbildung&nbsp;20: Tensorflow Visualisierung
 <span id="cb1-13"><a></a>    tf.keras.layers.Dropout(<span class="fl">0.2</span>),</span>
 <span id="cb1-14"><a></a>    tf.keras.layers.Dense(<span class="dv">7</span>, activation<span class="op">=</span><span class="st">"softmax"</span>)</span>
 <span id="cb1-15"><a></a>])</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<aside class="notes">
+<ul>
+<li>Zeigt wie simple die Integration im Code ist</li>
+<li>include_top - wird NN von EfficientNet verwendet “ja/nein”</li>
+<li>weights - ‘imagenet’ nimmt Gewichte aus dem Training vom Imagenet Datensatz</li>
+<li>input_shape - 244x244 Pixel und 3 Kanäle</li>
+<li>model = tf.keras.Sequential - Definiert danach unser NN</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="modellevaluierung" class="slide level2" data-number="3.7">
 <h2><span class="header-section-number">3.7</span> Modellevaluierung</h2>
@@ -1154,6 +1708,22 @@ Abbildung&nbsp;21: Benchmark TPU days
 </figure>
 </div>
 
+<aside class="notes">
+<ul>
+<li>TPU - Chip von Google für KI Training</li>
+<li>TPU days - Rechenleistung davon über 24h</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <aside><div>
 <p>TPU day : Rechenkapazität die eine TPU in einem Tag liefert <span class="citation" data-cites="Tan2021"><a href="#/literaturverzeichnus" role="doc-biblioref" onclick="">[6]</a></span></p>
 </div></aside></section>
@@ -1162,13 +1732,46 @@ Abbildung&nbsp;21: Benchmark TPU days
 
 <img data-src="./images/effnet_steptime.png" class="r-stretch quarto-figure-center" id="fig-effnet-steptime"><p class="caption">
 Abbildung&nbsp;22: Benchmark Steptime
-</p></section>
+</p><aside class="notes">
+<ul>
+<li>Wie lange ein Batch benötigt um verarbeitet zu werden</li>
+<li>EffNetV2 und NFNet liegen hier nah bei einander</li>
+<li>Berücksichtigung der ersten Grafik spricht dafür, dass EffNetV2 die Gewichtsanpassung intelligenter durchführt</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section class="slide level2">
 
 
 <img data-src="./images/effnet_params.png" class="r-stretch quarto-figure-center" id="fig-effnet-params"><p class="caption">
 Abbildung&nbsp;23: Benchmark Parameter
-</p></section></section>
+</p><aside class="notes">
+<ul>
+<li>Parameter effiziente Modelle sind oben-links zu sehen</li>
+<li>Vergleichswert: GPT-3 ca. 175 Milliarden Parameter</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
 <section>
 <section id="auswertung-und-vergleich" class="title-slide slide level1 center" data-number="4">
 <h1><span class="header-section-number">4</span> Auswertung und Vergleich</h1>
@@ -1179,13 +1782,49 @@ Abbildung&nbsp;23: Benchmark Parameter
 
 <img data-src="./images/own_model_training.png" class="r-stretch quarto-figure-center" id="fig-model-training"><p class="caption">
 Abbildung&nbsp;24: Trainingsverlauf
-</p></section>
+</p><aside class="notes">
+<ul>
+<li>Aufteilung 20% Testen; 80% Trainieren</li>
+<li>Train Accuracy steigt mit den Epochen</li>
+<li>Vali Accuracy leichter positiver Trend, fängt an zu stagnieren</li>
+<li>Wenn Train steigt und Vali stagniert -&gt; Overfitting</li>
+<li>Selbiges unten aus der Lossfunction-Sicht</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section class="slide level2">
 
 
 <img data-src="./images/confusion_matrix.png" class="r-stretch quarto-figure-center" id="fig-confusion-matrix"><p class="caption">
 Abbildung&nbsp;25: Konfusionsmatrix
-</p></section>
+</p><aside class="notes">
+<ul>
+<li>Diagonale oben-links nach unten-rechts</li>
+<li>true “mel” als “nv” klassifiziert ~25%</li>
+<li>Tabelle danach ist etwas anschaulicher</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section class="slide level2">
 
 <div id="tbl-accurency" class="quarto-float quarto-figure quarto-figure-center">
@@ -1259,18 +1898,54 @@ Tabelle&nbsp;2: Genauigkeitsmaße
 </div>
 </figure>
 </div>
+<aside class="notes">
+<ul>
+<li>Precision - Von allen als „positiv“ klassifizierten Fällen: Wie viele sind wirklich positiv?</li>
+<li>Recall - Von allen wirklich positiven Fällen: Wie viele hast du erkannt?</li>
+<li>F1 - Harmonische Mittel, Mittelwert von Verhältnissen (bsp. Geschwindigkeiten)</li>
+<li>Support - Anzahl der Samples</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="potenzial" class="slide level2" data-number="4.2">
 <h2><span class="header-section-number">4.2</span> Potenzial</h2>
 <ul>
 <li>Wo sehen wir konkretes Verbesserungspotential?
 <ul>
+<li>Kostenfunktion anhand von Gewichtungen anpassen, um falschklassifizierte echte gefährliche Diagnosen stärker zu bestrafen</li>
+<li>Weiteres Training auf einer größeren Datenbasis inkl. höherem Anteil von gefährlichenen Diagnosen</li>
 <li>Training eines spezifischen CNNs statt allgemeinem EfficientNetV2-CNN</li>
-<li>Weiteres Training um bessere “minima” zu finden bzw. andere Optimierer testen/bestimmen</li>
-<li>Größerer Datensatz (min. gleichbleibende Qualität)</li>
-<li>Bessere Datenqualität</li>
+<li>Hinzufügen weiterer Layers im neuronalen Netz</li>
 </ul></li>
 </ul>
+<aside class="notes">
+<ul>
+<li>Datensatz aus dem Havard-Universe -&gt; non plus Ultra</li>
+<li>KI sollte auch mit schlechteren Bildern klarkommen</li>
+<li>EfficientNetv2-B0 verwendet (beschleunigung vom Training)</li>
+<li>Vielfalt der Hauttypen im Trainingsdatensatz ist ein ausschlaggebender Faktor</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="grenzen" class="slide level2" data-number="4.3">
 <h2><span class="header-section-number">4.3</span> Grenzen</h2>
@@ -1279,38 +1954,163 @@ Tabelle&nbsp;2: Genauigkeitsmaße
 <ul>
 <li>Bei der Nachvollziehbarkeit der Kriterien zur Klassifikation durch das CNN (Blackbox)</li>
 <li>Perfekte Filterwerte nicht realistisch (nach aktueller Forschung)</li>
-<li>Biopsie wird nicht ersetzt (Accuarcy Score, Bildqualität etc.)</li>
+<li>Biopsie zur Sicherung der Diagnose wird nicht ersetzt</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<ul>
+<li>Nachvollziehbarkeit der Features teilweise möglich: Gradient-weighted Class Activation Mapping (Grad-CAM)</li>
+<li>Video zum Verfahren: <a href="https://www.youtube.com/watch?v=7womw-TI6Ss&amp;ab_channel=AGILambda">Grad-CAM</a></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="zusammenfassung" class="slide level2" data-number="4.4">
+<h2><span class="header-section-number">4.4</span> Zusammenfassung</h2>
+<ul>
+<li>Unser Modell ist funktional, aber müsste weiter angepasst werden, um die Genauigkeit zu verbessern
+<ul>
+<li>Verbesserungspotenziale Potenziale sind vorhanden</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p><em>Marc</em></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="rückblick" class="slide level2" data-number="4.5">
+<h2><span class="header-section-number">4.5</span> Rückblick</h2>
+<ul>
+<li>Alle 120 Minuten stirbt ein Mensch an Hautkrebs. Wie kann künstliche Intelligenz Leben retten?
+<ul>
+<li>Aktuell kann KI vorallem bestehende Prozesse in der Diagnostik unterstützen und beschleunigen, um auf diese Weise Menschenleben zu retten</li>
 </ul></li>
 </ul>
 </section>
-<section id="fazit" class="slide level2" data-number="4.4">
-<h2><span class="header-section-number">4.4</span> Fazit</h2>
+<section class="slide level2">
+
 <ul>
-<li>Einordnung der Ergebnisse in den fachlichen Kontext (Fazit, auf Einleitungsfrage)
+<li>1895 entdeckte Wilhelm Röntgen die Röntgenstrahlen und revolutionierte die Medizin. Steht uns mit künstlicher Intelligenz eine noch größere Revolution bevor?
 <ul>
-<li>Vergleich: Wie passen unsere Ergebnisse zu dem, was andere Studien zeigen?</li>
-<li>Relevanz? (ja, Einleitung)</li>
-<li>Praxisbezug? (ja, echte Daten aus Beschreibung Datensatz?)</li>
+<li>Die sich durch KI eröffnenden Möglichkeiten haben das Potenzial die Medizin ähnlich voranzutreiben. Als aktuelles Beispiel kann hierfür AlphaFold2 dienen.</li>
 </ul></li>
 </ul>
 </section>
-<section id="ausblick" class="slide level2" data-number="4.5">
-<h2><span class="header-section-number">4.5</span> Ausblick</h2>
+<section id="ausblick" class="slide level2 scrollable" data-number="4.6">
+<h2><span class="header-section-number">4.6</span> Ausblick</h2>
+
+<img data-src="./images/smartphoneapp_dermai.png" class="r-stretch quarto-figure-center" id="fig-smartphoneapp_process"><p class="caption">
+Abbildung&nbsp;26: Ablauf Smartphone App <span class="citation" data-cites="Fraunhofer_2022"><a href="#/literaturverzeichnus" role="doc-biblioref" onclick="">[7]</a></span>
+</p><aside class="notes">
+<ol type="1">
+<li><p>Hausartz erstellt unter anweisung der App 2 Fotos (nah- und Fern; Standartisiert -&gt; App: gleichen Einstellungen in Auflösung, Bildausschnitt, Helligkeit und Kontrast)</p></li>
+<li><p>KI führt priorisierung durch (harmlos«, »riskant« oder »gefährlich«) !!keine Diagnose!!</p></li>
+<li><p>Dermatologe betrachet Bilder und setzt persönliches oder telefonisches/Video Gespräch an</p></li>
+<li><p>Verdachtsfälle müssen vorort genauer untersucht werden</p></li>
+</ol>
 <ul>
-<li>eig Kapitel overkill stattdessen im Ausblick als pkt - Frauenhofer / Bosch Lösung (vilt oben beim Vergleich erwähnen?)</li>
-<li>Rechtliche Komplikationen bei Datenhaltung?</li>
-<li>AlphaFold2</li>
-<li>Einschätzug KI bezogen auf Röntgen</li>
+<li>Bilddaten und Infos von 4000 Patienten</li>
+<li>80% der Fälle bei denen der Hautartz aufgesucht wird stellen sich als ungefährlich heraus</li>
+<li>Beschleunigung der Diagnose Prozesse</li>
 </ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="alternative-modelle" class="slide level2" data-number="4.6">
-<h2><span class="header-section-number">4.6</span> Alternative Modelle</h2>
+<section class="slide level2">
+
+
+<img data-src="./images/iToBoS.png" class="r-stretch quarto-figure-center" id="fig-deep_learning_models"><p class="caption">
+Abbildung&nbsp;27: Intelligent Total Body Scanner for Early Detection of Melanoma
+</p><ul>
+<li>Ganzkörpersscanner entwickelt von Bosch</li>
+<li>Scannt den gesamten Körper in 6 min</li>
+<li>Erstellt Risikobewertung für jedes einzelne “Muttermal”</li>
+<li>Nutzt KI-Modelle und XAI-Methoden des Fraunhofer Heinrich-Hertz-Institut <span class="citation" data-cites="Fraunhofer_2025"><a href="#/literaturverzeichnus" role="doc-biblioref" onclick="">[8]</a></span></li>
+</ul>
+<aside class="notes">
 <ul>
-<li>Marc vergleichstabelle ???</li>
+<li>Scans können oft über einen Zeitraum hinweg wiederholt werden um entwicklungen zu betrachten</li>
+<li>XAI-Methoden -&gt; auflösung der KI-Blackbox
+<ul>
+<li><em>Concept Relevance Propagation (CRP)</em>: Zeigt, welche gelernten Konzepte (z.B. “asymmetrische Form”) für die KI-Entscheidung wichtig waren, anstatt nur Pixel hervorzuheben.
+<ul>
+<li>die KI diese Entscheidung hauptsächlich aufgrund der Konzepte “unregelmäßige Ränder” und “ungleichmäßige Pigmentierung” getroffen hat</li>
+</ul></li>
+<li><em>Prototypical-Concept-based eXplanations (PCX)</em>: Erklärt Entscheidungen, indem es relevante Konzepte durch konkrete Beispiele (Prototypen) aus den Trainingsdaten visualisiert.
+<ul>
+<li>PCX präsentiert dem Arzt dann konkrete Beispielbilder aus den Trainingsdatenbanken von anderen, bereits bestätigten Hautkrebsfällen</li>
+</ul></li>
+<li><em>Reveal to Revise (R2R)</em>: Ermöglicht eine interaktive Erklärung, indem es zeigt, welche Änderungen an den Eingabedaten nötig wären, um die KI-Entscheidung zu beeinflussen oder zu revidieren.
+<ul>
+<li>Wenn dieser Bereich des Muttermals symmetrischer wäre und die Farbe hier heller und gleichmäßiger, dann würde die KI ihn als ‘harmlos’ einstufen.</li>
+</ul></li>
+</ul></li>
 </ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="llms-im-test" class="slide level2" data-number="4.7">
-<h2><span class="header-section-number">4.7</span> LLMs im Test</h2>
+<section id="alternative-modelle" class="slide level2" data-number="4.7">
+<h2><span class="header-section-number">4.7</span> Alternative Modelle</h2>
+
+<img data-src="./images/deep_learning_models.png" class="r-stretch quarto-figure-center" id="fig-deep_learning_models"><p class="caption">
+Abbildung&nbsp;28: Deep Learning Models <span class="citation" data-cites="Jaiyeoba_et_al._2025"><a href="#/literaturverzeichnus" role="doc-biblioref" onclick="">[9]</a></span>
+</p><aside class="notes">
+<ul>
+<li>Boxplot</li>
+<li>Durchschnittliche Genauigkeit aller Modelle: 86.20%</li>
+<li>EfficientNet: worst 5.3%; best: 90%</li>
+<li>Am Häufigsten verwendetes Modell (EfficientNet)</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="llms-im-test" class="slide level2" data-number="4.8">
+<h2><span class="header-section-number">4.8</span> LLMs im Test</h2>
 <div id="tbl-llm-test" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-tbl">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-llm-test-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1357,32 +2157,59 @@ Tabelle&nbsp;3: Test mit LLMs
 <ul>
 <li>Fazit: LLMs nicht zur Diagnose verwenden 😉</li>
 </ul>
+<aside class="notes">
+<ul>
+<li>Wichtig: Nicht signifikant (LLMs nicht dafür konzipiert) - Test nur aus Spaß</li>
+</ul>
+<p><strong>Prompt</strong>: Bitte klassifiere die folgenden Bilder von Hautläsionen anhand der angehängten Klassen label_mappings = { “akiec”: 0, “bcc”: 1, “bkl”: 2, “df”: 3, “nv”: 4, “mel”: 5, “vasc”: 6 }</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section></section>
 <section>
 <section id="einsatz-von-ki-im-projekt" class="title-slide slide level1 center" data-number="5">
 <h1><span class="header-section-number">5</span> Einsatz von KI im Projekt</h1>
 
 </section>
-<section id="programmierung" class="slide level2" data-number="5.1">
-<h2><span class="header-section-number">5.1</span> Programmierung</h2>
+<section id="unsere-erfahrungen" class="slide level2" data-number="5.1">
+<h2><span class="header-section-number">5.1</span> Unsere Erfahrungen</h2>
 <ul>
-<li>framework verständnis</li>
-<li>etc. sponti</li>
-</ul>
-</section>
-<section id="dokumentation" class="slide level2" data-number="5.2">
-<h2><span class="header-section-number">5.2</span> Dokumentation</h2>
+<li>Programmierung
 <ul>
-<li>umformulierung</li>
-<li>darstellung</li>
-</ul>
-</section>
-<section id="allgemein" class="slide level2" data-number="5.3">
-<h2><span class="header-section-number">5.3</span> Allgemein</h2>
+<li>Framework verständnis</li>
+</ul></li>
+<li>Dokumentation
 <ul>
-<li>wissen</li>
-<li>recherche</li>
+<li>Umformulierung</li>
+<li>Darstellung</li>
+</ul></li>
+<li>Allgemein
+<ul>
+<li>Wissen</li>
+<li>Recherche</li>
+</ul></li>
 </ul>
+<aside class="notes">
+<p><em>Alle</em></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section></section>
 <section id="literaturverzeichnus" class="title-slide slide level1 smaller scrollable" data-number="6">
 <h1><span class="header-section-number">6</span> Literaturverzeichnus</h1>
@@ -1410,6 +2237,15 @@ Tabelle&nbsp;3: Test mit LLMs
 <div id="ref-Tan2021" class="csl-entry" role="listitem">
 <div class="csl-left-margin">[6] </div><div class="csl-right-inline">M. Tan und Q. V. Le, <span>„EfficientNetV2: Smaller Models and Faster Training“</span>. 2021. Verfügbar unter: <a href="https://arxiv.org/abs/2104.00298">https://arxiv.org/abs/2104.00298</a></div>
 </div>
+<div id="ref-Fraunhofer_2022" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[7] </div><div class="csl-right-inline">Fraunhofer-Gesellschaft, <span>„<span>Smartphone-App und KI-Software beschleunigen Erkennung von Hautkrebs</span>“</span>. [Online]. Verfügbar unter: <a href="https://www.fraunhofer.de/de/presse/presseinformationen/2022/februar-2022/smartphone-app-und-ki-software-beschleunigen-erkennung-von-hautkrebs.html">https://www.fraunhofer.de/de/presse/presseinformationen/2022/februar-2022/smartphone-app-und-ki-software-beschleunigen-erkennung-von-hautkrebs.html</a></div>
+</div>
+<div id="ref-Fraunhofer_2025" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[8] </div><div class="csl-right-inline">Fraunhofer-Gesellschaft, <span>„<span>KI-Diagnoseplattform verbessert Früherkennung von Hautkrebs</span>“</span>. [Online]. Verfügbar unter: <a href="https://www.fraunhofer.de/de/presse/presseinformationen/2025/maerz-2025/ki-diagnoseplattform-verbessert-frueherkennung-von-hautkrebs.html">https://www.fraunhofer.de/de/presse/presseinformationen/2025/maerz-2025/ki-diagnoseplattform-verbessert-frueherkennung-von-hautkrebs.html</a></div>
+</div>
+<div id="ref-Jaiyeoba_et_al._2025" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[9] </div><div class="csl-right-inline">O. Jaiyeoba <em>u.&nbsp;a.</em>, <span>„State-of-the-art skin disease classification: a review of deep learning models“</span>, <em>Netw Model Anal Health Inform Bioinforma</em>, Bd. 14, Nr. 1, S. 9, Jan. 2025, doi: <a href="https://doi.org/10.1007/s13721-024-00495-w">10.1007/s13721-024-00495-w</a>.</div>
+</div>
 </div>
 </section>
 
@@ -1428,6 +2264,7 @@ Tabelle&nbsp;3: Test mit LLMs
   <script src="site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -1449,7 +2286,8 @@ Tabelle&nbsp;3: Test mit LLMs
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
 'jumpToSlide': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -1620,7 +2458,7 @@ Tabelle&nbsp;3: Test mit LLMs
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
 
           RevealMath,
           RevealNotes,

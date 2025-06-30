@@ -1,30 +1,60 @@
 [
   {
-    "objectID": "presentation.html#forschungsgrundlage",
-    "href": "presentation.html#forschungsgrundlage",
+    "objectID": "presentation.html#relevanz",
+    "href": "presentation.html#relevanz",
     "title": "Melanoma Präsentation",
-    "section": "1.1 Forschungsgrundlage",
-    "text": "1.1 Forschungsgrundlage\n\n\nAlle 120 Minuten stirbt ein Mensch an Hautkrebs. Wie kann künstliche Intelligenz Leben retten? [1]\n\n\n\n\n1895 entdeckte Wilhelm Röntgen die Röntgenstrahlen und revolutionierte die Medizin. Steht uns mit künstlicher Intelligenz eine noch größere Revolution bevor? [2]",
+    "section": "1.1 Relevanz",
+    "text": "1.1 Relevanz\n\n\nAlle 120 Minuten stirbt ein Mensch an Hautkrebs. Wie kann künstliche Intelligenz Leben retten? [1]\n\n\n\n\n1895 entdeckte Wilhelm Röntgen die Röntgenstrahlen und revolutionierte die Medizin. Steht uns mit künstlicher Intelligenz eine noch größere Revolution bevor? [2]\n\n\n\n120 Minuten - Todesursachenstatistik 2022\nWie kann Ki helfen (joke)",
     "crumbs": [
       "Melanoma Präsentation"
     ]
   },
   {
-    "objectID": "presentation.html#ki-und-bildanalyse",
-    "href": "presentation.html#ki-und-bildanalyse",
+    "objectID": "presentation.html#was-ist-hautkrebs",
+    "href": "presentation.html#was-ist-hautkrebs",
     "title": "Melanoma Präsentation",
-    "section": "1.2 KI und Bildanalyse",
-    "text": "1.2 KI und Bildanalyse",
+    "section": "1.2 Was ist Hautkrebs?",
+    "text": "1.2 Was ist Hautkrebs?\n\nHautkrebs entsteht, wenn bestimmte Zellen der Haut unkontrolliert wachsen und in das umliegende Gewebe eindringen. Man unterscheidet dabei zwischen hellem Hautkrebs und schwarzem Hautkrebs.\n\n\n\nAbbildung 1: Querschnitt vom Hautkrebs\n\n\nheller - lokal aber auch tief\nschwarzer - kann früh streuen (Blut- Lymphbahnen), Metastasen in anderen Organen bilden",
     "crumbs": [
       "Melanoma Präsentation"
     ]
   },
   {
-    "objectID": "presentation.html#unser-forschungsgegenstand",
-    "href": "presentation.html#unser-forschungsgegenstand",
+    "objectID": "presentation.html#nicht-invasive-diagnoseverfahren",
+    "href": "presentation.html#nicht-invasive-diagnoseverfahren",
     "title": "Melanoma Präsentation",
-    "section": "1.3 Unser Forschungsgegenstand",
-    "text": "1.3 Unser Forschungsgegenstand\n\nAKIECBCCBKLDFMELNVVASC\n\n\n\n\n\n\n\n\nAbbildung 1: Aktinische Keratose\n\n\n\n\n\n\n\n\n\n\n\nAbbildung 2: Basalzellkarzinom\n\n\n\n\n\n\n\n\n\n\n\nAbbildung 3: Keratosen-ähnliche Läsionen\n\n\n\n\n\n\n\n\n\n\n\nAbbildung 4: Dermatofibrom\n\n\n\n\n\n\n\n\n\n\n\nAbbildung 5: Melanom\n\n\n\n\n\n\n\n\n\n\n\nAbbildung 6: Melanozytische Nävi\n\n\n\n\n\n\n\n\n\n\n\nAbbildung 7: Gefäßläsionen",
+    "section": "1.3 nicht-invasive Diagnoseverfahren",
+    "text": "1.3 nicht-invasive Diagnoseverfahren\n\nKlinische Untersuchung\n\nVisuelle Begutachtung auffälliger Hautveränderungen durch Hautarzt\n\nDermatoskopie\n\nVergrößert und beleuchtet die Haut, macht Pigment- und Gefäßstrukturen sichtbar\n\nKonfokale Laserscanmikroskopie\nOptische Kohärenztomographie\n\n\n\nAuge // sehr ungenau\nDermatoskopie // Signifikant besser, minimal mehr Aufwand, aktueller Standard\nLaserscanmikroskopie und Optische Kohärenztomographie // Spezial Equipment + teuer\nBiopsie // Diagnosensicherung",
+    "crumbs": [
+      "Melanoma Präsentation"
+    ]
+  },
+  {
+    "objectID": "presentation.html#ki-und-computer-vision",
+    "href": "presentation.html#ki-und-computer-vision",
+    "title": "Melanoma Präsentation",
+    "section": "1.4 KI und Computer Vision",
+    "text": "1.4 KI und Computer Vision\n\n\n\nJan\n\nAuf Historie eingehen (CNN -&gt; ViT -&gt; CNN bis Hybrid)\nImageNet: Große Datensammlung (14.197.122 Bilder)\nHerausforderungen mit der Zeit: Größere Bilder, Generalisierte Probleme (eine Lösung für alles)",
+    "crumbs": [
+      "Melanoma Präsentation"
+    ]
+  },
+  {
+    "objectID": "presentation.html#ziele",
+    "href": "presentation.html#ziele",
+    "title": "Melanoma Präsentation",
+    "section": "1.5 Ziele",
+    "text": "1.5 Ziele\n\nAuseinandersetzung mit künstlicher Intelligenz\nVerständnis der Potenziale und Grenzen der Technologie\nEinordnung der Ergebnisse\nEinschätzung, ob und wie KI in diesem Anwendungsfeld eingesetzt werden kann\n\n\nMarc",
+    "crumbs": [
+      "Melanoma Präsentation"
+    ]
+  },
+  {
+    "objectID": "presentation.html#abgrenzung",
+    "href": "presentation.html#abgrenzung",
+    "title": "Melanoma Präsentation",
+    "section": "1.6 Abgrenzung",
+    "text": "1.6 Abgrenzung\n\nFokus auf Dermatoskopie\nKleiner Datensatz\n\n10015 Samples\n7 Features",
     "crumbs": [
       "Melanoma Präsentation"
     ]
@@ -40,31 +70,11 @@
     ]
   },
   {
-    "objectID": "presentation.html#arten-von-hautkrebs",
-    "href": "presentation.html#arten-von-hautkrebs",
-    "title": "Melanoma Präsentation",
-    "section": "2.1 Arten von Hautkrebs",
-    "text": "2.1 Arten von Hautkrebs\n\nArten aus unserem Datensatz werden nur behandelt und daher auch hier nur erklärt\n\n\n\nDas ist eine Side Note",
-    "crumbs": [
-      "Melanoma Präsentation"
-    ]
-  },
-  {
-    "objectID": "presentation.html#bisherige-diagnoseverfahren",
-    "href": "presentation.html#bisherige-diagnoseverfahren",
-    "title": "Melanoma Präsentation",
-    "section": "2.6 Bisherige Diagnoseverfahren",
-    "text": "2.6 Bisherige Diagnoseverfahren\n\nAuge\nDermatoskopie\nKI als Unterstützung",
-    "crumbs": [
-      "Melanoma Präsentation"
-    ]
-  },
-  {
     "objectID": "presentation.html#grundlagen-computer-vision",
     "href": "presentation.html#grundlagen-computer-vision",
     "title": "Melanoma Präsentation",
     "section": "2.1 Grundlagen Computer Vision",
-    "text": "2.1 Grundlagen Computer Vision\n\nWie kann ein Computer sehen?\n\n\nFaltung (Convolution)\n\\[\nI^{\\ast} (x, y) = \\sum^n_{i=1} \\sum^n_{j=1}{I(x-i+a, y-j+a)K(i, j)}\n\\]\nAufmerksamkeitsmechanismus (Attention)\n\\[\n\\text{Attention}(Q, K, V) = \\text{softmax}\\left( \\frac{QK^\\top}{\\sqrt{d_k}} \\right) V\n\\]",
+    "text": "2.1 Grundlagen Computer Vision\n\nWie kann ein Computer sehen?\n\n\nFaltung (Convolution)\n\\[\nI^{\\ast} (x, y) = \\sum^n_{i=1} \\sum^n_{j=1}{I(x-i+a, y-j+a)K(i, j)}\n\\]\nAufmerksamkeitsmechanismus (Attention)\n\\[\n\\text{Attention}(Q, K, V) = \\text{softmax}\\left( \\frac{QK^\\top}{\\sqrt{d_k}} \\right) V\n\\]\n\n\na offset zur Kernelmitte (a = (n + 1)/2) -&gt; Zur Verschiebung des Filters um den Pixel herum\nUmfrage (wer kennt sich mit ViT aus)\nQ (Query) : Was will ich wissen?\nK (Key) : Was ist dafür relevant?\nV (Value) : Welchen Kontext trage ich bei?\nT : Transposition (QKT ergibt eine quadratische Matrix)\ndk : Dimensionen der Key Vektoren",
     "crumbs": [
       "Melanoma Präsentation"
     ]
@@ -90,11 +100,41 @@
     ]
   },
   {
+    "objectID": "presentation.html#begriffsklärung-convolution",
+    "href": "presentation.html#begriffsklärung-convolution",
+    "title": "Melanoma Präsentation",
+    "section": "2.4 Begriffsklärung Convolution",
+    "text": "2.4 Begriffsklärung Convolution\n\n\n\n\n\nConv\n\n\n\n\n\n\nDepthwise Conv\n\n\n\n\n\nUnterschied: Bei depthwise ein Kernel pro Kanal\nNormale Convolution ist deutlich Rechenaufwänder (jeder Filter auf alle Kanäle)",
+    "crumbs": [
+      "Melanoma Präsentation"
+    ]
+  },
+  {
+    "objectID": "presentation.html#section-2",
+    "href": "presentation.html#section-2",
+    "title": "Melanoma Präsentation",
+    "section": "",
+    "text": "Eingehen auf Faltungsprozesse in dem CNN Beispiel\nResultat der Faltung sind Feature Maps",
+    "crumbs": [
+      "Melanoma Präsentation"
+    ]
+  },
+  {
     "objectID": "presentation.html#pooling-in-cnns",
     "href": "presentation.html#pooling-in-cnns",
     "title": "Melanoma Präsentation",
     "section": "2.5 Pooling in CNNs",
-    "text": "2.5 Pooling in CNNs\n\n⬇️ Reduziert die Bildgröße durch Zusammenfassen benachtbarter Pixel\n💻 Verringert Rechenaufwand und Anzahl der Paramter\n🟰 Teilweise translationsinvariant (\\(f:\\mathbb{R}^2 \\to \\mathbb{R}\\), \\(f(A) = f(A + t)\\) )\n🏃🏿‍♂️‍➡️ Ein Fenster bewegt sich stückweise über das komplette Bild (ähnlich zur Faltung)",
+    "text": "2.5 Pooling in CNNs\n\n⬇️ Reduziert die Bildgröße durch Zusammenfassen benachtbarter Pixel\n💻 Verringert Rechenaufwand und Anzahl der Paramter\n🟰 Ziel ist Translationsinvarianz (\\(f(A) = f(A + t)\\))\n🏃🏿‍♂️‍➡️ Ein Fenster bewegt sich stückweise über das komplette Bild (ähnlich zur Faltung)\n\n\n\nTranslationsinvarianz: Ein Objekt wird unabhängig von seiner Position erkannt\nVorteil: Größe der Matrizen wird reduziert (Rechenaufwand)",
+    "crumbs": [
+      "Melanoma Präsentation"
+    ]
+  },
+  {
+    "objectID": "presentation.html#section-4",
+    "href": "presentation.html#section-4",
+    "title": "Melanoma Präsentation",
+    "section": "",
+    "text": "Eingehen auf Pooling (kleine Feature Maps)\nRückschluss zu Translationsinvarianz",
     "crumbs": [
       "Melanoma Präsentation"
     ]
@@ -104,7 +144,7 @@
     "href": "presentation.html#aktivierungsfunktionen",
     "title": "Melanoma Präsentation",
     "section": "2.6 Aktivierungsfunktionen",
-    "text": "2.6 Aktivierungsfunktionen\n\n📏 Werden nach Faltungen / Linearkombinationen eingesetzt\n🎢 Ohne Aktivierung wäre ein tiefes Netz nur eine lineare Funktion\n📊 Helfen beim Lernen von Mustern und Entscheidungsgrenzen\n💯 Werden punktweise auf jedes Pixel / Feature angewendet",
+    "text": "2.6 Aktivierungsfunktionen\n\n📏 Werden nach Faltungen / Linearkombinationen eingesetzt\n🎢 Ohne Aktivierung wäre ein tiefes Netz nur eine lineare Funktion\n📊 Helfen beim Lernen von Mustern und Entscheidungsgrenzen\n💯 Werden punktweise auf jedes Pixel / Feature angewendet\n\n\n\nLinearkombination: Gewichtete Summe von Vectoren\nWerden auf FeatureMap punktweise eingesetzt\nWerden auch in NNs verwendet\nEs gibt Unterschiedliche Funktionen je nach Anwendungsfall",
     "crumbs": [
       "Melanoma Präsentation"
     ]
@@ -114,7 +154,27 @@
     "href": "presentation.html#architektur-eines-cnns",
     "title": "Melanoma Präsentation",
     "section": "2.7 Architektur eines CNNs",
-    "text": "2.7 Architektur eines CNNs",
+    "text": "2.7 Architektur eines CNNs\n\n\n\nRückschluss auf Aktivierungsfunktionen",
+    "crumbs": [
+      "Melanoma Präsentation"
+    ]
+  },
+  {
+    "objectID": "presentation.html#verdichtungs--und-verstärkungsblöcke-se",
+    "href": "presentation.html#verdichtungs--und-verstärkungsblöcke-se",
+    "title": "Melanoma Präsentation",
+    "section": "2.8 Verdichtungs- und Verstärkungsblöcke (SE1)",
+    "text": "2.8 Verdichtungs- und Verstärkungsblöcke (SE1)\n\nℹ️ Analysiert wie wichtig jeder Kanal der Feature Map ist und verstärkt oder unterdrückt\nℹ️ Verwendet Global Average Pooling\n🎯 Adaptive Belohnung relevanter Kanäle\n🎯 Bessere Genauigkeit durch gezieltere Merkmalsverarbeitung\n\n\n\nSqeeze and Excitation\nOutput kein Vector\nVector wird nur zu gewichtung verwendet\nKann mit Koeffizienten versehen werden um Einfluss zu reduzieren / verstärken\n\n\nSqueeze and Excitation",
+    "crumbs": [
+      "Melanoma Präsentation"
+    ]
+  },
+  {
+    "objectID": "presentation.html#designpatterns-mit-faltung",
+    "href": "presentation.html#designpatterns-mit-faltung",
+    "title": "Melanoma Präsentation",
+    "section": "2.9 Designpatterns mit Faltung",
+    "text": "2.9 Designpatterns mit Faltung\n\n\n\n\n\n\nAbbildung 5: MBConv und fused-MBConv\n\n\n\n\n\nDepthwise Conv : Getrennte Faltung pro Kanal [5]",
     "crumbs": [
       "Melanoma Präsentation"
     ]
@@ -124,27 +184,27 @@
     "href": "presentation.html#gradienten-und-deren-aussagekraft",
     "title": "Melanoma Präsentation",
     "section": "2.10 Gradienten und deren Aussagekraft",
-    "text": "2.10 Gradienten und deren Aussagekraft\n\nℹ️ Der Gradient ist die Ableitung einer Funktion nach ihren Eingabewerten\n🎯 Zeigt Richtung des stärksten Wachstums und Einfluss der Parameter\n🖼️ Dargestellt durch den Nabla Operator \\(\\nabla\\)",
+    "text": "2.10 Gradienten und deren Aussagekraft\n\nℹ️ Der Gradient ist die Ableitung einer Funktion nach ihren Eingabewerten\n🎯 Zeigt Richtung des stärksten Wachstums und Einfluss der Parameter\n🖼️ Dargestellt durch den Nabla Operator \\(\\nabla\\)\n\n\n\nEin Vector aus partiellen Ableitungen\nZeigt ebenfalls Einfluss einzelner Parameter an\nKann in mehrdimensionalen Bereich als Kostenlandschaft interpretiert werden bsp. später",
     "crumbs": [
       "Melanoma Präsentation"
     ]
   },
   {
-    "objectID": "presentation.html#section-5",
-    "href": "presentation.html#section-5",
+    "objectID": "presentation.html#section-7",
+    "href": "presentation.html#section-7",
     "title": "Melanoma Präsentation",
     "section": "",
-    "text": "\\[\nf : \\mathbb{R}^2 \\to \\mathbb{R}\n\\]\n\\[\nf(x, y) = 2x^2 + 3y\n\\]\n\\[\n\\nabla f =\n\\begin{pmatrix}\n\\frac{\\partial f}{\\partial x} \\\\\n\\frac{\\partial f}{\\partial y}\n\\end{pmatrix}\n=\n\\begin{pmatrix}\n4x \\\\\n3\n\\end{pmatrix}\n\\]",
+    "text": "\\[\nf : \\mathbb{R}^2 \\to \\mathbb{R}\n\\]\n\\[\nf(x, y) = 2x^2 + 3y\n\\]\n\\[\n\\nabla f =\n\\begin{pmatrix}\n\\frac{\\partial f}{\\partial x} \\\\\n\\frac{\\partial f}{\\partial y}\n\\end{pmatrix}\n=\n\\begin{pmatrix}\n4x \\\\\n3\n\\end{pmatrix}\n\\]\n\n\nf ist eine Funktion die ein Element aus einem 2d Raum auf einen Wert abbildet\njedem Punkt (x, y) wird eine Reele Zahl zugeordnet\nx größter Einfluss auf die Steigung von f\ny konstant positiven Einfluss (Steigung als f’)\nje größer x wird desto horizontaler wird der Vektor (bspw. unterschied x = 1000 und x = 1001)",
     "crumbs": [
       "Melanoma Präsentation"
     ]
   },
   {
-    "objectID": "presentation.html#section-6",
-    "href": "presentation.html#section-6",
+    "objectID": "presentation.html#section-8",
+    "href": "presentation.html#section-8",
     "title": "Melanoma Präsentation",
     "section": "",
-    "text": "\\[\nf : \\mathbb{R}^2 \\to \\mathbb{R}\n\\]\n\\[\nf(x, y) = 2x^2 + 3y\n\\]\n\\[\n\\nabla f =\n\\begin{pmatrix}\n\\frac{\\partial f}{\\partial x} \\\\\n\\frac{\\partial f}{\\partial y}\n\\end{pmatrix}\n=\n\\begin{pmatrix}\n4x \\\\\n3\n\\end{pmatrix}\n\\]",
+    "text": "\\[\n\\nabla f =\n\\begin{pmatrix}\n\\frac{\\partial f}{\\partial x} \\\\\n\\frac{\\partial f}{\\partial y}\n\\end{pmatrix}\n=\n\\begin{pmatrix}\n4x \\\\\n3\n\\end{pmatrix}\n\\]\n\nℹ️ \\(x\\) hat den größten Einfluss auf die Steigung von \\(f\\)\nℹ️ \\(y\\) hat konstant positiven Einfluss auf die Funktion\nℹ️ \\(\\nabla f\\): Richtung des größten Wachstums\nℹ️ \\(-\\nabla f\\): Richtung der größten Abnahme",
     "crumbs": [
       "Melanoma Präsentation"
     ]
@@ -154,7 +214,7 @@
     "href": "presentation.html#kostenfunktionen-loss-function",
     "title": "Melanoma Präsentation",
     "section": "2.11 Kostenfunktionen (Loss Function)",
-    "text": "2.11 Kostenfunktionen (Loss Function)\n\nℹ️ Messen den Unterschied zwischen Schätzung \\(\\hat{y}\\) und Zielwert \\(y\\)\nℹ️ Bei Klassifikationsproblemen eignet sich Cross Entropy Loss\n🎯 Fehlerwert durch Anpassung der Gewichte zu minimieren",
+    "text": "2.11 Kostenfunktionen (Loss Function)\n\nℹ️ Messen den Unterschied zwischen Schätzung \\(\\hat{y}\\) und Zielwert \\(y\\)\nℹ️ Bei Klassifikationsproblemen eignet sich Cross Entropy Loss\n🎯 Fehlerwert durch Anpassung der Gewichte zu minimieren\n\n\n\n\\(\\hat{y}\\): Schätzer, \\(y\\): Wert (Ermitteln Differenz)\nWird zur Anpassung von Gewichten verwendet (zsm. mit Gradienten)\nZiel beim Training : Soll iterativ reduziert werden",
     "crumbs": [
       "Melanoma Präsentation"
     ]
@@ -164,27 +224,47 @@
     "href": "presentation.html#gewichtsanpassung",
     "title": "Melanoma Präsentation",
     "section": "2.12 Gewichtsanpassung",
-    "text": "2.12 Gewichtsanpassung\n\nℹ️ Nutzt den Gradienten der Kostenfunktion, um zu bestimmen, wie stark jedes Gewicht beiträgt\nℹ️ Beruht auf der Kettenregel der Ableitung\n🎯 Fehlerwert durch Anpassung der Gewichte zu minimieren",
+    "text": "2.12 Gewichtsanpassung\n\nℹ️ Nutzt den Gradienten der Kostenfunktion, um zu bestimmen, wie stark jedes Gewicht beiträgt\nℹ️ Beruht auf der Kettenregel der Ableitung\n🎯 Fehlerwert durch Anpassung der Gewichte zu minimieren\n\n\n\nGrundlage: Neuronen, FeatureMaps, etc. werden als Funktionen interpretiert\nIN NNs sind eingaben der Funktion Gewichte, Ausgabe Vorheriger Neuronen (ebenfalls Funktionen) und Bias\nDurch Innere Funktionen (Neuron -&gt; Neuron (evtl. mit Aktivierungsfunktion)) kann partiell bis zu den Gewichten abgeleitet werden\nEinfluss einzelner Paramter zur Steigung der Kostenfunktion kann ermittelt werden",
     "crumbs": [
       "Melanoma Präsentation"
     ]
   },
   {
-    "objectID": "presentation.html#section-9",
-    "href": "presentation.html#section-9",
+    "objectID": "presentation.html#section-11",
+    "href": "presentation.html#section-11",
     "title": "Melanoma Präsentation",
     "section": "",
-    "text": "\\[\n\\nabla f =\n\\begin{pmatrix}\n\\frac{\\partial f}{\\partial x} \\\\\n\\frac{\\partial f}{\\partial y}\n\\end{pmatrix}\n=\n\\begin{pmatrix}\n4x \\\\\n3\n\\end{pmatrix}\n\\]\n\nℹ️ \\(x\\) hat den größten Einfluss auf die Steigung von \\(f\\)\nℹ️ \\(y\\) hat konstant positiven Einfluss auf die Funktion\nℹ️ \\(\\nabla f\\): Richtung des größten Wachstums\nℹ️ \\(-\\nabla f\\): Richtung der größten Abnahme",
+    "text": "Kettenregel\n\\[\nf(x) = u(v(x))\n\\]\n\\[\nf'(x) = u'(v(x)) v'(x)\n\\]\n\n\n\nwichtig: äußere mal innere Ableitung\nverschachtelte Funktionen: Rückschluss zu Neuronen später Schichten\n\n\n\nReminder",
     "crumbs": [
       "Melanoma Präsentation"
     ]
   },
   {
-    "objectID": "presentation.html#section-10",
-    "href": "presentation.html#section-10",
+    "objectID": "presentation.html#section-12",
+    "href": "presentation.html#section-12",
     "title": "Melanoma Präsentation",
     "section": "",
-    "text": "Kettenregel\n\\[\nf(x) = u(v(x))\n\\]\n\\[\nf'(x) = u'(v(x)) v'(x)\n\\]\n\n\nReminder",
+    "text": "Kettenregel\n\\[\nL(\\sigma(z_6))\n\\]\n\\[\n\\frac{dL}{dz_6} = \\frac{dL}{d \\sigma (z_6)} \\frac{d \\sigma (z_6)}{dz_6}\n\\]\n\n\nd: totale Ableitung (berücksichtigt alle Abhängigkeiten)\ndel (Partialzeichen): partielle Ableitung (berücksichtig eine Variable alle anderen fix)\nHier egal weil simples Beispiel mit einer Variable\n\n\n\nProblem: \\(z_6(\\sigma (z_5))\\), \\(z_5(\\sigma (z_4))\\), …\n\n\n\\[\n\\sigma(x) = \\frac{1}{1 + e^{-x}}\n\\]\n\n\\[\n\\frac{d\\sigma}{dx} = \\sigma(x)(1-\\sigma(x))\n\\]\n\n\n\n\nHier das Problem erwähnen sigmoud Ableitung in dem Produkt (aus Kettenregel)\nSigmoud Ableitung sehr schnell nahe null\nViele null werte im Produkt = wenig Gewichtskorrektur\n\n\n\n\nReminder",
+    "crumbs": [
+      "Melanoma Präsentation"
+    ]
+  },
+  {
+    "objectID": "presentation.html#lösung-durch-skip-connections",
+    "href": "presentation.html#lösung-durch-skip-connections",
+    "title": "Melanoma Präsentation",
+    "section": "2.13 Lösung durch Skip Connections",
+    "text": "2.13 Lösung durch Skip Connections\n\nℹ️ Überspringen einer oder mehrerer Schichten, indem Eingabe / Neuron direkt zu späteren Schichten weiterleitet\n🎯 Hilft beim Training tiefer Netze durch verbesserung des Gradientenfluss\n\n\n\nAbbildung 6: Skip Connections\n\n\nMathematisch als zusätzliche Eingabe gewertet (in die Funktion Neuron / Ausgabe)\nAnwendung Gewichtskorrektur ohne großes Produkt\nHebt Einluss früherer Schichten hervor\nFührt zu einer Glättung der Kostenlandschaft",
+    "crumbs": [
+      "Melanoma Präsentation"
+    ]
+  },
+  {
+    "objectID": "presentation.html#fehlerlandschaft-nach-skip-connections",
+    "href": "presentation.html#fehlerlandschaft-nach-skip-connections",
+    "title": "Melanoma Präsentation",
+    "section": "2.14 Fehlerlandschaft nach Skip Connections",
+    "text": "2.14 Fehlerlandschaft nach Skip Connections\n\n\nAbbildung 8: Fehlerlandschaft Kostenfunktion\n\n\nBeispiel beim Training versucht man einen Ball in globale Minima zu rollen\nZeigt Gradienten (Vectorfeld) einer Kostenlandschaft\nAuswirkung von Skip Connections (globales Minima einfacher zu erkennen)",
     "crumbs": [
       "Melanoma Präsentation"
     ]
@@ -194,7 +274,57 @@
     "href": "presentation.html#vorstellung-des-datensatzes",
     "title": "Melanoma Präsentation",
     "section": "3.1 Vorstellung des Datensatzes",
-    "text": "3.1 Vorstellung des Datensatzes\n\n\n\n\nTabelle 1: Datensatz\n\n\n\n\n\n\n\n\n\n\nlesion_id\nimage_id\ndx\ndx_type\nage\nsex\nlocalization\n\n\n\n\n5080\nHAM_0004175\nISIC_0028806\nnv\nfollow_up\n50.0\nfemale\nabdomen\n\n\n564\nHAM_0006595\nISIC_0028223\nbkl\nhisto\n55.0\nfemale\nface\n\n\n7369\nHAM_0005248\nISIC_0032948\nnv\nhisto\n45.0\nfemale\nupper extremity\n\n\n5150\nHAM_0001592\nISIC_0030686\nnv\nfollow_up\n55.0\nmale\nback\n\n\n9790\nHAM_0004609\nISIC_0024710\nakiec\nhisto\n75.0\nmale\nback\n\n\n9103\nHAM_0000976\nISIC_0031880\nnv\nhisto\n40.0\nmale\nchest\n\n\n3013\nHAM_0000256\nISIC_0029347\nnv\nfollow_up\n50.0\nmale\nback\n\n\n8961\nHAM_0000762\nISIC_0028982\nnv\nhisto\n30.0\nfemale\nback\n\n\n\n\n\n\n\n\n\n\n\n\ndx = Diagnose der Hautläsion\ndx_type = Diagnosemethode\nlesion_id = Läsions ID (7.470)",
+    "text": "3.1 Vorstellung des Datensatzes\n\n\n\n\nTabelle 1: Datensatz\n\n\n\n\n\n\n\n\n\n\nlesion_id\nimage_id\ndx\ndx_type\nage\nsex\nlocalization\n\n\n\n\n5080\nHAM_0004175\nISIC_0028806\nnv\nfollow_up\n50.0\nfemale\nabdomen\n\n\n564\nHAM_0006595\nISIC_0028223\nbkl\nhisto\n55.0\nfemale\nface\n\n\n7369\nHAM_0005248\nISIC_0032948\nnv\nhisto\n45.0\nfemale\nupper extremity\n\n\n5150\nHAM_0001592\nISIC_0030686\nnv\nfollow_up\n55.0\nmale\nback\n\n\n9790\nHAM_0004609\nISIC_0024710\nakiec\nhisto\n75.0\nmale\nback\n\n\n9103\nHAM_0000976\nISIC_0031880\nnv\nhisto\n40.0\nmale\nchest\n\n\n3013\nHAM_0000256\nISIC_0029347\nnv\nfollow_up\n50.0\nmale\nback\n\n\n8961\nHAM_0000762\nISIC_0028982\nnv\nhisto\n30.0\nfemale\nback\n\n\n\n\n\n\n\n\n\n\n\n\ndx = Diagnose der Hautläsion\ndx_type = Diagnosemethode\nlesion_id = Läsions ID (7.470)\nabdomen: Bauchregion\nupper extremity: Schulter / Arm",
+    "crumbs": [
+      "Melanoma Präsentation"
+    ]
+  },
+  {
+    "objectID": "presentation.html#beispiele-aus-dem-datensatz",
+    "href": "presentation.html#beispiele-aus-dem-datensatz",
+    "title": "Melanoma Präsentation",
+    "section": "3.2 Beispiele aus dem Datensatz",
+    "text": "3.2 Beispiele aus dem Datensatz\n\nAKIECBCCBKLDFMELNVVASC\n\n\n\n\n\n\n\n\nAbbildung 9: Aktinische Keratose\n\n\n\n\n\n\n\n\n\n\n\nAbbildung 10: Basalzellkarzinom\n\n\n\n\n\n\n\n\n\n\n\nAbbildung 11: Keratosen-ähnliche Läsionen\n\n\n\n\n\n\n\n\n\n\n\nAbbildung 12: Dermatofibrom\n\n\n\n\n\n\n\n\n\n\n\nAbbildung 13: Melanom\n\n\n\n\n\n\n\n\n\n\n\nAbbildung 14: Melanozytische Nävi\n\n\n\n\n\n\n\n\n\n\n\nAbbildung 15: Gefäßläsionen\n\n\n\n\n\n\n\nGefährlich:\n\nmel : Melanom (gefährlichste)\nbcc: Basalzellkarzinom\nakiec: Aktinische Keratose",
+    "crumbs": [
+      "Melanoma Präsentation"
+    ]
+  },
+  {
+    "objectID": "presentation.html#datenexploration---altersgruppen",
+    "href": "presentation.html#datenexploration---altersgruppen",
+    "title": "Melanoma Präsentation",
+    "section": "3.3 Datenexploration - Altersgruppen",
+    "text": "3.3 Datenexploration - Altersgruppen\n\n\nAbbildung 16: Anzahl der gefährlichen Diagnosen nach Alter",
+    "crumbs": [
+      "Melanoma Präsentation"
+    ]
+  },
+  {
+    "objectID": "presentation.html#datenexploration---körperstellen",
+    "href": "presentation.html#datenexploration---körperstellen",
+    "title": "Melanoma Präsentation",
+    "section": "3.4 Datenexploration - Körperstellen",
+    "text": "3.4 Datenexploration - Körperstellen\n\n\nAbbildung 17: Verteilung der Körperstellen nach Diagnose (gefährl. Diagnosen)",
+    "crumbs": [
+      "Melanoma Präsentation"
+    ]
+  },
+  {
+    "objectID": "presentation.html#datenexploration---anteile-gefährlicher-diagnosen",
+    "href": "presentation.html#datenexploration---anteile-gefährlicher-diagnosen",
+    "title": "Melanoma Präsentation",
+    "section": "3.5 Datenexploration - Anteile gefährlicher Diagnosen",
+    "text": "3.5 Datenexploration - Anteile gefährlicher Diagnosen\n\n\nAbbildung 18: Anteil gefährlicher Diagnosen unter allen gefährlichen Fällen",
+    "crumbs": [
+      "Melanoma Präsentation"
+    ]
+  },
+  {
+    "objectID": "presentation.html#unser-modell-efficientnetv2-bb",
+    "href": "presentation.html#unser-modell-efficientnetv2-bb",
+    "title": "Melanoma Präsentation",
+    "section": "3.6 Unser Modell (EfficientNetV2 BB)",
+    "text": "3.6 Unser Modell (EfficientNetV2 BB)\n\nℹ️ Kombination aus Neural Architecture Search1 und manuellem Feintuning\nℹ️ Integriert Fused-MBConv Blöcke (Abbildung 5)\nℹ️ Basiert auf ImageNet Datenbasis\n🎯 Schnelles Training großer Modelle\n🎯 Geeignet für Transfer Learning durch Generalisierung\n\n\nSergei\n\nNAS -&gt; gewisse Architekturentscheidungen werden beim Training getroffen (bsp. Random) und die beste wird umgesetzt\nearly Optimierung durch Fused-MBConv\nFused-MBConv: Am Anfang effizienter (Bei weniger Dimensionen durch Verwendung normaler Faltung)\nSpäter Depthwise effizienter (ein Kernel pro Kanal nicht jeder Kernel alle Kanäle)\n\n\nNAS : Automatisierter Prozess zur Architekturfindung in CNNs",
     "crumbs": [
       "Melanoma Präsentation"
     ]
@@ -204,17 +334,7 @@
     "href": "presentation.html#modellevaluierung",
     "title": "Melanoma Präsentation",
     "section": "3.7 Modellevaluierung",
-    "text": "3.7 Modellevaluierung\n\n\n\n\n\n\nAbbildung 21: Benchmark TPU days\n\n\n\n\n\nTPU day : Rechenkapazität die eine TPU in einem Tag liefert [6]",
-    "crumbs": [
-      "Melanoma Präsentation"
-    ]
-  },
-  {
-    "objectID": "presentation.html#gewonnene-erfahrungen",
-    "href": "presentation.html#gewonnene-erfahrungen",
-    "title": "Melanoma Präsentation",
-    "section": "3.2 Gewonnene Erfahrungen",
-    "text": "3.2 Gewonnene Erfahrungen\nplatzhalter",
+    "text": "3.7 Modellevaluierung\n\n\n\n\n\n\nAbbildung 21: Benchmark TPU days\n\n\n\n\n\n\nTPU - Chip von Google für KI Training\nTPU days - Rechenleistung davon über 24h\n\n\n\nTPU day : Rechenkapazität die eine TPU in einem Tag liefert [6]",
     "crumbs": [
       "Melanoma Präsentation"
     ]
@@ -224,17 +344,47 @@
     "href": "presentation.html#ergebnisse-der-eigenentwicklung",
     "title": "Melanoma Präsentation",
     "section": "4.1 Ergebnisse der Eigenentwicklung",
-    "text": "4.1 Ergebnisse der Eigenentwicklung\n\n\nAbbildung 24: Trainingsverlauf",
+    "text": "4.1 Ergebnisse der Eigenentwicklung\n\n\nAbbildung 24: Trainingsverlauf\n\n\nAufteilung 20% Testen; 80% Trainieren\nTrain Accuracy steigt mit den Epochen\nVali Accuracy leichter positiver Trend, fängt an zu stagnieren\nWenn Train steigt und Vali stagniert -&gt; Overfitting\nSelbiges unten aus der Lossfunction-Sicht",
     "crumbs": [
       "Melanoma Präsentation"
     ]
   },
   {
-    "objectID": "presentation.html#alternative-modelle",
-    "href": "presentation.html#alternative-modelle",
+    "objectID": "presentation.html#potenzial",
+    "href": "presentation.html#potenzial",
     "title": "Melanoma Präsentation",
-    "section": "4.6 Alternative Modelle",
-    "text": "4.6 Alternative Modelle\n\nMarc vergleichstabelle ???",
+    "section": "4.2 Potenzial",
+    "text": "4.2 Potenzial\n\nWo sehen wir konkretes Verbesserungspotential?\n\nKostenfunktion anhand von Gewichtungen anpassen, um falschklassifizierte echte gefährliche Diagnosen stärker zu bestrafen\nWeiteres Training auf einer größeren Datenbasis inkl. höherem Anteil von gefährlichenen Diagnosen\nTraining eines spezifischen CNNs statt allgemeinem EfficientNetV2-CNN\nHinzufügen weiterer Layers im neuronalen Netz\n\n\n\n\nDatensatz aus dem Havard-Universe -&gt; non plus Ultra\nKI sollte auch mit schlechteren Bildern klarkommen\nEfficientNetv2-B0 verwendet (beschleunigung vom Training)\nVielfalt der Hauttypen im Trainingsdatensatz ist ein ausschlaggebender Faktor",
+    "crumbs": [
+      "Melanoma Präsentation"
+    ]
+  },
+  {
+    "objectID": "presentation.html#grenzen",
+    "href": "presentation.html#grenzen",
+    "title": "Melanoma Präsentation",
+    "section": "4.3 Grenzen",
+    "text": "4.3 Grenzen\n\nWo sehen wir konkrete Limits?\n\nBei der Nachvollziehbarkeit der Kriterien zur Klassifikation durch das CNN (Blackbox)\nPerfekte Filterwerte nicht realistisch (nach aktueller Forschung)\nBiopsie zur Sicherung der Diagnose wird nicht ersetzt\n\n\n\n\nNachvollziehbarkeit der Features teilweise möglich: Gradient-weighted Class Activation Mapping (Grad-CAM)\nVideo zum Verfahren: Grad-CAM",
+    "crumbs": [
+      "Melanoma Präsentation"
+    ]
+  },
+  {
+    "objectID": "presentation.html#zusammenfassung",
+    "href": "presentation.html#zusammenfassung",
+    "title": "Melanoma Präsentation",
+    "section": "4.4 Zusammenfassung",
+    "text": "4.4 Zusammenfassung\n\nUnser Modell ist funktional, aber müsste weiter angepasst werden, um die Genauigkeit zu verbessern\n\nVerbesserungspotenziale Potenziale sind vorhanden\n\n\n\nMarc",
+    "crumbs": [
+      "Melanoma Präsentation"
+    ]
+  },
+  {
+    "objectID": "presentation.html#rückblick",
+    "href": "presentation.html#rückblick",
+    "title": "Melanoma Präsentation",
+    "section": "4.5 Rückblick",
+    "text": "4.5 Rückblick\n\nAlle 120 Minuten stirbt ein Mensch an Hautkrebs. Wie kann künstliche Intelligenz Leben retten?\n\nAktuell kann KI vorallem bestehende Prozesse in der Diagnostik unterstützen und beschleunigen, um auf diese Weise Menschenleben zu retten",
     "crumbs": [
       "Melanoma Präsentation"
     ]
@@ -243,8 +393,38 @@
     "objectID": "presentation.html#ausblick",
     "href": "presentation.html#ausblick",
     "title": "Melanoma Präsentation",
-    "section": "4.5 Ausblick",
-    "text": "4.5 Ausblick\n\neig Kapitel overkill stattdessen im Ausblick als pkt - Frauenhofer / Bosch Lösung (vilt oben beim Vergleich erwähnen?)\nRechtliche Komplikationen bei Datenhaltung?\nAlphaFold2\nEinschätzug KI bezogen auf Röntgen",
+    "section": "4.6 Ausblick",
+    "text": "4.6 Ausblick\n\n\nAbbildung 26: Ablauf Smartphone App [7]\n\n\nHausartz erstellt unter anweisung der App 2 Fotos (nah- und Fern; Standartisiert -&gt; App: gleichen Einstellungen in Auflösung, Bildausschnitt, Helligkeit und Kontrast)\nKI führt priorisierung durch (harmlos«, »riskant« oder »gefährlich«) !!keine Diagnose!!\nDermatologe betrachet Bilder und setzt persönliches oder telefonisches/Video Gespräch an\nVerdachtsfälle müssen vorort genauer untersucht werden\n\n\nBilddaten und Infos von 4000 Patienten\n80% der Fälle bei denen der Hautartz aufgesucht wird stellen sich als ungefährlich heraus\nBeschleunigung der Diagnose Prozesse",
+    "crumbs": [
+      "Melanoma Präsentation"
+    ]
+  },
+  {
+    "objectID": "presentation.html#alternative-modelle",
+    "href": "presentation.html#alternative-modelle",
+    "title": "Melanoma Präsentation",
+    "section": "4.7 Alternative Modelle",
+    "text": "4.7 Alternative Modelle\n\n\nAbbildung 28: Deep Learning Models [9]\n\n\nBoxplot\nDurchschnittliche Genauigkeit aller Modelle: 86.20%\nEfficientNet: worst 5.3%; best: 90%\nAm Häufigsten verwendetes Modell (EfficientNet)",
+    "crumbs": [
+      "Melanoma Präsentation"
+    ]
+  },
+  {
+    "objectID": "presentation.html#llms-im-test",
+    "href": "presentation.html#llms-im-test",
+    "title": "Melanoma Präsentation",
+    "section": "4.8 LLMs im Test",
+    "text": "4.8 LLMs im Test\n\n\n\nTabelle 3: Test mit LLMs\n\n\n\n\n\nImage Id\ndx\nClaude\nChatGPT\nOwn Model\n\n\n\n\nISIC_0031923\nnv\nmel\nmel\nnv\n\n\nISIC_0026652\nmel\nbkl\nnv\nmel\n\n\nISIC_0030583\nbkl\nbcc\nbcc\nbkl\n\n\n\n\n\n\n\nFazit: LLMs nicht zur Diagnose verwenden 😉\n\n\n\nWichtig: Nicht signifikant (LLMs nicht dafür konzipiert) - Test nur aus Spaß\n\nPrompt: Bitte klassifiere die folgenden Bilder von Hautläsionen anhand der angehängten Klassen label_mappings = { “akiec”: 0, “bcc”: 1, “bkl”: 2, “df”: 3, “nv”: 4, “mel”: 5, “vasc”: 6 }",
+    "crumbs": [
+      "Melanoma Präsentation"
+    ]
+  },
+  {
+    "objectID": "presentation.html#unsere-erfahrungen",
+    "href": "presentation.html#unsere-erfahrungen",
+    "title": "Melanoma Präsentation",
+    "section": "5.1 Unsere Erfahrungen",
+    "text": "5.1 Unsere Erfahrungen\n\nProgrammierung\n\nFramework verständnis\n\nDokumentation\n\nUmformulierung\nDarstellung\n\nAllgemein\n\nWissen\nRecherche\n\n\n\nAlle",
     "crumbs": [
       "Melanoma Präsentation"
     ]
@@ -255,6 +435,106 @@
     "title": "Grundlagen",
     "section": "",
     "text": "Hautkrebs bezeichnet allgemein die maligne1 Neubildung bestimmter Hautzellen, die unkontrolliert wachsen und in umliegendes Gewebe eindringen können. Die häufigsten Formen entstehen aus Zellen der Epidermis, insbesondere aus Keratinozyten und Melanozyten. Medizinisch wird Hautkrebs in „hellen Hautkrebs“ (Nicht-Melanom-Hautkrebs, NMSC), der vorwiegend aus Keratinozyten entsteht und „schwarzen Hautkrebs“ (malignes Melanom), der aus Melanozyten hervorgeht, unterschieden. [1]\n\n\n\nHeller Hautkrebs umfasst hauptsächlich das Basalzellkarzinom (Basaliom) und das Plattenepithelkarzinom (Spinaliom) sowie deren Vorstufen, z. B. aktinische Keratosen. Diese Tumore neigen meist zu lokal invasivem Wachstum, metastasieren aber selten.\nBeispiel: Ein Basalzellkarzinom wächst oft tief in die Hautschichten und kann sogar Knorpel oder Knochen angreifen, bleibt aber fast immer auf diese Region begrenzt und streut nicht in Lunge oder Leber.\nDer „schwarze Hautkrebs“, das maligne Melanom, geht von den pigmentbildenden Melanozyten aus und gilt als besonders aggressiv, da er früh metastasieren kann.\nBeispiel: Ein malignes Melanom kann bereits in einem frühen Stadium Krebszellen über Blut- oder Lymphbahnen streuen und so Metastasen in anderen Organen wie Lunge, Leber oder Gehirn bilden, selbst wenn der Primärtumor an der Haut noch relativ klein erscheint. [2]\n\n\n\n\n\n\nTabelle 1: Hautkrebsarten\n\n\n\n\n\n\n\n\n\n\n\n\nHautkrebsart\nUrsprung\nCharakteristika\nMetastasierung\nHäufigkeit\n\n\n\n\nBasalzellkarzinom (Basaliom)\nBasalzellen der Epidermis\nLangsames Wachstum, selten metastasierend\nSehr selten\nHäufigster Hautkrebs weltweit\n\n\nAktinische Keratosen & intraepitheliales Karzinom (Morbus Bowen)\nKeratinozyten der Epidermis\nFrühform/Präkanzerose, kann ins Plattenepithelkarzinom übergehen\nLokal begrenzt, Übergang zu invasiv möglich\nSehr häufig, v. a. bei starker UV-Exposition\n\n\nMalignes Melanom\nMelanozyten\nHohe Aggressivität, unregelmäßige Pigmentierung, schnelles Wachstum\nFrühzeitige Metastasierung\nSeltener, aber für die meisten Hautkrebs-Todesfälle verantwortlich",
+    "crumbs": [
+      "Grundlagen"
+    ]
+  },
+  {
+    "objectID": "kapitel/grundlagen.html#medizinische-definition",
+    "href": "kapitel/grundlagen.html#medizinische-definition",
+    "title": "Grundlagen",
+    "section": "",
+    "text": "Hautkrebs bezeichnet allgemein die maligne1 Neubildung bestimmter Hautzellen, die unkontrolliert wachsen und in umliegendes Gewebe eindringen können. Die häufigsten Formen entstehen aus Zellen der Epidermis, insbesondere aus Keratinozyten und Melanozyten. Medizinisch wird Hautkrebs in „hellen Hautkrebs“ (Nicht-Melanom-Hautkrebs, NMSC), der vorwiegend aus Keratinozyten entsteht und „schwarzen Hautkrebs“ (malignes Melanom), der aus Melanozyten hervorgeht, unterschieden. [1]",
+    "crumbs": [
+      "Grundlagen"
+    ]
+  },
+  {
+    "objectID": "kapitel/grundlagen.html#unterscheidung-schwarzer-vs.-heller-hautkrebs",
+    "href": "kapitel/grundlagen.html#unterscheidung-schwarzer-vs.-heller-hautkrebs",
+    "title": "Grundlagen",
+    "section": "",
+    "text": "Heller Hautkrebs umfasst hauptsächlich das Basalzellkarzinom (Basaliom) und das Plattenepithelkarzinom (Spinaliom) sowie deren Vorstufen, z. B. aktinische Keratosen. Diese Tumore neigen meist zu lokal invasivem Wachstum, metastasieren aber selten.\nBeispiel: Ein Basalzellkarzinom wächst oft tief in die Hautschichten und kann sogar Knorpel oder Knochen angreifen, bleibt aber fast immer auf diese Region begrenzt und streut nicht in Lunge oder Leber.\nDer „schwarze Hautkrebs“, das maligne Melanom, geht von den pigmentbildenden Melanozyten aus und gilt als besonders aggressiv, da er früh metastasieren kann.\nBeispiel: Ein malignes Melanom kann bereits in einem frühen Stadium Krebszellen über Blut- oder Lymphbahnen streuen und so Metastasen in anderen Organen wie Lunge, Leber oder Gehirn bilden, selbst wenn der Primärtumor an der Haut noch relativ klein erscheint. [2]",
+    "crumbs": [
+      "Grundlagen"
+    ]
+  },
+  {
+    "objectID": "kapitel/grundlagen.html#tabellarische-übersicht-der-wichtigsten-hautkrebsarten",
+    "href": "kapitel/grundlagen.html#tabellarische-übersicht-der-wichtigsten-hautkrebsarten",
+    "title": "Grundlagen",
+    "section": "",
+    "text": "Tabelle 1: Hautkrebsarten\n\n\n\n\n\n\n\n\n\n\n\n\nHautkrebsart\nUrsprung\nCharakteristika\nMetastasierung\nHäufigkeit\n\n\n\n\nBasalzellkarzinom (Basaliom)\nBasalzellen der Epidermis\nLangsames Wachstum, selten metastasierend\nSehr selten\nHäufigster Hautkrebs weltweit\n\n\nAktinische Keratosen & intraepitheliales Karzinom (Morbus Bowen)\nKeratinozyten der Epidermis\nFrühform/Präkanzerose, kann ins Plattenepithelkarzinom übergehen\nLokal begrenzt, Übergang zu invasiv möglich\nSehr häufig, v. a. bei starker UV-Exposition\n\n\nMalignes Melanom\nMelanozyten\nHohe Aggressivität, unregelmäßige Pigmentierung, schnelles Wachstum\nFrühzeitige Metastasierung\nSeltener, aber für die meisten Hautkrebs-Todesfälle verantwortlich",
+    "crumbs": [
+      "Grundlagen"
+    ]
+  },
+  {
+    "objectID": "kapitel/grundlagen.html#invasive-und-nicht-invasive-diagnoseverfahren",
+    "href": "kapitel/grundlagen.html#invasive-und-nicht-invasive-diagnoseverfahren",
+    "title": "Grundlagen",
+    "section": "Invasive und nicht-invasive Diagnoseverfahren",
+    "text": "Invasive und nicht-invasive Diagnoseverfahren\nDie Diagnose von Hautkrebs basiert auf einer Kombination aus nicht-invasiven und invasiven Verfahren. Zu den nicht-invasiven Methoden zählt die visuelle Inspektion mit dem bloßen Auge, die durch den Einsatz der Dermatoskopie (Auflichtmikroskopie) ergänzt wird. Die Dermatoskopie ermöglicht eine vergrößerte, strukturierte Ansicht von Pigmentmustern und Gefäßstrukturen, die unter der Hautoberfläche liegen. [3]\nWeitere nicht-invasive Verfahren sind die konfokale Laserscanmikroskopie und optische Kohärenztomographie, die jedoch primär in spezialisierten Zentren Anwendung finden. [4]\nBei einem begründeten Verdacht auf Malignität kommt die Biopsie als invasives Diagnoseverfahren zum Einsatz. Dabei wird eine Gewebeprobe entnommen, histopathologisch untersucht und definitive Aussagen zur Tumorart, Eindringtiefe und möglichen Metastasierung getroffen. Die histologische Untersuchung gilt weiterhin als Standard der Hautkrebsdiagnostik. [5]",
+    "crumbs": [
+      "Grundlagen"
+    ]
+  },
+  {
+    "objectID": "kapitel/grundlagen.html#kriterien-der-dermatoskopie",
+    "href": "kapitel/grundlagen.html#kriterien-der-dermatoskopie",
+    "title": "Grundlagen",
+    "section": "Kriterien der Dermatoskopie",
+    "text": "Kriterien der Dermatoskopie\nDie Dermatoskopie basiert auf standardisierten Klassifikationssystemen, um maligne von benignen Hautläsionen zu unterscheiden. Eines der bekanntesten Kriterienmodelle ist die „ABCD-Regel“, die asymmetrische Form, unregelmäßige Begrenzung, Farbvariationen (Colorit) und Durchmesser berücksichtigt. Zusätzlich kommen Mustererkennungssysteme wie das 7-Punkte-Checklist-System oder das Menzies-Diagnoseschema zum Einsatz. Diese Systeme bewerten mikroskopische Strukturen wie Pigmentnetz, globuläre Muster, Pseudopodien und Gefäßanomalien. [6] [7]",
+    "crumbs": [
+      "Grundlagen"
+    ]
+  },
+  {
+    "objectID": "kapitel/grundlagen.html#bildgebende-diagnostik",
+    "href": "kapitel/grundlagen.html#bildgebende-diagnostik",
+    "title": "Grundlagen",
+    "section": "Bildgebende Diagnostik",
+    "text": "Bildgebende Diagnostik\nEin Schwerpunkt liegt in der automatisierten Analyse medizinischer Bilddaten, etwa in der Radiologie, Pathologie oder Dermatologie. KI-Modelle, insbesondere Convolutional Neural Networks (CNNs), erreichen in der Diagnose von Brustkrebs oder Lungenkarzinomen teilweise eine Genauigkeit, die mit der von Fachärzten vergleichbar ist. [9]",
+    "crumbs": [
+      "Grundlagen"
+    ]
+  },
+  {
+    "objectID": "kapitel/grundlagen.html#vorhersage-und-frühwarnsysteme",
+    "href": "kapitel/grundlagen.html#vorhersage-und-frühwarnsysteme",
+    "title": "Grundlagen",
+    "section": "Vorhersage und Frühwarnsysteme",
+    "text": "Vorhersage und Frühwarnsysteme\nKI wird auch genutzt, um Krankheitsverläufe vorherzusagen, beispielsweise bei chronischen Erkrankungen oder Sepsis. Prognosemodelle analysieren elektronische Patientendaten in Echtzeit und unterstützen Ärztinnen und Ärzte bei der Früherkennung kritischer Zustände. [10]",
+    "crumbs": [
+      "Grundlagen"
+    ]
+  },
+  {
+    "objectID": "kapitel/grundlagen.html#strukturvorhersage-von-proteinen",
+    "href": "kapitel/grundlagen.html#strukturvorhersage-von-proteinen",
+    "title": "Grundlagen",
+    "section": "Strukturvorhersage von Proteinen",
+    "text": "Strukturvorhersage von Proteinen\nEin Meilenstein ist die Anwendung von KI in der Molekularbiologie. DeepMind entwickelte mit AlphaFold ein System, das die dreidimensionale Struktur von Proteinen mit hoher Genauigkeit vorhersagen kann, eine Aufgabe, die jahrzehntelang als eines der größten ungelösten Probleme der Biologie galt. Die Möglichkeit, Proteinstrukturen präzise zu bestimmen, beschleunigt die Wirkstoffforschung erheblich. [11]",
+    "crumbs": [
+      "Grundlagen"
+    ]
+  },
+  {
+    "objectID": "kapitel/grundlagen.html#virtuelle-assistenten-und-robotik",
+    "href": "kapitel/grundlagen.html#virtuelle-assistenten-und-robotik",
+    "title": "Grundlagen",
+    "section": "Virtuelle Assistenten und Robotik",
+    "text": "Virtuelle Assistenten und Robotik\nDarüber hinaus kommen KI-Systeme als virtuelle Assistenten zum Einsatz, die Patient:innen bei der Terminplanung oder Medikamentenerinnerung unterstützen. Auch Roboter mit KI-basierten Steuerungen helfen im OP, indem sie präzise Schnitte durchführen oder Ärztinnen und Ärzte bei minimalinvasiven Eingriffen entlasten. [12]",
+    "crumbs": [
+      "Grundlagen"
+    ]
+  },
+  {
+    "objectID": "kapitel/grundlagen.html#footnotes",
+    "href": "kapitel/grundlagen.html#footnotes",
+    "title": "Grundlagen",
+    "section": "Fußnoten",
+    "text": "Fußnoten\n\n\nMaligne = bösartig↩︎",
     "crumbs": [
       "Grundlagen"
     ]
@@ -454,506 +734,6 @@
     "text": "Fußnoten\n\n\nBausteine der Feature Extraktion, die verschiede Aspekte des Eingabebilds wie Kanten, Texturen, Farben, etc. kodieren.↩︎\nChatGPT Prompt: Wie unterscheiden sich ViTs von CNNs im Bereich der medizinischen Bildverarbeitung. Bitte nenne 4 Punkte.↩︎",
     "crumbs": [
       "Modellentwicklung"
-    ]
-  },
-  {
-    "objectID": "kapitel/grundlagen.html#medizinische-definition",
-    "href": "kapitel/grundlagen.html#medizinische-definition",
-    "title": "Grundlagen",
-    "section": "",
-    "text": "Hautkrebs bezeichnet allgemein die maligne1 Neubildung bestimmter Hautzellen, die unkontrolliert wachsen und in umliegendes Gewebe eindringen können. Die häufigsten Formen entstehen aus Zellen der Epidermis, insbesondere aus Keratinozyten und Melanozyten. Medizinisch wird Hautkrebs in „hellen Hautkrebs“ (Nicht-Melanom-Hautkrebs, NMSC), der vorwiegend aus Keratinozyten entsteht und „schwarzen Hautkrebs“ (malignes Melanom), der aus Melanozyten hervorgeht, unterschieden. [1]",
-    "crumbs": [
-      "Grundlagen"
-    ]
-  },
-  {
-    "objectID": "kapitel/grundlagen.html#unterscheidung-schwarzer-vs.-heller-hautkrebs",
-    "href": "kapitel/grundlagen.html#unterscheidung-schwarzer-vs.-heller-hautkrebs",
-    "title": "Grundlagen",
-    "section": "",
-    "text": "Heller Hautkrebs umfasst hauptsächlich das Basalzellkarzinom (Basaliom) und das Plattenepithelkarzinom (Spinaliom) sowie deren Vorstufen, z. B. aktinische Keratosen. Diese Tumore neigen meist zu lokal invasivem Wachstum, metastasieren aber selten.\nBeispiel: Ein Basalzellkarzinom wächst oft tief in die Hautschichten und kann sogar Knorpel oder Knochen angreifen, bleibt aber fast immer auf diese Region begrenzt und streut nicht in Lunge oder Leber.\nDer „schwarze Hautkrebs“, das maligne Melanom, geht von den pigmentbildenden Melanozyten aus und gilt als besonders aggressiv, da er früh metastasieren kann.\nBeispiel: Ein malignes Melanom kann bereits in einem frühen Stadium Krebszellen über Blut- oder Lymphbahnen streuen und so Metastasen in anderen Organen wie Lunge, Leber oder Gehirn bilden, selbst wenn der Primärtumor an der Haut noch relativ klein erscheint. [2]",
-    "crumbs": [
-      "Grundlagen"
-    ]
-  },
-  {
-    "objectID": "kapitel/grundlagen.html#tabellarische-übersicht-der-wichtigsten-hautkrebsarten",
-    "href": "kapitel/grundlagen.html#tabellarische-übersicht-der-wichtigsten-hautkrebsarten",
-    "title": "Grundlagen",
-    "section": "",
-    "text": "Tabelle 1: Hautkrebsarten\n\n\n\n\n\n\n\n\n\n\n\n\nHautkrebsart\nUrsprung\nCharakteristika\nMetastasierung\nHäufigkeit\n\n\n\n\nBasalzellkarzinom (Basaliom)\nBasalzellen der Epidermis\nLangsames Wachstum, selten metastasierend\nSehr selten\nHäufigster Hautkrebs weltweit\n\n\nAktinische Keratosen & intraepitheliales Karzinom (Morbus Bowen)\nKeratinozyten der Epidermis\nFrühform/Präkanzerose, kann ins Plattenepithelkarzinom übergehen\nLokal begrenzt, Übergang zu invasiv möglich\nSehr häufig, v. a. bei starker UV-Exposition\n\n\nMalignes Melanom\nMelanozyten\nHohe Aggressivität, unregelmäßige Pigmentierung, schnelles Wachstum\nFrühzeitige Metastasierung\nSeltener, aber für die meisten Hautkrebs-Todesfälle verantwortlich",
-    "crumbs": [
-      "Grundlagen"
-    ]
-  },
-  {
-    "objectID": "kapitel/grundlagen.html#invasive-und-nicht-invasive-diagnoseverfahren",
-    "href": "kapitel/grundlagen.html#invasive-und-nicht-invasive-diagnoseverfahren",
-    "title": "Grundlagen",
-    "section": "Invasive und nicht-invasive Diagnoseverfahren",
-    "text": "Invasive und nicht-invasive Diagnoseverfahren\nDie Diagnose von Hautkrebs basiert auf einer Kombination aus nicht-invasiven und invasiven Verfahren. Zu den nicht-invasiven Methoden zählt die visuelle Inspektion mit dem bloßen Auge, die durch den Einsatz der Dermatoskopie (Auflichtmikroskopie) ergänzt wird. Die Dermatoskopie ermöglicht eine vergrößerte, strukturierte Ansicht von Pigmentmustern und Gefäßstrukturen, die unter der Hautoberfläche liegen. [3]\nWeitere nicht-invasive Verfahren sind die konfokale Laserscanmikroskopie und optische Kohärenztomographie, die jedoch primär in spezialisierten Zentren Anwendung finden. [4]\nBei einem begründeten Verdacht auf Malignität kommt die Biopsie als invasives Diagnoseverfahren zum Einsatz. Dabei wird eine Gewebeprobe entnommen, histopathologisch untersucht und definitive Aussagen zur Tumorart, Eindringtiefe und möglichen Metastasierung getroffen. Die histologische Untersuchung gilt weiterhin als Standard der Hautkrebsdiagnostik. [5]",
-    "crumbs": [
-      "Grundlagen"
-    ]
-  },
-  {
-    "objectID": "kapitel/grundlagen.html#kriterien-der-dermatoskopie",
-    "href": "kapitel/grundlagen.html#kriterien-der-dermatoskopie",
-    "title": "Grundlagen",
-    "section": "Kriterien der Dermatoskopie",
-    "text": "Kriterien der Dermatoskopie\nDie Dermatoskopie basiert auf standardisierten Klassifikationssystemen, um maligne von benignen Hautläsionen zu unterscheiden. Eines der bekanntesten Kriterienmodelle ist die „ABCD-Regel“, die asymmetrische Form, unregelmäßige Begrenzung, Farbvariationen (Colorit) und Durchmesser berücksichtigt. Zusätzlich kommen Mustererkennungssysteme wie das 7-Punkte-Checklist-System oder das Menzies-Diagnoseschema zum Einsatz. Diese Systeme bewerten mikroskopische Strukturen wie Pigmentnetz, globuläre Muster, Pseudopodien und Gefäßanomalien. [6] [7]",
-    "crumbs": [
-      "Grundlagen"
-    ]
-  },
-  {
-    "objectID": "kapitel/grundlagen.html#bildgebende-diagnostik",
-    "href": "kapitel/grundlagen.html#bildgebende-diagnostik",
-    "title": "Grundlagen",
-    "section": "Bildgebende Diagnostik",
-    "text": "Bildgebende Diagnostik\nEin Schwerpunkt liegt in der automatisierten Analyse medizinischer Bilddaten, etwa in der Radiologie, Pathologie oder Dermatologie. KI-Modelle, insbesondere Convolutional Neural Networks (CNNs), erreichen in der Diagnose von Brustkrebs oder Lungenkarzinomen teilweise eine Genauigkeit, die mit der von Fachärzten vergleichbar ist. [9]",
-    "crumbs": [
-      "Grundlagen"
-    ]
-  },
-  {
-    "objectID": "kapitel/grundlagen.html#vorhersage-und-frühwarnsysteme",
-    "href": "kapitel/grundlagen.html#vorhersage-und-frühwarnsysteme",
-    "title": "Grundlagen",
-    "section": "Vorhersage und Frühwarnsysteme",
-    "text": "Vorhersage und Frühwarnsysteme\nKI wird auch genutzt, um Krankheitsverläufe vorherzusagen, beispielsweise bei chronischen Erkrankungen oder Sepsis. Prognosemodelle analysieren elektronische Patientendaten in Echtzeit und unterstützen Ärztinnen und Ärzte bei der Früherkennung kritischer Zustände. [10]",
-    "crumbs": [
-      "Grundlagen"
-    ]
-  },
-  {
-    "objectID": "kapitel/grundlagen.html#strukturvorhersage-von-proteinen",
-    "href": "kapitel/grundlagen.html#strukturvorhersage-von-proteinen",
-    "title": "Grundlagen",
-    "section": "Strukturvorhersage von Proteinen",
-    "text": "Strukturvorhersage von Proteinen\nEin Meilenstein ist die Anwendung von KI in der Molekularbiologie. DeepMind entwickelte mit AlphaFold ein System, das die dreidimensionale Struktur von Proteinen mit hoher Genauigkeit vorhersagen kann, eine Aufgabe, die jahrzehntelang als eines der größten ungelösten Probleme der Biologie galt. Die Möglichkeit, Proteinstrukturen präzise zu bestimmen, beschleunigt die Wirkstoffforschung erheblich. [11]",
-    "crumbs": [
-      "Grundlagen"
-    ]
-  },
-  {
-    "objectID": "kapitel/grundlagen.html#virtuelle-assistenten-und-robotik",
-    "href": "kapitel/grundlagen.html#virtuelle-assistenten-und-robotik",
-    "title": "Grundlagen",
-    "section": "Virtuelle Assistenten und Robotik",
-    "text": "Virtuelle Assistenten und Robotik\nDarüber hinaus kommen KI-Systeme als virtuelle Assistenten zum Einsatz, die Patient:innen bei der Terminplanung oder Medikamentenerinnerung unterstützen. Auch Roboter mit KI-basierten Steuerungen helfen im OP, indem sie präzise Schnitte durchführen oder Ärztinnen und Ärzte bei minimalinvasiven Eingriffen entlasten. [12]",
-    "crumbs": [
-      "Grundlagen"
-    ]
-  },
-  {
-    "objectID": "kapitel/grundlagen.html#footnotes",
-    "href": "kapitel/grundlagen.html#footnotes",
-    "title": "Grundlagen",
-    "section": "Fußnoten",
-    "text": "Fußnoten\n\n\nMaligne = bösartig↩︎",
-    "crumbs": [
-      "Grundlagen"
-    ]
-  },
-  {
-    "objectID": "presentation.html#was-ist-hautkrebs",
-    "href": "presentation.html#was-ist-hautkrebs",
-    "title": "Melanoma Präsentation",
-    "section": "1.2 Was ist Hautkrebs?",
-    "text": "1.2 Was ist Hautkrebs?\n\nHautkrebs entsteht, wenn bestimmte Zellen der Haut unkontrolliert wachsen und in das umliegende Gewebe eindringen. Man unterscheidet dabei zwischen hellem Hautkrebs und schwarzem Hautkrebs.\n\n\n\nAbbildung 1: Querrschnitt vom Hautkrebs\n\nheller - lokal aber auch tief schwarzer - kann früh streuen (Blut- Lymphbahnen), Metastasen in anderen Organen bilden",
-    "crumbs": [
-      "Melanoma Präsentation"
-    ]
-  },
-  {
-    "objectID": "presentation.html#ki-und-computer-vision",
-    "href": "presentation.html#ki-und-computer-vision",
-    "title": "Melanoma Präsentation",
-    "section": "1.4 KI und Computer Vision",
-    "text": "1.4 KI und Computer Vision",
-    "crumbs": [
-      "Melanoma Präsentation"
-    ]
-  },
-  {
-    "objectID": "presentation.html#projektbeschreibung",
-    "href": "presentation.html#projektbeschreibung",
-    "title": "Melanoma Präsentation",
-    "section": "1.4 Projektbeschreibung",
-    "text": "1.4 Projektbeschreibung\n\nZiel (überprüfe, nicht voreingenommen, was kann KI in dem Kontext)\nAbrenzung (Warum Dermatoskopie relevant nicht-invarsiv)",
-    "crumbs": [
-      "Melanoma Präsentation"
-    ]
-  },
-  {
-    "objectID": "presentation.html#beispiele-aus-dem-datensatz-tbd",
-    "href": "presentation.html#beispiele-aus-dem-datensatz-tbd",
-    "title": "Melanoma Präsentation",
-    "section": "2.2 Beispiele aus dem Datensatz tbd",
-    "text": "2.2 Beispiele aus dem Datensatz tbd\n\nAKIECBCCBKLDFMELNVVASC\n\n\n\n\n\n\n\n\nAbbildung 2: Aktinische Keratose\n\n\n\n\n\n\n\n\n\n\n\nAbbildung 3: Basalzellkarzinom\n\n\n\n\n\n\n\n\n\n\n\nAbbildung 4: Keratosen-ähnliche Läsionen\n\n\n\n\n\n\n\n\n\n\n\nAbbildung 5: Dermatofibrom\n\n\n\n\n\n\n\n\n\n\n\nAbbildung 6: Melanom\n\n\n\n\n\n\n\n\n\n\n\nAbbildung 7: Melanozytische Nävi\n\n\n\n\n\n\n\n\n\n\n\nAbbildung 8: Gefäßläsionen",
-    "crumbs": [
-      "Melanoma Präsentation"
-    ]
-  },
-  {
-    "objectID": "presentation.html#beschreibung-des-datensatzes",
-    "href": "presentation.html#beschreibung-des-datensatzes",
-    "title": "Melanoma Präsentation",
-    "section": "2.4 Beschreibung des Datensatzes",
-    "text": "2.4 Beschreibung des Datensatzes\nplatzhalter",
-    "crumbs": [
-      "Melanoma Präsentation"
-    ]
-  },
-  {
-    "objectID": "presentation.html#besondere-erkenntnisse-der-datenexploration",
-    "href": "presentation.html#besondere-erkenntnisse-der-datenexploration",
-    "title": "Melanoma Präsentation",
-    "section": "2.5 Besondere Erkenntnisse der Datenexploration",
-    "text": "2.5 Besondere Erkenntnisse der Datenexploration\nplatzhalter",
-    "crumbs": [
-      "Melanoma Präsentation"
-    ]
-  },
-  {
-    "objectID": "presentation.html#unser-modell",
-    "href": "presentation.html#unser-modell",
-    "title": "Melanoma Präsentation",
-    "section": "3.1 Unser Modell",
-    "text": "3.1 Unser Modell",
-    "crumbs": [
-      "Melanoma Präsentation"
-    ]
-  },
-  {
-    "objectID": "presentation.html#llms-im-test",
-    "href": "presentation.html#llms-im-test",
-    "title": "Melanoma Präsentation",
-    "section": "4.7 LLMs im Test",
-    "text": "4.7 LLMs im Test\n\n\n\nTabelle 3: Test mit LLMs\n\n\n\n\n\nImage Id\ndx\nClaude\nChatGPT\nOwn Model\n\n\n\n\nISIC_0031923\nnv\nmel\nmel\nnv\n\n\nISIC_0026652\nmel\nbkl\nnv\nmel\n\n\nISIC_0030583\nbkl\nbcc\nbcc\nbkl\n\n\n\n\n\n\n\nFazit: LLMs nicht zur Diagnose verwenden 😉",
-    "crumbs": [
-      "Melanoma Präsentation"
-    ]
-  },
-  {
-    "objectID": "presentation.html#programmierung",
-    "href": "presentation.html#programmierung",
-    "title": "Melanoma Präsentation",
-    "section": "5.1 Programmierung",
-    "text": "5.1 Programmierung\n\nframework verständnis\netc. sponti",
-    "crumbs": [
-      "Melanoma Präsentation"
-    ]
-  },
-  {
-    "objectID": "presentation.html#dokumentation",
-    "href": "presentation.html#dokumentation",
-    "title": "Melanoma Präsentation",
-    "section": "5.2 Dokumentation",
-    "text": "5.2 Dokumentation\n\numformulierung\ndarstellung",
-    "crumbs": [
-      "Melanoma Präsentation"
-    ]
-  },
-  {
-    "objectID": "presentation.html#allgemein",
-    "href": "presentation.html#allgemein",
-    "title": "Melanoma Präsentation",
-    "section": "5.3 Allgemein",
-    "text": "5.3 Allgemein\n\nwissen\nrecherche",
-    "crumbs": [
-      "Melanoma Präsentation"
-    ]
-  },
-  {
-    "objectID": "presentation.html#lösung-durch-skip-connections",
-    "href": "presentation.html#lösung-durch-skip-connections",
-    "title": "Melanoma Präsentation",
-    "section": "2.13 Lösung durch Skip Connections",
-    "text": "2.13 Lösung durch Skip Connections\n\nℹ️ Überspringen einer oder mehrerer Schichten, indem Eingabe / Neuron direkt zu späteren Schichten weiterleitet\n🎯 Hilft beim Training tiefer Netze durch verbesserung des Gradientenfluss\n\n\n\nAbbildung 6: Skip Connections",
-    "crumbs": [
-      "Melanoma Präsentation"
-    ]
-  },
-  {
-    "objectID": "presentation.html#section-2",
-    "href": "presentation.html#section-2",
-    "title": "Melanoma Präsentation",
-    "section": "2.10 ",
-    "text": "2.10",
-    "crumbs": [
-      "Melanoma Präsentation"
-    ]
-  },
-  {
-    "objectID": "presentation.html#section-7",
-    "href": "presentation.html#section-7",
-    "title": "Melanoma Präsentation",
-    "section": "",
-    "text": "\\[\nf : \\mathbb{R}^2 \\to \\mathbb{R}\n\\]\n\\[\nf(x, y) = 2x^2 + 3y\n\\]\n\\[\n\\nabla f =\n\\begin{pmatrix}\n\\frac{\\partial f}{\\partial x} \\\\\n\\frac{\\partial f}{\\partial y}\n\\end{pmatrix}\n=\n\\begin{pmatrix}\n4x \\\\\n3\n\\end{pmatrix}\n\\]",
-    "crumbs": [
-      "Melanoma Präsentation"
-    ]
-  },
-  {
-    "objectID": "presentation.html#section-11",
-    "href": "presentation.html#section-11",
-    "title": "Melanoma Präsentation",
-    "section": "",
-    "text": "Kettenregel\n\\[\nf(x) = u(v(x))\n\\]\n\\[\nf'(x) = u'(v(x)) v'(x)\n\\]\n\n\nReminder",
-    "crumbs": [
-      "Melanoma Präsentation"
-    ]
-  },
-  {
-    "objectID": "presentation.html#section-8",
-    "href": "presentation.html#section-8",
-    "title": "Melanoma Präsentation",
-    "section": "",
-    "text": "\\[\n\\nabla f =\n\\begin{pmatrix}\n\\frac{\\partial f}{\\partial x} \\\\\n\\frac{\\partial f}{\\partial y}\n\\end{pmatrix}\n=\n\\begin{pmatrix}\n4x \\\\\n3\n\\end{pmatrix}\n\\]\n\nℹ️ \\(x\\) hat den größten Einfluss auf die Steigung von \\(f\\)\nℹ️ \\(y\\) hat konstant positiven Einfluss auf die Funktion\nℹ️ \\(\\nabla f\\): Richtung des größten Wachstums\nℹ️ \\(-\\nabla f\\): Richtung der größten Abnahme",
-    "crumbs": [
-      "Melanoma Präsentation"
-    ]
-  },
-  {
-    "objectID": "presentation.html#section-12",
-    "href": "presentation.html#section-12",
-    "title": "Melanoma Präsentation",
-    "section": "",
-    "text": "Kettenregel\n\\[\nL(\\sigma(z_6))\n\\]\n\\[\n\\frac{dL}{dz_6} = \\frac{dL}{d \\sigma (z_6)} \\frac{d \\sigma (z_6)}{dz_6}\n\\]\n\nProblem: \\(z_6(\\sigma (z_5))\\), \\(z_5(\\sigma (z_4))\\), …\n\n\n\\[\n\\sigma(x) = \\frac{1}{1 + e^{-x}}\n\\]\n\n\\[\n\\frac{d\\sigma}{dx} = \\sigma(x)(1-\\sigma(x))\n\\]\n\n\n\n\nReminder",
-    "crumbs": [
-      "Melanoma Präsentation"
-    ]
-  },
-  {
-    "objectID": "presentation.html#section-13",
-    "href": "presentation.html#section-13",
-    "title": "Melanoma Präsentation",
-    "section": "",
-    "text": "Kettenregel\n\\[\nL(\\sigma(z_6))\n\\]\n\\[\n\\frac{dL}{dz_6} = \\frac{dL}{d \\sigma (z_6)} \\frac{d \\sigma (z_6)}{dz_6}\n\\]\n\nProblem: \\(z_6(\\sigma (z_5))\\), \\(z_5(\\sigma (z_4))\\), …\n\n\n\\[\n\\sigma(x) = \\frac{1}{1 + e^{-x}}\n\\]\n\n\\[\n\\frac{d\\sigma}{dx} = \\sigma(x)(1-\\sigma(x))\n\\]\n\n\n\n\nReminder",
-    "crumbs": [
-      "Melanoma Präsentation"
-    ]
-  },
-  {
-    "objectID": "presentation.html#depthwise-convolution",
-    "href": "presentation.html#depthwise-convolution",
-    "title": "Melanoma Präsentation",
-    "section": "2.10 Depthwise Convolution",
-    "text": "2.10 Depthwise Convolution\n\nDepthwise Convolution",
-    "crumbs": [
-      "Melanoma Präsentation"
-    ]
-  },
-  {
-    "objectID": "presentation.html#depthwise-convolution-2-groups",
-    "href": "presentation.html#depthwise-convolution-2-groups",
-    "title": "Melanoma Präsentation",
-    "section": "2.10 Depthwise Convolution (2 Groups)",
-    "text": "2.10 Depthwise Convolution (2 Groups)\n\nDepthwise Convolution",
-    "crumbs": [
-      "Melanoma Präsentation"
-    ]
-  },
-  {
-    "objectID": "presentation.html#depthwise-convolution-2-gruppen",
-    "href": "presentation.html#depthwise-convolution-2-gruppen",
-    "title": "Melanoma Präsentation",
-    "section": "2.10 Depthwise Convolution (2 Gruppen)",
-    "text": "2.10 Depthwise Convolution (2 Gruppen)\n\nDepthwise Convolution",
-    "crumbs": [
-      "Melanoma Präsentation"
-    ]
-  },
-  {
-    "objectID": "presentation.html#gruppierung-der-eingaben",
-    "href": "presentation.html#gruppierung-der-eingaben",
-    "title": "Melanoma Präsentation",
-    "section": "2.4 Gruppierung der Eingaben",
-    "text": "2.4 Gruppierung der Eingaben\n\n\nAbbildung 4: Convolution (2 Groups)",
-    "crumbs": [
-      "Melanoma Präsentation"
-    ]
-  },
-  {
-    "objectID": "presentation.html#fehlerlandschaft-nach-skip-connections",
-    "href": "presentation.html#fehlerlandschaft-nach-skip-connections",
-    "title": "Melanoma Präsentation",
-    "section": "2.14 Fehlerlandschaft nach Skip Connections",
-    "text": "2.14 Fehlerlandschaft nach Skip Connections\n\n\nAbbildung 8: Fehlerlandschaft Kostenfunktion",
-    "crumbs": [
-      "Melanoma Präsentation"
-    ]
-  },
-  {
-    "objectID": "presentation.html#unser-modell-effiecientnetv2",
-    "href": "presentation.html#unser-modell-effiecientnetv2",
-    "title": "Melanoma Präsentation",
-    "section": "3.1 Unser Modell (EffiecientNetV2)",
-    "text": "3.1 Unser Modell (EffiecientNetV2)\n\nℹ️ Kombination aus Neural Architecture Search (NAS) und manuellem Feintuning\nℹ️ Integriert Fused-MBConv Blöcke\nℹ️ Basiert auf ImageNet Datenbasis\n🎯 Schnellen Training großer Modelle\n🎯 Geeignet für Transfer Learning durch Generalisierung",
-    "crumbs": [
-      "Melanoma Präsentation"
-    ]
-  },
-  {
-    "objectID": "presentation.html#mobile-invertierte-bottleneck-faltung",
-    "href": "presentation.html#mobile-invertierte-bottleneck-faltung",
-    "title": "Melanoma Präsentation",
-    "section": "2.15 Mobile invertierte Bottleneck-Faltung",
-    "text": "2.15 Mobile invertierte Bottleneck-Faltung\n\n\n\n\n\n\nAbbildung 12: MBConv und fused-MBConv\n\n\n\n\n\nDepthwise Conv : Getrennte Faltung pro Kanal [5]",
-    "crumbs": [
-      "Melanoma Präsentation"
-    ]
-  },
-  {
-    "objectID": "presentation.html#verdichtungs--und-verstärkungsblöcke-se",
-    "href": "presentation.html#verdichtungs--und-verstärkungsblöcke-se",
-    "title": "Melanoma Präsentation",
-    "section": "2.8 Verdichtungs- und Verstärkungsblöcke (SE1)",
-    "text": "2.8 Verdichtungs- und Verstärkungsblöcke (SE1)\n\nℹ️ Analysiert wie wichtig jeder Kanal der Feature Map ist und verstärkt oder unterdrückt\nℹ️ Verwendet Global Average Pooling\n🎯 Adaptive Belohnung relevanter Kanäle\n🎯 Bessere Genauigkeit durch gezieltere Merkmalsverarbeitung\n\nSqueeze and Excitation",
-    "crumbs": [
-      "Melanoma Präsentation"
-    ]
-  },
-  {
-    "objectID": "presentation.html#designpatterns-mit-faltung",
-    "href": "presentation.html#designpatterns-mit-faltung",
-    "title": "Melanoma Präsentation",
-    "section": "2.9 Designpatterns mit Faltung",
-    "text": "2.9 Designpatterns mit Faltung\n\n\n\n\n\n\nAbbildung 5: MBConv und fused-MBConv\n\n\n\n\n\nDepthwise Conv : Getrennte Faltung pro Kanal [5]",
-    "crumbs": [
-      "Melanoma Präsentation"
-    ]
-  },
-  {
-    "objectID": "presentation.html#unser-modell-effiecientnetv2-bb",
-    "href": "presentation.html#unser-modell-effiecientnetv2-bb",
-    "title": "Melanoma Präsentation",
-    "section": "3.6 Unser Modell (EffiecientNetV2 BB)",
-    "text": "3.6 Unser Modell (EffiecientNetV2 BB)\n\nℹ️ Kombination aus Neural Architecture Search1 und manuellem Feintuning\nℹ️ Integriert Fused-MBConv Blöcke (Abbildung 5)\nℹ️ Basiert auf ImageNet Datenbasis\n🎯 Schnelles Training großer Modelle\n🎯 Geeignet für Transfer Learning durch Generalisierung\n\nNAS : Automatisierter Prozess zur Architekturfindung in CNNs",
-    "crumbs": [
-      "Melanoma Präsentation"
-    ]
-  },
-  {
-    "objectID": "presentation.html#relevanz",
-    "href": "presentation.html#relevanz",
-    "title": "Melanoma Präsentation",
-    "section": "1.1 Relevanz",
-    "text": "1.1 Relevanz\n\n\nAlle 120 Minuten stirbt ein Mensch an Hautkrebs. Wie kann künstliche Intelligenz Leben retten? [1]\n\n\n\n\n1895 entdeckte Wilhelm Röntgen die Röntgenstrahlen und revolutionierte die Medizin. Steht uns mit künstlicher Intelligenz eine noch größere Revolution bevor? [2]",
-    "crumbs": [
-      "Melanoma Präsentation"
-    ]
-  },
-  {
-    "objectID": "presentation.html#nicht-invasive-diagnoseverfahren",
-    "href": "presentation.html#nicht-invasive-diagnoseverfahren",
-    "title": "Melanoma Präsentation",
-    "section": "1.3 nicht-invasive Diagnoseverfahren",
-    "text": "1.3 nicht-invasive Diagnoseverfahren\n\nKlinische Untersuchung\n\nVisuelle Begutachtung auffälliger Hautveränderungen durch Hautärzt\n\nDermatoskopie\n\nVergrößert und beleuchtet die Haut, macht Pigment- und Gefäßstrukturen sichtbar\n\nKonfokale Laserscanmikroskopie\nOptische Kohärenztomographie\n\n\n\nAuge // sehr ungenau\nDermatoskopie // Signifikant besser, minimal mehr Aufwand, aktueller Standard\nLaserscanmikroskopie und Optische Kohärenztomographie // Spezial Eqiupment + teuer\nBiopsie // Diagnosensicherung",
-    "crumbs": [
-      "Melanoma Präsentation"
-    ]
-  },
-  {
-    "objectID": "presentation.html#ziele",
-    "href": "presentation.html#ziele",
-    "title": "Melanoma Präsentation",
-    "section": "1.5 Ziele",
-    "text": "1.5 Ziele\n\nAuseinandersetzung mit dem Einsatz von künstlicher Intelligenz\nVerständnis der Potenziale und Grenzen der Technologie\nEinordnung der Ergebnisse in den fachlichen Kontext\nEinschätzung, ob und wie KI in diesem Anwendungsfeld eingesetzt werden kann",
-    "crumbs": [
-      "Melanoma Präsentation"
-    ]
-  },
-  {
-    "objectID": "presentation.html#abgrenzung",
-    "href": "presentation.html#abgrenzung",
-    "title": "Melanoma Präsentation",
-    "section": "1.6 Abgrenzung",
-    "text": "1.6 Abgrenzung\n\nFokus auf Dermatoskopie\n\nHautoberfläche reflektiert und tiefere Details unsichtbar\n\nKleiner Datensatz\n\n10015 Samples\n7 Features",
-    "crumbs": [
-      "Melanoma Präsentation"
-    ]
-  },
-  {
-    "objectID": "presentation.html#beispiele-aus-dem-datensatz",
-    "href": "presentation.html#beispiele-aus-dem-datensatz",
-    "title": "Melanoma Präsentation",
-    "section": "3.2 Beispiele aus dem Datensatz",
-    "text": "3.2 Beispiele aus dem Datensatz\n\nAKIECBCCBKLDFMELNVVASC\n\n\n\n\n\n\n\n\nAbbildung 9: Aktinische Keratose\n\n\n\n\n\n\n\n\n\n\n\nAbbildung 10: Basalzellkarzinom\n\n\n\n\n\n\n\n\n\n\n\nAbbildung 11: Keratosen-ähnliche Läsionen\n\n\n\n\n\n\n\n\n\n\n\nAbbildung 12: Dermatofibrom\n\n\n\n\n\n\n\n\n\n\n\nAbbildung 13: Melanom\n\n\n\n\n\n\n\n\n\n\n\nAbbildung 14: Melanozytische Nävi\n\n\n\n\n\n\n\n\n\n\n\nAbbildung 15: Gefäßläsionen",
-    "crumbs": [
-      "Melanoma Präsentation"
-    ]
-  },
-  {
-    "objectID": "presentation.html#datenexploration---altersgruppen",
-    "href": "presentation.html#datenexploration---altersgruppen",
-    "title": "Melanoma Präsentation",
-    "section": "3.3 Datenexploration - Altersgruppen",
-    "text": "3.3 Datenexploration - Altersgruppen\n\n\nAbbildung 16: Anzahl der gefährlichen Diagnosen nach Alter",
-    "crumbs": [
-      "Melanoma Präsentation"
-    ]
-  },
-  {
-    "objectID": "presentation.html#datenexploration---körperstellen",
-    "href": "presentation.html#datenexploration---körperstellen",
-    "title": "Melanoma Präsentation",
-    "section": "3.4 Datenexploration - Körperstellen",
-    "text": "3.4 Datenexploration - Körperstellen\n\n\nAbbildung 17: Verteilung der Körperstellen nach Diagnose (gefährl. Diagnosen)",
-    "crumbs": [
-      "Melanoma Präsentation"
-    ]
-  },
-  {
-    "objectID": "presentation.html#datenexploration---anteile-gefährlicher-diagnosen",
-    "href": "presentation.html#datenexploration---anteile-gefährlicher-diagnosen",
-    "title": "Melanoma Präsentation",
-    "section": "3.5 Datenexploration - Anteile gefährlicher Diagnosen",
-    "text": "3.5 Datenexploration - Anteile gefährlicher Diagnosen\n\n\nAbbildung 18: Anteil gefährlicher Diagnosen unter allen gefährlichen Fällen",
-    "crumbs": [
-      "Melanoma Präsentation"
-    ]
-  },
-  {
-    "objectID": "presentation.html#potenzial",
-    "href": "presentation.html#potenzial",
-    "title": "Melanoma Präsentation",
-    "section": "4.2 Potenzial",
-    "text": "4.2 Potenzial\n\nWo sehen wir konkretes Verbesserungspotential?\n\nTraining eines spezifischen CNNs statt allgemeinem EfficientNetV2-CNN\nWeiteres Training um bessere “minima” zu finden bzw. andere Optimierer testen/bestimmen\nGrößerer Datensatz (min. gleichbleibende Qualität)\nBessere Datenqualität",
-    "crumbs": [
-      "Melanoma Präsentation"
-    ]
-  },
-  {
-    "objectID": "presentation.html#grenzen",
-    "href": "presentation.html#grenzen",
-    "title": "Melanoma Präsentation",
-    "section": "4.3 Grenzen",
-    "text": "4.3 Grenzen\n\nWo sehen wir konkrete Limits?\n\nBei der Nachvollziehbarkeit der Kriterien zur Klassifikation durch das CNN (Blackbox)\nPerfekte Filterwerte nicht realistisch (nach aktueller Forschung)\nBiopsie wird nicht ersetzt (Accuarcy Score, Bildqualität etc.)",
-    "crumbs": [
-      "Melanoma Präsentation"
-    ]
-  },
-  {
-    "objectID": "presentation.html#fazit",
-    "href": "presentation.html#fazit",
-    "title": "Melanoma Präsentation",
-    "section": "4.4 Fazit",
-    "text": "4.4 Fazit\n\nEinordnung der Ergebnisse in den fachlichen Kontext (Fazit, auf Einleitungsfrage)\n\nVergleich: Wie passen unsere Ergebnisse zu dem, was andere Studien zeigen?\nRelevanz? (ja, Einleitung)\nPraxisbezug? (ja, echte Daten aus Beschreibung Datensatz?)",
-    "crumbs": [
-      "Melanoma Präsentation"
-    ]
-  },
-  {
-    "objectID": "presentation.html#begriffsklärung-convolution",
-    "href": "presentation.html#begriffsklärung-convolution",
-    "title": "Melanoma Präsentation",
-    "section": "2.4 Begriffsklärung Convolution",
-    "text": "2.4 Begriffsklärung Convolution\n\n\n\n\n\nConv\n\n\n\n\n\n\nDepthwise Conv",
-    "crumbs": [
-      "Melanoma Präsentation"
     ]
   }
 ]
