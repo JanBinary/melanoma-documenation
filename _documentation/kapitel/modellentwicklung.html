@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.30">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -92,10 +92,10 @@ div.csl-indent {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-662ae1889177880cb371f83234c0a158.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-234273d1456647dabc34a594ac50e507.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-5fc2487999df2b68d0defd4bca0b10e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-173296030ae6ffffc1a10e5571fe0b63.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -273,7 +273,6 @@ window.Quarto = {
   <li><a href="#bildnormalisierung" id="toc-bildnormalisierung" class="nav-link" data-scroll-target="#bildnormalisierung">Bildnormalisierung</a></li>
   </ul></li>
   <li><a href="#trainingsprozess-und-hyperparameter" id="toc-trainingsprozess-und-hyperparameter" class="nav-link" data-scroll-target="#trainingsprozess-und-hyperparameter">Trainingsprozess und Hyperparameter</a></li>
-  <li><a href="#validierung-und-evaluation" id="toc-validierung-und-evaluation" class="nav-link" data-scroll-target="#validierung-und-evaluation">Validierung und Evaluation</a></li>
   </ul>
 </nav>
     </div>
@@ -299,7 +298,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">22. April 2025</p>
+      <p class="date">22. Juni 2025</p>
     </div>
   </div>
   
@@ -690,7 +689,9 @@ Abbildung&nbsp;8: Vision Transformer Architektur (aus GeeksForGeeks 2025)
 </section>
 <section id="wahl-des-modellansatzes-für-die-hautläsionsklassifikation" class="level2">
 <h2 class="anchored" data-anchor-id="wahl-des-modellansatzes-für-die-hautläsionsklassifikation">Wahl des Modellansatzes für die Hautläsionsklassifikation</h2>
-<p>Für die Klassifikation von Hautläsionen wird auf einen hybriden Modellansatz gesetzt, der die Stärken von Convolutional Neural Networks und Vision Transformern kombiniert.</p>
+<blockquote class="blockquote">
+<p>In Zusammenarbeit mit S. Wendland</p>
+</blockquote>
 <p>Als Grundlage dient EfficientNetV2-B0, ein kompakter und schneller CNN-Backbone, der speziell für eine hohe Trainingsgeschwindigkeit und verbesserte Skalierbarkeit entwickelt wurde. EfficientNetV2 nutzt klassische Faltungen sowie optimierte MBConv- und Fused-MBConv-Blöcke, wodurch sowohl die Modellgröße verringert als auch die Extraktion lokaler Merkmale effizient gestaltet wird. Die resultierenden Feature-Maps besitzen bereits eine reduzierte räumliche Auflösung und werden als Eingabe für nachgelagerte Vision Transformer Encoder-Blöcke verwendet.</p>
 <p>Die genaue Struktur von EfficientNetV2-B0 ist in <a href="#tbl-koerperstellen" class="quarto-xref">Tabelle&nbsp;1</a> dargestellt. Das Modell beginnt mit einer klassischen 3x3-Faltung (Stage 0) zur ersten Merkmalsextraktion, gefolgt von einer Reihe von Fused-MBConv-Blöcken (Stages 1–3), die eine besonders effiziente Kombination aus Faltung und Punktweise-Faltung darstellen. Ab Stage 4 kommen reguläre MBConv-Blöcke mit Squeeze-and-Excitation (SE)-Modulen zum Einsatz, die wichtige Merkmale selektiv verstärken. Die Anzahl der Kanäle steigt dabei schrittweise von 24 auf 256, während gleichzeitig die räumliche Auflösung durch Strides von 2 reduziert wird. Die finale Stufe (Stage 7) verwendet eine 1x1-Faltung, Global Average Pooling und eine Fully Connected Schicht, um die endgültige Repräsentation zu erzeugen.</p>
 <div id="tbl-koerperstellen" class="hover striped quarto-float quarto-figure quarto-figure-center anchored">
@@ -778,7 +779,7 @@ Tabelle&nbsp;1: EffiecientNetV2-B0 Architektur (aus Tan 2021)
 </div>
 </figure>
 </div>
-<p>Durch diese Architektur werden die Vorteile der lokalen Detailerfassung des CNNs mit der globalen Kontextmodellierung des Transformers kombiniert. Zudem profitiert der Ansatz davon, dass der Transformer nur auf die komprimierten Feature-Maps angewendet wird, was die Berechnungslast erheblich reduziert, ohne die Modellqualität zu beeinträchtigen. <span class="citation" data-cites="Tan2021"><a href="#ref-Tan2021" role="doc-biblioref">[10]</a></span></p>
+<p>Bei EfficientNetV2B0 wird die lokale Detailerfassung des CNNs genutzt, was in Kombination mit einer optimierten Architektur zu einer effizienten Nutzung weniger Parameter führt. Dies ermöglicht schnelles Lernen und macht das Modell ideal für Sandbox-Ansätze, da es vielseitige Experimente mit geringem Rechenaufwand unterstützt. Zudem zeigt das Modell eine starke Generalisierungsfähigkeit, insbesondere auf Datensätzen wie ImageNet. <span class="citation" data-cites="Tan2021"><a href="#ref-Tan2021" role="doc-biblioref">[10]</a></span></p>
 </section>
 </section>
 <section id="datenvorbereitung" class="level1">
@@ -786,20 +787,66 @@ Tabelle&nbsp;1: EffiecientNetV2-B0 Architektur (aus Tan 2021)
 <p>Hautkrebsbilder weisen oft eine Vielzahl von Aufnahmebedingungen auf, darunter unterschiedliche Beleuchtungsverhältnisse, Kamerawinkel und Entfernungen. Eine robuste Datenvorbereitung gleicht diese Varianzen aus und erhöht die Generalisierungsfähigkeit des Modells.</p>
 <section id="bildnormalisierung" class="level2">
 <h2 class="anchored" data-anchor-id="bildnormalisierung">Bildnormalisierung</h2>
+<p>Die Bilder werden auf eine einheitliche Größe von 244x244 Pixeln skaliert und auf drei Kanäle (RGB) dekodiert. Anschließend erfolgt eine Daten-Augmentation, um die Robustheit gegenüber Variationen zu erhöhen, sowie eine Vorverarbeitung mit preprocess_input für die Anpassung an die EfficientNetV2B0-Architektur. Der Sourcecode zeigt dies in der Funktion load_and_prepare_image, die Bilder lädt, dekodiert, skaliert, augmentiert und für das Modell normalisiert.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> load_and_prepare_image(path: <span class="bu">str</span>, label: <span class="bu">int</span>):</span>
+<span id="cb5-2"><a href="#cb5-2"></a>    img <span class="op">=</span> tf.io.read_file(path)</span>
+<span id="cb5-3"><a href="#cb5-3"></a>    img <span class="op">=</span> tf.image.decode_jpeg(img, channels<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb5-4"><a href="#cb5-4"></a>    img <span class="op">=</span> tf.image.resize(img, [<span class="dv">244</span>, <span class="dv">244</span>])</span>
+<span id="cb5-5"><a href="#cb5-5"></a>    img <span class="op">=</span> data_augmentation(img)</span>
+<span id="cb5-6"><a href="#cb5-6"></a>    img <span class="op">=</span> preprocess_input(img)</span>
+<span id="cb5-7"><a href="#cb5-7"></a>    <span class="cf">return</span> img, label</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="trainingsprozess-und-hyperparameter" class="level1">
 <h1>Trainingsprozess und Hyperparameter</h1>
+<p>Das Modell basiert auf EfficientNetV2B0 mit ImageNet-Gewichten, ohne Top-Layer, gefolgt von GlobalAveragePooling2D, einem Dropout von 0.2 und einem Dense-Layer mit Softmax-Aktivierung für 7 Klassen. Der Datensatz wird in 80 % Training und 20 % Validierung aufgeteilt (train_test_split, stratifiziert).Das Modell basiert auf EfficientNetV2B0 mit ImageNet-Gewichten, ohne Top-Layer, gefolgt von GlobalAveragePooling2D, einem Dropout von 0.2 und einem Dense-Layer mit Softmax-Aktivierung für 7 Klassen. Der Datensatz wird in 80 % Training und 20 % Validierung aufgeteilt (train_test_split, stratifiziert).</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>base_model <span class="op">=</span> EfficientNetV2B0(</span>
+<span id="cb6-2"><a href="#cb6-2"></a>    include_top<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb6-3"><a href="#cb6-3"></a>    weights<span class="op">=</span><span class="st">'imagenet'</span>,</span>
+<span id="cb6-4"><a href="#cb6-4"></a>    input_shape<span class="op">=</span>(<span class="dv">244</span>, <span class="dv">244</span>, <span class="dv">3</span>)</span>
+<span id="cb6-5"><a href="#cb6-5"></a>)</span>
+<span id="cb6-6"><a href="#cb6-6"></a></span>
+<span id="cb6-7"><a href="#cb6-7"></a>model <span class="op">=</span> tf.keras.Sequential([</span>
+<span id="cb6-8"><a href="#cb6-8"></a>    base_model,</span>
+<span id="cb6-9"><a href="#cb6-9"></a>    tf.keras.layers.GlobalAveragePooling2D(),</span>
+<span id="cb6-10"><a href="#cb6-10"></a>    tf.keras.layers.Dropout(<span class="fl">0.2</span>),</span>
+<span id="cb6-11"><a href="#cb6-11"></a>    tf.keras.layers.Dense(<span class="dv">7</span>, activation<span class="op">=</span><span class="st">"softmax"</span>)</span>
+<span id="cb6-12"><a href="#cb6-12"></a>])</span>
+<span id="cb6-13"><a href="#cb6-13"></a></span>
+<span id="cb6-14"><a href="#cb6-14"></a>train_paths, val_paths, train_labels, val_labels <span class="op">=</span> train_test_split(</span>
+<span id="cb6-15"><a href="#cb6-15"></a>    paths, labels, test_size<span class="op">=</span><span class="fl">0.2</span>, stratify<span class="op">=</span>labels, random_state<span class="op">=</span><span class="dv">31</span></span>
+<span id="cb6-16"><a href="#cb6-16"></a>)</span>
+<span id="cb6-17"><a href="#cb6-17"></a>train_ds <span class="op">=</span> tf.data.Dataset.from_tensor_slices((train_paths, train_labels))</span>
+<span id="cb6-18"><a href="#cb6-18"></a>val_ds <span class="op">=</span> tf.data.Dataset.from_tensor_slices((val_paths, val_labels))</span>
+<span id="cb6-19"><a href="#cb6-19"></a></span>
+<span id="cb6-20"><a href="#cb6-20"></a>train_ds <span class="op">=</span> train_ds.<span class="bu">map</span>(load_and_prepare_image, num_parallel_calls<span class="op">=</span>tf.data.AUTOTUNE)</span>
+<span id="cb6-21"><a href="#cb6-21"></a>val_ds <span class="op">=</span> val_ds.<span class="bu">map</span>(load_and_prepare_image, num_parallel_calls<span class="op">=</span>tf.data.AUTOTUNE)</span>
+<span id="cb6-22"><a href="#cb6-22"></a></span>
+<span id="cb6-23"><a href="#cb6-23"></a>train_ds <span class="op">=</span> train_ds.shuffle(<span class="dv">1000</span>).batch(<span class="dv">32</span>).prefetch(tf.data.AUTOTUNE)</span>
+<span id="cb6-24"><a href="#cb6-24"></a>val_ds <span class="op">=</span> val_ds.batch(<span class="dv">32</span>).prefetch(tf.data.AUTOTUNE)</span>
+<span id="cb6-25"><a href="#cb6-25"></a></span>
+<span id="cb6-26"><a href="#cb6-26"></a>model.<span class="bu">compile</span>(</span>
+<span id="cb6-27"><a href="#cb6-27"></a>    optimizer<span class="op">=</span>tf.keras.optimizers.Adam(<span class="fl">1e-4</span>),</span>
+<span id="cb6-28"><a href="#cb6-28"></a>    loss<span class="op">=</span><span class="st">'sparse_categorical_crossentropy'</span>,</span>
+<span id="cb6-29"><a href="#cb6-29"></a>    metrics<span class="op">=</span>[<span class="st">'accuracy'</span>]</span>
+<span id="cb6-30"><a href="#cb6-30"></a>)</span>
+<span id="cb6-31"><a href="#cb6-31"></a></span>
+<span id="cb6-32"><a href="#cb6-32"></a>history <span class="op">=</span> model.fit(</span>
+<span id="cb6-33"><a href="#cb6-33"></a>    train_ds,</span>
+<span id="cb6-34"><a href="#cb6-34"></a>    validation_data<span class="op">=</span>val_ds,</span>
+<span id="cb6-35"><a href="#cb6-35"></a>    epochs<span class="op">=</span><span class="dv">10</span>,</span>
+<span id="cb6-36"><a href="#cb6-36"></a>    callbacks<span class="op">=</span>[</span>
+<span id="cb6-37"><a href="#cb6-37"></a>        tf.keras.callbacks.EarlyStopping(patience<span class="op">=</span><span class="dv">3</span>, restore_best_weights<span class="op">=</span><span class="va">True</span>),</span>
+<span id="cb6-38"><a href="#cb6-38"></a>        tf.keras.callbacks.ModelCheckpoint(<span class="st">"efficientnetv2_model_dx_detection.keras"</span>, save_best_only<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb6-39"><a href="#cb6-39"></a>    ]</span>
+<span id="cb6-40"><a href="#cb6-40"></a>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+
+
 </section>
-<section id="validierung-und-evaluation" class="level1">
 
 
-
-
-</section>
-
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Validierung und Evaluation</h2><div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Literatur</h2><div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
 <div id="ref-Muhammad_et_al.2022" class="csl-entry" role="listitem">
 <div class="csl-left-margin">[1] </div><div class="csl-right-inline">A. S. Muhammad, S. Norhalina, W. Fazli, A. Muhammad, S. Ali, und M. Khan, <span>„Comparative Analysis of Recent Architecture of Convolutional Neural Network“</span>, Mathematical Problems in Engineering, 2022. Verfügbar unter: <a href="https://doi.org/10.1155/2022/7313612">https://doi.org/10.1155/2022/7313612</a></div>
 </div>

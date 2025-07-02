@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.30">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -21,7 +21,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -37,10 +57,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-662ae1889177880cb371f83234c0a158.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-234273d1456647dabc34a594ac50e507.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-5fc2487999df2b68d0defd4bca0b10e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-173296030ae6ffffc1a10e5571fe0b63.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -159,9 +179,22 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#interpretation-dert-forschungsergebnisse" id="toc-interpretation-dert-forschungsergebnisse" class="nav-link active" data-scroll-target="#interpretation-dert-forschungsergebnisse"><span class="header-section-number">1</span> Interpretation dert Forschungsergebnisse</a></li>
-  <li><a href="#vergleich-mit-anderen-modellen" id="toc-vergleich-mit-anderen-modellen" class="nav-link" data-scroll-target="#vergleich-mit-anderen-modellen"><span class="header-section-number">2</span> Vergleich mit anderen Modellen</a></li>
-  <li><a href="#ausblick-und-mögliche-verbesserungen" id="toc-ausblick-und-mögliche-verbesserungen" class="nav-link" data-scroll-target="#ausblick-und-mögliche-verbesserungen"><span class="header-section-number">3</span> Ausblick und mögliche Verbesserungen</a></li>
+  <li><a href="#interpretation-der-forschungsergebnisse" id="toc-interpretation-der-forschungsergebnisse" class="nav-link active" data-scroll-target="#interpretation-der-forschungsergebnisse"><span class="header-section-number">1</span> Interpretation der Forschungsergebnisse</a>
+  <ul class="collapse">
+  <li><a href="#trainingsverlauf" id="toc-trainingsverlauf" class="nav-link" data-scroll-target="#trainingsverlauf"><span class="header-section-number">1.1</span> Trainingsverlauf</a></li>
+  <li><a href="#model-accuracy" id="toc-model-accuracy" class="nav-link" data-scroll-target="#model-accuracy"><span class="header-section-number">1.2</span> Model Accuracy</a></li>
+  <li><a href="#model-loss" id="toc-model-loss" class="nav-link" data-scroll-target="#model-loss"><span class="header-section-number">1.3</span> Model Loss</a></li>
+  <li><a href="#erkenntnisse-trainingsverlauf" id="toc-erkenntnisse-trainingsverlauf" class="nav-link" data-scroll-target="#erkenntnisse-trainingsverlauf"><span class="header-section-number">1.4</span> Erkenntnisse Trainingsverlauf</a></li>
+  <li><a href="#konfusionsmatrix" id="toc-konfusionsmatrix" class="nav-link" data-scroll-target="#konfusionsmatrix"><span class="header-section-number">1.5</span> Konfusionsmatrix</a></li>
+  <li><a href="#genauigkeitsmaße" id="toc-genauigkeitsmaße" class="nav-link" data-scroll-target="#genauigkeitsmaße"><span class="header-section-number">1.6</span> Genauigkeitsmaße</a></li>
+  <li><a href="#potenziale-der-eigenentwicklung" id="toc-potenziale-der-eigenentwicklung" class="nav-link" data-scroll-target="#potenziale-der-eigenentwicklung"><span class="header-section-number">1.7</span> Potenziale der Eigenentwicklung</a></li>
+  <li><a href="#grenzen-des-modells" id="toc-grenzen-des-modells" class="nav-link" data-scroll-target="#grenzen-des-modells"><span class="header-section-number">1.8</span> Grenzen des Modells</a></li>
+  <li><a href="#vergleich-mit-anderen-modellen" id="toc-vergleich-mit-anderen-modellen" class="nav-link" data-scroll-target="#vergleich-mit-anderen-modellen"><span class="header-section-number">1.9</span> Vergleich mit anderen Modellen</a></li>
+  </ul></li>
+  <li><a href="#ausblick" id="toc-ausblick" class="nav-link" data-scroll-target="#ausblick"><span class="header-section-number">2</span> Ausblick</a>
+  <ul class="collapse">
+  <li><a href="#künstliche-intelligenz-in-der-hautkrebsdiagnostik" id="toc-künstliche-intelligenz-in-der-hautkrebsdiagnostik" class="nav-link" data-scroll-target="#künstliche-intelligenz-in-der-hautkrebsdiagnostik"><span class="header-section-number">2.1</span> Künstliche Intelligenz in der Hautkrebsdiagnostik</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -187,7 +220,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">5. Mai 2025</p>
+      <p class="date">1. Juli 2025</p>
     </div>
   </div>
   
@@ -199,19 +232,217 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="interpretation-dert-forschungsergebnisse" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Interpretation dert Forschungsergebnisse</h1>
+<section id="interpretation-der-forschungsergebnisse" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Interpretation der Forschungsergebnisse</h1>
+<section id="trainingsverlauf" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="trainingsverlauf"><span class="header-section-number">1.1</span> Trainingsverlauf</h2>
+<p>Zur Veranschaulichung des Verlaufs des Training des entwickelten Modells dient die folgende Abbildung <a href="#fig-model-training" class="quarto-xref">Abbildung&nbsp;1</a>, welche die Genauigkeit und die Verlustfunktion der Eigenentwicklung angibt. Dabei wird jeweils zwischen Trainings- und Validierungsdaten unterschieden. Diese gehen auch einer Zufälligen Teilung des Datensatzes hervor, wobei 80% der Datensätze zum trainieren und 20% zur Validierung des Models verwendet werden.</p>
+<div id="fig-model-training" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-model-training-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/own_model_training.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-model-training-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;1: Trainingsverlauf
+</figcaption>
+</figure>
+</div>
 </section>
-<section id="vergleich-mit-anderen-modellen" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Vergleich mit anderen Modellen</h1>
+<section id="model-accuracy" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="model-accuracy"><span class="header-section-number">1.2</span> Model Accuracy</h2>
+<p>Im oberen Graph wird die Entwicklung der Genauigkeit (Model Accuracy) über die verschiedenen Epochen näher betrachtet. Hier ist zu beobachten, dass die Genauigkeit des entwickelten Modells bei Verarbeitung der Trainingsdaten (blau) über alle Epochen hinweg, von 70% in Epoche 0 auf 94% in der Epoche 8, ansteigt. Der größte Anstiegt liegt hierbei zwischen den Epochen 0 und 1 wo die Genauigkeit der Verarbeitung der Trainingsdaten um 11% auf insgesamt 81% ansteigt.<br>
+Die Genauigkeit der Verarbeitung der Validierungsdaten (orange) verläuft jedoch anders. Zwar steigt der Graph auch hier von Epoche 0 bis 5 positiv von 79% auf 86% an (von Epoche 1 bis 5 sogar stetig steigend), fällt aber von Epoche 5 bis Epoche 7 auf 84% herab, um in Epoche 8 wieder auf 86% zu steigen.<br>
+Zusammengefasst für den oberen Graphen lässt sich also festhalten, dass die Genauigkeit des Modells im Bezug auf die Trainingsdaten immer weiter zunimmt und sich gegen 100% annähert, während die validierte Genauigkeit seit der fünften Periode nicht weiter gewachsen ist und um 85% zu stagnieren scheint.</p>
 </section>
-<section id="ausblick-und-mögliche-verbesserungen" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Ausblick und mögliche Verbesserungen</h1>
+<section id="model-loss" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="model-loss"><span class="header-section-number">1.3</span> Model Loss</h2>
+<p>Im unteren Graphen lässt sich eine ähnliche Entwicklung beobachten. Hier wird die Verlustfunktion beziehungsweise die Fehlerhaftigkeit (Model Loss) des Modells bei Betrachtung der Trainings- und Validierungsdate abgebildet, also mit wie viel Prozent das Modell in den jeweiligen Epochen eine falsche Diagnose abgegeben hat.<br>
+Auch hier ist zu beobachten, dass Fehlerhaftigkeit im Bezug auf die Trainingsdaten über alle Epochen hinweg von 83% auf 20% abnimmt, während der stärkste Abfall zwischen Epoche 0 und 1 zu verzeichnen ist.<br>
+Bei den Validierungsdaten fällt der Graph wieder bis zur Epoche 5 von 60% auf 40% ab, wobei er in der Epoche 3 &amp; 4 in seinem Abfallen stagniert. Danach steigt er jedoch wieder leicht an und stagniert dann in den Epochen 7 und 8 bei 41%. Auch im unteren Graphen lässt sich beobachten, dass sich das Modell bezogen auf die Trainingsdaten immer weiter verbessert, aber in der Verarbeitung der Validierungsdaten nach der Epoche 5 keine Fortschritte macht.</p>
+</section>
+<section id="erkenntnisse-trainingsverlauf" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="erkenntnisse-trainingsverlauf"><span class="header-section-number">1.4</span> Erkenntnisse Trainingsverlauf</h2>
+<p>Aus den beiden Graphen wird erkenntlich, dass das Modell nach der Epoche 5 keine wirklichen Fortschritte bei der Interpretierung von Bildern macht, welche nicht aus dem Trainingsdatensatz stammen, aber die Trainingsdaten dafür immer besser verarbeiten kann. Das lässt darauf schließen, dass ein “Overfitting”, also eine Überanpassung an den Trainingsdatensatz durch das Modell vorliegt. Das Modell lernt die Trainingsdaten auswendig und verliert die Fähigkeit, die Validierungsdaten beziehungsweise unbekannte daten richtig zu interpretieren.</p>
+</section>
+<section id="konfusionsmatrix" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="konfusionsmatrix"><span class="header-section-number">1.5</span> Konfusionsmatrix</h2>
+<p>Zum besseren Verständnis der Diagnosefähigkeit der Eigenentwicklung wurde eine Konfusionsmatrix <a href="#fig-confusion-matrix" class="quarto-xref">Abbildung&nbsp;2</a> erstellt. Sie veranschaulicht, wie die tatsächlichen Läsionen (y-Achse: “True label”) von unserem Modell eingeordnet bzw. diagnostiziert wurden (x-Achse: “Predicted Label”)</p>
+<div id="fig-confusion-matrix" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-confusion-matrix-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/confusion_matrix.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-confusion-matrix-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;2: Konfusionsmatrix
+</figcaption>
+</figure>
+</div>
+<p>Besonders relevant sind die Werte auf der Diagonalen der Matrix, von (akiec|akiec) bis (vasc|vasc). Diese Felder geben die Anzahl der korrekten Vorhersagen des Modells auf dem Validierungsdatensatz an. Hierbei zeigt sich, dass das Modell die wahren Diagnosen pro Zeile mehrheitlich richtig vorhergesagt hat, was grundsätzlich positiv zu bewerten ist.<br>
+Ein kritischer Punkt zeigt sich unter anderem jedoch bei der Betrachtung des Feldes (nv|mel). Dort wurden in 58 von insgesamt 223 Fällen, Melanome fälschlicherweise als gewöhnliche Muttermale (nv) diagnostiziert. Dies bedeutet, dass das trainierte Modell in über einem Viertel der Melanom-Fälle eine falsche Negativdiagnose für die gefährlichste Form von Hautkrebs abgibt. Dieses Ergebnis stellt ein kritisches Versagen gegenüber den Anforderungen dar, welche durch ein KI-Modell im medizinischen Bereich erfüllt sein müssen.</p>
+</section>
+<section id="genauigkeitsmaße" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="genauigkeitsmaße"><span class="header-section-number">1.6</span> Genauigkeitsmaße</h2>
+<p>Für eine bessere Übersicht über die Genauigkeit des Modells über alle Läsionstypen hinweg dient die folgende Tabelle. Diese gibt anhand von fünf Attributen Aufschluss wie erfolgreich das Modell in Bezug auf die jeweiligen Läsionstypen ist.</p>
+<ul>
+<li>Label
+<ul>
+<li>Identifiziert die einzelnen verschiedenen Hautläsionen beziehungsweise der Diagnosen, welche von diesem Modell identifiziert werden sollten.</li>
+</ul></li>
+<li>Precision (Präzision)
+<ul>
+<li>Gibt den Anteil der, durch die KI getroffenen, korrekten positiven Vorhersagen (‘true positives’) an der Gesamtzahl der positiven Vorhersagen (‘true positives’ + ‘false positives’) an. Also wie viele der Fälle, welche von der KI zum Beispiel als Melanom identifiziert wurden, wirklich Melanome waren.</li>
+</ul></li>
+<li>Recall (Sensitivität)
+<ul>
+<li>Beschreibt den Anteil der positiven Vorhersagen (‘true positives’) gegenüber der Gesamtzahl der tatsächlich bestehenden Instanzen (‘true positives’ + ‘false negatives’) des jeweiligen Läsionstypen an. Am Beispiel von Melnoma, also der Anteil aller durch das Modell erkannten Melanoma Fälle an der Gesamtheit aller vorhandenen Fälle von Melanoma, welche im Validierungsdatensatz vorhanden waren.</li>
+</ul></li>
+<li>F1-Score
+<ul>
+<li>Ist das harmonische Mittel aus der Precision und dem Recall für eine verbundene Bewertung dieser Kriterien des jeweiligen Typen der Hautläsion.</li>
+</ul></li>
+<li>Support
+<ul>
+<li>Gibt die Anzahl der tatsächlich bestehenden Fälle der jeweiligen Hautläsionstypen an.</li>
+</ul></li>
+</ul>
+<div id="tbl-pres-score" class="hover striped quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-pres-score-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabelle&nbsp;1: Genauigkeitsmaße des Modells
+</figcaption>
+<div aria-describedby="tbl-pres-score-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table-hover table-striped caption-top table">
+<thead>
+<tr class="header">
+<th>Label</th>
+<th>Precision</th>
+<th>Recall</th>
+<th>F1-Score</th>
+<th>Support</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>akiec</td>
+<td>0.609</td>
+<td>0.646</td>
+<td>0.627</td>
+<td>65</td>
+</tr>
+<tr class="even">
+<td>bcc</td>
+<td>0.748</td>
+<td>0.835</td>
+<td>0.789</td>
+<td>103</td>
+</tr>
+<tr class="odd">
+<td>bkl</td>
+<td>0.772</td>
+<td>0.645</td>
+<td>0.703</td>
+<td>220</td>
+</tr>
+<tr class="even">
+<td>df</td>
+<td>0.737</td>
+<td>0.609</td>
+<td>0.667</td>
+<td>23</td>
+</tr>
+<tr class="odd">
+<td>nv</td>
+<td>0.926</td>
+<td>0.931</td>
+<td>0.929</td>
+<td>1341</td>
+</tr>
+<tr class="even">
+<td>mel</td>
+<td>0.647</td>
+<td>0.673</td>
+<td>0.659</td>
+<td>223</td>
+</tr>
+<tr class="odd">
+<td>vasc</td>
+<td>0.743</td>
+<td>0.929</td>
+<td>0.825</td>
+<td>28</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Bei Betrachtung der Genauigkeitsmaße wird ersichtlich, dass die Eigenentwicklung in der Mehrheit eher schlechte Wert erzielt. Die Ausnahme stellt hierbei die Erkennung von Muttermalen (nv), welche von dem Modell gut identifiziert werden. Dies liegt unter anderem vermutlich daran, dass in dem Datensatz eine große Anzahl Instanzen von Muttermalen aufweist.<br>
+Problematisch sind die geringen Recall Werte für die jeweiligen Typen von Hautkrebs, welche vor allem für KI-Modelle, die im Anwendungsbereich der Medizin eingesetzt werden sollen, relevant sind. Dies findet seinen Ursprung darin, dass es wichtiger ist alle Fälle von Krebs zu identifizieren, ob dabei auch eine Anzahl von zum Beispiel Muttermalen als Krebs erkannt werden ist dabei weniger relevant. Also es ist vorzuziehen ungefährliche Fälle als gefährlich einzuordnen als gefährliche Fälle fälschlicherweise als ungefährlich abzutun.<br>
+Das entwickelte Modell müsste daher weiter angepasst werden, bevor es theoretisch eingesetzt werden könnte beziehungsweise sollte.</p>
+</section>
+<section id="potenziale-der-eigenentwicklung" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="potenziale-der-eigenentwicklung"><span class="header-section-number">1.7</span> Potenziale der Eigenentwicklung</h2>
+<p>Zur Verbesserung des KI-Modell gibt es verschiedene Ansätze. Ein möglicher, aber auch wichtiger Ansatzpunkt liegt in der Anpassung der Kostenfunktion. Durch eine stärkere Gewichtung und Bestrafung von falschklassifizierten, tatsächlich gefährlichen Diagnosen (false negativ) könnte die Sensitivität der KI für kritische Fälle signifikant erhöht werden.<br>
+Ein anderes Vorgehen wäre das weitere Training auf einer größeren Datenbasis. Hierbei ist es auch entscheidend, den Anteil an gefährlichen Diagnosen im Datensatz zu erhöhen, um dem Modell mehr Beispiele für seltenen beziehungsweise kritischen Fälle im Training zur Verfügung stellen zu können. Dabei wäre es auch wichtig Bilder in schlechterer Qualität ins Training aufzunehmen, um die Fähigkeiten der KI zu verbessern, mit Blick auf einen eventuellen Einsatz in der Form einer App für das Smartphone.<br>
+Außerdem könnte anstatt des aktuell verwendeten allgemeinen EfficientNetV2-CNN, welches eine kürzere Trainingszeit benötigt, aber weniger spezialisiert ist könnte das Training eines spezifischeren neuronalen Netzes eine präzisere Klassifikation ermöglichen. Zwangsweise müsste dann jedoch eine neue KI antrainiert und das entwickelte Modell verworfen werden.<br>
+Alternativ könnten weitere Layer im neuronalen Netz hinzugefügt werden, um möglicherweise die Fähigkeiten des Bestehenden Modells zu erhöhen.</p>
+</section>
+<section id="grenzen-des-modells" class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="grenzen-des-modells"><span class="header-section-number">1.8</span> Grenzen des Modells</h2>
+<p>Trotz der vielversprechenden Potenziale weist das entwickelte Modell aber auch klare Grenzen auf, die bei einem theoretischen Einsatz berücksichtigt werden müssen.<br>
+Eine große Herausforderungen ist die Nachvollziehbarkeit der Kriterien zur Klassifikation durch das Neuronale Netz. Also dem Verständnis warum das Modell eine Läsion als Krebs identifiziert oder eben nicht (zum Beispiel anhand ungleichmäßiger Ränder oder Färbungen), welches in dem aktuellen Modell nicht gegeben ist. Die wäre jedoch besonders in der Medizin und für die behandelnden Ärzte von Interesse. Des Weiteren ist nach aktuellem Forschungsstand die Erzielung perfekter Filterwerte zur Klassifikation, also die Identifikation des absoluten Minimum für die Eigenentwicklung nicht realistisch.<br>
+Abschließend ist hier auch festzuhalten, dass die Biopsie als endgültige Überprüfung beziehungsweise Sicherung der dermatologischen Diagnosen nicht durch ein KI-Modell ersetzt werden kann.</p>
+</section>
+<section id="vergleich-mit-anderen-modellen" class="level2" data-number="1.9">
+<h2 data-number="1.9" class="anchored" data-anchor-id="vergleich-mit-anderen-modellen"><span class="header-section-number">1.9</span> Vergleich mit anderen Modellen</h2>
+<p>Am 12.01.2025 veröffentlichte Springer Professional einen Artikel mit dem Titel „State-of-the-art skin disease classification: A review of deep learning models“. Darin wurden verschiedene Deep-Learning-Modelle miteinander verglichen.</p>
+<p>Die Analyse zeigt, dass Deep-Learning-Modelle im Durchschnitt eine Genauigkeit von 86,20% erreichen. Unter den überprüften Architekturen war EfficientNet das am häufigsten verwendete Modell. Dessen Genauigkeit schwankte stark, von einem Minimum von 5,3% bis zu einem Maximum von 90%.</p>
+<p>Im Vergleich dazu erreichte das CNN-Modell eine Genauigkeit zwischen 71% und 98,4%. Das Xception-Modell erzielte Werte zwischen 68% und 100%. Bei VGG16 lag die Genauigkeit zwischen 70% und 90%, während VGG19 Werte zwischen 67,9% und 86% erreichte. Das ResNet50-Modell schnitt mit einer Spanne von 62,9% bis 95,8% ab. Das ResNet-152 zeigte eine relativ hohe Stabilität mit einer minimalen Genauigkeit von 84,9% und einer maximalen von 96%, im Durchschnitt 90,3%. <span class="citation" data-cites="Jaiyeoba_et_al._2025"><a href="#ref-Jaiyeoba_et_al._2025" role="doc-biblioref">[1]</a></span></p>
+<div id="fig-deep_learning_models" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-deep_learning_models-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/deep_learning_models.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-deep_learning_models-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;3: Deep Learning Models
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="ausblick" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Ausblick</h1>
+<section id="künstliche-intelligenz-in-der-hautkrebsdiagnostik" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="künstliche-intelligenz-in-der-hautkrebsdiagnostik"><span class="header-section-number">2.1</span> Künstliche Intelligenz in der Hautkrebsdiagnostik</h2>
+<p>Mit der Lösung Derm.AI entwickelt das Fraunhofer-Institut einen Ansatz, um den Diagnoseprozess bei Hautkrebs zu beschleunigen. Über eine speziell entwickelte Smartphone-App werden standardisierte Fotos verdächtiger Hautstellen erstellt und an eine Klinik übermittelt. Eine KI-gestützte Bildanalyse bewertet das Risiko auf Hautkrebs, indem sie die Aufnahmen mit Referenzdaten abgleicht. Die Software liefert dabei keine eigenständige Diagnose, sondern dient der Priorisierung, sodass Fachärztinnen und Fachärzte auffällige Fälle gezielt und zeitnah untersuchen können. <span class="citation" data-cites="Fraunhofer_2022"><a href="#ref-Fraunhofer_2022" role="doc-biblioref">[2]</a></span></p>
+<div id="fig-smartphoneapp_process" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-smartphoneapp_process-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/smartphoneapp_dermai.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-smartphoneapp_process-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;4: Ablauf Smartphone App
+</figcaption>
+</figure>
+</div>
+<p>Ebenfalls am Fraunhofer-Institut wird im Rahmen des EU-Projekts iToBoS (Intelligent Total Body Scanner for Early Detection of Melanoma) ein KI-gestützter Ganzkörperscanner entwickelt, der die Früherkennung von Melanomen effizienter und zuverlässiger machen soll. Ziel ist es, den zeit- und ressourcenintensiven manuellen Hautcheck zu automatisieren, das medizinische Fachpersonal zu entlasten und unnötige Biopsien zu reduzieren. Kernstück des Systems ist ein hochauflösender Scanner mit Flüssigkeitslinsen, der innerhalb weniger Minuten den gesamten Körper erfasst. Die Aufnahmen werden zusammen mit umfassenden Patientendaten in eine cloudbasierte Diagnoseplattform integriert und durch spezialisierte KI-Algorithmen bewertet. Erklärbare KI-Methoden (XAI) wie LRP oder CRP ermöglichen dabei eine transparente Nachvollziehbarkeit der Prognosen und tragen dazu bei, die Zuverlässigkeit des Modells zu erhöhen. Langfristig soll das System nicht nur Melanome, sondern auch andere Hauterkrankungen frühzeitig erkennen können. <span class="citation" data-cites="Fraunhofer_2025"><a href="#ref-Fraunhofer_2025" role="doc-biblioref">[3]</a></span></p>
 
 
+
+</section>
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Literatur</h2><div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
+<div id="ref-Jaiyeoba_et_al._2025" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">O. Jaiyeoba <em>u.&nbsp;a.</em>, <span>„State-of-the-art skin disease classification: a review of deep learning models“</span>, <em>Netw Model Anal Health Inform Bioinforma</em>, Bd. 14, Nr. 1, S. 9, Jan. 2025, doi: <a href="https://doi.org/10.1007/s13721-024-00495-w">10.1007/s13721-024-00495-w</a>.</div>
+</div>
+<div id="ref-Fraunhofer_2022" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">Fraunhofer-Gesellschaft, <span>„<span>Smartphone-App und KI-Software beschleunigen Erkennung von Hautkrebs</span>“</span>. [Online]. Verfügbar unter: <a href="https://www.fraunhofer.de/de/presse/presseinformationen/2022/februar-2022/smartphone-app-und-ki-software-beschleunigen-erkennung-von-hautkrebs.html">https://www.fraunhofer.de/de/presse/presseinformationen/2022/februar-2022/smartphone-app-und-ki-software-beschleunigen-erkennung-von-hautkrebs.html</a></div>
+</div>
+<div id="ref-Fraunhofer_2025" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline">Fraunhofer-Gesellschaft, <span>„<span>KI-Diagnoseplattform verbessert Früherkennung von Hautkrebs</span>“</span>. [Online]. Verfügbar unter: <a href="https://www.fraunhofer.de/de/presse/presseinformationen/2025/maerz-2025/ki-diagnoseplattform-verbessert-frueherkennung-von-hautkrebs.html">https://www.fraunhofer.de/de/presse/presseinformationen/2025/maerz-2025/ki-diagnoseplattform-verbessert-frueherkennung-von-hautkrebs.html</a></div>
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

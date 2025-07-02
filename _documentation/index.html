@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.30">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -36,10 +36,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-662ae1889177880cb371f83234c0a158.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-234273d1456647dabc34a594ac50e507.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5fc2487999df2b68d0defd4bca0b10e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-173296030ae6ffffc1a10e5571fe0b63.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -67,6 +67,10 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Suchen"
   }
 }</script>
+<meta name="mermaid-theme" content="neutral">
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="styles.css">
@@ -175,11 +179,54 @@ ul.task-list li input[type="checkbox"] {
 <section id="projektübersicht" class="level1">
 <h1>Projektübersicht</h1>
 <p>Willkommen zum Melanoma Hautkrebs Diagnose Projekt, das im Rahmen des Moduls Advanced Topics in Computer Science an der Fachhochschule der Wirtschaft durchgeführt wurde. Ziel dieses Projekts ist es, zu untersuchen, wie gut ein selbst entwickeltes Modell zur Klassifikation von Hautläsionen gegen andere bestehende Modelle, wie Large Language Models (LLMs) und andere gängige Klassifikationsmethoden, abschneidet.</p>
-<p>Im Rahmen der Arbeit wird nicht nur die Erkennung von Melanomen (Hautkrebs) angestrebt, sondern es sollen vielmehr verschiedene Diagnosen anhand der vorliegenden Hautläsionen gestellt werden.</p>
 <blockquote class="blockquote">
 <p>Der Begriff künstliche Intelligenz hat aktuell keine einheitliche, allgemein akzeptierte Definition, was von führenden Forschern wie Geoffrey Hinton, Yoshua Bengio und Yann LeCun, betont wird. Gemeinsam ist den verschiedenen Definitionen jedoch der Gedanke, Maschinen mit der Fähigkeit auszustatten, Aufgaben zu lösen, die typischerweise menschliche Intelligenz erfordern. Dazu zählen Lernen aus Daten (Machine Learning), Mustererkennung, Sprachverarbeitung und Entscheidungsfindung. Hinton, Bengio und LeCun betonen dabei insbesondere die Bedeutung von Deep Learning, einem Teilbereich des maschinellen Lernens, der auf künstlichen neuronalen Netzen basiert und große Datenmengen nutzt, um komplexe Muster zu erkennen.</p>
 </blockquote>
 <p>Die Struktur der Arbeit folgt dem Verlauf des Projekts: Zu Beginn werden die dermatologischen Grundlagen behandelt, um ein Verständnis für die Arten von Hautläsionen zu entwickeln, die für die Diagnose von Hautkrebs relevant sind. Es folgt eine Exploration der Metadaten, die den Datensatz beschreibt, der für das Modell verwendet wird, und die verwendeten Bilddaten erläutert. Der zentrale Abschnitt befasst sich mit der Entwicklung und dem Training des Modells, das auf Basis dieser Daten erstellt wurde. Abschließend wird die Diskussion der Ergebnisse durchgeführt, um die Leistungsfähigkeit des entwickelten Modells mit bestehenden Technologien zu vergleichen.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-project" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-project-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-project">gantt
+    dateFormat  YYYY-MM-DD
+    section Recherche
+    Thema definieren           :done,    lit1, 2025-04-04,2025-04-05
+    Literatur auswerten        :done,    lit2, 2025-04-05,2025-04-22
+    
+    section Planung
+    Ziele definieren           :done,    plan1, 2025-04-05,2025-04-09
+    Ressourcen planen          :done,    plan2, 2025-04-09,2025-04-12
+    
+    section Grundlagen
+    Theoretische Basis         :done,         grund1, 2025-04-09,2025-04-27
+    Framework definieren       :done,         grund2, 2025-04-09,2025-04-12
+    
+    section Exploration
+    Datensatz Verständnis      :done,         data1, 2025-04-14,2025-04-27
+    Explorative Analyse        :done,         data2, 2025-04-14,2025-05-11
+    
+    section Modell
+    Mathematische Grundlagen   :done,          model4, 2025-04-29, 2025-05-13
+    Modell konzipieren         :done,         model1, 2025-04-29,2025-05-17
+    Implementierung            :done,         model2, 2025-05-21,2025-06-23
+    Testing &amp; Validierung      :done,         model3, 2025-06-08,2025-06-28
+    
+    section Diskussion
+    Ergebnisse interpretieren  :done,         dis1, 2025-06-10,2025-06-28
+    Fazit &amp; Ausblick          :done,          dis2, 2025-06-24,2025-06-29
+    Finalisierung             :done,          disk3, 2025-06-26,2025-07-01
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-project-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;1: Projektverlauf
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 <hr>
 </section>
 <section id="autoren" class="level1">
@@ -194,8 +241,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="weitere-informationen" class="level1">
 <h1>Weitere Informationen</h1>
-<p>Für dieses Projekt wurde der Datensatz von ISIC (International Skin Imaging Collaboration) verwendet. Der Datensatz ist unter folgendem Link zugänglich:<br>
-<a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DBW86T">HAM10000</a>.</p>
+<p>Für dieses Projekt wurde der Datensatz von ISIC (International Skin Imaging Collaboration) verwendet. Der Datensatz ist unter folgendem Link zugänglich: <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DBW86T">HAM10000</a>.</p>
 <p>Das gesamte Projekt ist auf Render gehostet, und die Webseite wurde mit Quarto erstellt.</p>
 
 
